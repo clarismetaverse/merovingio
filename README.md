@@ -36,3 +36,14 @@ All three proofs implement the same **operational pipeline**:
 3. **Anchor** the sum to the straight angle’s measure (180°).
 
 This is a single **proof fiber**: *“reduce angle sum to a straight angle via a measure-preserving transformation.”*
+
+# Gene extraction
+
+Gene name:
+Straightening by invariant transfer
+
+Gene description:
+Perform a measure-preserving transfer that re-situates the constituent parts of a configuration onto a single straight alignment, so the action can be read against a straight line without altering the measures.
+
+What this gene allows you to do:
+Reposition and compare disparate angle contributions within one linear frame while keeping their measures intact, enabling a direct read-off from a straight alignment.
