@@ -47,3 +47,17 @@ Perform a measure-preserving transfer that re-situates the constituent parts of 
 
 What this gene allows you to do:
 Reposition and compare disparate angle contributions within one linear frame while keeping their measures intact, enabling a direct read-off from a straight alignment.
+
+# Quotient structure (proof fiber)
+
+Equivalence criterion:
+Two proofs are equivalent iff they realize the same operational pattern dictated by the gene—i.e., they preserve the same invariant operational principle encoded by the gene, even if their surface presentation differs.
+
+Collapsed distinctions:
+Superficial differences that do not alter the gene’s operational pattern are ignored, including presentation order, redundant steps, or alternative but operationally identical step choices that leave the gene’s invariant action unchanged.
+
+Preserved structure:
+The invariant operational principle captured by the gene is preserved, since the quotient identifies proofs only up to changes that do not affect that operational behavior.
+
+Role of the gene in inducing the quotient:
+The gene defines the operational core that must remain unchanged and thus induces the equivalence: proofs are equivalent exactly when they exhibit the same gene-imposed operational pattern.
