@@ -61,3 +61,32 @@ The invariant operational principle captured by the gene is preserved, since the
 
 Role of the gene in inducing the quotient:
 The gene defines the operational core that must remain unchanged and thus induces the equivalence: proofs are equivalent exactly when they exhibit the same gene-imposed operational pattern.
+
+# Manifold reorganization
+
+## 1. Reorganizing the manifold
+Recast the manifold so it no longer treats individual proofs as isolated points. Instead, the manifold is organized around equivalence classes of proofs induced by the gene/quotient structure. This yields:
+
+- Strata of equivalence: all proofs that the gene identifies as “the same” collapse into a single locus.
+- Manifold = space of invariant meaning: the geometry now encodes the invariant content of reasoning, not the incidental form of a proof.
+- Local geometry reflects variability within a class: variation between proofs becomes internal texture, rather than separate points.
+
+## 2. New primitive objects (points)
+The new points are equivalence classes of proofs under the gene-induced quotient.
+
+- Each point represents a gene-invariant proof-identity—the essence of a proof as determined by the gene’s quotienting rule.
+- Multiple syntactic or stylistic proofs map to the same point, if they’re identified by the gene.
+
+## 3. What proofs become
+A proof is no longer a point. It becomes:
+
+- A representative of a point (i.e., an element inside an equivalence class).
+- A path or fiber element within the class, expressing how the invariant content is realized.
+- A coordinate expression for a point, not the point itself—like different coordinate charts for the same geometric location.
+
+## 4. New notion of distance / geodesic
+Distance should measure conceptual displacement between equivalence classes, not superficial differences between proofs. A suitable geodesic notion could be:
+
+- Gene-respecting transformation cost: the minimal “conceptual effort” to move from one equivalence class to another, ignoring transformations that stay inside a class.
+- Invariant-concept distance: distance depends on changes in the invariant core, not on the syntactic path taken.
+- Quotient geodesics: geodesics are shortest paths in the quotient space, treating all within-class moves as zero-length.
