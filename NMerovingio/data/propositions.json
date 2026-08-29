@@ -1,0 +1,57 @@
+[
+  {
+    "id": "I.5",
+    "workspace": "isosceles",
+    "role": "propagate_equality_side_to_angle",
+    "direction": "side_to_angle",
+    "preconditions": ["side_left = side_right"],
+    "effect": ["angle_left = angle_right"],
+    "counterfactual_signature": ["equality_preserved"],
+    "visual_operations": ["OVERLAY", "PRESERVE_CONTACT", "READOUT"],
+    "forbidden_shortcuts": []
+  },
+  {
+    "id": "I.6",
+    "workspace": "isosceles",
+    "role": "reject_side_disanalogy_under_equal_angles",
+    "direction": "angle_to_side",
+    "preconditions": ["angle_left = angle_right"],
+    "effect": ["side_left = side_right"],
+    "counterfactual_signature": ["BREAK_SIDE_EQUALITY", "CONTACT_WITH_EQUAL_ANGLES", "FAIL_IF_UNEQUAL_SIDES"],
+    "visual_operations": ["OVERLAY", "BREAK_SIDE_EQUALITY", "PRESERVE_CONTACT", "RUN", "ELIMINATE_INCOMPATIBLE"],
+    "forbidden_shortcuts": ["assume_converse_without_run"]
+  },
+  {
+    "id": "I.7",
+    "workspace": "triangle_fixed_base",
+    "role": "reject_second_compatible_closure",
+    "direction": "configuration_uniqueness",
+    "preconditions": ["fixed_base", "two_fixed_corresponding_side_lengths"],
+    "effect": ["no_distinct_second_vertex_on_same_side_with_same_distances"],
+    "counterfactual_signature": ["DUPLICATE_CONFIGURATION", "PRESERVE_SIDE_CONTACTS", "SECOND_CLOSURE_FAILS"],
+    "visual_operations": ["DUPLICATE", "OVERLAY", "PRESERVE_CONTACT", "RUN", "ELIMINATE_INCOMPATIBLE"],
+    "forbidden_shortcuts": ["generic_uniqueness_axiom"]
+  },
+  {
+    "id": "I.18",
+    "workspace": "triangle_order",
+    "role": "propagate_side_disanalogy_to_opposite_angle",
+    "direction": "side_order_to_angle_order",
+    "preconditions": ["side_left > side_right"],
+    "effect": ["opposite_angle_left > opposite_angle_right"],
+    "counterfactual_signature": ["BREAK_SIDE_EQUALITY", "ELIMINATE_ANGLE_EQUALITY", "ELIMINATE_REVERSE_ANGLE_ORDER", "STABILIZE_ORDER"],
+    "visual_operations": ["OVERLAY", "BREAK_SIDE_EQUALITY", "PART_WHOLE", "PRESERVE_CONTACT", "RUN", "ELIMINATE_INCOMPATIBLE", "STABILIZE"],
+    "forbidden_shortcuts": ["use_I18_to_prove_I18", "numeric_angle_measurement"]
+  },
+  {
+    "id": "I.19",
+    "workspace": "triangle_order",
+    "role": "propagate_angle_disanalogy_to_opposite_side",
+    "direction": "angle_order_to_side_order",
+    "preconditions": ["opposite_angle_left > opposite_angle_right"],
+    "effect": ["side_left > side_right"],
+    "counterfactual_signature": ["BREAK_ANGLE_EQUALITY", "ELIMINATE_SIDE_EQUALITY", "ELIMINATE_REVERSE_SIDE_ORDER", "RESIDUAL_READOUT"],
+    "visual_operations": ["OVERLAY", "BREAK_ANGLE_EQUALITY", "PRESERVE_CONTACT", "RUN", "ELIMINATE_INCOMPATIBLE", "STABILIZE"],
+    "forbidden_shortcuts": ["use_I19_to_prove_I19", "numeric_side_measurement"]
+  }
+]
