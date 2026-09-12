@@ -1,0 +1,458 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "notes": "Accepted cognitive/proof relations through snapshot N9. Candidate edges remain explicitly marked as such."
+  },
+  "edges": [
+    {
+      "id": "E_TRIANGLE_ZERO_MEMBER",
+      "source": "G_TRIANGLE_ZERO",
+      "target": "F_TRIANGLE_RELATION",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_TRIANGLE_ZERO_HAS_LOCUS",
+      "source": "F_TRIANGLE_RELATION",
+      "target": "Z_TRIANGLE_EQEQ",
+      "type": "HAS_ZERO",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_TRIANGLE_ZERO_FIXED_SWAP",
+      "source": "G_TRIANGLE_ZERO",
+      "target": "G_TRIANGLE_ZERO",
+      "type": "FIXED_BY",
+      "relation": "SWAP_LEFT_RIGHT",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "proposition_support": ["P_I5", "P_I6", "P_I18", "P_I19"]}
+    },
+    {
+      "id": "E_TRIANGLE_FAMILY_TRANSDUCER",
+      "source": "F_TRIANGLE_RELATION",
+      "target": "F_RELATION_TRANSDUCER",
+      "type": "INSTANCE_OF",
+      "relation": {"propagation_signature": "PRESERVE_SIGN"},
+      "run_introduced": "RUN03",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_PAIR_MEMBER_CORRESPONDENCE",
+      "source": "G_PAIR_COINCIDENCE",
+      "target": "F_CORRESPONDENCE_COMPLETION",
+      "type": "MEMBER_OF",
+      "relation": {"role_topology": "EXTERNAL_OVERLAY"},
+      "run_introduced": "RUN02",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_TRIANGLE_ZERO_CORRESPONDENCE",
+      "source": "G_TRIANGLE_ZERO",
+      "target": "F_CORRESPONDENCE_COMPLETION",
+      "type": "MEMBER_OF",
+      "relation": {"role_topology": "INTERNAL"},
+      "run_introduced": "RUN02",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_INTERNAL_TO_EXTERNAL",
+      "source": "G_TRIANGLE_ZERO",
+      "target": "G_PAIR_COINCIDENCE",
+      "type": "EXTERNALIZES_TO",
+      "operator": "OP_EXTERNALIZE",
+      "run_introduced": "RUN02",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "notes": "Structural cross-level transformation; not a proof theorem."}
+    },
+    {
+      "id": "E_EXTERNAL_TO_INTERNAL",
+      "source": "G_PAIR_COINCIDENCE",
+      "target": "G_TRIANGLE_ZERO",
+      "type": "INTERNALIZES_TO",
+      "operator": "OP_INTERNALIZE",
+      "run_introduced": "RUN02",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SAS_CERTIFIES_PAIR",
+      "source": "P_I4",
+      "target": "G_PAIR_COINCIDENCE",
+      "type": "CERTIFIES",
+      "run_introduced": "RUN02",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_SSS_CERTIFIES_PAIR",
+      "source": "P_I8",
+      "target": "G_PAIR_COINCIDENCE",
+      "type": "CERTIFIES",
+      "run_introduced": "RUN02",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_ASA_CERTIFIES_PAIR",
+      "source": "P_ASA_RAW",
+      "target": "G_PAIR_COINCIDENCE",
+      "type": "CERTIFIES",
+      "run_introduced": "RUN02",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_CORRESPONDENCE_INSIDE_RELATIONAL_FIELD",
+      "source": "F_CORRESPONDENCE_COMPLETION",
+      "target": "F_RELATIONAL_COMPLETION_FIELD",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN03",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_COMMON_WHOLE_INSIDE_RELATIONAL_FIELD",
+      "source": "G_COMMON_WHOLE_COMPLETION",
+      "target": "F_RELATIONAL_COMPLETION_FIELD",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN03",
+      "evidence": {"status": "COGNITIVE_CANDIDATE"}
+    },
+    {
+      "id": "E_DISTRIBUTED_PACKET_INSIDE_RELATIONAL_FIELD",
+      "source": "G_DISTRIBUTED_ROLE_PACKET",
+      "target": "F_RELATIONAL_COMPLETION_FIELD",
+      "type": "MEMBER_OF",
+      "relation": {"role_topology": "DISTRIBUTED_CARRIER"},
+      "run_introduced": "RUN03",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SUPPLEMENT_TRANSDUCER_INSTANCE",
+      "source": "F_DISTRIBUTED_SUPPLEMENT",
+      "target": "F_RELATION_TRANSDUCER",
+      "type": "INSTANCE_OF",
+      "relation": {"propagation_signature": "REVERSE_SIGN"},
+      "run_introduced": "RUN03",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_I27_CERTIFIES_PARALLEL",
+      "source": "P_I27",
+      "target": "G_PARALLEL",
+      "type": "CERTIFIES",
+      "relation": "alternate-angle equality mask",
+      "run_introduced": "RUN04",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I28_CERTIFIES_PARALLEL",
+      "source": "P_I28",
+      "target": "G_PARALLEL",
+      "type": "CERTIFIES",
+      "relation": "exterior/interior equality or same-side straight-completion mask",
+      "run_introduced": "RUN04",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_PARALLEL_MEMBER_NONCLOSURE",
+      "source": "G_PARALLEL",
+      "target": "F_DISTRIBUTED_NONCLOSURE",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN04",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_NONCLOSURE_MEMBER_GLOBAL",
+      "source": "F_DISTRIBUTED_NONCLOSURE",
+      "target": "F_GLOBAL_CONSTRAINT_COMPLETION",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN04",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_CORRESPONDENCE_MEMBER_GLOBAL",
+      "source": "F_CORRESPONDENCE_COMPLETION",
+      "target": "F_GLOBAL_CONSTRAINT_COMPLETION",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN04",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_PARALLEL_COUNTERFACTUAL_TRIANGLE",
+      "source": "G_PARALLEL",
+      "target": "W_TRIANGLE_GENERIC",
+      "type": "DECOMPILES_TO",
+      "operator": "OP_REBASE",
+      "relation": {"counterfactual": "hypothesize finite closure", "result": "triangle host used to reject closure"},
+      "run_introduced": "RUN04",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "proposition_support": ["P_I16", "P_I27", "P_I28"]}
+    },
+    {
+      "id": "E_ASA_EMBEDS_PARALLEL",
+      "source": "G_PAIR_COINCIDENCE",
+      "target": "G_ASA_PARALLEL_HOST",
+      "type": "HOSTS",
+      "operator": "OP_HOST",
+      "relation": {"mask": "ASA", "direction_classes": 2, "metric_carrier": true},
+      "run_introduced": "RUN04",
+      "evidence": {"status": "CONDITIONALLY_VALIDATED"}
+    },
+    {
+      "id": "E_I29_COMPLETES_PARALLEL",
+      "source": "P_I29",
+      "target": "G_PARALLEL",
+      "type": "COMPLETES",
+      "relation": "parallel host generates alternate/corresponding equalities and same-side straight completion",
+      "run_introduced": "RUN05",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_PARALLEL_COMPLETES_ASA_HOST",
+      "source": "G_PARALLEL",
+      "target": "G_ASA_PARALLEL_HOST",
+      "type": "BACKWARD_ENRICHES",
+      "operator": "OP_BACKWARD_ENRICH",
+      "run_introduced": "RUN05",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_ASA_EVOKES_PARALLEL",
+      "source": "G_ASA_PARALLEL_HOST",
+      "target": "G_PARALLEL",
+      "type": "EVOKES",
+      "operator": "OP_EVOKE",
+      "run_introduced": "RUN05",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SAS_TRANSLATION_CANDIDATE",
+      "source": "G_PAIR_COINCIDENCE",
+      "target": "G_SAS_TRANSLATION_HOST",
+      "type": "EMBEDDABLE_IN",
+      "relation": {"mask": "SAS", "ingredients": ["one direction class", "two metric anchors"]},
+      "run_introduced": "RUN05",
+      "evidence": {"status": "COGNITIVE_CANDIDATE"}
+    },
+    {
+      "id": "E_PARALLELOGRAM_MEMBER_PRODUCT",
+      "source": "G_PARALLELOGRAM_GENERAL",
+      "target": "F_PARALLELOGRAM_PRODUCT",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_PARALLELOGRAM_METRIC_ZERO",
+      "source": "F_PARALLELOGRAM_PRODUCT",
+      "target": "Z_PARALLELOGRAM_METRIC",
+      "type": "HAS_ZERO",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_PARALLELOGRAM_ANGULAR_ZERO",
+      "source": "F_PARALLELOGRAM_PRODUCT",
+      "target": "Z_PARALLELOGRAM_ANGULAR",
+      "type": "HAS_ZERO",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_METRIC_INTERSECTS_COMPOSITE",
+      "source": "Z_PARALLELOGRAM_METRIC",
+      "target": "Z_SQUARE_COMPOSITE",
+      "type": "INTERSECTS_ZERO",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_ANGULAR_INTERSECTS_COMPOSITE",
+      "source": "Z_PARALLELOGRAM_ANGULAR",
+      "target": "Z_SQUARE_COMPOSITE",
+      "type": "INTERSECTS_ZERO",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SQUARE_REALIZES_COMPOSITE",
+      "source": "G_SQUARE_COMPOSITE_ZERO",
+      "target": "Z_SQUARE_COMPOSITE",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SQUARE_ZERO_ORGANIZATION",
+      "source": "Z_SQUARE_COMPOSITE",
+      "target": "F_ZERO_ORGANIZATION",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_TRIANGLE_ZERO_ORGANIZATION",
+      "source": "Z_TRIANGLE_EQEQ",
+      "target": "F_ZERO_ORGANIZATION",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN06",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SQUARE_PROJECTS_TRIANGLE",
+      "source": "G_SQUARE_COMPOSITE_ZERO",
+      "target": "G_TRIANGLE_DOUBLE_ZERO_SLICE",
+      "type": "PROJECTS_TO",
+      "operator": "OP_PROJECT_ZERO",
+      "run_introduced": "RUN07",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_COMPOSITE_PROJECTS_INTRINSIC",
+      "source": "Z_SQUARE_COMPOSITE",
+      "target": "Z_TRIANGLE_EQEQ",
+      "type": "PROJECTS_TO",
+      "operator": "OP_PROJECT_ZERO",
+      "run_introduced": "RUN07",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_COMPOSITE_PROJECTS_INHERITED",
+      "source": "Z_SQUARE_COMPOSITE",
+      "target": "Z_INHERITED_ANGULAR",
+      "type": "PROJECTS_TO",
+      "operator": "OP_PROJECT_ZERO",
+      "run_introduced": "RUN07",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_SLICE_BACKWARD_ENRICHES_TRIANGLE_ZERO",
+      "source": "G_TRIANGLE_DOUBLE_ZERO_SLICE",
+      "target": "G_TRIANGLE_ZERO",
+      "type": "BACKWARD_ENRICHES",
+      "operator": "OP_BACKWARD_ENRICH",
+      "relation": "triangle zero can be a projected slice of a richer composite-zero host",
+      "run_introduced": "RUN07",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOMPOSITION_TO_FOUR_EDGE",
+      "source": "G_TRIANGLE_DOUBLE_ZERO_SLICE",
+      "target": "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO",
+      "type": "RECOMPOSES_TO",
+      "operator": "OP_RECOMPOSE_GESTALTS",
+      "run_introduced": "RUN08",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOMPOSED_METRIC_ZERO_MEMBER",
+      "source": "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO",
+      "target": "F_FOUR_EDGE_DISTRIBUTED_CLOSURE",
+      "type": "MEMBER_OF",
+      "run_introduced": "RUN08",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOMPOSED_METRIC_HAS_ZERO",
+      "source": "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO",
+      "target": "Z_RECOMPOSED_METRIC",
+      "type": "HAS_ZERO",
+      "run_introduced": "RUN08",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RUN08_METRIC_TO_COMPOSITE",
+      "source": "Z_RECOMPOSED_METRIC",
+      "target": "Z_SQUARE_COMPOSITE",
+      "type": "CONVERGES_TO",
+      "relation": "with independent angular-zero condition supplied in Run08",
+      "run_introduced": "RUN08",
+      "evidence": {"status": "CONDITIONALLY_VALIDATED"}
+    },
+    {
+      "id": "E_RUN09_METRIC_FAMILY_ANGULAR_CANDIDATE",
+      "source": "Z_RECOMPOSED_METRIC",
+      "target": "Z_ANGULAR_CENTRAL_CANDIDATE",
+      "type": "GENERATES",
+      "relation": "search over free angular axis identifies swap-fixed EQ center without proving actuality",
+      "run_introduced": "RUN09",
+      "evidence": {"status": "COGNITIVE_CANDIDATE"}
+    },
+    {
+      "id": "E_RUN09_ANGULAR_TO_SQUARE",
+      "source": "Z_ANGULAR_CENTRAL_CANDIDATE",
+      "target": "Z_SQUARE_COMPOSITE",
+      "type": "CONVERGES_TO",
+      "relation": "if independently realized together with metric zero",
+      "run_introduced": "RUN09",
+      "evidence": {"status": "COGNITIVE_CANDIDATE", "notes": "Centrality does not establish actuality."}
+    },
+
+    {
+      "id": "E_I5_COMPLETES_TRIANGLE_ZERO",
+      "source": "P_I5",
+      "target": "G_TRIANGLE_ZERO",
+      "type": "COMPLETES",
+      "relation": "side EQ -> angle EQ",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I6_COMPLETES_TRIANGLE_ZERO",
+      "source": "P_I6",
+      "target": "G_TRIANGLE_ZERO",
+      "type": "COMPLETES",
+      "relation": "angle EQ -> side EQ",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I18_TRIANGLE_FAMILY",
+      "source": "P_I18",
+      "target": "F_TRIANGLE_RELATION",
+      "type": "PROPAGATES_TO",
+      "relation": "GT side -> GT opposite angle",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I19_TRIANGLE_FAMILY",
+      "source": "P_I19",
+      "target": "F_TRIANGLE_RELATION",
+      "type": "PROPAGATES_TO",
+      "relation": "GT angle -> GT opposite side",
+      "run_introduced": "RUN01",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I7_PLACEMENT",
+      "source": "P_I7",
+      "target": "R_PLACEMENT",
+      "type": "VALIDATES",
+      "relation": "reject nonzero second closure under fixed metric contacts",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I13_COMMON_WHOLE",
+      "source": "P_I13",
+      "target": "G_COMMON_WHOLE_COMPLETION",
+      "type": "VALIDATES",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I15_COMMON_WHOLE",
+      "source": "P_I15",
+      "target": "G_COMMON_WHOLE_COMPLETION",
+      "type": "COMPLETES",
+      "relation": "vertical-opposite equality as shared-whole readout",
+      "evidence": {"status": "PROP_LICENSED"}
+    },
+    {
+      "id": "E_I16_CLOSURE_REJECTION",
+      "source": "P_I16",
+      "target": "F_DISTRIBUTED_NONCLOSURE",
+      "type": "USES",
+      "relation": "cross-vertex strict angular order supplies contradiction under finite triangular closure",
+      "run_introduced": "RUN04",
+      "evidence": {"status": "PROP_LICENSED"}
+    }
+  ]
+}
