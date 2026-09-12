@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "notes": "Each run is a controlled conceptual dry-run, not an autonomous execution. Agent outputs are the formalized proposals/acceptances recorded in the corresponding Markdown run."
+  },
+  "runs": [
+    {
+      "id": "RUN01",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_01.md",
+      "input_snapshot": "N0",
+      "output_snapshot": "N1",
+      "injected_capabilities": ["P_I5", "P_I6", "P_I18", "P_I19", "left_right_role_swap", "side_and_angle_disanalogy_breaks"],
+      "hidden_targets": ["ISOSCELES", "TRIANGLE_ZERO", "OBJECT_ORDER_TRANSDUCER", "FIXED_POINT_OF_SWAP"],
+      "impetus": ["IMP_COMPLETION", "IMP_GENEALOGICAL", "IMP_COMPRESSION", "IMP_REORGANIZATION", "IMP_EXPANSION"],
+      "agent_outputs": {
+        "AG_COMPLETION": ["stabilize LT/LT, EQ/EQ, GT/GT"],
+        "AG_GENEALOGY": ["detect multiple origins for same relational states"],
+        "AG_COMPILER": ["propose relation-preserving correspondence schema"],
+        "AG_EXPANSION": ["expose 3x3 state field and off-diagonal mismatch region"],
+        "AG_REORGANIZATION": ["replace theorem-centric edges with F_TRIANGLE_RELATION", "identify EQ/EQ as unique swap-fixed central state"],
+        "AG_VALIDATOR": ["accept family refactor without semantic target leakage"]
+      },
+      "delta": {
+        "add_entities": ["F_TRIANGLE_RELATION", "G_TRIANGLE_ZERO", "Z_TRIANGLE_EQEQ"],
+        "add_edges": ["E_TRIANGLE_ZERO_MEMBER", "E_TRIANGLE_ZERO_HAS_LOCUS", "E_TRIANGLE_ZERO_FIXED_SWAP", "E_I5_COMPLETES_TRIANGLE_ZERO", "E_I6_COMPLETES_TRIANGLE_ZERO", "E_I18_TRIANGLE_FAMILY", "E_I19_TRIANGLE_FAMILY"],
+        "enrich_entities": [],
+        "refactor": ["four isolated equality/order proposition routes -> one three-state relation family"],
+        "open_questions": ["Is the central internal state related to pair congruence at a deeper level?"],
+        "rejected_inferences": ["Do not predeclare isosceles as canonical; derive centrality from swap symmetry."]
+      },
+      "result_summary": "Recovered the triangle LT/EQ/GT family and its equality/equality swap-fixed center from a deliberately banalized theorem graph."
+    },
+    {
+      "id": "RUN02",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md",
+      "input_snapshot": "N1",
+      "output_snapshot": "N2",
+      "injected_capabilities": ["P_I4", "P_I8", "P_ASA_RAW", "pair_overlay", "pair_coincidence"],
+      "hidden_targets": ["INTERNALIZED_CONGRUENCE", "SELF_CONGRUENCE", "EXTERNALIZE", "PAIR_ZERO"],
+      "impetus": ["IMP_GENEALOGICAL", "IMP_REORGANIZATION", "IMP_COMPLETION", "IMP_EXPANSION"],
+      "agent_outputs": {
+        "AG_GENEALOGY": ["DECOMPILE object center and pair coincidence", "detect correspondence topology differing mainly by role-domain separation"],
+        "AG_REORGANIZATION": ["create F_CORRESPONDENCE_COMPLETION instead of analogy edge"],
+        "AG_EXPANSION": ["discover SEPARATE_ROLE_DOMAINS and IDENTIFY_ROLE_DOMAINS transformations"],
+        "AG_COMPILER": ["group SAS/SSS/ASA as different access masks to the same external completion state"],
+        "AG_VALIDATOR": ["reject ISOSCELES = CONGRUENCE identity claim; accept shared deep family"]
+      },
+      "delta": {
+        "add_entities": ["F_CORRESPONDENCE_COMPLETION", "G_PAIR_COINCIDENCE", "OP_EXTERNALIZE", "OP_INTERNALIZE"],
+        "add_edges": ["E_PAIR_MEMBER_CORRESPONDENCE", "E_TRIANGLE_ZERO_CORRESPONDENCE", "E_INTERNAL_TO_EXTERNAL", "E_EXTERNAL_TO_INTERNAL", "E_SAS_CERTIFIES_PAIR", "E_SSS_CERTIFIES_PAIR", "E_ASA_CERTIFIES_PAIR"],
+        "enrich_entities": ["G_TRIANGLE_ZERO"],
+        "refactor": ["OBJECT zero and PAIR coincidence become internal/external realizations of one correspondence-completion field"],
+        "open_questions": ["Is equality itself too privileged in this deep family?", "Can a distributed carrier support role alignment without equality?"],
+        "rejected_inferences": ["Do not collapse internal and external realizations into one object identity."]
+      },
+      "result_summary": "Discovered a deeper correspondence-completion family connecting the internal triangle zero with external triangle-pair congruence."
+    },
+    {
+      "id": "RUN03",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md",
+      "input_snapshot": "N2",
+      "output_snapshot": "N3",
+      "injected_capabilities": ["W_LOCAL_INTERSECTION", "W_DISTRIBUTED_TRANSVERSAL", "P_I13", "P_I15", "continuous_transversal"],
+      "hidden_targets": ["PARALLELISM", "ASA_AS_PARALLEL_GESTALT", "DISTRIBUTED_STRAIGHT_ANGLE_AS_PARALLEL"],
+      "impetus": ["IMP_REORGANIZATION", "IMP_GENEALOGICAL", "IMP_EXPANSION", "IMP_COMPLETION", "IMP_COMPRESSION"],
+      "agent_outputs": {
+        "AG_COMPLETION": ["reconstruct vertical-angle equality as common-whole completion readout"],
+        "AG_GENEALOGY": ["detect equality can be input or generated readout"],
+        "AG_EXPANSION": ["construct distributed role alignment across P/Q without angle equality"],
+        "AG_REORGANIZATION": ["split ROLE_ALIGNMENT, RELATION_CONSTRAINT, COMPLETION_READOUT", "introduce richer ROLE_TOPOLOGY"],
+        "AG_COMPILER": ["discover INTERNAL / EXTERNAL_OVERLAY / DISTRIBUTED_CARRIER completion topologies", "discover preserve-sign vs reverse-sign relation-transducer instances"],
+        "AG_VALIDATOR": ["accept refactor; keep parallelism unavailable"]
+      },
+      "delta": {
+        "add_entities": ["F_RELATIONAL_COMPLETION_FIELD", "G_COMMON_WHOLE_COMPLETION", "G_DISTRIBUTED_ROLE_PACKET", "F_DISTRIBUTED_SUPPLEMENT", "F_RELATION_TRANSDUCER", "R_ROLE_TOPOLOGY", "R_DIRECTIONAL"],
+        "add_edges": ["E_CORRESPONDENCE_INSIDE_RELATIONAL_FIELD", "E_COMMON_WHOLE_INSIDE_RELATIONAL_FIELD", "E_DISTRIBUTED_PACKET_INSIDE_RELATIONAL_FIELD", "E_TRIANGLE_FAMILY_TRANSDUCER", "E_SUPPLEMENT_TRANSDUCER_INSTANCE"],
+        "enrich_entities": ["F_CORRESPONDENCE_COMPLETION"],
+        "refactor": ["correspondence-first ontology -> relational packet with role alignment, constraints, completion, readout"],
+        "open_questions": ["Can distributed angular masks certify a global nonclosure state?", "Does ASA become a member of a distributed host?"],
+        "rejected_inferences": ["ROLE_ALIGNMENT != ANGLE_EQUALITY", "zero cross-packet residue does not yet imply parallelism"]
+      },
+      "result_summary": "The transversal broke the equality-first ontology and introduced distributed role topology plus an anti-diagonal supplement family."
+    },
+    {
+      "id": "RUN04",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md",
+      "input_snapshot": "N3",
+      "output_snapshot": "N4",
+      "injected_capabilities": ["P_I27", "P_I28", "finite_closure_counterfactual", "P_I16"],
+      "hidden_targets": ["ASA_IS_A_PARALLEL_GESTALT", "SAS_IS_A_PARALLELOGRAM_GESTALT", "I29_CONVERSE_CYCLE"],
+      "impetus": ["IMP_GENEALOGICAL", "IMP_REORGANIZATION", "IMP_COMPLETION", "IMP_EXPANSION"],
+      "agent_outputs": {
+        "AG_COMPLETION": ["compile multiple distributed masks to one PARALLEL readout"],
+        "AG_GENEALOGY": ["reconstruct parallel certification through a triangle closure that must fail"],
+        "AG_REORGANIZATION": ["introduce CLOSURE_TOPOLOGY", "create shared two-carrier workspace instead of TRIANGLE~PARALLEL analogy edge"],
+        "AG_EXPANSION": ["establish bidirectional rebase between distributed two-carrier and triangular-closure views"],
+        "AG_VALIDATOR": ["certify ASA as conditionally valid distributed host member; keep reverse generation unavailable"]
+      },
+      "delta": {
+        "add_entities": ["G_PARALLEL", "F_DISTRIBUTED_NONCLOSURE", "F_GLOBAL_CONSTRAINT_COMPLETION", "R_CLOSURE_TOPOLOGY", "W_TWO_CARRIERS_TRANSVERSAL", "G_ASA_PARALLEL_HOST"],
+        "add_edges": ["E_I27_CERTIFIES_PARALLEL", "E_I28_CERTIFIES_PARALLEL", "E_PARALLEL_MEMBER_NONCLOSURE", "E_NONCLOSURE_MEMBER_GLOBAL", "E_CORRESPONDENCE_MEMBER_GLOBAL", "E_PARALLEL_COUNTERFACTUAL_TRIANGLE", "E_ASA_EMBEDS_PARALLEL", "E_I16_CLOSURE_REJECTION"],
+        "enrich_entities": ["P_ASA_RAW", "G_PAIR_COINCIDENCE"],
+        "refactor": ["global completion now tracks closure topology: coincidence, finite closure, distributed nonclosure"],
+        "open_questions": ["Can a certified parallel host regenerate angular data?", "Can SAS grow a second direction class?"],
+        "rejected_inferences": ["PARALLEL != placement zero", "PARALLEL != generic angle equality", "ASA != PARALLEL"]
+      },
+      "result_summary": "Parallelism emerged as distributed nonclosure certified by angular masks through a failed triangle-closure counterfactual."
+    },
+    {
+      "id": "RUN05",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_PARALLEL_CYCLE_RUN_05.md",
+      "input_snapshot": "N4",
+      "output_snapshot": "N5",
+      "injected_capabilities": ["P_I29"],
+      "hidden_targets": ["FULL_CIRCULAR_GESTALT", "SAS_PARALLELOGRAM_HOST"],
+      "impetus": ["IMP_COMPLETION", "IMP_REBASE", "IMP_EXPANSION", "IMP_COMPRESSION"],
+      "agent_outputs": {
+        "AG_COMPLETION": ["turn parallelism from terminal readout into generative angular host"],
+        "AG_GENEALOGY": ["close ANGLE_PATTERN -> PARALLEL -> ANGLE_COMPLETION cycle while preserving acyclic proof provenance"],
+        "AG_REORGANIZATION": ["distinguish cognitive cycle from logical circularity"],
+        "AG_EXPANSION": ["identify direction-preservation + magnitude-preservation pressure around SAS"],
+        "AG_COMPILER": ["compile ASA as full cognitive-cycle member", "propose translated-segment / parallelogram host candidate for SAS"]
+      },
+      "delta": {
+        "add_entities": ["G_SAS_TRANSLATION_HOST"],
+        "add_edges": ["E_I29_COMPLETES_PARALLEL", "E_PARALLEL_COMPLETES_ASA_HOST", "E_ASA_EVOKES_PARALLEL", "E_SAS_TRANSLATION_CANDIDATE"],
+        "enrich_entities": ["G_PARALLEL", "G_ASA_PARALLEL_HOST"],
+        "refactor": ["PARALLEL changes from certified readout to reusable generative host"],
+        "open_questions": ["Does direction+magnitude preservation compile into a four-edge translation family?"],
+        "rejected_inferences": ["Cognitive cycle must not be used as circular proof support."]
+      },
+      "result_summary": "I.29 closed the first full completion/evocation cycle and exposed SAS pressure toward translation/parallelogram structure."
+    },
+    {
+      "id": "RUN06",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md",
+      "input_snapshot": "N5",
+      "output_snapshot": "N6",
+      "injected_capabilities": ["four_edge_translation_closure", "metric_register", "angular_register", "swap_symmetries"],
+      "hidden_targets": ["SQUARE_AS_COMPOSITE_ZERO", "RHOMBUS", "RECTANGLE"],
+      "impetus": ["IMP_EXPANSION", "IMP_REORGANIZATION", "IMP_COMPRESSION", "IMP_GENEALOGICAL"],
+      "agent_outputs": {
+        "AG_EXPANSION": ["construct 3x3 product of independent metric and angular registers"],
+        "AG_GENEALOGY": ["separate simple-zero triangle genealogy from two-axis four-edge genealogy"],
+        "AG_REORGANIZATION": ["discover two independent zero loci and their intersection"],
+        "AG_COMPILER": ["create F_ZERO_ORGANIZATION; distinguish SIMPLE_ZERO and COMPOSITE_ZERO"],
+        "AG_VALIDATOR": ["attach square/rhombus/rectangle semantic labels only after structural discovery"]
+      },
+      "delta": {
+        "add_entities": ["W_PARALLELOGRAM", "G_PARALLELOGRAM_GENERAL", "F_PARALLELOGRAM_PRODUCT", "R_PARALLELOGRAM_METRIC", "R_PARALLELOGRAM_ANGULAR", "Z_PARALLELOGRAM_METRIC", "Z_PARALLELOGRAM_ANGULAR", "Z_SQUARE_COMPOSITE", "G_SQUARE_COMPOSITE_ZERO", "F_ZERO_ORGANIZATION"],
+        "add_edges": ["E_PARALLELOGRAM_MEMBER_PRODUCT", "E_PARALLELOGRAM_METRIC_ZERO", "E_PARALLELOGRAM_ANGULAR_ZERO", "E_METRIC_INTERSECTS_COMPOSITE", "E_ANGULAR_INTERSECTS_COMPOSITE", "E_SQUARE_REALIZES_COMPOSITE", "E_SQUARE_ZERO_ORGANIZATION", "E_TRIANGLE_ZERO_ORGANIZATION"],
+        "enrich_entities": ["G_SAS_TRANSLATION_HOST"],
+        "refactor": ["zero is no longer necessarily one central state; introduce zero loci and composite intersections"],
+        "open_questions": ["Can a composite zero project richer zero profiles into triangular slices?"],
+        "rejected_inferences": ["Do not assume all families are diagonal transducers like the triangle family."]
+      },
+      "result_summary": "The parallelogram domain produced a two-axis product family and the square as intersection of independent metric and angular zero loci."
+    },
+    {
+      "id": "RUN07",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md",
+      "input_snapshot": "N6",
+      "output_snapshot": "N7",
+      "injected_capabilities": ["diagonal_partition", "host_to_subworkspace_projection", "pair_congruence_across_slices"],
+      "hidden_targets": ["RIGHT_ISOSCELES_TRIANGLE", "INHERITED_ZERO", "PROJECT_ZERO"],
+      "impetus": ["IMP_REBASE", "IMP_GENEALOGICAL", "IMP_REORGANIZATION", "IMP_COMPLETION"],
+      "agent_outputs": {
+        "AG_GENEALOGY": ["trace host composite-zero conditions into two triangle subworkspaces"],
+        "AG_COMPLETION": ["recognize simultaneous intrinsic triangle zero and inherited angular zero"],
+        "AG_REORGANIZATION": ["replace flat zero notion with ZERO_STRUCTURE carrying origin/projection/recomposition provenance"],
+        "AG_COMPILER": ["propose PROJECT_ZERO and RECOMPOSE_ZERO-style operations", "identify diagonal as MULTI_GESTALT_HINGE"]
+      },
+      "delta": {
+        "add_entities": ["W_SQUARE_DIAGONAL", "G_TRIANGLE_DOUBLE_ZERO_SLICE", "Z_INHERITED_ANGULAR", "OP_PROJECT_ZERO"],
+        "add_edges": ["E_SQUARE_PROJECTS_TRIANGLE", "E_COMPOSITE_PROJECTS_INTRINSIC", "E_COMPOSITE_PROJECTS_INHERITED", "E_SLICE_BACKWARD_ENRICHES_TRIANGLE_ZERO"],
+        "enrich_entities": ["F_ZERO_ORGANIZATION", "G_TRIANGLE_ZERO"],
+        "refactor": ["zero origin becomes explicit: intrinsic vs inherited; host zero may project to sub-Gestalten"],
+        "open_questions": ["Can local zero profiles be recomposed back into a richer composite host?"],
+        "rejected_inferences": ["Projection is not proof that every triangle-zero came historically from a square-like host."]
+      },
+      "result_summary": "Diagonal reinjection showed that zero conditions can be inherited from richer hosts and that one triangle may carry multiple zero provenances."
+    },
+    {
+      "id": "RUN08",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_08.md",
+      "input_snapshot": "N7",
+      "output_snapshot": "N8",
+      "injected_capabilities": ["two_triangle_zero_profiles", "shared_hinge", "pair_congruence", "one_extra_angular_zero_condition"],
+      "hidden_targets": ["SQUARE", "COMPOSITE_ZERO_HOST"],
+      "impetus": ["IMP_REBASE", "IMP_COMPLETION", "IMP_GENEALOGICAL", "IMP_EXPANSION"],
+      "agent_outputs": {
+        "AG_COMPLETION": ["recompose global boundary metric zero from local triangle zeros"],
+        "AG_EXPANSION": ["use independent angular condition to expose second global zero"],
+        "AG_GENEALOGY": ["distinguish intrinsic, inherited, recomposed, propagated zero origins"],
+        "AG_REORGANIZATION": ["treat RECOMPOSE_ZERO as nontrivial and host-sensitive rather than strict inverse of projection"],
+        "AG_VALIDATOR": ["validate composite host only after both global zeros are independently supported"]
+      },
+      "delta": {
+        "add_entities": ["W_ZERO_RECOMPOSITION", "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO", "Z_RECOMPOSED_METRIC", "F_FOUR_EDGE_DISTRIBUTED_CLOSURE", "OP_RECOMPOSE_GESTALTS"],
+        "add_edges": ["E_RECOMPOSITION_TO_FOUR_EDGE", "E_RECOMPOSED_METRIC_ZERO_MEMBER", "E_RECOMPOSED_METRIC_HAS_ZERO", "E_RUN08_METRIC_TO_COMPOSITE"],
+        "enrich_entities": ["F_ZERO_ORGANIZATION", "Z_SQUARE_COMPOSITE"],
+        "refactor": ["zero genealogy gains RECOMPOSED and PROPAGATED origins"],
+        "open_questions": ["Without the extra angular condition, what is actually forced?"],
+        "rejected_inferences": ["RECOMPOSE_ZERO is not a deterministic inverse of PROJECT_ZERO."]
+      },
+      "result_summary": "Two local triangle zeros recomposed a global metric-zero host; an independent angular condition then yielded the composite square-like zero."
+    },
+    {
+      "id": "RUN09",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "NMerovingio/TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md",
+      "input_snapshot": "N8",
+      "output_snapshot": "N9",
+      "injected_capabilities": ["two_triangle_zero_profiles", "shared_hinge", "pair_congruence"],
+      "hidden_targets": ["SQUARE", "ANGULAR_ZERO_ACTUALITY"],
+      "impetus": ["IMP_EXPANSION", "IMP_REORGANIZATION", "IMP_COMPRESSION", "IMP_GENEALOGICAL"],
+      "agent_outputs": {
+        "AG_COMPLETION": ["stop at strongest licensed result: global metric zero only"],
+        "AG_EXPANSION": ["expose free angular axis LT/EQ/GT"],
+        "AG_GENEALOGY": ["show local zeros + congruence do not genetically entail global angular zero"],
+        "AG_REORGANIZATION": ["introduce CENTRALITY != ACTUALITY", "revise recomposition as host construction + free-register exposure"],
+        "AG_COMPILER": ["promote ZeroLocus as first-class object; identify EQ as angular swap-fixed central candidate"]
+      },
+      "delta": {
+        "add_entities": ["Z_ANGULAR_CENTRAL_CANDIDATE"],
+        "add_edges": ["E_RUN09_METRIC_FAMILY_ANGULAR_CANDIDATE", "E_RUN09_ANGULAR_TO_SQUARE"],
+        "enrich_entities": ["G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO", "OP_RECOMPOSE_GESTALTS", "F_ZERO_ORGANIZATION"],
+        "refactor": ["RECOMPOSE_GESTALTS now returns strongest licensed host plus explicit free registers", "CENTRALITY != ACTUALITY becomes a core invariant"],
+        "open_questions": ["Which independent access masks can realize the angular zero locus?", "Do diagonals/perpendicularity/second symmetry provide alternative access masks to the same zero?"],
+        "rejected_inferences": ["Do not infer composite zero from local zeros plus congruence alone."]
+      },
+      "result_summary": "The no-extra-condition recomposition correctly stopped at a one-zero family, exposed an independent angular degree of freedom, and identified its center without asserting it was actual."
+    }
+  ]
+}
