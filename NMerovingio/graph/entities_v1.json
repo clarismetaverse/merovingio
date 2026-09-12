@@ -1,0 +1,583 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "notes": "Canonical entity registry extracted from controlled Runs 01-09. Semantic aliases are human-facing labels and are not assumed to have been available to hidden-target agents."
+  },
+  "entities": [
+    {
+      "id": "W_TRIANGLE_GENERIC",
+      "type": "WORKSPACE",
+      "name": "Generic triangle workspace",
+      "level": "MATERIAL",
+      "properties": {"elements": ["SIDE_L", "SIDE_R", "ANGLE_OPP_L", "ANGLE_OPP_R"], "relation_algebra": ["LT", "EQ", "GT", "UNKNOWN"]},
+      "evidence": {"status": "SEED", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_01.md"]}
+    },
+    {
+      "id": "W_TRIANGLE_PAIR",
+      "type": "WORKSPACE",
+      "name": "Triangle pair correspondence workspace",
+      "level": "MATERIAL",
+      "properties": {"objects": ["T1", "T2"], "supports": ["overlay", "role_mapping", "placement"]},
+      "evidence": {"status": "SEED", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md"]}
+    },
+    {
+      "id": "W_LOCAL_INTERSECTION",
+      "type": "WORKSPACE",
+      "name": "Local intersection workspace",
+      "level": "MATERIAL",
+      "properties": {"elements": ["two_continuous_lines", "intersection_point", "four_angle_sectors"]},
+      "evidence": {"status": "SEED", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "W_DISTRIBUTED_TRANSVERSAL",
+      "type": "WORKSPACE",
+      "name": "Two intersections on one continuous transversal",
+      "level": "MATERIAL",
+      "properties": {"sites": ["P", "Q"], "shared_carrier": "t", "crossed_carriers": ["g1", "g2"]},
+      "evidence": {"status": "SEED", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "W_TWO_CARRIERS_TRANSVERSAL",
+      "type": "WORKSPACE",
+      "name": "Two-carrier transversal workspace with possible finite closure",
+      "level": "MATERIAL",
+      "properties": {"supports_views": ["distributed", "triangular_closure", "parallel"]},
+      "evidence": {"status": "COMPILED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md"]}
+    },
+    {
+      "id": "W_PARALLELOGRAM",
+      "type": "WORKSPACE",
+      "name": "Four-edge two-direction closure workspace",
+      "level": "MATERIAL",
+      "properties": {"registers": ["R_PARALLELOGRAM_METRIC", "R_PARALLELOGRAM_ANGULAR"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "W_SQUARE_DIAGONAL",
+      "type": "WORKSPACE",
+      "name": "Composite-zero quadrilateral cut by a diagonal",
+      "level": "MATERIAL",
+      "properties": {"hinge": "diagonal", "subworkspaces": ["triangle_1", "triangle_2"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md"]}
+    },
+    {
+      "id": "W_ZERO_RECOMPOSITION",
+      "type": "WORKSPACE",
+      "name": "Two local triangle-zero Gestalten around a shared hinge",
+      "level": "MATERIAL",
+      "properties": {"supports": ["pair_congruence", "four_edge_recomposition", "zero_propagation"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_08.md", "TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"]}
+    },
+
+    {
+      "id": "R_SIDE_REL",
+      "type": "REGISTER",
+      "name": "Triangle side relation",
+      "level": "OBJECT",
+      "properties": {"values": ["LT", "EQ", "GT", "UNKNOWN"]},
+      "evidence": {"status": "SEED"}
+    },
+    {
+      "id": "R_OPPOSITE_ANGLE_REL",
+      "type": "REGISTER",
+      "name": "Triangle opposite-angle relation",
+      "level": "OBJECT",
+      "properties": {"values": ["LT", "EQ", "GT", "UNKNOWN"]},
+      "evidence": {"status": "SEED"}
+    },
+    {
+      "id": "R_INCLUDED_ANGLE_REL",
+      "type": "REGISTER",
+      "name": "Pair included-angle relation",
+      "level": "PAIR",
+      "properties": {"values": ["LT", "EQ", "GT", "UNKNOWN"]},
+      "evidence": {"status": "SEED"}
+    },
+    {
+      "id": "R_THIRD_SIDE_REL",
+      "type": "REGISTER",
+      "name": "Pair third-side relation",
+      "level": "PAIR",
+      "properties": {"values": ["LT", "EQ", "GT", "UNKNOWN"]},
+      "evidence": {"status": "SEED"}
+    },
+    {
+      "id": "R_PLACEMENT",
+      "type": "REGISTER",
+      "name": "Placement residue register",
+      "level": "PAIR",
+      "properties": {"values": ["ZERO", "NONZERO", "UNKNOWN"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_GESTALT_NETWORK_V01.md"]}
+    },
+    {
+      "id": "R_DIRECTIONAL",
+      "type": "REGISTER",
+      "name": "Directional continuity/residue register",
+      "level": "PAIR",
+      "properties": {"values": ["ZERO", "NONZERO", "UNKNOWN"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRANSVERSAL_GESTALT_EXPERIMENT_V01.md"]}
+    },
+    {
+      "id": "R_CLOSURE_TOPOLOGY",
+      "type": "REGISTER",
+      "name": "Closure topology",
+      "level": "FAMILY",
+      "properties": {"values": ["COINCIDENT", "FINITE_CLOSURE", "DISTRIBUTED_NONCLOSURE", "UNKNOWN"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md"]}
+    },
+    {
+      "id": "R_ROLE_TOPOLOGY",
+      "type": "REGISTER",
+      "name": "Role topology",
+      "level": "FAMILY",
+      "properties": {"values": ["INTERNAL", "EXTERNAL_OVERLAY", "DISTRIBUTED_CARRIER"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "R_PARALLELOGRAM_METRIC",
+      "type": "REGISTER",
+      "name": "Parallelogram adjacent-side metric relation",
+      "level": "OBJECT",
+      "properties": {"values": ["LT", "EQ", "GT"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "R_PARALLELOGRAM_ANGULAR",
+      "type": "REGISTER",
+      "name": "Parallelogram adjacent-angle relation",
+      "level": "OBJECT",
+      "properties": {"values": ["LT", "EQ", "GT"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+
+    {
+      "id": "F_TRIANGLE_RELATION",
+      "type": "FAMILY",
+      "name": "Triangle side/opposite-angle relation family",
+      "level": "FAMILY",
+      "registers": ["R_SIDE_REL", "R_OPPOSITE_ANGLE_REL"],
+      "stable_region": [["LT", "LT"], ["EQ", "EQ"], ["GT", "GT"]],
+      "counterfactual_region": [["LT", "EQ"], ["LT", "GT"], ["EQ", "LT"], ["EQ", "GT"], ["GT", "LT"], ["GT", "EQ"]],
+      "symmetries": ["SWAP_LEFT_RIGHT"],
+      "variation_axes": ["LT <-> EQ <-> GT"],
+      "properties": {"propagation_signature": "PRESERVE_SIGN"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_01.md"]}
+    },
+    {
+      "id": "F_CORRESPONDENCE_COMPLETION",
+      "type": "FAMILY",
+      "name": "Correspondence completion family",
+      "level": "FAMILY",
+      "properties": {"realizations": ["INTERNAL", "EXTERNAL_OVERLAY"], "core": "role correspondence + completion"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md"]}
+    },
+    {
+      "id": "F_RELATIONAL_COMPLETION_FIELD",
+      "type": "FAMILY",
+      "name": "Relational completion field",
+      "level": "FAMILY",
+      "registers": ["R_ROLE_TOPOLOGY"],
+      "properties": {"layers": ["role_alignment", "relation_constraint", "completion_readout"], "branches": ["correspondence_completion", "common_whole_completion", "distributed_carrier_completion"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "F_DISTRIBUTED_SUPPLEMENT",
+      "type": "FAMILY",
+      "name": "Distributed supplement relation family",
+      "level": "FAMILY",
+      "stable_region": [["LT", "GT"], ["EQ", "EQ"], ["GT", "LT"]],
+      "properties": {"propagation_signature": "REVERSE_SIGN"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "F_RELATION_TRANSDUCER",
+      "type": "FAMILY",
+      "name": "Parameterized relation-transducer family",
+      "level": "FAMILY",
+      "properties": {"parameters": ["register_A", "register_B", "central_zero", "variation_axis", "propagation_signature"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "F_GLOBAL_CONSTRAINT_COMPLETION",
+      "type": "FAMILY",
+      "name": "Global organization from local/distributed constraints",
+      "level": "FAMILY",
+      "registers": ["R_CLOSURE_TOPOLOGY"],
+      "properties": {"branches": ["correspondence_completion", "distributed_nonclosure"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md"]}
+    },
+    {
+      "id": "F_DISTRIBUTED_NONCLOSURE",
+      "type": "FAMILY",
+      "name": "Distributed nonclosure / parallel certification family",
+      "level": "FAMILY",
+      "properties": {"access_masks": ["alternate_angle_equality", "exterior_interior_equality", "same_side_straight_completion"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md"]}
+    },
+    {
+      "id": "F_PARALLELOGRAM_PRODUCT",
+      "type": "FAMILY",
+      "name": "Parallelogram two-register product family",
+      "level": "FAMILY",
+      "registers": ["R_PARALLELOGRAM_METRIC", "R_PARALLELOGRAM_ANGULAR"],
+      "stable_region": [["LT", "LT"], ["LT", "EQ"], ["LT", "GT"], ["EQ", "LT"], ["EQ", "EQ"], ["EQ", "GT"], ["GT", "LT"], ["GT", "EQ"], ["GT", "GT"]],
+      "properties": {"independent_axes": true},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "F_ZERO_ORGANIZATION",
+      "type": "FAMILY",
+      "name": "Zero-structure organization family",
+      "level": "FAMILY",
+      "properties": {"zero_types": ["SIMPLE_ZERO", "COMPOSITE_ZERO"], "tracks": ["zero_loci", "symmetry_actions", "projection_routes", "recomposition_routes", "provenance"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md", "TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md"]}
+    },
+    {
+      "id": "F_FOUR_EDGE_DISTRIBUTED_CLOSURE",
+      "type": "FAMILY",
+      "name": "Four-edge distributed closure family",
+      "level": "FAMILY",
+      "properties": {"supports": ["global_metric_zero", "free_or_zero_angular_register", "composite_zero"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_08.md", "TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"]}
+    },
+
+    {
+      "id": "G_TRIANGLE_ZERO",
+      "type": "GESTALT",
+      "name": "Central invariant triangle relation state",
+      "semantic_aliases": ["isosceles triangle zero"],
+      "level": "OBJECT",
+      "workspace_id": "W_TRIANGLE_GENERIC",
+      "registers": ["R_SIDE_REL", "R_OPPOSITE_ANGLE_REL"],
+      "state": {"side_relation": "EQ", "opposite_angle_relation": "EQ"},
+      "symmetries": ["SWAP_LEFT_RIGHT"],
+      "properties": {"centrality": "unique swap-fixed member", "zero_kind": "SIMPLE_ZERO"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_01.md"], "notes": "Human semantic label is attached only after structural discovery."}
+    },
+    {
+      "id": "G_PAIR_COINCIDENCE",
+      "type": "GESTALT",
+      "name": "Full triangle-pair correspondence completion",
+      "semantic_aliases": ["triangle congruence"],
+      "level": "PAIR",
+      "workspace_id": "W_TRIANGLE_PAIR",
+      "registers": ["R_PLACEMENT"],
+      "state": {"correspondence": "COMPLETE", "placement": "ZERO"},
+      "properties": {"access_masks": ["SAS", "SSS", "ASA"]},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md"]}
+    },
+    {
+      "id": "G_COMMON_WHOLE_COMPLETION",
+      "type": "GESTALT",
+      "name": "Shared-whole completion",
+      "level": "OBJECT",
+      "workspace_id": "W_LOCAL_INTERSECTION",
+      "properties": {"schema": "A+C=W and B+C=W => A and B occupy same completion role"},
+      "evidence": {"status": "COGNITIVE_CANDIDATE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "G_DISTRIBUTED_ROLE_PACKET",
+      "type": "GESTALT",
+      "name": "Distributed role packet on a shared transversal",
+      "level": "PAIR",
+      "workspace_id": "W_DISTRIBUTED_TRANSVERSAL",
+      "registers": ["R_ROLE_TOPOLOGY", "R_DIRECTIONAL"],
+      "state": {"role_alignment": "PRESENT", "magnitude_equality": "UNKNOWN"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "G_PARALLEL",
+      "type": "GESTALT",
+      "name": "Certified distributed nonclosure state",
+      "semantic_aliases": ["parallel lines"],
+      "level": "PAIR",
+      "workspace_id": "W_TWO_CARRIERS_TRANSVERSAL",
+      "registers": ["R_CLOSURE_TOPOLOGY", "R_DIRECTIONAL"],
+      "state": {"finite_closure": "REJECTED", "closure_topology": "DISTRIBUTED_NONCLOSURE"},
+      "completion_affordances": ["I29_PACKET_COMPLETION"],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md", "TRIANGLE_MULTIAGENT_PARALLEL_CYCLE_RUN_05.md"]}
+    },
+    {
+      "id": "G_ASA_PARALLEL_HOST",
+      "type": "GESTALT",
+      "name": "ASA pair embedded in a two-direction parallel host",
+      "level": "PAIR",
+      "workspace_id": "W_TWO_CARRIERS_TRANSVERSAL",
+      "properties": {"angular_direction_classes": 2, "metric_carrier_match": true, "cycle_status": "FULL_COGNITIVE_CYCLE_MEMBER"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CYCLE_RUN_05.md"]}
+    },
+    {
+      "id": "G_SAS_TRANSLATION_HOST",
+      "type": "GESTALT",
+      "name": "SAS direction+magnitude translation host candidate",
+      "level": "PAIR",
+      "properties": {"ingredients": ["direction_preservation", "magnitude_preservation"], "target_shape": "translated_segment/parallelogram-like host"},
+      "evidence": {"status": "COGNITIVE_CANDIDATE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CYCLE_RUN_05.md", "TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "G_PARALLELOGRAM_GENERAL",
+      "type": "GESTALT",
+      "name": "General two-direction four-edge closure",
+      "semantic_aliases": ["parallelogram"],
+      "level": "OBJECT",
+      "workspace_id": "W_PARALLELOGRAM",
+      "registers": ["R_PARALLELOGRAM_METRIC", "R_PARALLELOGRAM_ANGULAR"],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "G_SQUARE_COMPOSITE_ZERO",
+      "type": "GESTALT",
+      "name": "Double-invariant four-edge composite zero",
+      "semantic_aliases": ["square"],
+      "level": "OBJECT",
+      "workspace_id": "W_PARALLELOGRAM",
+      "registers": ["R_PARALLELOGRAM_METRIC", "R_PARALLELOGRAM_ANGULAR"],
+      "state": {"metric_relation": "EQ", "angular_relation": "EQ"},
+      "properties": {"zero_kind": "COMPOSITE_ZERO", "composite_degree": 2},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "G_TRIANGLE_DOUBLE_ZERO_SLICE",
+      "type": "GESTALT",
+      "name": "Triangle slice carrying intrinsic and inherited zero",
+      "semantic_aliases": ["right-isosceles triangle slice"],
+      "level": "OBJECT",
+      "workspace_id": "W_SQUARE_DIAGONAL",
+      "properties": {"intrinsic_zero": "Z_TRIANGLE_EQEQ", "inherited_zero": "Z_INHERITED_ANGULAR", "pair_relation": "congruent_to_sibling_slice"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md"]}
+    },
+    {
+      "id": "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO",
+      "type": "GESTALT",
+      "name": "Four-edge host recomposed from two local triangle zeros",
+      "level": "OBJECT",
+      "workspace_id": "W_ZERO_RECOMPOSITION",
+      "state": {"global_metric_zero": true, "global_angular_relation": "FREE"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"]}
+    },
+
+    {
+      "id": "Z_TRIANGLE_EQEQ",
+      "type": "ZERO_LOCUS",
+      "name": "Triangle equality/equality zero",
+      "level": "FAMILY",
+      "zero_conditions": [{"register": "R_SIDE_REL", "value": "EQ"}, {"register": "R_OPPOSITE_ANGLE_REL", "value": "EQ"}],
+      "properties": {"origin": "INTRINSIC", "centrality": "swap_fixed"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_01.md"]}
+    },
+    {
+      "id": "Z_PARALLELOGRAM_METRIC",
+      "type": "ZERO_LOCUS",
+      "name": "Four-edge metric zero locus",
+      "level": "FAMILY",
+      "zero_conditions": [{"register": "R_PARALLELOGRAM_METRIC", "value": "EQ"}],
+      "semantic_aliases": ["rhombus-like locus"],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "Z_PARALLELOGRAM_ANGULAR",
+      "type": "ZERO_LOCUS",
+      "name": "Four-edge angular zero locus",
+      "level": "FAMILY",
+      "zero_conditions": [{"register": "R_PARALLELOGRAM_ANGULAR", "value": "EQ"}],
+      "semantic_aliases": ["rectangle-like locus"],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "Z_SQUARE_COMPOSITE",
+      "type": "ZERO_STRUCTURE",
+      "name": "Composite intersection of metric and angular zero loci",
+      "level": "FAMILY",
+      "zero_conditions": ["Z_PARALLELOGRAM_METRIC", "Z_PARALLELOGRAM_ANGULAR"],
+      "properties": {"composite_degree": 2, "origin": "COMPOSITE"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md"]}
+    },
+    {
+      "id": "Z_INHERITED_ANGULAR",
+      "type": "ZERO_LOCUS",
+      "name": "Angular zero inherited by a triangle slice from a richer host",
+      "level": "OBJECT",
+      "properties": {"origin": "INHERITED", "source": "Z_SQUARE_COMPOSITE"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md"]}
+    },
+    {
+      "id": "Z_RECOMPOSED_METRIC",
+      "type": "ZERO_LOCUS",
+      "name": "Global metric zero recomposed from local triangle zeros",
+      "level": "FAMILY",
+      "properties": {"origin": "RECOMPOSED"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_08.md", "TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"]}
+    },
+    {
+      "id": "Z_ANGULAR_CENTRAL_CANDIDATE",
+      "type": "ZERO_LOCUS",
+      "name": "Central angular invariant within the metric-zero four-edge family",
+      "level": "FAMILY",
+      "zero_conditions": [{"register": "R_PARALLELOGRAM_ANGULAR", "value": "EQ"}],
+      "properties": {"centrality": "swap_fixed", "actuality": "NOT_INFERRED_IN_RUN09"},
+      "evidence": {"status": "COGNITIVE_CANDIDATE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"], "notes": "Encodes CENTRALITY != ACTUALITY."}
+    },
+
+    {
+      "id": "OP_BREAK",
+      "type": "OPERATOR",
+      "name": "Minimal disanalogy break",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "OP_COMPLETE",
+      "type": "OPERATOR",
+      "name": "Gestalt completion",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "OP_REBASE",
+      "type": "OPERATOR",
+      "name": "Change active inferential ground while preserving genealogy",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "OP_EXTERNALIZE",
+      "type": "OPERATOR",
+      "name": "Separate internally paired role domains",
+      "semantic_aliases": ["SEPARATE_ROLE_DOMAINS"],
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md"]}
+    },
+    {
+      "id": "OP_INTERNALIZE",
+      "type": "OPERATOR",
+      "name": "Identify paired role domains into one object",
+      "semantic_aliases": ["IDENTIFY_ROLE_DOMAINS"],
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md"]}
+    },
+    {
+      "id": "OP_HOST",
+      "type": "OPERATOR",
+      "name": "Embed a local pattern into a larger Gestalt host",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_GESTALT_NETWORK_V02.md"]}
+    },
+    {
+      "id": "OP_PROJECT",
+      "type": "OPERATOR",
+      "name": "Project a host Gestalt back to a local view",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_GESTALT_NETWORK_V02.md"]}
+    },
+    {
+      "id": "OP_BACKWARD_ENRICH",
+      "type": "OPERATOR",
+      "name": "Retroactively enrich an earlier Gestalt with a new role/host/affordance",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "OP_EVOKE",
+      "type": "OPERATOR",
+      "name": "Regenerate a learned host construction from an enriched local pattern",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "OP_DECOMPILE",
+      "type": "OPERATOR",
+      "name": "Reopen a compiled concept/Gestalt into generators and genealogy",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["MEROVINGIO_COGNITIVE_ARCHITECTURE_V03.md"]}
+    },
+    {
+      "id": "OP_PROJECT_ZERO",
+      "type": "OPERATOR",
+      "name": "Project zero conditions from a richer host to a subworkspace",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md"]}
+    },
+    {
+      "id": "OP_RECOMPOSE_GESTALTS",
+      "type": "OPERATOR",
+      "name": "Recompose local Gestalten into strongest licensed host and expose free registers",
+      "level": "META",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"], "notes": "Replaces the overly deterministic early RECOMPOSE_ZERO idea."}
+    },
+
+    {
+      "id": "AG_COMPLETION",
+      "type": "AGENT",
+      "name": "Completion Agent",
+      "level": "META",
+      "properties": {"objective": "closure/coherence inside current representation"},
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["MEROVINGIO_COGNITIVE_ARCHITECTURE_V03.md"]}
+    },
+    {
+      "id": "AG_EXPANSION",
+      "type": "AGENT",
+      "name": "Expansion Agent",
+      "level": "META",
+      "properties": {"objective": "novel reachable structure and counterfactual variation"},
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "AG_GENEALOGY",
+      "type": "AGENT",
+      "name": "Genealogy / Decompile Agent",
+      "level": "META",
+      "properties": {"objective": "generative depth and shared constitution"},
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "AG_REORGANIZATION",
+      "type": "AGENT",
+      "name": "Reorganization Agent",
+      "level": "META",
+      "properties": {"objective": "detect representational deficiency and propose ontology refactors"},
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "AG_COMPILER",
+      "type": "AGENT",
+      "name": "Compiler Agent",
+      "level": "META",
+      "properties": {"objective": "compress recurrent reasoning into reusable families/operators"},
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "AG_VALIDATOR",
+      "type": "AGENT",
+      "name": "Validator",
+      "level": "META",
+      "properties": {"objective": "separate geometric proof validity from cognitive hypotheses"},
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+
+    {"id": "IMP_COMPLETION", "type": "IMPETUS_TYPE", "name": "Completion impetus", "level": "META", "evidence": {"status": "VALIDATED_COGNITIVE"}},
+    {"id": "IMP_EXPANSION", "type": "IMPETUS_TYPE", "name": "Expansion impetus", "level": "META", "evidence": {"status": "VALIDATED_COGNITIVE"}},
+    {"id": "IMP_GENEALOGICAL", "type": "IMPETUS_TYPE", "name": "Genealogical impetus", "level": "META", "evidence": {"status": "VALIDATED_COGNITIVE"}},
+    {"id": "IMP_REORGANIZATION", "type": "IMPETUS_TYPE", "name": "Reorganization impetus", "level": "META", "evidence": {"status": "VALIDATED_COGNITIVE"}},
+    {"id": "IMP_COMPRESSION", "type": "IMPETUS_TYPE", "name": "Compression/compilation impetus", "level": "META", "evidence": {"status": "VALIDATED_COGNITIVE"}},
+    {"id": "IMP_REBASE", "type": "IMPETUS_TYPE", "name": "Rebase impetus", "level": "META", "evidence": {"status": "VALIDATED_COGNITIVE"}},
+
+    {"id": "P_I4", "type": "PROPOSITION", "name": "Euclid I.4-like SAS capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I5", "type": "PROPOSITION", "name": "Euclid I.5 side equality to base-angle equality", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I6", "type": "PROPOSITION", "name": "Euclid I.6 converse isosceles capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I7", "type": "PROPOSITION", "name": "Euclid I.7 placement rigidity capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I8", "type": "PROPOSITION", "name": "Euclid I.8 SSS capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I13", "type": "PROPOSITION", "name": "Euclid I.13 straight-completion capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I15", "type": "PROPOSITION", "name": "Euclid I.15 vertical-opposition equality capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I16", "type": "PROPOSITION", "name": "Euclid I.16 exterior-angle cross-vertex order capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I18", "type": "PROPOSITION", "name": "Euclid I.18 side-order to angle-order capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I19", "type": "PROPOSITION", "name": "Euclid I.19 angle-order to side-order capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I24", "type": "PROPOSITION", "name": "Euclid I.24 pair hinge-order capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I25", "type": "PROPOSITION", "name": "Euclid I.25 converse pair hinge-order capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I27", "type": "PROPOSITION", "name": "Euclid I.27 alternate-angle parallel certification", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I28", "type": "PROPOSITION", "name": "Euclid I.28 parallel certification masks", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_I29", "type": "PROPOSITION", "name": "Euclid I.29 parallel-to-angle completion capability", "level": "PROOF", "evidence": {"status": "PROP_LICENSED"}},
+    {"id": "P_ASA_RAW", "type": "CAPABILITY", "name": "Banalized ASA congruence access mask", "level": "PROOF", "evidence": {"status": "PROP_LICENSED", "notes": "Stored as a raw congruence capability in the dry runs rather than tied to a fixed proposition ID."}}
+  ]
+}
