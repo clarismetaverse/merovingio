@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "notes": "Compact state snapshots corresponding to the controlled multi-agent sequence."
+  },
+  "snapshots": [
+    {
+      "id": "N0",
+      "after_run": null,
+      "active_entities": ["W_TRIANGLE_GENERIC", "W_TRIANGLE_PAIR", "R_SIDE_REL", "R_OPPOSITE_ANGLE_REL", "P_I5", "P_I6", "P_I18", "P_I19", "P_I4", "P_I8", "P_ASA_RAW"],
+      "active_families": [],
+      "active_invariants": ["STATE_IDENTITY != GENETIC_IDENTITY is available as a bookkeeping requirement but no family has yet exploited it"],
+      "open_questions": ["Do the raw triangle equality/order routes form one family?", "Is any state structurally central?", "Are object and pair correspondence structures related?"],
+      "notes": "Deliberately banalized theorem-centric starting graph."
+    },
+    {
+      "id": "N1",
+      "after_run": "RUN01",
+      "active_entities": ["F_TRIANGLE_RELATION", "G_TRIANGLE_ZERO", "Z_TRIANGLE_EQEQ", "R_SIDE_REL", "R_OPPOSITE_ANGLE_REL", "P_I5", "P_I6", "P_I18", "P_I19"],
+      "active_families": ["F_TRIANGLE_RELATION"],
+      "active_invariants": ["stable diagonal = {(LT,LT),(EQ,EQ),(GT,GT)}", "EQ/EQ is unique left-right swap-fixed state", "STATE_IDENTITY != GENETIC_IDENTITY"],
+      "open_questions": ["Can the object zero be understood through the pair congruence packet?"],
+      "notes": "Human-facing semantic alias: isosceles = triangle family zero."
+    },
+    {
+      "id": "N2",
+      "after_run": "RUN02",
+      "active_entities": ["F_TRIANGLE_RELATION", "G_TRIANGLE_ZERO", "F_CORRESPONDENCE_COMPLETION", "G_PAIR_COINCIDENCE", "OP_EXTERNALIZE", "OP_INTERNALIZE", "P_I4", "P_I8", "P_ASA_RAW"],
+      "active_families": ["F_TRIANGLE_RELATION", "F_CORRESPONDENCE_COMPLETION"],
+      "active_invariants": ["internal and external role-domain realization", "SAS/SSS/ASA are different access masks to one external completion state"],
+      "open_questions": ["Is equality too privileged in the deep correspondence model?", "Can distributed role alignment exist before equality?"],
+      "notes": "Object-zero and pair-congruence are no longer linked by a weak analogy edge; they are two realizations of a deeper correspondence schema."
+    },
+    {
+      "id": "N3",
+      "after_run": "RUN03",
+      "active_entities": ["F_RELATIONAL_COMPLETION_FIELD", "F_CORRESPONDENCE_COMPLETION", "G_COMMON_WHOLE_COMPLETION", "G_DISTRIBUTED_ROLE_PACKET", "F_DISTRIBUTED_SUPPLEMENT", "F_RELATION_TRANSDUCER", "R_ROLE_TOPOLOGY", "R_DIRECTIONAL"],
+      "active_families": ["F_TRIANGLE_RELATION", "F_CORRESPONDENCE_COMPLETION", "F_RELATIONAL_COMPLETION_FIELD", "F_DISTRIBUTED_SUPPLEMENT", "F_RELATION_TRANSDUCER"],
+      "active_invariants": ["ROLE_ALIGNMENT != RELATION_EQUALITY != COMPLETION_READOUT", "ROLE_TOPOLOGY = INTERNAL | EXTERNAL_OVERLAY | DISTRIBUTED_CARRIER", "triangle transducer preserves sign", "distributed supplement transducer reverses sign"],
+      "open_questions": ["Can distributed masks certify parallelism?", "Does ASA become a distributed-host member?"],
+      "notes": "The transversal injection forced the first major ontology correction of the Run02 model."
+    },
+    {
+      "id": "N4",
+      "after_run": "RUN04",
+      "active_entities": ["G_PARALLEL", "F_DISTRIBUTED_NONCLOSURE", "F_GLOBAL_CONSTRAINT_COMPLETION", "R_CLOSURE_TOPOLOGY", "W_TWO_CARRIERS_TRANSVERSAL", "G_ASA_PARALLEL_HOST"],
+      "active_families": ["F_RELATIONAL_COMPLETION_FIELD", "F_GLOBAL_CONSTRAINT_COMPLETION", "F_DISTRIBUTED_NONCLOSURE", "F_RELATION_TRANSDUCER"],
+      "active_invariants": ["parallel certification proceeds by rejecting finite triangular closure", "CLOSURE_TOPOLOGY = COINCIDENT | FINITE_CLOSURE | DISTRIBUTED_NONCLOSURE | UNKNOWN", "same material workspace can support distributed and triangular-closure partializations"],
+      "open_questions": ["Can parallelism become a generative host?", "Can SAS acquire a second direction class?"],
+      "notes": "ASA becomes conditionally embedded in a two-direction parallel host, but only in the local-data -> host direction."
+    },
+    {
+      "id": "N5",
+      "after_run": "RUN05",
+      "active_entities": ["G_PARALLEL", "G_ASA_PARALLEL_HOST", "G_SAS_TRANSLATION_HOST", "P_I29", "OP_EVOKE", "OP_BACKWARD_ENRICH"],
+      "active_families": ["F_GLOBAL_CONSTRAINT_COMPLETION", "F_DISTRIBUTED_NONCLOSURE", "F_RELATIONAL_COMPLETION_FIELD"],
+      "active_invariants": ["COGNITIVE_CYCLE != LOGICAL_CIRCULARITY", "parallel host can complete and regenerate angular packets", "ASA is a full cognitive-cycle member"],
+      "open_questions": ["Does direction + magnitude preservation compile into a translation/parallelogram family?"],
+      "notes": "Parallelism changes from terminal readout to generative host."
+    },
+    {
+      "id": "N6",
+      "after_run": "RUN06",
+      "active_entities": ["W_PARALLELOGRAM", "G_PARALLELOGRAM_GENERAL", "F_PARALLELOGRAM_PRODUCT", "R_PARALLELOGRAM_METRIC", "R_PARALLELOGRAM_ANGULAR", "Z_PARALLELOGRAM_METRIC", "Z_PARALLELOGRAM_ANGULAR", "Z_SQUARE_COMPOSITE", "G_SQUARE_COMPOSITE_ZERO", "F_ZERO_ORGANIZATION"],
+      "active_families": ["F_PARALLELOGRAM_PRODUCT", "F_ZERO_ORGANIZATION", "F_RELATIONAL_COMPLETION_FIELD"],
+      "active_invariants": ["metric and angular registers are independent variation axes", "simple zero vs composite zero", "square-like state = intersection of two independent zero loci"],
+      "open_questions": ["Can composite-zero conditions be projected into triangular slices?"],
+      "notes": "The four-edge domain demonstrates that not every family has one coupled diagonal zero structure."
+    },
+    {
+      "id": "N7",
+      "after_run": "RUN07",
+      "active_entities": ["W_SQUARE_DIAGONAL", "G_TRIANGLE_DOUBLE_ZERO_SLICE", "Z_INHERITED_ANGULAR", "OP_PROJECT_ZERO", "G_SQUARE_COMPOSITE_ZERO", "G_TRIANGLE_ZERO"],
+      "active_families": ["F_ZERO_ORGANIZATION", "F_PARALLELOGRAM_PRODUCT", "F_TRIANGLE_RELATION"],
+      "active_invariants": ["zero provenance can be intrinsic or inherited", "host composite zero can project different zero conditions into a sub-Gestalt", "diagonal acts as multi-Gestalt hinge"],
+      "open_questions": ["Can local zero profiles be recomposed into a richer host without naming that host?"],
+      "notes": "Triangle zero is backward-enriched: it may occur as a projected slice of a richer composite-zero workspace."
+    },
+    {
+      "id": "N8",
+      "after_run": "RUN08",
+      "active_entities": ["W_ZERO_RECOMPOSITION", "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO", "Z_RECOMPOSED_METRIC", "F_FOUR_EDGE_DISTRIBUTED_CLOSURE", "OP_RECOMPOSE_GESTALTS", "Z_SQUARE_COMPOSITE"],
+      "active_families": ["F_FOUR_EDGE_DISTRIBUTED_CLOSURE", "F_ZERO_ORGANIZATION", "F_TRIANGLE_RELATION", "F_PARALLELOGRAM_PRODUCT"],
+      "active_invariants": ["zero provenance = intrinsic | inherited | recomposed | propagated", "recomposition is not a bijective inverse of projection"],
+      "open_questions": ["What remains licensed if the extra global angular-zero condition is removed?"],
+      "notes": "With one independent angular condition added, local triangle zeros can be recomposed to the composite square-like zero."
+    },
+    {
+      "id": "N9",
+      "after_run": "RUN09",
+      "active_entities": ["G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO", "Z_RECOMPOSED_METRIC", "Z_ANGULAR_CENTRAL_CANDIDATE", "OP_RECOMPOSE_GESTALTS", "F_FOUR_EDGE_DISTRIBUTED_CLOSURE", "F_ZERO_ORGANIZATION"],
+      "active_families": ["F_FOUR_EDGE_DISTRIBUTED_CLOSURE", "F_ZERO_ORGANIZATION", "F_PARALLELOGRAM_PRODUCT", "F_RELATIONAL_COMPLETION_FIELD", "F_RELATION_TRANSDUCER", "F_TRIANGLE_RELATION"],
+      "active_invariants": ["CENTRALITY != ACTUALITY", "RECOMPOSE_GESTALTS returns strongest licensed host + free registers", "ZeroLocus is first-class", "global metric zero does not entail global angular zero"],
+      "open_questions": ["Which independent access masks realize the angular zero locus?", "Do equal diagonals, bisecting diagonals, perpendicularity, or second symmetry converge on the same angular zero?", "Can these graph operations be reproduced autonomously by implemented agents?"],
+      "notes": "Current formalized dry-run frontier. The graph stops at a one-zero four-edge family with a free angular axis and a discovered but non-actualized central angular state."
+    }
+  ]
+}
