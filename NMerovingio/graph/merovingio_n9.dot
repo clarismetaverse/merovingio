@@ -1,0 +1,96 @@
+digraph MerovingioN9 {
+  rankdir=LR;
+  graph [label="Merovingio N9 — cognitive graph (formalized dry-run state)", labelloc=t, fontsize=18];
+  node [shape=box, fontsize=10];
+
+  subgraph cluster_triangle {
+    label="Triangle";
+    W_TRIANGLE_GENERIC [shape=oval];
+    F_TRIANGLE_RELATION;
+    G_TRIANGLE_ZERO [label="G_TRIANGLE_ZERO\n(isosceles semantic alias)"];
+    Z_TRIANGLE_EQEQ [shape=diamond];
+    W_TRIANGLE_GENERIC -> G_TRIANGLE_ZERO [label="partialize"];
+    G_TRIANGLE_ZERO -> F_TRIANGLE_RELATION [label="member"];
+    F_TRIANGLE_RELATION -> Z_TRIANGLE_EQEQ [label="zero"];
+  }
+
+  subgraph cluster_pair {
+    label="Pair / congruence";
+    W_TRIANGLE_PAIR [shape=oval];
+    G_PAIR_COINCIDENCE [label="G_PAIR_COINCIDENCE\n(congruence semantic alias)"];
+    F_CORRESPONDENCE_COMPLETION;
+    W_TRIANGLE_PAIR -> G_PAIR_COINCIDENCE [label="partialize"];
+    G_PAIR_COINCIDENCE -> F_CORRESPONDENCE_COMPLETION [label="external overlay"];
+    G_TRIANGLE_ZERO -> F_CORRESPONDENCE_COMPLETION [label="internal realization"];
+    G_TRIANGLE_ZERO -> G_PAIR_COINCIDENCE [label="externalize"];
+    G_PAIR_COINCIDENCE -> G_TRIANGLE_ZERO [label="internalize"];
+  }
+
+  subgraph cluster_transversal {
+    label="Transversal / parallel";
+    W_DISTRIBUTED_TRANSVERSAL [shape=oval];
+    G_DISTRIBUTED_ROLE_PACKET;
+    F_DISTRIBUTED_SUPPLEMENT;
+    G_PARALLEL [label="G_PARALLEL\n(distributed nonclosure)"];
+    F_DISTRIBUTED_NONCLOSURE;
+    W_DISTRIBUTED_TRANSVERSAL -> G_DISTRIBUTED_ROLE_PACKET [label="shared carrier role alignment"];
+    G_DISTRIBUTED_ROLE_PACKET -> F_DISTRIBUTED_SUPPLEMENT [label="supplement packet"];
+    G_DISTRIBUTED_ROLE_PACKET -> G_PARALLEL [label="I.27/I.28 masks"];
+    G_PARALLEL -> F_DISTRIBUTED_NONCLOSURE [label="member"];
+  }
+
+  F_RELATIONAL_COMPLETION_FIELD [shape=component];
+  F_CORRESPONDENCE_COMPLETION -> F_RELATIONAL_COMPLETION_FIELD [label="branch"];
+  G_DISTRIBUTED_ROLE_PACKET -> F_RELATIONAL_COMPLETION_FIELD [label="distributed branch"];
+
+  F_RELATION_TRANSDUCER [shape=component];
+  F_TRIANGLE_RELATION -> F_RELATION_TRANSDUCER [label="PRESERVE_SIGN"];
+  F_DISTRIBUTED_SUPPLEMENT -> F_RELATION_TRANSDUCER [label="REVERSE_SIGN"];
+
+  F_GLOBAL_CONSTRAINT_COMPLETION [shape=component];
+  F_CORRESPONDENCE_COMPLETION -> F_GLOBAL_CONSTRAINT_COMPLETION [label="coincidence branch"];
+  F_DISTRIBUTED_NONCLOSURE -> F_GLOBAL_CONSTRAINT_COMPLETION [label="nonclosure branch"];
+
+  G_ASA_PARALLEL_HOST [label="ASA parallel host"];
+  G_PAIR_COINCIDENCE -> G_ASA_PARALLEL_HOST [label="ASA host"];
+  G_PARALLEL -> G_ASA_PARALLEL_HOST [label="I.29 completion"];
+  G_ASA_PARALLEL_HOST -> G_PARALLEL [label="EVOKE"];
+
+  subgraph cluster_quad {
+    label="Four-edge / zero organization";
+    W_PARALLELOGRAM [shape=oval];
+    F_PARALLELOGRAM_PRODUCT;
+    Z_PARALLELOGRAM_METRIC [shape=diamond, label="Z_metric"];
+    Z_PARALLELOGRAM_ANGULAR [shape=diamond, label="Z_angular"];
+    Z_SQUARE_COMPOSITE [shape=diamond, label="Z_composite"];
+    G_SQUARE_COMPOSITE_ZERO [label="square composite-zero"];
+    F_ZERO_ORGANIZATION [shape=component];
+
+    W_PARALLELOGRAM -> F_PARALLELOGRAM_PRODUCT;
+    F_PARALLELOGRAM_PRODUCT -> Z_PARALLELOGRAM_METRIC [label="zero locus"];
+    F_PARALLELOGRAM_PRODUCT -> Z_PARALLELOGRAM_ANGULAR [label="zero locus"];
+    Z_PARALLELOGRAM_METRIC -> Z_SQUARE_COMPOSITE [label="intersect"];
+    Z_PARALLELOGRAM_ANGULAR -> Z_SQUARE_COMPOSITE [label="intersect"];
+    Z_SQUARE_COMPOSITE -> G_SQUARE_COMPOSITE_ZERO [label="realized by"];
+    Z_SQUARE_COMPOSITE -> F_ZERO_ORGANIZATION [label="composite zero"];
+    Z_TRIANGLE_EQEQ -> F_ZERO_ORGANIZATION [label="simple zero"];
+  }
+
+  subgraph cluster_projection {
+    label="Projection / recomposition";
+    G_TRIANGLE_DOUBLE_ZERO_SLICE [label="triangle double-zero slice"];
+    Z_INHERITED_ANGULAR [shape=diamond];
+    G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO [label="recomposed four-edge\nmetric zero"];
+    Z_RECOMPOSED_METRIC [shape=diamond];
+    Z_ANGULAR_CENTRAL_CANDIDATE [shape=diamond, label="angular central candidate\nCENTRALITY != ACTUALITY"];
+    F_FOUR_EDGE_DISTRIBUTED_CLOSURE;
+
+    G_SQUARE_COMPOSITE_ZERO -> G_TRIANGLE_DOUBLE_ZERO_SLICE [label="PROJECT_ZERO"];
+    Z_SQUARE_COMPOSITE -> Z_INHERITED_ANGULAR [label="project"];
+    G_TRIANGLE_DOUBLE_ZERO_SLICE -> G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO [label="RECOMPOSE_GESTALTS"];
+    G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO -> Z_RECOMPOSED_METRIC [label="actual zero"];
+    G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO -> F_FOUR_EDGE_DISTRIBUTED_CLOSURE [label="member"];
+    Z_RECOMPOSED_METRIC -> Z_ANGULAR_CENTRAL_CANDIDATE [label="search free angular axis"];
+    Z_ANGULAR_CENTRAL_CANDIDATE -> Z_SQUARE_COMPOSITE [style=dashed, label="if independently realized"];
+  }
+}
