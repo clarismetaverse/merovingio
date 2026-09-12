@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "notes": "Genealogy records preserve distinct generative paths even when they terminate in the same current state."
+  },
+  "genealogies": [
+    {
+      "id": "GEN_TRIANGLE_ZERO",
+      "target": "G_TRIANGLE_ZERO",
+      "genetic_identity_key": "triangle_zero_eqeq",
+      "paths": [
+        {
+          "id": "GEN_TRIANGLE_ZERO_FROM_SIDE",
+          "origin": "side-equality route",
+          "steps": [
+            {"index": 0, "event": "Activate side equality in generic triangle", "input_entities": ["W_TRIANGLE_GENERIC", "R_SIDE_REL"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Complete opposite-angle equality", "operator": "OP_COMPLETE", "input_entities": ["P_I5"], "output_entities": ["G_TRIANGLE_ZERO"], "proposition_support": ["P_I5"]},
+            {"index": 2, "event": "Recognize EQ/EQ as left-right swap fixed", "input_entities": ["G_TRIANGLE_ZERO"], "output_entities": ["Z_TRIANGLE_EQEQ"], "proposition_support": []}
+          ]
+        },
+        {
+          "id": "GEN_TRIANGLE_ZERO_FROM_ANGLE",
+          "origin": "angle-equality route",
+          "steps": [
+            {"index": 0, "event": "Activate opposite-angle equality in generic triangle", "input_entities": ["W_TRIANGLE_GENERIC", "R_OPPOSITE_ANGLE_REL"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Complete side equality", "operator": "OP_COMPLETE", "input_entities": ["P_I6"], "output_entities": ["G_TRIANGLE_ZERO"], "proposition_support": ["P_I6"]},
+            {"index": 2, "event": "Recognize EQ/EQ as left-right swap fixed", "input_entities": ["G_TRIANGLE_ZERO"], "output_entities": ["Z_TRIANGLE_EQEQ"], "proposition_support": []}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_01.md"]}
+    },
+    {
+      "id": "GEN_PAIR_COINCIDENCE",
+      "target": "G_PAIR_COINCIDENCE",
+      "genetic_identity_key": "full_pair_correspondence_zero",
+      "paths": [
+        {
+          "id": "GEN_PAIR_SAS",
+          "origin": "SAS mask",
+          "steps": [
+            {"index": 0, "event": "Preserve two corresponding side equalities and included-angle equality", "input_entities": ["W_TRIANGLE_PAIR"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Complete pair correspondence by SAS", "operator": "OP_COMPLETE", "input_entities": ["P_I4"], "output_entities": ["G_PAIR_COINCIDENCE"], "proposition_support": ["P_I4"]}
+          ]
+        },
+        {
+          "id": "GEN_PAIR_SSS",
+          "origin": "SSS mask",
+          "steps": [
+            {"index": 0, "event": "Preserve three corresponding side equalities", "input_entities": ["W_TRIANGLE_PAIR"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Use placement rigidity / SSS completion", "operator": "OP_COMPLETE", "input_entities": ["P_I7", "P_I8"], "output_entities": ["G_PAIR_COINCIDENCE"], "proposition_support": ["P_I7", "P_I8"]}
+          ]
+        },
+        {
+          "id": "GEN_PAIR_ASA",
+          "origin": "ASA mask",
+          "steps": [
+            {"index": 0, "event": "Preserve two angular correspondences and one metric carrier correspondence", "input_entities": ["W_TRIANGLE_PAIR", "P_ASA_RAW"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Complete full pair correspondence", "operator": "OP_COMPLETE", "input_entities": ["P_ASA_RAW"], "output_entities": ["G_PAIR_COINCIDENCE"], "proposition_support": ["P_ASA_RAW"]}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_DISCOVERY_RUN_02.md"]}
+    },
+    {
+      "id": "GEN_RELATIONAL_COMPLETION_FIELD",
+      "target": "F_RELATIONAL_COMPLETION_FIELD",
+      "genetic_identity_key": "run03_refactor",
+      "paths": [
+        {
+          "id": "GEN_RELATIONAL_FROM_ROLE_ALIGNMENT_FAILURE",
+          "origin": "transversal injection",
+          "steps": [
+            {"index": 0, "event": "Run02 structure treats correspondence and equality too tightly", "input_entities": ["F_CORRESPONDENCE_COMPLETION"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Shared transversal creates role alignment while magnitude equality remains unknown", "input_entities": ["W_DISTRIBUTED_TRANSVERSAL"], "output_entities": ["G_DISTRIBUTED_ROLE_PACKET"], "proposition_support": []},
+            {"index": 2, "event": "Local intersection shows equality may be a completion readout rather than an input primitive", "input_entities": ["W_LOCAL_INTERSECTION", "P_I13", "P_I15"], "output_entities": ["G_COMMON_WHOLE_COMPLETION"], "proposition_support": ["P_I13", "P_I15"]},
+            {"index": 3, "event": "Reorganization splits ROLE_ALIGNMENT, RELATION_CONSTRAINT, COMPLETION_READOUT", "input_entities": ["F_CORRESPONDENCE_COMPLETION", "G_DISTRIBUTED_ROLE_PACKET", "G_COMMON_WHOLE_COMPLETION"], "output_entities": ["F_RELATIONAL_COMPLETION_FIELD"], "proposition_support": []}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_TRANSVERSAL_INJECTION_RUN_03.md"]}
+    },
+    {
+      "id": "GEN_PARALLEL",
+      "target": "G_PARALLEL",
+      "genetic_identity_key": "parallel_global_readout",
+      "paths": [
+        {
+          "id": "GEN_PARALLEL_ALT_EQ",
+          "origin": "alternate-angle equality",
+          "steps": [
+            {"index": 0, "event": "Distributed role packet realizes alternate-angle equality mask", "input_entities": ["G_DISTRIBUTED_ROLE_PACKET"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Hypothesize finite closure of the crossed carriers", "operator": "OP_REBASE", "input_entities": ["W_TWO_CARRIERS_TRANSVERSAL"], "output_entities": ["W_TRIANGLE_GENERIC"], "proposition_support": []},
+            {"index": 2, "event": "Triangle exterior-angle order contradicts equality mask", "input_entities": ["P_I16"], "output_entities": [], "proposition_support": ["P_I16"]},
+            {"index": 3, "event": "Reject finite closure and certify parallel readout", "input_entities": ["P_I27"], "output_entities": ["G_PARALLEL"], "proposition_support": ["P_I27"]}
+          ]
+        },
+        {
+          "id": "GEN_PARALLEL_EXT_INT_EQ",
+          "origin": "exterior/interior equality",
+          "steps": [
+            {"index": 0, "event": "Distributed packet realizes exterior/interior equality mask", "input_entities": ["G_DISTRIBUTED_ROLE_PACKET"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "I.28-like certification rejects finite closure", "input_entities": ["P_I28"], "output_entities": ["G_PARALLEL"], "proposition_support": ["P_I28"]}
+          ]
+        },
+        {
+          "id": "GEN_PARALLEL_SAME_SIDE",
+          "origin": "same-side straight completion",
+          "steps": [
+            {"index": 0, "event": "Distributed packet realizes same-side straight-completion mask", "input_entities": ["F_DISTRIBUTED_SUPPLEMENT"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "I.28-like certification rejects finite closure", "input_entities": ["P_I28"], "output_entities": ["G_PARALLEL"], "proposition_support": ["P_I28"]}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CERTIFICATION_RUN_04.md"]}
+    },
+    {
+      "id": "GEN_ASA_PARALLEL_CYCLE",
+      "target": "G_ASA_PARALLEL_HOST",
+      "genetic_identity_key": "asa_parallel_host_cycle",
+      "paths": [
+        {
+          "id": "GEN_ASA_TO_PARALLEL_TO_ASA",
+          "origin": "ASA host completion cycle",
+          "steps": [
+            {"index": 0, "event": "ASA angular correspondences certify two distributed direction classes", "operator": "OP_HOST", "input_entities": ["P_ASA_RAW", "P_I27", "P_I28"], "output_entities": ["G_PARALLEL"], "proposition_support": ["P_I27", "P_I28"]},
+            {"index": 1, "event": "Parallel Gestalt becomes generative host after I.29", "operator": "OP_COMPLETE", "input_entities": ["G_PARALLEL", "P_I29"], "output_entities": [], "proposition_support": ["P_I29"]},
+            {"index": 2, "event": "Project completed distributed angular packet back to ASA pair", "operator": "OP_PROJECT", "input_entities": ["G_PARALLEL"], "output_entities": ["G_ASA_PARALLEL_HOST"], "proposition_support": ["P_I29"]},
+            {"index": 3, "event": "Backward-enrich ASA with future parallel-host evocation affordance", "operator": "OP_BACKWARD_ENRICH", "input_entities": ["G_ASA_PARALLEL_HOST"], "output_entities": ["G_ASA_PARALLEL_HOST"], "proposition_support": []}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_CYCLE_RUN_05.md"]}
+    },
+    {
+      "id": "GEN_SQUARE_COMPOSITE_ZERO",
+      "target": "G_SQUARE_COMPOSITE_ZERO",
+      "genetic_identity_key": "square_composite_zero",
+      "paths": [
+        {
+          "id": "GEN_SQUARE_FROM_PRODUCT_FAMILY",
+          "origin": "parallelogram product-family route",
+          "steps": [
+            {"index": 0, "event": "Build two-register four-edge family", "input_entities": ["F_PARALLELOGRAM_PRODUCT"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Detect independent metric zero locus", "input_entities": ["R_PARALLELOGRAM_METRIC"], "output_entities": ["Z_PARALLELOGRAM_METRIC"], "proposition_support": []},
+            {"index": 2, "event": "Detect independent angular zero locus", "input_entities": ["R_PARALLELOGRAM_ANGULAR"], "output_entities": ["Z_PARALLELOGRAM_ANGULAR"], "proposition_support": []},
+            {"index": 3, "event": "Intersect the two zero loci", "input_entities": ["Z_PARALLELOGRAM_METRIC", "Z_PARALLELOGRAM_ANGULAR"], "output_entities": ["Z_SQUARE_COMPOSITE", "G_SQUARE_COMPOSITE_ZERO"], "proposition_support": []}
+          ]
+        },
+        {
+          "id": "GEN_SQUARE_FROM_RECOMPOSITION",
+          "origin": "triangle-zero recomposition route",
+          "steps": [
+            {"index": 0, "event": "Start from two local triangle-zero Gestalten with shared hinge and pair congruence", "input_entities": ["G_TRIANGLE_ZERO", "G_PAIR_COINCIDENCE", "W_ZERO_RECOMPOSITION"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Recompose a four-edge host and obtain global metric zero", "operator": "OP_RECOMPOSE_GESTALTS", "input_entities": ["G_TRIANGLE_ZERO"], "output_entities": ["G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO", "Z_RECOMPOSED_METRIC"], "proposition_support": []},
+            {"index": 2, "event": "Supply/propagate an independent angular-zero condition", "input_entities": ["P_I29"], "output_entities": ["Z_PARALLELOGRAM_ANGULAR"], "proposition_support": ["P_I29"]},
+            {"index": 3, "event": "Intersect recomposed metric zero and angular zero", "input_entities": ["Z_RECOMPOSED_METRIC", "Z_PARALLELOGRAM_ANGULAR"], "output_entities": ["Z_SQUARE_COMPOSITE", "G_SQUARE_COMPOSITE_ZERO"], "proposition_support": []}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_PARALLELOGRAM_ZERO_RUN_06.md", "TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_08.md"]}
+    },
+    {
+      "id": "GEN_TRIANGLE_DOUBLE_ZERO_SLICE",
+      "target": "G_TRIANGLE_DOUBLE_ZERO_SLICE",
+      "genetic_identity_key": "projected_triangle_double_zero",
+      "paths": [
+        {
+          "id": "GEN_TRIANGLE_SLICE_FROM_SQUARE",
+          "origin": "composite-zero projection",
+          "steps": [
+            {"index": 0, "event": "Start from square composite-zero host", "input_entities": ["G_SQUARE_COMPOSITE_ZERO", "Z_SQUARE_COMPOSITE"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Insert/use diagonal as multi-Gestalt hinge and partition host", "input_entities": ["W_SQUARE_DIAGONAL"], "output_entities": [], "proposition_support": []},
+            {"index": 2, "event": "Project intrinsic triangle equality/equality zero into each slice", "operator": "OP_PROJECT_ZERO", "input_entities": ["Z_SQUARE_COMPOSITE"], "output_entities": ["Z_TRIANGLE_EQEQ"], "proposition_support": []},
+            {"index": 3, "event": "Project additional host angular zero into each slice", "operator": "OP_PROJECT_ZERO", "input_entities": ["Z_SQUARE_COMPOSITE"], "output_entities": ["Z_INHERITED_ANGULAR"], "proposition_support": []},
+            {"index": 4, "event": "Compile slice with intrinsic + inherited zero profile", "input_entities": ["Z_TRIANGLE_EQEQ", "Z_INHERITED_ANGULAR"], "output_entities": ["G_TRIANGLE_DOUBLE_ZERO_SLICE"], "proposition_support": []}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_SQUARE_DIAGONAL_REINJECTION_RUN_07.md"]}
+    },
+    {
+      "id": "GEN_RECOMPOSED_METRIC_ZERO",
+      "target": "G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO",
+      "genetic_identity_key": "recomposed_metric_zero_host",
+      "paths": [
+        {
+          "id": "GEN_RECOMPOSE_TWO_TRIANGLE_ZEROS",
+          "origin": "two local zeros + shared hinge + congruence",
+          "steps": [
+            {"index": 0, "event": "Load two local triangle zeros around one shared hinge", "input_entities": ["G_TRIANGLE_ZERO", "W_ZERO_RECOMPOSITION"], "output_entities": [], "proposition_support": []},
+            {"index": 1, "event": "Establish/retain pair congruence across the two local triangle views", "input_entities": ["G_PAIR_COINCIDENCE"], "output_entities": [], "proposition_support": ["P_I4", "P_I8", "P_ASA_RAW"]},
+            {"index": 2, "event": "Recompose strongest licensed four-edge host", "operator": "OP_RECOMPOSE_GESTALTS", "input_entities": ["G_TRIANGLE_ZERO", "G_PAIR_COINCIDENCE"], "output_entities": ["G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO"], "proposition_support": []},
+            {"index": 3, "event": "Read global metric zero while leaving angular register free", "input_entities": ["G_RECOMPOSED_FOUR_EDGE_METRIC_ZERO"], "output_entities": ["Z_RECOMPOSED_METRIC", "Z_ANGULAR_CENTRAL_CANDIDATE"], "proposition_support": [], "notes": "Run09 identifies the angular center structurally but does not assert that the current object realizes it."}
+          ]
+        }
+      ],
+      "evidence": {"status": "VALIDATED_COGNITIVE", "source_files": ["TRIANGLE_MULTIAGENT_ZERO_RECOMPOSITION_RUN_09.md"]}
+    }
+  ]
+}
