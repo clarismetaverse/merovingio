@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://merovingio.local/schema/cognitive-graph-v1.json",
+  "title": "Merovingio Cognitive Graph v1",
+  "type": "object",
+  "properties": {
+    "metadata": { "$ref": "#/$defs/Metadata" },
+    "entities": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Entity" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Edge" }
+    },
+    "genealogies": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Genealogy" }
+    },
+    "runs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Run" }
+    },
+    "snapshots": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Snapshot" }
+    }
+  },
+  "$defs": {
+    "Metadata": {
+      "type": "object",
+      "required": ["schema_version", "project", "epistemic_status"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "project": { "type": "string" },
+        "epistemic_status": { "enum": ["FORMALIZED_DRY_RUN_DATA", "AUTONOMOUS_RUN_DATA", "MIXED"] },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "Evidence": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": [
+            "SEED",
+            "PROP_LICENSED",
+            "VALIDATED_COGNITIVE",
+            "COMPILED_COGNITIVE",
+            "COGNITIVE_CANDIDATE",
+            "HIGH_VALUE_REFACTOR_PROPOSAL",
+            "CONDITIONALLY_VALIDATED",
+            "OPEN",
+            "SEMANTIC_ALIAS"
+          ]
+        },
+        "source_files": { "type": "array", "items": { "type": "string" } },
+        "proposition_support": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "Entity": {
+      "type": "object",
+      "required": ["id", "type", "name", "evidence"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+        "type": {
+          "enum": [
+            "WORKSPACE",
+            "GESTALT",
+            "FAMILY",
+            "REGISTER",
+            "ZERO_LOCUS",
+            "ZERO_STRUCTURE",
+            "OPERATOR",
+            "AGENT",
+            "IMPETUS_TYPE",
+            "PROPOSITION",
+            "CAPABILITY",
+            "ROLE_CLASS",
+            "CONSTRUCTION",
+            "STATE",
+            "INVARIANT"
+          ]
+        },
+        "name": { "type": "string" },
+        "semantic_aliases": { "type": "array", "items": { "type": "string" } },
+        "level": { "enum": ["MATERIAL", "OBJECT", "PAIR", "FAMILY", "META", "PROOF", null] },
+        "workspace_id": { "type": ["string", "null"] },
+        "registers": { "type": "array", "items": { "type": "string" } },
+        "roles": { "type": "array", "items": { "type": "string" } },
+        "state": { "type": "object" },
+        "stable_region": { "type": "array" },
+        "counterfactual_region": { "type": "array" },
+        "partialization_signature": { "type": "object" },
+        "zero_conditions": { "type": "array" },
+        "symmetries": { "type": "array", "items": { "type": "string" } },
+        "variation_axes": { "type": "array" },
+        "completion_affordances": { "type": "array", "items": { "type": "string" } },
+        "construction_affordances": { "type": "array", "items": { "type": "string" } },
+        "projection_affordances": { "type": "array", "items": { "type": "string" } },
+        "rebase_affordances": { "type": "array", "items": { "type": "string" } },
+        "properties": { "type": "object" },
+        "evidence": { "$ref": "#/$defs/Evidence" }
+      },
+      "additionalProperties": true
+    },
+    "Edge": {
+      "type": "object",
+      "required": ["id", "source", "target", "type", "evidence"],
+      "properties": {
+        "id": { "type": "string" },
+        "source": { "type": "string" },
+        "target": { "type": "string" },
+        "type": {
+          "enum": [
+            "PARTIALIZES",
+            "MEMBER_OF",
+            "INSTANCE_OF",
+            "HAS_ZERO",
+            "INTERSECTS_ZERO",
+            "PROJECTS_TO",
+            "RECOMPOSES_TO",
+            "INTERNALIZES_TO",
+            "EXTERNALIZES_TO",
+            "HOSTS",
+            "EMBEDDABLE_IN",
+            "SHARED_REALIZATION",
+            "GESTALT_OVERLAP",
+            "CO_CONSTITUTES",
+            "BACKWARD_ENRICHES",
+            "EVOKES",
+            "CERTIFIES",
+            "COMPLETES",
+            "PROPAGATES_TO",
+            "GENERATES",
+            "COMPILES_TO",
+            "DECOMPILES_TO",
+            "REBASES_TO",
+            "SWAPS_WITH",
+            "FIXED_BY",
+            "BREAKS_TO",
+            "CONVERGES_TO",
+            "DERIVED_FROM",
+            "USES",
+            "VALIDATES",
+            "REJECTS",
+            "SHORTENS_PATH_TO"
+          ]
+        },
+        "operator": { "type": ["string", "null"] },
+        "relation": { "type": ["object", "string", "null"] },
+        "preserved_contacts": { "type": "array", "items": { "type": "string" } },
+        "break_signature": { "type": ["object", "null"] },
+        "genealogy_ref": { "type": ["string", "null"] },
+        "run_introduced": { "type": ["string", "null"] },
+        "evidence": { "$ref": "#/$defs/Evidence" }
+      },
+      "additionalProperties": true
+    },
+    "GenealogyStep": {
+      "type": "object",
+      "required": ["index", "event"],
+      "properties": {
+        "index": { "type": "integer", "minimum": 0 },
+        "event": { "type": "string" },
+        "operator": { "type": ["string", "null"] },
+        "input_entities": { "type": "array", "items": { "type": "string" } },
+        "output_entities": { "type": "array", "items": { "type": "string" } },
+        "proposition_support": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "Genealogy": {
+      "type": "object",
+      "required": ["id", "target", "paths", "evidence"],
+      "properties": {
+        "id": { "type": "string" },
+        "target": { "type": "string" },
+        "genetic_identity_key": { "type": ["string", "null"] },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "steps"],
+            "properties": {
+              "id": { "type": "string" },
+              "origin": { "type": "string" },
+              "steps": { "type": "array", "items": { "$ref": "#/$defs/GenealogyStep" } }
+            }
+          }
+        },
+        "evidence": { "$ref": "#/$defs/Evidence" }
+      },
+      "additionalProperties": true
+    },
+    "NetworkDelta": {
+      "type": "object",
+      "properties": {
+        "add_entities": { "type": "array", "items": { "type": "string" } },
+        "add_edges": { "type": "array", "items": { "type": "string" } },
+        "enrich_entities": { "type": "array", "items": { "type": "string" } },
+        "refactor": { "type": "array", "items": { "type": "string" } },
+        "open_questions": { "type": "array", "items": { "type": "string" } },
+        "rejected_inferences": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "Run": {
+      "type": "object",
+      "required": ["id", "execution_mode", "input_snapshot", "output_snapshot", "delta"],
+      "properties": {
+        "id": { "type": "string" },
+        "execution_mode": { "enum": ["CONTROLLED_DRY_RUN", "AUTONOMOUS"] },
+        "source_file": { "type": "string" },
+        "input_snapshot": { "type": "string" },
+        "output_snapshot": { "type": "string" },
+        "injected_capabilities": { "type": "array", "items": { "type": "string" } },
+        "hidden_targets": { "type": "array", "items": { "type": "string" } },
+        "impetus": { "type": "array", "items": { "type": "string" } },
+        "agent_outputs": { "type": "object" },
+        "delta": { "$ref": "#/$defs/NetworkDelta" },
+        "result_summary": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "Snapshot": {
+      "type": "object",
+      "required": ["id", "after_run", "active_entities", "active_families", "open_questions"],
+      "properties": {
+        "id": { "type": "string" },
+        "after_run": { "type": ["string", "null"] },
+        "active_entities": { "type": "array", "items": { "type": "string" } },
+        "active_families": { "type": "array", "items": { "type": "string" } },
+        "active_invariants": { "type": "array", "items": { "type": "string" } },
+        "open_questions": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  }
+}
