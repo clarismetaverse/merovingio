@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Run11 accepts only the minimal Run10 generalization candidate: INTERNALIZE/EXTERNALIZE become modes of a cognitive re-individuation operator. No broader partition/recompose theory is added."
+  },
+  "experiment": {
+    "id": "RUN11_REINDIVIDUATION_ACCEPTANCE",
+    "source_file": "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md",
+    "input": ["N9", "RUN10_I18_I25_PARALLEL_DISANALOGY"],
+    "output_snapshot": "N9+RUN10+RUN11_CANDIDATE",
+    "accepted_refactor": {
+      "operator": "OP_REINDIVIDUATE",
+      "modes": ["INTERNALIZE", "EXTERNALIZE"],
+      "semantics": [
+        "changes cognitive individuation / role-domain reading",
+        "preserves material workspace",
+        "preserves point and segment identity facts",
+        "preserves proposition licensing boundaries",
+        "may create shared schemas for aligned roles",
+        "does not assert geometric congruence",
+        "does not identify distinct material points",
+        "does not create Euclidean construction facts"
+      ],
+      "invariants": [
+        "COGNITIVE_UNIFICATION != MATERIAL_IDENTITY",
+        "SCHEMA_REINDIVIDUATION != PROPOSITION_LICENSE",
+        "REINDIVIDUATION_NEVER_UPGRADES_PROOF_LICENSE_BY_ITSELF"
+      ]
+    },
+    "reopened_workspace": "W_I18_I25_PARALLEL",
+    "new_candidate_schema": {
+      "id": "G_REINDIVIDUATED_ORDER_SCHEMA",
+      "type": "GESTALT",
+      "level": "OBJECT_SCHEMA",
+      "material_support": ["triangle_realization_T1", "triangle_realization_T2"],
+      "registers": {
+        "metric": "rel(AB,A_PRIME_B_PRIME)",
+        "angular": "rel(gamma,gamma_prime)"
+      },
+      "status": "VALIDATED_COGNITIVE_CANDIDATE"
+    },
+    "compiled_family": {
+      "id": "F_METRIC_ANGULAR_ORDER",
+      "type": "FAMILY",
+      "input_domain": "METRIC_ORDER",
+      "output_domain": "ANGULAR_ORDER",
+      "qualitative_axis": ["LT", "EQ", "GT"],
+      "propagation_signature": "PRESERVE_SIGN",
+      "realization_topologies": ["OBJECT_NATIVE", "PAIR_NATIVE", "REINDIVIDUATED_SCHEMA"],
+      "members": [
+        {"proposition": "P_I18", "realization": "OBJECT_NATIVE", "direction": "METRIC_TO_ANGULAR"},
+        {"proposition": "P_I25", "realization": "PAIR_NATIVE", "direction": "METRIC_TO_ANGULAR"}
+      ],
+      "inverse_candidates_deferred": ["P_I19", "P_I24"]
+    },
+    "homology_views": {
+      "positional": ["P_I18<->P_I24", "P_I19<->P_I25"],
+      "domain_direction": ["P_I18<->P_I25", "P_I19<->P_I24"],
+      "resolution": "MULTIPLE_VALID_HOMOLOGY_VIEWS"
+    },
+    "run10_proof_core": {
+      "changed": false,
+      "certified_path": [
+        "P_I29 gives gamma = gamma_prime",
+        "assume AB > A'B'",
+        "P_I25 gives gamma > gamma_prime",
+        "collision rejects GT branch",
+        "assume AB < A'B'",
+        "role-swapped P_I25 gives gamma < gamma_prime",
+        "collision rejects LT branch",
+        "trichotomy leaves EQ"
+      ],
+      "readout": "AB = A'B'"
+    },
+    "new_cognitive_reading": {
+      "genetic_path": "PAIR_NATIVE via P_I25",
+      "schema_description": "METRIC_ORDER -> ANGULAR_ORDER / PRESERVE_SIGN",
+      "new_invariant": "GENETIC_IDENTITY != SCHEMA_DESCRIPTION_IDENTITY",
+      "note": "The shared schema redescribes but does not replace the proposition-certified genealogy."
+    },
+    "combined_fields": [
+      "PAIR_ORDER_FIELD",
+      "OBJECT_SCHEMA_ORDER_FIELD",
+      "PARALLEL_ZERO_FIELD"
+    ],
+    "momentum_cycle": [
+      "metric break",
+      "disanalogy propagation via P_I25",
+      "parallel zero collision",
+      "shared propagation morphology recognition",
+      "analogy momentum between I.18 and I.25",
+      "compile F_METRIC_ANGULAR_ORDER"
+    ],
+    "proof_power": {
+      "immediate_increase": false,
+      "reason": "OP_REINDIVIDUATE changes cognitive representation only and cannot extend proposition scope.",
+      "blocked_shortcut": "OP_REINDIVIDUATE + P_I18 cannot substitute for P_I25 in the certified cross-triangle proof."
+    },
+    "architectural_gains": [
+      "compression",
+      "cross-topology transfer",
+      "search guidance",
+      "explicit realization topology",
+      "coexistence of multiple homology views"
+    ],
+    "new_risk": {
+      "id": "SCHEMA_LEAKAGE",
+      "description": "Cognitive unification may be mistaken for material identity or proposition scope transfer.",
+      "required_validator_fields": [
+        "material_support",
+        "role_alignment",
+        "source_topology",
+        "schema_topology",
+        "proof_license_scope"
+      ],
+      "hard_invariant": "REINDIVIDUATION_NEVER_UPGRADES_PROOF_LICENSE_BY_ITSELF"
+    },
+    "validator": {
+      "accepted": [
+        "INTERNALIZE and EXTERNALIZE can be represented as modes of OP_REINDIVIDUATE",
+        "I.18 and I.25 can belong to one semantic metric-to-angular family",
+        "positional and domain-direction homologies can coexist",
+        "pair-native propagation can be redescribed through the shared schema without changing genealogy"
+      ],
+      "unchanged_prop_licenses": [
+        "P_I29 supplies alternate-interior equality in the parallel frame",
+        "P_I25 supplies cross-triangle metric-to-angular order propagation under its metric preconditions"
+      ],
+      "rejected": [
+        "re-individuated schema is a new material triangle",
+        "distinct material points become identical",
+        "P_I18 gains pair scope through cognitive unification",
+        "cognitive compression substitutes for P_I25"
+      ]
+    },
+    "candidate_network_delta": {
+      "add_entities": [
+        "OP_REINDIVIDUATE",
+        "G_REINDIVIDUATED_ORDER_SCHEMA",
+        "F_METRIC_ANGULAR_ORDER",
+        "INVARIANT_REINDIVIDUATION_NO_LICENSE_UPGRADE"
+      ],
+      "enrich_entities": ["OP_INTERNALIZE", "OP_EXTERNALIZE", "P_I18", "P_I25"],
+      "add_views": ["POSITIONAL_HOMOLOGY", "DOMAIN_DIRECTION_HOMOLOGY"],
+      "canonical_commit": false
+    },
+    "recommended_next_test": "Construct a tempting but invalid cross-object re-individuation case and verify that the validator blocks proposition-license leakage before promoting the operator to the canonical graph."
+  }
+}
