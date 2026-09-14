@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Run10 is intentionally stored as an experiment outside the canonical N0-N9 registry. INTERNALIZE/EXTERNALIZE generalization is deferred."
+  },
+  "experiment": {
+    "id": "RUN10_I18_I25_PARALLEL_DISANALOGY",
+    "source_file": "TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md",
+    "input_snapshot": "N9",
+    "output_snapshot": "N9+RUN10_CANDIDATE",
+    "target": {
+      "register": "B_PAIR",
+      "roles": ["AB", "A_PRIME_B_PRIME"],
+      "allowed_states": ["LT", "EQ", "GT"],
+      "hidden_desired_state": "EQ"
+    },
+    "workspace": {
+      "id": "W_I18_I25_PARALLEL",
+      "type": "WORKSPACE",
+      "level": "MATERIAL",
+      "elements": [
+        "parallel_carrier_p",
+        "parallel_carrier_q",
+        "common_transversal_t",
+        "triangle_realization_T1",
+        "triangle_realization_T2"
+      ],
+      "simultaneous_readings": [
+        "PAIR_ORDER",
+        "PARALLEL",
+        "OBJECT_ORDER_SCHEMA_COGNITIVE_ONLY"
+      ]
+    },
+    "preconditions": [
+      {
+        "id": "PRE_PARALLEL",
+        "statement": "p parallel q",
+        "status": "PROP_LICENSED"
+      },
+      {
+        "id": "PRE_SHARED_TRANSVERSAL",
+        "statement": "t intersects p and q and determines alternate-interior roles gamma and gamma_prime",
+        "status": "SEED"
+      },
+      {
+        "id": "PRE_I25_CARRIER_1",
+        "statement": "carrier_1(T1) = carrier_1(T2)",
+        "status": "REQUIRED_PROP_LICENSED"
+      },
+      {
+        "id": "PRE_I25_CARRIER_2",
+        "statement": "carrier_2(T1) = carrier_2(T2)",
+        "status": "REQUIRED_PROP_LICENSED",
+        "note": "Must come from construction or prior proof; not from parallelism alone."
+      }
+    ],
+    "active_propositions": [
+      {
+        "id": "P_I18",
+        "semantic_signature": "METRIC_ORDER_TO_ANGULAR_ORDER",
+        "scope": "OBJECT",
+        "rule": "side GT -> opposite angle GT; LT by role swap",
+        "run_role": "SYNOPTIC_COMPARISON_ONLY"
+      },
+      {
+        "id": "P_I25",
+        "semantic_signature": "METRIC_ORDER_TO_ANGULAR_ORDER",
+        "scope": "PAIR",
+        "rule": "third side GT -> included angle GT; LT by role swap",
+        "run_role": "PROP_LICENSED_PROPAGATION"
+      },
+      {
+        "id": "P_I29",
+        "semantic_signature": "PARALLEL_TO_ALTERNATE_INTERIOR_EQUALITY",
+        "scope": "DISTRIBUTED_CARRIER",
+        "rule": "parallel carriers -> alternate interior angles EQ",
+        "run_role": "PROP_LICENSED_ZERO_CONSTRAINT"
+      }
+    ],
+    "shared_register_interface": {
+      "pair_register": "H_PAIR = rel(gamma,gamma_prime)",
+      "parallel_register": "H_PARALLEL = rel(gamma,gamma_prime)",
+      "relation": "SHARED_REALIZATION",
+      "parallel_state": "EQ"
+    },
+    "branches": [
+      {
+        "id": "BRANCH_GT",
+        "seed": {
+          "register": "B_PAIR",
+          "state": "GT",
+          "statement": "AB > A'B'",
+          "origin": "SEED_COUNTERFACTUAL"
+        },
+        "propagation": [
+          {
+            "index": 0,
+            "family": "PAIR_ORDER",
+            "via": "P_I25",
+            "input": "B_PAIR=GT",
+            "output": "H_PAIR=GT",
+            "signature": "PRESERVE_SIGN",
+            "status": "PROP_LICENSED"
+          },
+          {
+            "index": 1,
+            "family": "PARALLEL",
+            "input": "H_PAIR=GT",
+            "constraint": "H_PARALLEL=EQ",
+            "output": "COLLISION",
+            "status": "VALIDATED_COGNITIVE"
+          }
+        ],
+        "result": "REJECT_COUNTERFACTUAL_BRANCH"
+      },
+      {
+        "id": "BRANCH_LT",
+        "seed": {
+          "register": "B_PAIR",
+          "state": "LT",
+          "statement": "AB < A'B'",
+          "origin": "SEED_COUNTERFACTUAL"
+        },
+        "propagation": [
+          {
+            "index": 0,
+            "family": "PAIR_ORDER",
+            "via": "P_I25_ROLE_SWAP",
+            "input": "B_PAIR=LT",
+            "output": "H_PAIR=LT",
+            "signature": "PRESERVE_SIGN",
+            "status": "PROP_LICENSED"
+          },
+          {
+            "index": 1,
+            "family": "PARALLEL",
+            "input": "H_PAIR=LT",
+            "constraint": "H_PARALLEL=EQ",
+            "output": "COLLISION",
+            "status": "VALIDATED_COGNITIVE"
+          }
+        ],
+        "result": "REJECT_COUNTERFACTUAL_BRANCH"
+      }
+    ],
+    "synthesis": {
+      "logic": [
+        "B_PAIR in {LT,EQ,GT}",
+        "GT rejected",
+        "LT rejected",
+        "therefore EQ survives"
+      ],
+      "readout": "AB = A'B'",
+      "status": "PROP_LICENSED_CONDITIONAL_ON_I25_PRECONDITIONS"
+    },
+    "disanalogy_momentum": {
+      "id": "DM_RUN10_PAIR_TO_PARALLEL",
+      "origin_family": "PAIR_ORDER",
+      "origin_register": "B_PAIR",
+      "orientations": ["GT", "LT"],
+      "propagation_proposition": "P_I25",
+      "crossed_families": ["PAIR_ORDER", "PARALLEL"],
+      "shared_register": "rel(gamma,gamma_prime)",
+      "terminal_pressure": "ZERO_COLLISION",
+      "discharge": "REJECT_COUNTERFACTUAL_BRANCH",
+      "scalar_strength": null
+    },
+    "synoptic_comparison": {
+      "status": "COGNITIVE_CANDIDATE",
+      "propositions": ["P_I18", "P_I25"],
+      "common_signature": {
+        "input_domain": "METRIC_ORDER",
+        "output_domain": "ANGULAR_ORDER",
+        "propagation_signature": "PRESERVE_SIGN",
+        "qualitative_axis": ["LT", "EQ", "GT"]
+      },
+      "important_boundary": "I.18 is not proposition-licensed on the original two-triangle roles without an independent material realization/internalization.",
+      "candidate_abstraction": "SIDE_TO_ANGLE_ORDER_TRANSDUCER"
+    },
+    "representation_pressure": {
+      "status": "HIGH_VALUE_REFACTOR_PROPOSAL",
+      "observed_tension": [
+        "Existing positional homology pairs I.18 with I.24 and I.19 with I.25.",
+        "Semantic-domain direction homology pairs I.18 with I.25 and I.19 with I.24."
+      ],
+      "candidate_distinction": "POSITIONAL_HOMOLOGY != DOMAIN_DIRECTION_HOMOLOGY",
+      "deferred_change": "GENERALIZE_INTERNALIZE_EXTERNALIZE"
+    },
+    "validator": {
+      "passed": [
+        "P_I29 supplies gamma = gamma_prime in parallel frame",
+        "P_I25 propagates GT base break to GT angular break when carrier equalities are licensed",
+        "Role-swapped P_I25 propagates LT base break to LT angular break",
+        "Both oriented angular breaks collide with the parallel EQ invariant",
+        "Trichotomy leaves EQ"
+      ],
+      "candidates_only": [
+        "I.18 and I.25 instantiate one shared metric-to-angular transducer",
+        "two triangle realizations can be re-individuated as one object-level schema",
+        "INTERNALIZE/EXTERNALIZE should be generalized"
+      ],
+      "rejected": [
+        "parallelism alone supplies I.25 metric carrier equalities",
+        "full congruence may be assumed to establish target side equality",
+        "I.18 applies directly across distinct triangle objects without a licensed realization",
+        "I.18 and I.25 are literally the same Euclidean proposition"
+      ]
+    },
+    "analysis_synthesis": {
+      "analysis": "Split unresolved target into oriented GT/LT counterfactual branches and propagate them through overlapping fields.",
+      "synthesis": "After both nonzero branches collide with a stable host invariant, recover the surviving EQ state."
+    },
+    "candidate_network_delta": {
+      "add_entities": [
+        "W_I18_I25_PARALLEL",
+        "G_CROSS_FAMILY_DISANALOGY_COLLISION",
+        "DM_RUN10_PAIR_TO_PARALLEL"
+      ],
+      "candidate_entities": [
+        "SIDE_TO_ANGLE_ORDER_TRANSDUCER",
+        "POSITIONAL_HOMOLOGY",
+        "DOMAIN_DIRECTION_HOMOLOGY"
+      ],
+      "refactor": [],
+      "deferred_refactor": [
+        "GENERALIZE_INTERNALIZE_EXTERNALIZE"
+      ],
+      "canonical_commit": false
+    }
+  }
+}
