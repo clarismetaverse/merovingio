@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Negative stress test of Run11 re-individuation. The test is designed to catch proof-license leakage while preserving cognitive schema matching."
+  },
+  "experiment": {
+    "id": "RUN12_REINDIVIDUATION_NEGATIVE_STRESS",
+    "source_file": "TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md",
+    "input": "N9 + RUN10 + RUN11 candidate architecture",
+    "output": "PROMOTION_SUPPORTED_WITH_GUARDS",
+    "material_countermodel": {
+      "T1": {
+        "side_lengths": [3, 4, 5],
+        "selected_metric_role": "b=5",
+        "selected_angular_role": "gamma=angle_opposite_5"
+      },
+      "T2": {
+        "side_lengths": [6, 8, 10],
+        "selected_metric_role": "b_prime=10",
+        "selected_angular_role": "gamma_prime=angle_opposite_10"
+      },
+      "cross_relations": {
+        "metric": "b < b_prime",
+        "angular": "gamma = gamma_prime"
+      },
+      "witness_role": "Concrete scale-copy countermodel showing that cross-triangle metric order does not license cross-triangle angular order through I.18."
+    },
+    "reindividuation": {
+      "operator": "OP_REINDIVIDUATE",
+      "mode": "INTERNALIZE",
+      "schema": "G_REINDIVIDUATED_ORDER_SCHEMA",
+      "material_support": ["T1", "T2"],
+      "schema_match_status": "ACCEPTED",
+      "material_identity_status": "PRESERVED_DISTINCT",
+      "proof_scope_widening": false
+    },
+    "adversarial_proposal": {
+      "proposition": "P_I18_ROLE_SWAP",
+      "input": "rel(b,b_prime)=LT",
+      "claimed_output": "rel(gamma,gamma_prime)=LT",
+      "temptation": "I.18 and I.25 share METRIC_ORDER_TO_ANGULAR_ORDER / PRESERVE_SIGN morphology",
+      "status": "REJECTED"
+    },
+    "validator_checks": [
+      {
+        "check": "I18_SCOPE",
+        "required_scope": "OBJECT_NATIVE_SINGLE_MATERIAL_TRIANGLE",
+        "actual_scope": "CROSS_OBJECT_REINDIVIDUATED_SCHEMA",
+        "result": "REJECT_PROOF_TRANSFER",
+        "reason": "PROOF_LICENSE_SCOPE_MISMATCH"
+      },
+      {
+        "check": "COUNTERMODEL",
+        "illegal_prediction": "gamma < gamma_prime",
+        "frozen_geometry": "gamma = gamma_prime",
+        "result": "COLLISION_CONFIRMS_INVALID_TRANSFER"
+      },
+      {
+        "check": "I25_FALLBACK",
+        "required_preconditions": ["carrier_1(T1)=carrier_1(T2)", "carrier_2(T1)=carrier_2(T2)"],
+        "actual": ["3 != 6", "4 != 8"],
+        "result": "BLOCKED",
+        "reason": "MISSING_CARRIER_EQUALITIES"
+      }
+    ],
+    "important_distinctions": [
+      "SCHEMA_MATCH != PROPOSITION_APPLICATION",
+      "COGNITIVE_REINDIVIDUATION != MATERIAL_QUOTIENTING",
+      "COGNITIVE_REINDIVIDUATION != PROOF_LICENSE_TRANSFER",
+      "DISANALOGY_PRESSURE != DISANALOGY_PROPAGATION",
+      "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL"
+    ],
+    "disanalogy_packet": {
+      "seed": "b < b_prime",
+      "schema_retrieval": "F_METRIC_ANGULAR_ORDER",
+      "routes": [
+        {
+          "via": "I.18",
+          "status": "BLOCKED",
+          "reason": "PROOF_LICENSE_SCOPE_MISMATCH"
+        },
+        {
+          "via": "I.25",
+          "status": "BLOCKED",
+          "reason": "MISSING_CARRIER_EQUALITIES"
+        }
+      ],
+      "terminal_status": "UNRESOLVED_DISANALOGY",
+      "allowed_next_impetus": [
+        "SEARCH_CONSTRUCTION",
+        "SEARCH_REQUIRED_CARRIER_EQUALITIES",
+        "SEARCH_DIFFERENT_HOST",
+        "LEAVE_UNRESOLVED"
+      ]
+    },
+    "analysis_synthesis_update": {
+      "new_rule": "A branch blocked by missing proof license is not a rejected branch and cannot contribute to reductio-style zero recovery.",
+      "branch_statuses": ["REJECTED_BY_CONTRADICTION", "BLOCKED_BY_LICENSE", "UNRESOLVED"]
+    },
+    "promotion_recommendation": {
+      "status": "SUPPORTED_WITH_GUARDS",
+      "keep": [
+        "OP_REINDIVIDUATE",
+        "F_METRIC_ANGULAR_ORDER",
+        "MULTIPLE_VALID_HOMOLOGY_VIEWS",
+        "GENETIC_IDENTITY != SCHEMA_DESCRIPTION_IDENTITY"
+      ],
+      "mandatory_invariants": [
+        "REINDIVIDUATION NEVER UPGRADES PROOF LICENSE BY ITSELF",
+        "SCHEMA MATCH != PROPOSITION APPLICATION",
+        "BLOCKED PROPAGATION != REJECTED COUNTERFACTUAL",
+        "MATERIAL OWNER MAP MUST SURVIVE COGNITIVE CO-INDEXING"
+      ],
+      "not_promoted": [
+        "PARTITION",
+        "CO_REALIZE",
+        "RECOMPOSE",
+        "new proof axioms"
+      ]
+    }
+  }
+}
