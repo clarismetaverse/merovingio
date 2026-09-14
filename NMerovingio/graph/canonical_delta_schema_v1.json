@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://merovingio.local/schema/canonical-delta-v1.json",
+  "title": "Merovingio Canonical Graph Delta v1",
+  "type": "object",
+  "required": ["metadata"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["schema_version", "project", "delta_id", "canonical"],
+      "properties": {
+        "schema_version": {"type": "string"},
+        "project": {"const": "Merovingio"},
+        "delta_id": {"type": "string"},
+        "execution_mode": {"enum": ["CONTROLLED_DRY_RUN", "AUTONOMOUS"]},
+        "canonical": {"const": true},
+        "source_experiments": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "entities": {"type": "array", "items": {"type": "object", "required": ["id", "type", "name"]}},
+    "edges": {"type": "array", "items": {"type": "object", "required": ["id", "source", "target", "type"]}},
+    "genealogies": {"type": "array", "items": {"type": "object", "required": ["id", "target", "paths"]}},
+    "runs": {"type": "array", "items": {"type": "object", "required": ["id", "execution_mode", "input_snapshot", "output_snapshot", "delta"]}},
+    "snapshots": {"type": "array", "items": {"type": "object", "required": ["id", "after_run"]}}
+  },
+  "additionalProperties": false
+}
