@@ -54,12 +54,16 @@ class CognitiveGraph:
     - canonical entity/edge registry
     - explicit genealogies
     - run deltas
-    - N0..N9 snapshots
+    - canonical N0..N10 snapshots
     - reference validation
     - basic graph queries
 
-    The current dataset is extracted from CONTROLLED_DRY_RUN records. It must not
-    be represented as autonomous experimental output.
+    Historical v1 registries remain the immutable N0..N9 baseline. Later accepted
+    architecture changes are layered through ``canonical_manifest.json`` so a dry-run
+    experiment can be promoted without rewriting the history that produced it.
+
+    The current dataset is still extracted from CONTROLLED_DRY_RUN records. It must
+    not be represented as autonomous experimental output.
     """
 
     def __init__(
@@ -85,12 +89,31 @@ class CognitiveGraph:
     @classmethod
     def from_directory(cls, graph_dir: str | Path) -> "CognitiveGraph":
         graph_dir = Path(graph_dir)
+        manifest_path = graph_dir / "canonical_manifest.json"
 
-        entities_raw = _load_json(graph_dir / "entities_v1.json")["entities"]
-        edges_raw = _load_json(graph_dir / "edges_v1.json")["edges"]
-        genealogies_raw = _load_json(graph_dir / "genealogy_v1.json")["genealogies"]
-        runs_raw = _load_json(graph_dir / "runs_v1.json")["runs"]
-        snapshots_raw = _load_json(graph_dir / "snapshots_v1.json")["snapshots"]
+        if manifest_path.exists():
+            manifest = _load_json(manifest_path)
+            base = manifest["base"]
+            entities_raw = _load_json(graph_dir / base["entities"])["entities"]
+            edges_raw = _load_json(graph_dir / base["edges"])["edges"]
+            genealogies_raw = _load_json(graph_dir / base["genealogies"])["genealogies"]
+            runs_raw = _load_json(graph_dir / base["runs"])["runs"]
+            snapshots_raw = _load_json(graph_dir / base["snapshots"])["snapshots"]
+
+            for delta_path in manifest.get("canonical_deltas", []):
+                delta = _load_json(graph_dir / delta_path)
+                entities_raw = _merge_by_id(entities_raw, delta.get("entities", []))
+                edges_raw = _merge_by_id(edges_raw, delta.get("edges", []))
+                genealogies_raw = _merge_by_id(genealogies_raw, delta.get("genealogies", []))
+                runs_raw = _merge_by_id(runs_raw, delta.get("runs", []))
+                snapshots_raw = _merge_by_id(snapshots_raw, delta.get("snapshots", []))
+        else:
+            # Backward-compatible loader for the original frozen N0..N9 dataset.
+            entities_raw = _load_json(graph_dir / "entities_v1.json")["entities"]
+            edges_raw = _load_json(graph_dir / "edges_v1.json")["edges"]
+            genealogies_raw = _load_json(graph_dir / "genealogy_v1.json")["genealogies"]
+            runs_raw = _load_json(graph_dir / "runs_v1.json")["runs"]
+            snapshots_raw = _load_json(graph_dir / "snapshots_v1.json")["snapshots"]
 
         return cls(
             entities=(Entity(x["id"], x["type"], x["name"], x) for x in entities_raw),
@@ -144,6 +167,9 @@ class CognitiveGraph:
             for entity_id in delta.get("enrich_entities", []):
                 if entity_id not in self.entities:
                     errors.append(f"run {run.id}: unknown enriched entity {entity_id}")
+            for genealogy_id in delta.get("add_genealogies", []):
+                if genealogy_id not in self.genealogies:
+                    errors.append(f"run {run.id}: unknown added genealogy {genealogy_id}")
 
         for snapshot in self.snapshots.values():
             for entity_id in snapshot.raw.get("active_entities", []):
@@ -155,6 +181,24 @@ class CognitiveGraph:
                     errors.append(f"snapshot {snapshot.id}: unknown active family {family_id}")
                 elif entity.type != "FAMILY":
                     errors.append(f"snapshot {snapshot.id}: {family_id} is not a FAMILY")
+
+        reindividuate = self.entities.get("OP_REINDIVIDUATE")
+        if reindividuate is not None:
+            props = reindividuate.raw.get("properties", {})
+            if props.get("proof_license_policy") != "NEVER_UPGRADES_PROOF_LICENSE_BY_ITSELF":
+                errors.append("OP_REINDIVIDUATE: missing proof-license anti-leakage policy")
+            required = set(props.get("required_metadata", []))
+            expected = {
+                "material_support",
+                "role_alignment",
+                "source_topology",
+                "schema_topology",
+                "proof_license_scope",
+            }
+            if not expected.issubset(required):
+                errors.append("OP_REINDIVIDUATE: incomplete material/proof provenance metadata")
+            if "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER" not in self.entities:
+                errors.append("OP_REINDIVIDUATE: proof-license barrier invariant is missing")
 
         return errors
 
@@ -235,6 +279,7 @@ class CognitiveGraph:
             "genealogies": len(self.genealogies),
             "runs": len(self.runs),
             "snapshots": len(self.snapshots),
+            "latest_snapshot": max(self.snapshots, key=_snapshot_sort_key) if self.snapshots else None,
             "entity_types": {
                 entity_type: len(self.entities_of_type(entity_type))
                 for entity_type in sorted({e.type for e in self.entities.values()})
@@ -245,6 +290,23 @@ class CognitiveGraph:
 def _load_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def _merge_by_id(base: list[dict[str, Any]], additions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Merge ordered graph records by id; later canonical deltas may enrich/replace ids."""
+    order = [item["id"] for item in base]
+    merged = {item["id"]: item for item in base}
+    for item in additions:
+        if item["id"] not in merged:
+            order.append(item["id"])
+        merged[item["id"]] = item
+    return [merged[item_id] for item_id in order]
+
+
+def _snapshot_sort_key(snapshot_id: str) -> tuple[int, str]:
+    if snapshot_id.startswith("N") and snapshot_id[1:].isdigit():
+        return int(snapshot_id[1:]), snapshot_id
+    return -1, snapshot_id
 
 
 def _cmd_validate(graph: CognitiveGraph) -> int:
