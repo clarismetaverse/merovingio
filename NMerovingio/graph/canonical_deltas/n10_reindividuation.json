@@ -1,0 +1,415 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "delta_id": "N10_REINDIVIDUATION",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical": true,
+    "source_experiments": [
+      "TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md",
+      "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md",
+      "TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md"
+    ],
+    "notes": "Promotes only the minimal re-individuation generalization that survived the positive and negative stress tests. Broader PARTITION/CO_REALIZE/RECOMPOSE machinery remains deferred."
+  },
+  "entities": [
+    {
+      "id": "W_I18_I25_PARALLEL",
+      "type": "WORKSPACE",
+      "name": "I.18/I.25 shared parallel-transversal workspace",
+      "level": "MATERIAL",
+      "properties": {
+        "material_support": ["triangle_realization_T1", "triangle_realization_T2", "parallel_carrier_p", "parallel_carrier_q", "common_transversal_t"],
+        "simultaneous_readings": ["PAIR_ORDER", "PARALLEL", "REINDIVIDUATED_OBJECT_SCHEMA"]
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md"]
+      }
+    },
+    {
+      "id": "OP_REINDIVIDUATE",
+      "type": "OPERATOR",
+      "name": "Re-individuate cognitive role domains",
+      "level": "META",
+      "properties": {
+        "known_modes": ["INTERNALIZE", "EXTERNALIZE"],
+        "preserves_material_workspace": true,
+        "preserves_material_identity": true,
+        "may_create_shared_schema": true,
+        "asserts_congruence": false,
+        "asserts_material_identity": false,
+        "proof_license_policy": "NEVER_UPGRADES_PROOF_LICENSE_BY_ITSELF",
+        "required_metadata": ["material_support", "role_alignment", "source_topology", "schema_topology", "proof_license_scope"]
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md",
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md"
+        ]
+      }
+    },
+    {
+      "id": "G_REINDIVIDUATED_ORDER_SCHEMA",
+      "type": "GESTALT",
+      "name": "Re-individuated metric/angular order schema",
+      "level": "META",
+      "workspace_id": "W_I18_I25_PARALLEL",
+      "roles": ["metric_role_L", "metric_role_R", "angular_role_L", "angular_role_R"],
+      "properties": {
+        "material_support": ["triangle_realization_T1", "triangle_realization_T2"],
+        "cognitive_unification_only": true,
+        "material_identity": false,
+        "schema_description_identity": "METRIC_ORDER_TO_ANGULAR_ORDER_PRESERVE_SIGN"
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md"]
+      }
+    },
+    {
+      "id": "F_METRIC_ANGULAR_ORDER",
+      "type": "FAMILY",
+      "name": "Metric-to-angular qualitative order family",
+      "level": "FAMILY",
+      "stable_region": [["LT", "LT"], ["EQ", "EQ"], ["GT", "GT"]],
+      "properties": {
+        "input_domain": "METRIC_ORDER",
+        "output_domain": "ANGULAR_ORDER",
+        "qualitative_axis": ["LT", "EQ", "GT"],
+        "propagation_signature": "PRESERVE_SIGN",
+        "realization_topologies": ["OBJECT_NATIVE", "PAIR_NATIVE", "REINDIVIDUATED_SCHEMA"],
+        "member_readings": {
+          "P_I18": "OBJECT_NATIVE",
+          "P_I25": "PAIR_NATIVE",
+          "G_REINDIVIDUATED_ORDER_SCHEMA": "REINDIVIDUATED_SCHEMA"
+        }
+      },
+      "evidence": {
+        "status": "COMPILED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md",
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md"
+        ]
+      }
+    },
+    {
+      "id": "G_CROSS_FAMILY_DISANALOGY_COLLISION",
+      "type": "GESTALT",
+      "name": "Cross-family disanalogy collision",
+      "level": "META",
+      "workspace_id": "W_I18_I25_PARALLEL",
+      "properties": {
+        "origin_family": "PAIR_ORDER",
+        "propagation": "metric break -> I.25 -> angular break",
+        "collision_family": "PARALLEL",
+        "shared_register": "rel(gamma,gamma_prime)",
+        "terminal_pressure": "ZERO_COLLISION",
+        "discharge": "REJECT_COUNTERFACTUAL_BRANCH"
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md"]
+      }
+    },
+    {
+      "id": "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER",
+      "type": "INVARIANT",
+      "name": "Re-individuation proof-license barrier",
+      "level": "META",
+      "properties": {
+        "statement": "REINDIVIDUATION NEVER UPGRADES PROOF LICENSE BY ITSELF",
+        "corollaries": [
+          "COGNITIVE_UNIFICATION != MATERIAL_IDENTITY",
+          "SCHEMA_MATCH != PROPOSITION_APPLICATION",
+          "MATERIAL_OWNER_MAP MUST SURVIVE COGNITIVE CO-INDEXING"
+        ]
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md",
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md"
+        ]
+      }
+    },
+    {
+      "id": "INV_BLOCKED_PROPAGATION_NOT_REJECTED",
+      "type": "INVARIANT",
+      "name": "Blocked propagation is not rejected counterfactual",
+      "level": "META",
+      "properties": {
+        "statement": "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL",
+        "meaning": "Failure to obtain a proposition license leaves the disanalogy unresolved; it does not refute the branch."
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md"]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_INTERNALIZE_INSTANCE_REINDIVIDUATE",
+      "source": "OP_INTERNALIZE",
+      "target": "OP_REINDIVIDUATE",
+      "type": "INSTANCE_OF",
+      "relation": {"mode": "INTERNALIZE"},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_EXTERNALIZE_INSTANCE_REINDIVIDUATE",
+      "source": "OP_EXTERNALIZE",
+      "target": "OP_REINDIVIDUATE",
+      "type": "INSTANCE_OF",
+      "relation": {"mode": "EXTERNALIZE"},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_WORKSPACE_PARTIALIZES_REINDIVIDUATED_SCHEMA",
+      "source": "W_I18_I25_PARALLEL",
+      "target": "G_REINDIVIDUATED_ORDER_SCHEMA",
+      "type": "PARTIALIZES",
+      "operator": "OP_REINDIVIDUATE",
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_I18_MEMBER_METRIC_ANGULAR_ORDER",
+      "source": "P_I18",
+      "target": "F_METRIC_ANGULAR_ORDER",
+      "type": "MEMBER_OF",
+      "relation": {"realization_topology": "OBJECT_NATIVE", "direction": "METRIC_TO_ANGULAR"},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "proposition_support": ["P_I18"]}
+    },
+    {
+      "id": "E_I25_MEMBER_METRIC_ANGULAR_ORDER",
+      "source": "P_I25",
+      "target": "F_METRIC_ANGULAR_ORDER",
+      "type": "MEMBER_OF",
+      "relation": {"realization_topology": "PAIR_NATIVE", "direction": "METRIC_TO_ANGULAR"},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "proposition_support": ["P_I25"]}
+    },
+    {
+      "id": "E_REINDIVIDUATED_SCHEMA_MEMBER_METRIC_ANGULAR_ORDER",
+      "source": "G_REINDIVIDUATED_ORDER_SCHEMA",
+      "target": "F_METRIC_ANGULAR_ORDER",
+      "type": "MEMBER_OF",
+      "relation": {"realization_topology": "REINDIVIDUATED_SCHEMA"},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_REINDIVIDUATE_USES_LICENSE_BARRIER",
+      "source": "OP_REINDIVIDUATE",
+      "target": "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER",
+      "type": "USES",
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_CROSS_FAMILY_COLLISION_DERIVED_FROM_I25",
+      "source": "P_I25",
+      "target": "G_CROSS_FAMILY_DISANALOGY_COLLISION",
+      "type": "GENERATES",
+      "relation": {"requires": ["PAIR_ORDER carrier equalities", "parallel angular zero"]},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "VALIDATED_COGNITIVE", "proposition_support": ["P_I25", "P_I29"]}
+    },
+    {
+      "id": "E_COLLISION_CONVERGES_TO_METRIC_ANGULAR_FAMILY",
+      "source": "G_CROSS_FAMILY_DISANALOGY_COLLISION",
+      "target": "F_METRIC_ANGULAR_ORDER",
+      "type": "CONVERGES_TO",
+      "relation": {"pressure": "shared propagation morphology"},
+      "run_introduced": "RUN10_CANONICAL_REINDIVIDUATION",
+      "evidence": {"status": "COMPILED_COGNITIVE"}
+    }
+  ],
+  "genealogies": [
+    {
+      "id": "GEN_REINDIVIDUATED_ORDER_SCHEMA",
+      "target": "G_REINDIVIDUATED_ORDER_SCHEMA",
+      "genetic_identity_key": "reindividuated_order_schema_from_run10_pressure",
+      "paths": [
+        {
+          "id": "GEN_REINDIVIDUATED_SCHEMA_FROM_PAIR_PARALLEL_TENSION",
+          "origin": "Run10 I.18/I.25 representational pressure",
+          "steps": [
+            {
+              "index": 0,
+              "event": "I.25 propagates a pair-native metric break into the angular register shared with the parallel frame",
+              "input_entities": ["P_I25", "W_I18_I25_PARALLEL"],
+              "output_entities": ["G_CROSS_FAMILY_DISANALOGY_COLLISION"],
+              "proposition_support": ["P_I25", "P_I29"]
+            },
+            {
+              "index": 1,
+              "event": "Genealogy comparison detects the same metric-to-angular preserve-sign morphology in I.18",
+              "input_entities": ["P_I18", "P_I25"],
+              "output_entities": [],
+              "proposition_support": ["P_I18", "P_I25"]
+            },
+            {
+              "index": 2,
+              "event": "Re-individuate the two material realizations into one cognitive schema without identifying material objects",
+              "operator": "OP_REINDIVIDUATE",
+              "input_entities": ["W_I18_I25_PARALLEL", "OP_REINDIVIDUATE"],
+              "output_entities": ["G_REINDIVIDUATED_ORDER_SCHEMA"],
+              "proposition_support": []
+            },
+            {
+              "index": 3,
+              "event": "Negative stress test preserves the schema while blocking cross-object theorem transport",
+              "input_entities": ["G_REINDIVIDUATED_ORDER_SCHEMA", "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER", "INV_BLOCKED_PROPAGATION_NOT_REJECTED"],
+              "output_entities": ["G_REINDIVIDUATED_ORDER_SCHEMA"],
+              "proposition_support": []
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md",
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md",
+          "TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md"
+        ]
+      }
+    },
+    {
+      "id": "GEN_METRIC_ANGULAR_ORDER_COMPILATION",
+      "target": "F_METRIC_ANGULAR_ORDER",
+      "genetic_identity_key": "compiled_metric_to_angular_order_family",
+      "paths": [
+        {
+          "id": "GEN_F_METRIC_ANGULAR_FROM_I18_I25",
+          "origin": "Convergent propagation signatures",
+          "steps": [
+            {
+              "index": 0,
+              "event": "Compare I.18 OBJECT-native and I.25 PAIR-native semantic domains",
+              "input_entities": ["P_I18", "P_I25"],
+              "output_entities": [],
+              "proposition_support": ["P_I18", "P_I25"]
+            },
+            {
+              "index": 1,
+              "event": "Recognize common METRIC_ORDER -> ANGULAR_ORDER preserve-sign signature",
+              "input_entities": ["P_I18", "P_I25", "G_REINDIVIDUATED_ORDER_SCHEMA"],
+              "output_entities": ["F_METRIC_ANGULAR_ORDER"],
+              "proposition_support": []
+            },
+            {
+              "index": 2,
+              "event": "Compile family while retaining realization-specific proof licenses",
+              "input_entities": ["F_METRIC_ANGULAR_ORDER", "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER"],
+              "output_entities": ["F_METRIC_ANGULAR_ORDER"],
+              "proposition_support": []
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "status": "COMPILED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md"]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "RUN10_CANONICAL_REINDIVIDUATION",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "TRIANGLE_MULTIAGENT_REINDIVIDUATION_ACCEPTANCE_RUN_11.md",
+      "supporting_source_files": [
+        "TRIANGLE_MULTIAGENT_I18_I25_PARALLEL_DISANALOGY_RUN_10.md",
+        "TRIANGLE_MULTIAGENT_REINDIVIDUATION_NEGATIVE_STRESS_RUN_12.md"
+      ],
+      "input_snapshot": "N9",
+      "output_snapshot": "N10",
+      "delta": {
+        "add_entities": [
+          "W_I18_I25_PARALLEL",
+          "OP_REINDIVIDUATE",
+          "G_REINDIVIDUATED_ORDER_SCHEMA",
+          "F_METRIC_ANGULAR_ORDER",
+          "G_CROSS_FAMILY_DISANALOGY_COLLISION",
+          "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER",
+          "INV_BLOCKED_PROPAGATION_NOT_REJECTED"
+        ],
+        "add_edges": [
+          "E_INTERNALIZE_INSTANCE_REINDIVIDUATE",
+          "E_EXTERNALIZE_INSTANCE_REINDIVIDUATE",
+          "E_WORKSPACE_PARTIALIZES_REINDIVIDUATED_SCHEMA",
+          "E_I18_MEMBER_METRIC_ANGULAR_ORDER",
+          "E_I25_MEMBER_METRIC_ANGULAR_ORDER",
+          "E_REINDIVIDUATED_SCHEMA_MEMBER_METRIC_ANGULAR_ORDER",
+          "E_REINDIVIDUATE_USES_LICENSE_BARRIER",
+          "E_CROSS_FAMILY_COLLISION_DERIVED_FROM_I25",
+          "E_COLLISION_CONVERGES_TO_METRIC_ANGULAR_FAMILY"
+        ],
+        "add_genealogies": [
+          "GEN_REINDIVIDUATED_ORDER_SCHEMA",
+          "GEN_METRIC_ANGULAR_ORDER_COMPILATION"
+        ],
+        "refactor": [
+          "OP_INTERNALIZE and OP_EXTERNALIZE become modes of OP_REINDIVIDUATE",
+          "I.18 and I.25 compile as realization-specific members of F_METRIC_ANGULAR_ORDER",
+          "schema identity is separated from material identity and proof-license scope"
+        ],
+        "rejected_inferences": [
+          "re-individuation creates material identity",
+          "re-individuation upgrades theorem scope",
+          "blocked propagation refutes the tested counterfactual"
+        ],
+        "open_questions": [
+          "Should I.19 and I.24 compile as the inverse ANGULAR_ORDER -> METRIC_ORDER family?",
+          "When should broader PARTITION/CO_REALIZE/RECOMPOSE operators be introduced?",
+          "Should disanalogy momentum become a first-class graph entity rather than a trace property?"
+        ]
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "N10",
+      "after_run": "RUN10_CANONICAL_REINDIVIDUATION",
+      "active_entities": [
+        "W_I18_I25_PARALLEL",
+        "OP_REINDIVIDUATE",
+        "G_REINDIVIDUATED_ORDER_SCHEMA",
+        "F_METRIC_ANGULAR_ORDER",
+        "G_CROSS_FAMILY_DISANALOGY_COLLISION",
+        "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER",
+        "INV_BLOCKED_PROPAGATION_NOT_REJECTED",
+        "P_I18",
+        "P_I25",
+        "P_I29"
+      ],
+      "active_families": [
+        "F_METRIC_ANGULAR_ORDER",
+        "F_TRIANGLE_RELATION",
+        "F_RELATIONAL_COMPLETION_FIELD",
+        "F_GLOBAL_CONSTRAINT_COMPLETION"
+      ],
+      "active_invariants": [
+        "COGNITIVE_UNIFICATION != MATERIAL_IDENTITY",
+        "PROOF_LICENSE != COGNITIVE_REALIZATION",
+        "REINDIVIDUATION NEVER UPGRADES PROOF LICENSE BY ITSELF",
+        "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL",
+        "GENETIC_IDENTITY != SCHEMA_DESCRIPTION_IDENTITY"
+      ],
+      "open_questions": [
+        "Compile I.19/I.24 as inverse domain-direction family?",
+        "Generalize re-individuation beyond INTERNALIZE/EXTERNALIZE only after a separate experiment.",
+        "Make cross-family disanalogy momentum first-class?"
+      ],
+      "notes": "Canonical promotion of the minimal re-individuation operator after Run11 acceptance and Run12 negative stress. The graph gains schema transfer/compression without any automatic proof-license transfer."
+    }
+  ]
+}
