@@ -5,6 +5,7 @@ import entitiesJson from '../../graph/entities_v1.json'
 import edgesJson from '../../graph/edges_v1.json'
 import genealogyJson from '../../graph/genealogy_v1.json'
 import snapshotsJson from '../../graph/snapshots_v1.json'
+import canonicalDeltaJson from '../../graph/canonical_deltas/n10_reindividuation.json'
 
 type AnyRecord = Record<string, any>
 
@@ -35,10 +36,33 @@ type Snapshot = AnyRecord & {
   notes?: string
 }
 
-const entities = (entitiesJson as AnyRecord).entities as Entity[]
-const edges = (edgesJson as AnyRecord).edges as GraphEdge[]
-const genealogies = (genealogyJson as AnyRecord).genealogies as AnyRecord[]
-const snapshots = (snapshotsJson as AnyRecord).snapshots as Snapshot[]
+function mergeById<T extends { id: string }>(base: T[], additions: T[]): T[] {
+  const order = base.map((item) => item.id)
+  const merged = new Map(base.map((item) => [item.id, item]))
+  additions.forEach((item) => {
+    if (!merged.has(item.id)) order.push(item.id)
+    merged.set(item.id, item)
+  })
+  return order.map((id) => merged.get(id) as T)
+}
+
+const canonicalDelta = canonicalDeltaJson as AnyRecord
+const entities = mergeById(
+  (entitiesJson as AnyRecord).entities as Entity[],
+  (canonicalDelta.entities || []) as Entity[],
+)
+const edges = mergeById(
+  (edgesJson as AnyRecord).edges as GraphEdge[],
+  (canonicalDelta.edges || []) as GraphEdge[],
+)
+const genealogies = mergeById(
+  (genealogyJson as AnyRecord).genealogies as AnyRecord[],
+  (canonicalDelta.genealogies || []) as AnyRecord[],
+)
+const snapshots = mergeById(
+  (snapshotsJson as AnyRecord).snapshots as Snapshot[],
+  (canonicalDelta.snapshots || []) as Snapshot[],
+)
 
 const entityById = new Map(entities.map((entity) => [entity.id, entity]))
 
@@ -58,11 +82,14 @@ const typeOrder = [
   'GESTALT',
   'FAMILY',
   'ZERO_LOCUS',
+  'ZERO_STRUCTURE',
   'REGISTER',
   'PROPOSITION',
+  'CAPABILITY',
   'OPERATOR',
+  'INVARIANT',
   'AGENT',
-  'IMPETUS',
+  'IMPETUS_TYPE',
 ]
 
 function shortLabel(entity: Entity) {
@@ -129,11 +156,14 @@ function styleSheet(): any[] {
     { selector: 'node[type = "GESTALT"]', style: { shape: 'round-rectangle', width: 52, height: 38 } },
     { selector: 'node[type = "FAMILY"]', style: { shape: 'hexagon', width: 50, height: 50 } },
     { selector: 'node[type = "ZERO_LOCUS"]', style: { shape: 'diamond', width: 42, height: 42 } },
+    { selector: 'node[type = "ZERO_STRUCTURE"]', style: { shape: 'diamond', width: 50, height: 50 } },
     { selector: 'node[type = "REGISTER"]', style: { shape: 'barrel', width: 40, height: 34 } },
     { selector: 'node[type = "PROPOSITION"]', style: { shape: 'rectangle', width: 35, height: 28 } },
+    { selector: 'node[type = "CAPABILITY"]', style: { shape: 'rectangle', width: 38, height: 30 } },
     { selector: 'node[type = "OPERATOR"]', style: { shape: 'tag', width: 40, height: 32 } },
+    { selector: 'node[type = "INVARIANT"]', style: { shape: 'round-rectangle', width: 48, height: 34 } },
     { selector: 'node[type = "AGENT"]', style: { shape: 'round-diamond', width: 42, height: 42 } },
-    { selector: 'node[type = "IMPETUS"]', style: { shape: 'vee', width: 42, height: 42 } },
+    { selector: 'node[type = "IMPETUS_TYPE"]', style: { shape: 'vee', width: 42, height: 42 } },
     {
       selector: 'edge',
       style: {
@@ -191,8 +221,8 @@ function styleSheet(): any[] {
 export default function App() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const cyRef = useRef<Core | null>(null)
-  const [selectedId, setSelectedId] = useState<string | null>('G_TRIANGLE_ZERO')
-  const [snapshotId, setSnapshotId] = useState<string>('ALL')
+  const [selectedId, setSelectedId] = useState<string | null>('OP_REINDIVIDUATE')
+  const [snapshotId, setSnapshotId] = useState<string>('N10')
   const [query, setQuery] = useState('')
   const [visibleTypes, setVisibleTypes] = useState<Set<string>>(
     () => new Set(typeOrder.filter((type) => entities.some((entity) => entity.type === type))),
@@ -349,7 +379,7 @@ export default function App() {
     <div className="app-shell">
       <header className="topbar">
         <div>
-          <div className="eyebrow">MEROVINGIO / N9</div>
+          <div className="eyebrow">MEROVINGIO / N10</div>
           <h1>Cognitive Graph Explorer</h1>
         </div>
         <div className="topbar-actions">
@@ -368,7 +398,7 @@ export default function App() {
         <aside className="timeline-panel panel">
           <div className="panel-heading">
             <span>Evolution</span>
-            <small>dry-run snapshots</small>
+            <small>canonical snapshots</small>
           </div>
 
           <button
@@ -376,7 +406,7 @@ export default function App() {
             onClick={() => setSnapshotId('ALL')}
           >
             <span className="timeline-dot" />
-            <span><strong>All</strong><small>full N9 graph</small></span>
+            <span><strong>All</strong><small>full N10 graph</small></span>
           </button>
 
           {snapshots.map((snapshot) => (
