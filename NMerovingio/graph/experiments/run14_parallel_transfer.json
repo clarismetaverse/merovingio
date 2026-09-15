@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false
+  },
+  "experiment": {
+    "id": "RUN14_PARALLEL_TRANSFER",
+    "source_file": "TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md",
+    "input_snapshot": "N10",
+    "hidden_propositions": ["P_I27"],
+    "available_propositions": ["P_I16"],
+    "target": {
+      "register": "R_CLOSURE_TOPOLOGY",
+      "allowed_states": ["FINITE_CLOSURE_LEFT", "DISTRIBUTED_NONCLOSURE", "FINITE_CLOSURE_RIGHT"],
+      "hidden_desired_state": "DISTRIBUTED_NONCLOSURE"
+    },
+    "branches": [
+      {
+        "id": "FINITE_LEFT",
+        "host": "triangle host T_left",
+        "via": "P_I16",
+        "derived_relation": "gamma and gamma_prime are strictly ordered",
+        "given_relation": "gamma = gamma_prime",
+        "result": "REJECT_COUNTERFACTUAL_BRANCH"
+      },
+      {
+        "id": "FINITE_RIGHT",
+        "host": "triangle host T_right",
+        "via": "P_I16_ROLE_SWAP",
+        "derived_relation": "gamma and gamma_prime are strictly ordered in the opposite orientation",
+        "given_relation": "gamma = gamma_prime",
+        "result": "REJECT_COUNTERFACTUAL_BRANCH"
+      },
+      {
+        "id": "NONCLOSURE",
+        "result": "SURVIVES"
+      }
+    ],
+    "synthesis": {
+      "readout": "R_CLOSURE_TOPOLOGY=DISTRIBUTED_NONCLOSURE",
+      "semantic_alias_after_run": "parallel carriers",
+      "status": "PROP_LICENSED_CONDITIONAL_ON_EXHAUSTIVE_TOPOLOGY"
+    },
+    "transfer_result": {
+      "status": "POSITIVE",
+      "source_domain": "ORDER_RELATION",
+      "target_domain": "CLOSURE_TOPOLOGY",
+      "shared_morphology": ["counterfactual partition", "licensed host realization", "forward propagation", "certified branch elimination", "survivor synthesis"]
+    },
+    "candidate_generalization": {
+      "old_name": "F_CONVERSE_BY_DISANALOGY_EXHAUSTION",
+      "new_name": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "operator_schema": "STATE_RECOVERY_BY_COUNTERFACTUAL_EXHAUSTION",
+      "status": "COGNITIVE_CANDIDATE",
+      "canonical": false
+    },
+    "guardrails": [
+      "BRANCH_NOT_PROVED != BRANCH_PROVED_IMPOSSIBLE",
+      "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL",
+      "NO_DRAWN_INTERSECTION != PARALLEL_CERTIFICATION",
+      "SURVIVOR_SYNTHESIS_REQUIRES_EXHAUSTIVE_PARTITION"
+    ],
+    "canonical_commit": false
+  }
+}
