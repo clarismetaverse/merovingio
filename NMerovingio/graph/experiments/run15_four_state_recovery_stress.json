@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "project": "Merovingio",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Run15 stress-tests the Run13/14 state-recovery candidate on a four-state partition with heterogeneous rejection certificates."
+  },
+  "experiment": {
+    "id": "RUN15_FOUR_STATE_RECOVERY_STRESS",
+    "source_file": "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md",
+    "input_snapshot": "N10",
+    "candidate_strategy_input": [
+      "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "STATE_RECOVERY_BY_COUNTERFACTUAL_EXHAUSTION"
+    ],
+    "hidden_rules": ["P_I27"],
+    "target": {
+      "register": "CLOSURE_STATE_P_Q",
+      "allowed_states": [
+        "COINCIDENT",
+        "FINITE_CLOSURE_LEFT",
+        "DISTRIBUTED_NONCLOSURE",
+        "FINITE_CLOSURE_RIGHT"
+      ],
+      "hidden_desired_state": "DISTRIBUTED_NONCLOSURE"
+    },
+    "workspace": {
+      "base": "W_TWO_CARRIERS_TRANSVERSAL",
+      "elements": ["p", "q", "t", "gamma", "gamma_prime", "X"],
+      "seed_constraints": [
+        "rel(gamma,gamma_prime)=EQ",
+        "X in p",
+        "X not_in q"
+      ]
+    },
+    "partition": {
+      "certified_exhaustive_under_frozen_workspace": true,
+      "branches": [
+        {
+          "id": "B_COINCIDENT",
+          "state": "COINCIDENT",
+          "initial_status": "OPEN",
+          "test_field": "MATERIAL_INCIDENCE",
+          "rejection": {
+            "status": "REJECTED_CERTIFIED",
+            "certificate_type": "MATERIAL_INCIDENCE_COLLISION",
+            "evidence": ["X in p", "X not_in q", "assume p=q"]
+          }
+        },
+        {
+          "id": "B_FINITE_LEFT",
+          "state": "FINITE_CLOSURE_LEFT",
+          "initial_status": "OPEN",
+          "test_field": "TRIANGLE_EXTERIOR_ANGLE",
+          "host": "FINITE_CLOSURE_TRIANGLE_LEFT",
+          "rejection": {
+            "status": "REJECTED_CERTIFIED",
+            "certificate_type": "PROPAGATED_ANGULAR_COLLISION",
+            "proposition_support": ["P_I16"],
+            "derived": "gamma > gamma_prime",
+            "collision_with": "gamma = gamma_prime"
+          }
+        },
+        {
+          "id": "B_NONCLOSURE",
+          "state": "DISTRIBUTED_NONCLOSURE",
+          "initial_status": "OPEN",
+          "test_field": "DISTRIBUTED_CARRIER",
+          "rejection": null
+        },
+        {
+          "id": "B_FINITE_RIGHT",
+          "state": "FINITE_CLOSURE_RIGHT",
+          "initial_status": "OPEN",
+          "test_field": "TRIANGLE_EXTERIOR_ANGLE_ROLE_SWAPPED",
+          "host": "FINITE_CLOSURE_TRIANGLE_RIGHT",
+          "rejection": {
+            "status": "REJECTED_CERTIFIED",
+            "certificate_type": "PROPAGATED_ANGULAR_COLLISION",
+            "proposition_support": ["P_I16"],
+            "derived": "gamma_prime > gamma",
+            "collision_with": "gamma = gamma_prime"
+          }
+        }
+      ]
+    },
+    "synthesis": {
+      "rule": "UNIQUE_OPEN_AFTER_CERTIFIED_ELIMINATION",
+      "survivor": "DISTRIBUTED_NONCLOSURE",
+      "status": "VALIDATED_COGNITIVE_CONDITIONAL_ON_EXHAUSTIVE_PARTITION",
+      "semantic_readout": "parallel distinct carriers"
+    },
+    "candidate_structure": {
+      "family": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "capability": "STATE_RECOVERY_BY_COUNTERFACTUAL_EXHAUSTION",
+      "candidate_branch_statuses": ["OPEN", "REJECTED_CERTIFIED", "BLOCKED"],
+      "candidate_invariants": [
+        "EXHAUSTIVENESS_BEFORE_SYNTHESIS",
+        "CERTIFIED_REJECTION_ONLY",
+        "BLOCKED_IS_NOT_REJECTED",
+        "HETEROGENEOUS_ELIMINATORS_ALLOWED"
+      ],
+      "candidate_search_heuristic": "ROUTE_EACH_COUNTERFACTUAL_BRANCH_TO_STRONGEST_LICENSED_FIELD"
+    },
+    "stress_dimensions": {
+      "partition_cardinality": {
+        "previous": 3,
+        "current": 4,
+        "result": "PASS"
+      },
+      "eliminator_homogeneity": {
+        "previous": "mostly shared morphology",
+        "current": "material incidence plus proposition-driven angular collision",
+        "result": "PASS"
+      }
+    },
+    "negative_controls": [
+      {
+        "id": "NC_NO_INCIDENCE_WITNESS",
+        "remove": ["X in p", "X not_in q"],
+        "expected": "UNRESOLVED {COINCIDENT,DISTRIBUTED_NONCLOSURE}",
+        "guardrail": "OPEN_BRANCH_PREVENTS_SYNTHESIS"
+      },
+      {
+        "id": "NC_RIGHT_HOST_BLOCKED",
+        "change": "right finite closure lacks licensed I.16 role alignment",
+        "expected": "FINITE_CLOSURE_RIGHT=BLOCKED; no survivor synthesis",
+        "guardrail": "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL"
+      },
+      {
+        "id": "NC_DUPLICATE_BRANCH_LABEL",
+        "change": "two labels denote one geometric world",
+        "expected": "normalize partition before synthesis",
+        "guardrail": "NUMBER_OF_LABELS != NUMBER_OF_MUTUALLY_EXCLUSIVE_WORLDS"
+      },
+      {
+        "id": "NC_NONEXHAUSTIVE_PARTITION",
+        "change": "omit one geometrically possible state",
+        "expected": "no global conclusion",
+        "guardrail": "LOCAL_UNIQUE_SURVIVOR != GLOBAL_PROOF"
+      }
+    ],
+    "validator": {
+      "passed": [
+        "four-state analysis succeeds without trichotomy",
+        "coincidence is rejected by a material-incidence certificate",
+        "finite-left is rejected via triangle host and I.16",
+        "finite-right is rejected via role-swapped triangle host and I.16",
+        "heterogeneous rejection certificates can coexist",
+        "survivor synthesis occurs only after all alternatives are certified rejected"
+      ],
+      "preserved_guardrails": [
+        "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL",
+        "BRANCH_NOT_PROVABLE != BRANCH_PROVED_IMPOSSIBLE",
+        "SURVIVOR_SYNTHESIS_REQUIRES_EXHAUSTIVE_PARTITION",
+        "REINDIVIDUATION_NEVER_UPGRADES_PROOF_LICENSE_BY_ITSELF"
+      ],
+      "rejected": [
+        "P_I27 is available",
+        "visual nonintersection proves nonclosure",
+        "missing incidence evidence rejects coincidence",
+        "unique survival in a non-exhaustive listed subset proves the target",
+        "all branch eliminations must use one common theorem or field"
+      ]
+    },
+    "result": {
+      "status": "POSITIVE_NONTRICHOTOMIC_STRESS",
+      "canonical_promotion_recommended": true,
+      "canonical_commit": false,
+      "reason": "Run13, Run14 and Run15 now support one reusable analysis/synthesis family across order and topology, 3-state and 4-state partitions, and homogeneous and heterogeneous branch certificates."
+    }
+  }
+}
