@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Run13 tests whether hidden converse order results can be reconstructed by certified elimination of qualitative alternatives. I.19 and I.25 are withheld as proof rules."
+  },
+  "experiment": {
+    "id": "RUN13_CONVERSE_RECONSTRUCTION",
+    "source_file": "TRIANGLE_MULTIAGENT_CONVERSE_RECONSTRUCTION_RUN_13.md",
+    "input_snapshot": "N10",
+    "output_snapshot": "N10+RUN13_CANDIDATE",
+    "hidden_propositions": ["P_I19", "P_I25"],
+    "guardrails": [
+      "BRANCH_PROVED_IMPOSSIBLE != BRANCH_NOT_PROVABLE",
+      "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL",
+      "EXHAUSTION_REQUIRES_CERTIFIED_ELIMINATION"
+    ],
+    "object_reconstruction": {
+      "target": {
+        "given_register": "R_OPPOSITE_ANGLE_REL",
+        "given_state": "GT",
+        "resolve_register": "R_SIDE_REL",
+        "allowed_states": ["LT", "EQ", "GT"]
+      },
+      "available_rules": ["P_I5", "P_I18"],
+      "branches": [
+        {
+          "id": "O_EQ",
+          "assumption": "R_SIDE_REL=EQ",
+          "propagation": {
+            "via": "P_I5",
+            "output": "R_OPPOSITE_ANGLE_REL=EQ",
+            "status": "PROP_LICENSED"
+          },
+          "collision_with": "R_OPPOSITE_ANGLE_REL=GT",
+          "result": "REJECTED_COUNTERFACTUAL"
+        },
+        {
+          "id": "O_LT",
+          "assumption": "R_SIDE_REL=LT",
+          "propagation": {
+            "via": "ROLE_SWAP+P_I18",
+            "output": "R_OPPOSITE_ANGLE_REL=LT",
+            "status": "PROP_LICENSED"
+          },
+          "collision_with": "R_OPPOSITE_ANGLE_REL=GT",
+          "result": "REJECTED_COUNTERFACTUAL"
+        },
+        {
+          "id": "O_GT",
+          "assumption": "R_SIDE_REL=GT",
+          "result": "SURVIVING_STATE"
+        }
+      ],
+      "synthesis": {
+        "logic": ["LT rejected", "EQ rejected", "trichotomy", "therefore GT"],
+        "readout": "side_1 > side_2",
+        "reconstructs_content_of": "P_I19",
+        "status": "PROP_LICENSED_WITHIN_EXPERIMENT"
+      }
+    },
+    "pair_reconstruction": {
+      "preconditions": [
+        "carrier_1(T1)=carrier_1(T2)",
+        "carrier_2(T1)=carrier_2(T2)"
+      ],
+      "target": {
+        "given_register": "R_THIRD_SIDE_REL",
+        "given_state": "GT",
+        "resolve_register": "R_INCLUDED_ANGLE_REL",
+        "allowed_states": ["LT", "EQ", "GT"]
+      },
+      "available_rules": ["P_I4", "P_I24"],
+      "branches": [
+        {
+          "id": "P_EQ",
+          "assumption": "R_INCLUDED_ANGLE_REL=EQ",
+          "propagation": {
+            "via": "P_I4",
+            "output": "R_THIRD_SIDE_REL=EQ",
+            "status": "PROP_LICENSED"
+          },
+          "collision_with": "R_THIRD_SIDE_REL=GT",
+          "result": "REJECTED_COUNTERFACTUAL"
+        },
+        {
+          "id": "P_LT",
+          "assumption": "R_INCLUDED_ANGLE_REL=LT",
+          "propagation": {
+            "via": "ROLE_SWAP+P_I24",
+            "output": "R_THIRD_SIDE_REL=LT",
+            "status": "PROP_LICENSED"
+          },
+          "collision_with": "R_THIRD_SIDE_REL=GT",
+          "result": "REJECTED_COUNTERFACTUAL"
+        },
+        {
+          "id": "P_GT",
+          "assumption": "R_INCLUDED_ANGLE_REL=GT",
+          "result": "SURVIVING_STATE"
+        }
+      ],
+      "synthesis": {
+        "logic": ["LT rejected", "EQ rejected", "trichotomy", "therefore GT"],
+        "readout": "included_angle_1 > included_angle_2",
+        "reconstructs_content_of": "P_I25",
+        "status": "PROP_LICENSED_CONDITIONAL_ON_PAIR_PRECONDITIONS"
+      }
+    },
+    "cross_level_compilation": {
+      "status": "COGNITIVE_CANDIDATE",
+      "shared_morphology": {
+        "source_axis": ["LT", "EQ", "GT"],
+        "target_state": "GT",
+        "eq_branch": "forward zero-preserving rule -> EQ collision",
+        "lt_branch": "role swap + forward order-preserving rule -> LT collision",
+        "synthesis": "GT survives by trichotomy"
+      },
+      "candidate_family": "F_CONVERSE_BY_DISANALOGY_EXHAUSTION",
+      "candidate_operator_pattern": "CONVERSE_BY_ZERO_AND_ORDER_ELIMINATION",
+      "genealogy_policy": "same schema description does not imply same genetic identity"
+    },
+    "negative_ablation_control": {
+      "object_case": {
+        "remove_rule": "P_I5",
+        "remaining_elimination": "R_SIDE_REL=LT can still be rejected via ROLE_SWAP+P_I18",
+        "blocked_branch": "R_SIDE_REL=EQ",
+        "correct_result": "R_SIDE_REL in {EQ,GT}; UNRESOLVED",
+        "forbidden_result": "infer GT from inability to prove EQ"
+      },
+      "pair_case": {
+        "remove_rule": "P_I4",
+        "blocked_branch": "R_INCLUDED_ANGLE_REL=EQ",
+        "correct_result": "R_INCLUDED_ANGLE_REL in {EQ,GT}; UNRESOLVED"
+      },
+      "status": "GUARDRAIL_PASSES"
+    },
+    "disanalogy_momentum": {
+      "candidate_topology": "CONVERGENT_ELIMINATION_MOMENTUM",
+      "description": "Independent certified rejection paths eliminate distinct alternatives and jointly constrain one qualitative register toward a surviving state.",
+      "scalar_strength": null
+    },
+    "validator": {
+      "passed": [
+        "OBJECT EQ branch eliminated via I.5",
+        "OBJECT LT branch eliminated via role-swap plus I.18",
+        "OBJECT GT reconstructed by trichotomy",
+        "PAIR EQ branch eliminated via I.4 under carrier equalities",
+        "PAIR LT branch eliminated via role-swap plus I.24",
+        "PAIR GT reconstructed by trichotomy",
+        "ablation control preserves unresolved branch when zero rule is unavailable"
+      ],
+      "candidates_only": [
+        "F_CONVERSE_BY_DISANALOGY_EXHAUSTION",
+        "CONVERSE_BY_ZERO_AND_ORDER_ELIMINATION",
+        "CONVERGENT_ELIMINATION_MOMENTUM"
+      ],
+      "rejected": [
+        "closed-world elimination of unsupported branches",
+        "importing hidden I.19 or I.25 as proof axioms",
+        "ignoring carrier preconditions in pair reconstruction",
+        "equating schema-description identity with genealogy identity"
+      ]
+    },
+    "candidate_network_delta": {
+      "candidate_entities": [
+        "F_CONVERSE_BY_DISANALOGY_EXHAUSTION",
+        "CONVERSE_BY_ZERO_AND_ORDER_ELIMINATION",
+        "CONVERGENT_ELIMINATION_MOMENTUM"
+      ],
+      "candidate_genealogies": [
+        "GEN_RECONSTRUCT_I19",
+        "GEN_RECONSTRUCT_I25"
+      ],
+      "canonical_commit": false,
+      "promotion_condition": "survive transfer test on a new problem family"
+    }
+  }
+}
