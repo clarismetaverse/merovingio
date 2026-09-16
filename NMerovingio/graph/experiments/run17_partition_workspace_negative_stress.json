@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Negative stress test of the Run16 OP_PARTITION_WORKSPACE candidate. The candidate survives only with strict material owner, overlap, incidence, and proof-license bookkeeping."
+  },
+  "experiment": {
+    "id": "RUN17_PARTITION_WORKSPACE_NEGATIVE_STRESS",
+    "source_file": "TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md",
+    "input_snapshot": "N11",
+    "output_snapshot": "N11+RUN17_CANDIDATE",
+    "candidate_operator_under_test": "OP_PARTITION_WORKSPACE",
+    "workspace": {
+      "id": "W_PARTITION_NEGATIVE_STRESS",
+      "type": "WORKSPACE",
+      "level": "MATERIAL",
+      "material_facts": [
+        "AB = AC",
+        "D_L lies on BC",
+        "D_R lies on BC",
+        "D_L != D_R",
+        "A-D_L exists",
+        "A-D_R exists",
+        "optionally BD_L = D_R C for SSS temptation"
+      ],
+      "candidate_subworkspaces": [
+        "T_L = triangle A B D_L",
+        "T_R = triangle A C D_R"
+      ]
+    },
+    "schema_alignment": {
+      "status": "VALIDATED_COGNITIVE",
+      "role_class": "BASE_SPLIT_POINT",
+      "members": ["D_L", "D_R"],
+      "guardrail": "ROLE_ALIGNMENT != MATERIAL_IDENTITY"
+    },
+    "partition_trace": {
+      "subworkspaces": [
+        {
+          "id": "W_TL_RUN17",
+          "status": "REGISTERED",
+          "owner_map": {
+            "A": "A",
+            "B": "B",
+            "D": "D_L",
+            "internal_carrier": "A-D_L"
+          }
+        },
+        {
+          "id": "W_TR_RUN17",
+          "status": "REGISTERED",
+          "owner_map": {
+            "A": "A",
+            "C": "C",
+            "D": "D_R",
+            "internal_carrier": "A-D_R"
+          }
+        }
+      ],
+      "computed_overlap": ["A"],
+      "rejected_overlap_claims": ["segment A-D", "shared split point D"],
+      "result": "LOCAL_PARTITION_VALID_SHARED_CARRIER_INVALID"
+    },
+    "congruence_stress": {
+      "pair_slots": [
+        {"slot": "side_1", "statement": "AB = AC", "status": "PASS"},
+        {"slot": "side_2", "statement": "BD_L = D_R C", "status": "PASS_IF_SUPPLIED"},
+        {"slot": "side_3", "statement": "A-D_L = A-D_R", "status": "UNKNOWN_NOT_LICENSED"}
+      ],
+      "i8_status": "BLOCKED",
+      "guardrail": "ROLE_ALIGNED_CARRIERS_DO_NOT_INHERIT_METRIC_IDENTITY"
+    },
+    "false_merge_proposal": {
+      "proposal": "MERGE D_L,D_R AS SHARED SPLIT POINT",
+      "status": "REJECTED",
+      "reason": "OWNER_IDENTITY_CONFLICT",
+      "preserved_cognitive_relation": "D_L and D_R may remain schema-role aligned"
+    },
+    "local_to_parent": {
+      "licensed_maps": [
+        "angle A B D_L -> angle A B C",
+        "angle A C D_R -> angle A C B"
+      ],
+      "local_angle_equality": "UNRESOLVED",
+      "parent_target": "UNRESOLVED",
+      "guardrail": "RECOMPOSITION_CANNOT_CREATE_MISSING_LOCAL_PROOF"
+    },
+    "visual_intersection_microtest": {
+      "candidate_point": "X",
+      "incidence_status": {
+        "X_in_line_1": "UNKNOWN",
+        "X_in_line_2": "UNKNOWN"
+      },
+      "partition_status": "BLOCKED_MISSING_MATERIAL_FACT",
+      "guardrail": "VISUAL_CLOSURE != MATERIAL_SUBWORKSPACE"
+    },
+    "refined_candidate_semantics": {
+      "operator": "OP_PARTITION_WORKSPACE",
+      "steps": [
+        "verify material vertices/carriers/incidences",
+        "create subworkspace owner maps only from certified material facts",
+        "compute overlap from exact owner intersection",
+        "preserve distinct owners despite schema alignment",
+        "emit boundary-role maps only from licensed incidence",
+        "never create metric equality from role labels",
+        "return BLOCKED when required material facts are missing"
+      ],
+      "status_vocabulary": [
+        "REGISTERED",
+        "BLOCKED_MISSING_MATERIAL_FACT",
+        "REJECTED_OWNER_CONFLICT"
+      ]
+    },
+    "momentum": {
+      "analogy_pressure": "D_L and D_R occupy the same split-point schema role",
+      "material_resistance": "D_L != D_R",
+      "resolution": "preserve schema commonality while maintaining material distinction",
+      "interpretation": "scope-localization of analogy rather than analogy rejection"
+    },
+    "validator": {
+      "passed": [
+        "both local triangle subworkspaces are materially registerable",
+        "schema role alignment may coexist with distinct material owners",
+        "exact overlap is computed from owner maps",
+        "local-to-parent angle-role maps are licensed by D_L,D_R on BC"
+      ],
+      "blocked": [
+        "I.8 when A-D_L = A-D_R is not licensed",
+        "subworkspace creation from an uncertified visual intersection"
+      ],
+      "rejected": [
+        "schema role identity collapses D_L and D_R materially",
+        "role normalization creates a common side",
+        "partition invents incidence",
+        "recomposition creates parent equality from unresolved local equality"
+      ]
+    },
+    "candidate_invariants": [
+      "ROLE_ALIGNMENT != MATERIAL_IDENTITY",
+      "OVERLAP MUST BE COMPUTED FROM OWNER MAPS",
+      "VISUAL_CLOSURE != MATERIAL_SUBWORKSPACE",
+      "PARTITION_SUCCESS != DOWNSTREAM_THEOREM_LICENSE"
+    ],
+    "result": {
+      "status": "POSITIVE_NEGATIVE_STRESS",
+      "canonical_promotion": false,
+      "next_test": "positive transfer in a non-isosceles workspace"
+    }
+  }
+}
