@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "delta_id": "N11_COUNTERFACTUAL_STATE_RECOVERY",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical": true,
+    "source_experiments": [
+      "TRIANGLE_MULTIAGENT_CONVERSE_RECONSTRUCTION_RUN_13.md",
+      "TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md",
+      "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"
+    ],
+    "notes": "Promotes the analysis-synthesis strategy only after converse reconstruction, cross-ontology transfer, and a four-state heterogeneous-eliminator stress test."
+  },
+  "entities": [
+    {
+      "id": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "type": "FAMILY",
+      "name": "Counterfactual state recovery family",
+      "level": "META",
+      "properties": {
+        "capability": "STATE_RECOVERY_BY_COUNTERFACTUAL_EXHAUSTION",
+        "analysis": "factor unresolved state into an exhaustive counterfactual partition",
+        "propagation": "route each branch into the strongest proposition-licensed host and propagate consequences",
+        "synthesis": "recover a unique surviving state only after every alternative is certified impossible",
+        "supports_nontrichotomic_partitions": true,
+        "supports_heterogeneous_eliminators": true,
+        "requires_unique_survivor": true
+      },
+      "evidence": {
+        "status": "COMPILED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_CONVERSE_RECONSTRUCTION_RUN_13.md",
+          "TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md",
+          "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"
+        ]
+      }
+    },
+    {
+      "id": "CAP_COUNTERFACTUAL_STATE_RECOVERY",
+      "type": "CAPABILITY",
+      "name": "State recovery by counterfactual exhaustion",
+      "level": "META",
+      "properties": {
+        "pipeline": [
+          "PARTITION_STATE_SPACE",
+          "REALIZE_COUNTERFACTUAL_HOSTS",
+          "PROPAGATE_LICENSED_CONSEQUENCES",
+          "CERTIFY_BRANCH_STATUS",
+          "SYNTHESIZE_UNIQUE_SURVIVOR"
+        ],
+        "branch_statuses": ["OPEN", "BLOCKED", "REJECTED", "SURVIVING"],
+        "proof_policy": "only REJECTED removes a branch from the admissible state space"
+      },
+      "evidence": {
+        "status": "COMPILED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_CONVERSE_RECONSTRUCTION_RUN_13.md",
+          "TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md",
+          "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"
+        ]
+      }
+    },
+    {
+      "id": "INV_EXHAUSTIVENESS_BEFORE_SYNTHESIS",
+      "type": "INVARIANT",
+      "name": "Exhaustiveness before synthesis",
+      "level": "META",
+      "properties": {
+        "statement": "SURVIVOR SYNTHESIS REQUIRES EXHAUSTIVE PARTITION",
+        "meaning": "A locally unique surviving branch cannot be promoted unless the represented state space is known to be exhaustive under the frozen assumptions."
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md", "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"]
+      }
+    },
+    {
+      "id": "INV_CERTIFIED_REJECTION_ONLY",
+      "type": "INVARIANT",
+      "name": "Certified rejection only",
+      "level": "META",
+      "properties": {
+        "statement": "ONLY CERTIFIED IMPOSSIBILITY REJECTS A COUNTERFACTUAL BRANCH",
+        "meaning": "Failure to prove, failure to realize a host, or visual absence does not eliminate a branch."
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_CONVERSE_RECONSTRUCTION_RUN_13.md", "TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md", "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"]
+      }
+    },
+    {
+      "id": "INV_HETEROGENEOUS_ELIMINATORS_ALLOWED",
+      "type": "INVARIANT",
+      "name": "Heterogeneous eliminators allowed",
+      "level": "META",
+      "properties": {
+        "statement": "SYNTHESIS DOES NOT REQUIRE HOMOGENEOUS BRANCH PROOFS",
+        "meaning": "Different counterfactual worlds may be rejected by different proposition families, incidence constraints, or Gestalt hosts, provided each rejection is licensed."
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_RECOVERY_FAMILY_HAS_CAPABILITY",
+      "source": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "target": "CAP_COUNTERFACTUAL_STATE_RECOVERY",
+      "type": "COMPILES_TO",
+      "run_introduced": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "evidence": {"status": "COMPILED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOVERY_USES_EXHAUSTIVENESS",
+      "source": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "target": "INV_EXHAUSTIVENESS_BEFORE_SYNTHESIS",
+      "type": "USES",
+      "run_introduced": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOVERY_USES_CERTIFIED_REJECTION",
+      "source": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "target": "INV_CERTIFIED_REJECTION_ONLY",
+      "type": "USES",
+      "run_introduced": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOVERY_USES_BLOCKED_NOT_REJECTED",
+      "source": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "target": "INV_BLOCKED_PROPAGATION_NOT_REJECTED",
+      "type": "USES",
+      "run_introduced": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_RECOVERY_ALLOWS_HETEROGENEOUS_ELIMINATORS",
+      "source": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "target": "INV_HETEROGENEOUS_ELIMINATORS_ALLOWED",
+      "type": "USES",
+      "run_introduced": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    }
+  ],
+  "genealogies": [
+    {
+      "id": "GEN_COUNTERFACTUAL_STATE_RECOVERY",
+      "target": "F_COUNTERFACTUAL_STATE_RECOVERY",
+      "genetic_identity_key": "analysis_synthesis_counterfactual_recovery",
+      "paths": [
+        {
+          "id": "GEN_RECOVERY_FROM_RUN13_14_15",
+          "origin": "repeated survivor synthesis across distinct state ontologies",
+          "steps": [
+            {
+              "index": 0,
+              "event": "Run13 reconstructs hidden converse order results by exhausting LT/EQ/GT alternatives",
+              "input_entities": ["P_I5", "P_I18", "P_I4", "P_I24"],
+              "output_entities": [],
+              "proposition_support": ["P_I5", "P_I18", "P_I4", "P_I24"]
+            },
+            {
+              "index": 1,
+              "event": "Run14 transfers the same proof morphology to closure topology and reconstructs distributed nonclosure with I.16 while I.27 is hidden",
+              "input_entities": ["P_I16", "W_TWO_CARRIERS_TRANSVERSAL"],
+              "output_entities": [],
+              "proposition_support": ["P_I16"]
+            },
+            {
+              "index": 2,
+              "event": "Run15 extends the strategy to four states and heterogeneous branch eliminators",
+              "input_entities": ["P_I16", "W_TWO_CARRIERS_TRANSVERSAL"],
+              "output_entities": ["F_COUNTERFACTUAL_STATE_RECOVERY"],
+              "proposition_support": ["P_I16"]
+            },
+            {
+              "index": 3,
+              "event": "Compiler promotes the recurring morphology under exhaustiveness and certified-rejection guardrails",
+              "input_entities": ["INV_EXHAUSTIVENESS_BEFORE_SYNTHESIS", "INV_CERTIFIED_REJECTION_ONLY", "INV_BLOCKED_PROPAGATION_NOT_REJECTED", "INV_HETEROGENEOUS_ELIMINATORS_ALLOWED"],
+              "output_entities": ["F_COUNTERFACTUAL_STATE_RECOVERY", "CAP_COUNTERFACTUAL_STATE_RECOVERY"],
+              "proposition_support": []
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "status": "COMPILED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_CONVERSE_RECONSTRUCTION_RUN_13.md",
+          "TRIANGLE_MULTIAGENT_PARALLEL_TRANSFER_RUN_14.md",
+          "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md"
+        ]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "TRIANGLE_MULTIAGENT_FOUR_STATE_RECOVERY_STRESS_RUN_15.md",
+      "input_snapshot": "N10",
+      "output_snapshot": "N11",
+      "delta": {
+        "add_entities": [
+          "F_COUNTERFACTUAL_STATE_RECOVERY",
+          "CAP_COUNTERFACTUAL_STATE_RECOVERY",
+          "INV_EXHAUSTIVENESS_BEFORE_SYNTHESIS",
+          "INV_CERTIFIED_REJECTION_ONLY",
+          "INV_HETEROGENEOUS_ELIMINATORS_ALLOWED"
+        ],
+        "add_edges": [
+          "E_RECOVERY_FAMILY_HAS_CAPABILITY",
+          "E_RECOVERY_USES_EXHAUSTIVENESS",
+          "E_RECOVERY_USES_CERTIFIED_REJECTION",
+          "E_RECOVERY_USES_BLOCKED_NOT_REJECTED",
+          "E_RECOVERY_ALLOWS_HETEROGENEOUS_ELIMINATORS"
+        ],
+        "enrich_entities": ["INV_BLOCKED_PROPAGATION_NOT_REJECTED"],
+        "refactor": ["generalize converse-by-elimination into ontology-independent counterfactual state recovery"],
+        "open_questions": [
+          "Can the strategy autonomously choose useful counterfactual partitions rather than receiving them from a controlled run?",
+          "Can counterfactual pressure itself trigger construction of a missing geometric host?"
+        ],
+        "rejected_inferences": [
+          "unique local survivor implies global conclusion without exhaustive partition",
+          "blocked branch counts as rejected",
+          "all branch eliminations must use the same theorem family"
+        ]
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "N11",
+      "after_run": "RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY",
+      "active_entities": [
+        "F_COUNTERFACTUAL_STATE_RECOVERY",
+        "CAP_COUNTERFACTUAL_STATE_RECOVERY",
+        "INV_EXHAUSTIVENESS_BEFORE_SYNTHESIS",
+        "INV_CERTIFIED_REJECTION_ONLY",
+        "INV_BLOCKED_PROPAGATION_NOT_REJECTED",
+        "INV_HETEROGENEOUS_ELIMINATORS_ALLOWED",
+        "OP_REINDIVIDUATE",
+        "F_METRIC_ANGULAR_ORDER"
+      ],
+      "active_families": [
+        "F_COUNTERFACTUAL_STATE_RECOVERY",
+        "F_METRIC_ANGULAR_ORDER",
+        "F_RELATIONAL_COMPLETION_FIELD",
+        "F_GLOBAL_CONSTRAINT_COMPLETION"
+      ],
+      "active_invariants": [
+        "SURVIVOR SYNTHESIS REQUIRES EXHAUSTIVE PARTITION",
+        "ONLY CERTIFIED IMPOSSIBILITY REJECTS A COUNTERFACTUAL BRANCH",
+        "BLOCKED_PROPAGATION != REJECTED_COUNTERFACTUAL",
+        "SYNTHESIS DOES NOT REQUIRE HOMOGENEOUS BRANCH PROOFS"
+      ],
+      "open_questions": [
+        "Can Merovingio generate the state partition autonomously?",
+        "Can counterfactual analysis generate auxiliary constructions rather than merely selecting among existing hosts?"
+      ],
+      "notes": "Canonicalizes analysis-synthesis as ontology-independent state recovery through exhaustive counterfactual exploration and certified branch elimination."
+    }
+  ]
+}
