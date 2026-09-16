@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false,
+    "notes": "Architectural stress test of one-object -> two material subtriangles -> congruent pair -> enriched parent. No PARTITION operator is granted in advance."
+  },
+  "experiment": {
+    "id": "RUN16_ISOSCELES_PARTITION_RECOMPOSITION",
+    "source_file": "TRIANGLE_MULTIAGENT_ISOSCELES_PARTITION_RECOMPOSITION_RUN_16.md",
+    "input_snapshot": "N11",
+    "output_snapshot": "N11+RUN16_CANDIDATE",
+    "workspace": {
+      "id": "W_ISOSCELES_SPLIT",
+      "type": "WORKSPACE",
+      "level": "MATERIAL",
+      "material_facts": [
+        "AB = AC",
+        "D lies on BC",
+        "BD = DC",
+        "AD is joined"
+      ],
+      "candidate_subworkspaces": ["triangle ABD", "triangle ACD"],
+      "shared_material": ["A", "D", "segment AD"]
+    },
+    "target": "angle ABC = angle ACB",
+    "active_architecture": [
+      "OP_REINDIVIDUATE",
+      "OP_RECOMPOSE_GESTALTS",
+      "G_PAIR_COINCIDENCE",
+      "P_I8",
+      "INV_REINDIVIDUATION_PROOF_LICENSE_BARRIER",
+      "INV_BLOCKED_PROPAGATION_NOT_REJECTED"
+    ],
+    "trace": [
+      {
+        "index": 0,
+        "stage": "REINDIVIDUATION_ATTEMPT",
+        "proposal": "Treat parent workspace as supporting left/right triangle role domains",
+        "result": "COGNITIVE_SCHEMA_ALLOWED_MATERIAL_GENERATION_REJECTED",
+        "principle": "COGNITIVE_REINDIVIDUATION != MATERIAL_SUBWORKSPACE_EXTRACTION"
+      },
+      {
+        "index": 1,
+        "stage": "MATERIAL_SUBWORKSPACE_REGISTRATION",
+        "input_bookkeeping": {
+          "W_TL": "triangle ABD",
+          "W_TR": "triangle ACD",
+          "parent": "W_ISOSCELES_SPLIT",
+          "overlap": "AD + vertices A,D"
+        },
+        "result": "PAIR_WORKSPACE_PROPOSITION_ADDRESSABLE"
+      },
+      {
+        "index": 2,
+        "stage": "CONGRUENCE_COMPLETION",
+        "via": "P_I8",
+        "premises": ["AB=AC", "BD=DC", "AD=AD"],
+        "output": "G_PAIR_COINCIDENCE(T_L,T_R)",
+        "readout": "angle ABD = angle ACD",
+        "status": "PROP_LICENSED"
+      },
+      {
+        "index": 3,
+        "stage": "RECOMPOSE_TO_PARENT",
+        "via": "OP_RECOMPOSE_GESTALTS",
+        "preserved_contacts": ["D lies on BC", "BD follows parent base ray BC", "CD follows parent base ray CB"],
+        "input": "angle ABD = angle ACD",
+        "output": "angle ABC = angle ACB",
+        "status": "VALIDATED_COGNITIVE_WITH_LICENSED_ROLE_MAP"
+      }
+    ],
+    "candidate_operator": {
+      "id": "OP_PARTITION_WORKSPACE",
+      "status": "HIGH_VALUE_REFACTOR_PROPOSAL",
+      "motivation": "Current re-individuation changes cognitive role ownership but cannot create proposition-addressable material subworkspaces.",
+      "minimal_signature": {
+        "inputs": ["parent_workspace", "construction_carriers"],
+        "outputs": ["material_subworkspaces", "owner_maps", "overlap_maps", "boundary_role_maps", "preserved_contact_ledger"]
+      },
+      "proof_policy": "partition registers material substructure; it does not certify congruence or any target proposition"
+    },
+    "negative_controls": [
+      {
+        "case": "missing BD=DC",
+        "expected": "PAIR_CONGRUENCE_BLOCKED",
+        "forbidden": "infer base-angle equality"
+      },
+      {
+        "case": "schema triangles without material owner maps",
+        "expected": "I8_NOT_LICENSED",
+        "forbidden": "schema match substitutes for proposition application"
+      },
+      {
+        "case": "missing D on BC / parent role map",
+        "expected": "LOCAL_EQUALITY_PROVED_PARENT_TARGET_UNRESOLVED",
+        "forbidden": "rename local angles as parent angles without incidence support"
+      }
+    ],
+    "representation_pressure": {
+      "type": "BLOCKED_PROOF_AFFORDANCE_TO_REORGANIZATION_IMPETUS",
+      "chain": [
+        "construction introduces internal carrier",
+        "two strong local triangle readings appear",
+        "congruence affordance becomes salient",
+        "proof license blocked without material owner maps",
+        "missing representational layer identified"
+      ]
+    },
+    "validator": {
+      "passed": [
+        "re-individuation may expose two cognitive triangle readings",
+        "I.8 certifies congruence after material subworkspaces and SSS premises are explicitly registered",
+        "existing OP_RECOMPOSE_GESTALTS can support the return path when preserved contacts and parent-role maps are explicit"
+      ],
+      "rejected": [
+        "OP_REINDIVIDUATE alone creates material subtriangles",
+        "cognitive schema grants I.8 proof license",
+        "local angular equality automatically equals parent angular equality"
+      ],
+      "candidate_only": ["OP_PARTITION_WORKSPACE"]
+    },
+    "candidate_network_delta": {
+      "candidate_entities": ["OP_PARTITION_WORKSPACE"],
+      "candidate_invariants": [
+        "COGNITIVE_REINDIVIDUATION != MATERIAL_SUBWORKSPACE_EXTRACTION",
+        "LOCAL_READOUT != PARENT_READOUT without licensed role map"
+      ],
+      "canonical_commit": false
+    }
+  }
+}
