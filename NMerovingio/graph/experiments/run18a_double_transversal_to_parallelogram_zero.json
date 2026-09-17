@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false
+  },
+  "experiment": {
+    "id": "RUN18A_DOUBLE_TRANSVERSAL_TO_PARALLELOGRAM_ZERO",
+    "input_snapshot": "N12",
+    "workspace": "W_DOUBLE_TRANSVERSAL_STRIP",
+    "seeds": [
+      "p || q",
+      "t_L intersects p at A and q at D",
+      "t_R intersects p at B and q at C",
+      "t_L != t_R"
+    ],
+    "target_register": {
+      "id": "C_t",
+      "domain": ["FINITE_CLOSURE_LEFT", "DISTRIBUTED_NONCLOSURE", "FINITE_CLOSURE_RIGHT"]
+    },
+    "observed_family": {
+      "candidate_id": "F_TRANSVERSAL_PAIR_CLOSURE",
+      "swap": {
+        "FINITE_CLOSURE_LEFT": "FINITE_CLOSURE_RIGHT",
+        "FINITE_CLOSURE_RIGHT": "FINITE_CLOSURE_LEFT",
+        "DISTRIBUTED_NONCLOSURE": "DISTRIBUTED_NONCLOSURE"
+      },
+      "nonzero_states": ["FINITE_CLOSURE_LEFT", "FINITE_CLOSURE_RIGHT"],
+      "zero_candidate": "DISTRIBUTED_NONCLOSURE"
+    },
+    "zero_candidate": {
+      "id": "Z_TRANSVERSAL_PAIR_NONCLOSURE",
+      "type": "TOPOLOGICAL_ZERO",
+      "fixed_by": "SWAP_CLOSURE_SIDE",
+      "condition": "closure_topology(t_L,t_R)=DISTRIBUTED_NONCLOSURE"
+    },
+    "higher_gestalt_candidate": {
+      "id": "G_DOUBLE_PARALLEL_CELL",
+      "conditions": ["p || q", "t_L || t_R"],
+      "semantic_alias": "parallelogram",
+      "status": "COGNITIVE_CANDIDATE"
+    },
+    "main_insights": [
+      "finite closure states are oriented triangle-producing disanalogies",
+      "distributed nonclosure is their swap-fixed topological zero",
+      "a parallelogram-like cell is the zero realization of this transversal-closure family when one parallel pair is already fixed",
+      "ZERO_STATUS_IS_GESTALT_RELATIVE",
+      "CANONICALITY_IS_FAMILY_RELATIVE"
+    ],
+    "validator": {
+      "passed": [
+        "finite closure creates triangle-producing hosts",
+        "left/right closures are swapped orientations",
+        "distributed nonclosure is swap-fixed",
+        "double parallelism yields a double-parallel cell"
+      ],
+      "rejected": [
+        "visual near-parallelism certifies nonclosure",
+        "one rejected finite branch is enough to identify zero",
+        "parallelogram is zero in every family"
+      ]
+    },
+    "candidate_network_delta": {
+      "candidate_entities": [
+        "F_TRANSVERSAL_PAIR_CLOSURE",
+        "Z_TRANSVERSAL_PAIR_NONCLOSURE",
+        "G_DOUBLE_PARALLEL_CELL"
+      ],
+      "canonical_commit": false
+    }
+  }
+}
