@@ -2,7 +2,7 @@
   "metadata": {
     "schema_version": "1.1.0",
     "project": "Merovingio",
-    "canonical_snapshot": "N11",
+    "canonical_snapshot": "N12",
     "epistemic_status": "FORMALIZED_DRY_RUN_DATA",
     "notes": "The v1 registries remain immutable baseline data through N9. Canonical graph evolution after N9 is applied as ordered deltas so experiments can be promoted without rewriting historical snapshots."
   },
@@ -15,6 +15,7 @@
   },
   "canonical_deltas": [
     "canonical_deltas/n10_reindividuation.json",
-    "canonical_deltas/n11_counterfactual_state_recovery.json"
+    "canonical_deltas/n11_counterfactual_state_recovery.json",
+    "canonical_deltas/n12_partition_workspace.json"
   ]
 }
