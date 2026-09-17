@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical_graph_mutated": false
+  },
+  "experiment": {
+    "id": "RUN18B_PARALLELOGRAM_TO_COUPLED_TRANSVERSALS",
+    "input_snapshot": "N12",
+    "workspace": "W_DOUBLE_PARALLEL_QUADRILATERAL",
+    "seeds": ["AB || DC", "AD || BC"],
+    "views": [
+      {
+        "id": "G_TRANSVERSAL_VIEW_1",
+        "parallel_carriers": ["AB", "DC"],
+        "transversal_roles": ["AD", "BC"],
+        "closure_state": "DISTRIBUTED_NONCLOSURE"
+      },
+      {
+        "id": "G_TRANSVERSAL_VIEW_2",
+        "parallel_carriers": ["AD", "BC"],
+        "transversal_roles": ["AB", "DC"],
+        "closure_state": "DISTRIBUTED_NONCLOSURE"
+      }
+    ],
+    "higher_gestalt_candidate": {
+      "id": "G_MUTUAL_TRANSVERSAL_ZERO",
+      "description": "same four-edge material workspace jointly realizes two transversal-pair nonclosure zeros",
+      "semantic_alias": "parallelogram-like double-parallel cell",
+      "status": "COGNITIVE_CANDIDATE"
+    },
+    "operator_result": {
+      "partition_workspace_required": false,
+      "cognitive_partialization_sufficient": true,
+      "reason": "the experiment creates two role organizations of one material workspace, not two material proof objects"
+    },
+    "main_insights": [
+      "a segment can be a carrier in one Gestalt and a transversal in another",
+      "MATERIAL_IDENTITY_PRESERVED_WHILE_ROLE_IDENTITY_CHANGES",
+      "double-parallel cell can be read as two coupled transversal nonclosure zeros",
+      "TOPOLOGICAL_COMPOSITE_ZERO != METRIC_ANGULAR_COMPOSITE_ZERO",
+      "the same object may be zero in one family and generic in another"
+    ],
+    "disanalogy_axes": [
+      "break AD || BC -> finite closure candidate -> triangle-producing deformation",
+      "break AB || DC -> finite closure candidate -> second triangle-producing deformation"
+    ],
+    "validator": {
+      "passed": [
+        "each opposite pair can act as parallel carriers while the other pair acts as transversals",
+        "both transversal views have distributed nonclosure",
+        "both views share one material workspace",
+        "material partition is unnecessary"
+      ],
+      "rejected": [
+        "two cognitive views imply two material quadrilaterals",
+        "a segment has one permanent inferential role",
+        "double nonclosure implies square/rhombus/rectangle properties",
+        "topological zero equals metric/angular zero"
+      ]
+    },
+    "candidate_network_delta": {
+      "candidate_entities": [
+        "G_TRANSVERSAL_VIEW_1",
+        "G_TRANSVERSAL_VIEW_2",
+        "G_MUTUAL_TRANSVERSAL_ZERO"
+      ],
+      "candidate_relations": ["SHARED_REALIZATION", "MUTUAL_PARTIALIZATION"],
+      "canonical_commit": false
+    }
+  }
+}
