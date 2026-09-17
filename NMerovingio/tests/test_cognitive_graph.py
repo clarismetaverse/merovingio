@@ -15,7 +15,7 @@ def test_graph_references_are_coherent():
     assert graph().validate() == []
 
 
-def test_all_controlled_runs_form_n0_to_n10_chain():
+def test_all_controlled_runs_form_n0_to_n12_chain():
     g = graph()
     expected = [
         ("RUN01", "N0", "N1"),
@@ -28,10 +28,12 @@ def test_all_controlled_runs_form_n0_to_n10_chain():
         ("RUN08", "N7", "N8"),
         ("RUN09", "N8", "N9"),
         ("RUN10_CANONICAL_REINDIVIDUATION", "N9", "N10"),
+        ("RUN11_CANONICAL_COUNTERFACTUAL_RECOVERY", "N10", "N11"),
+        ("RUN12_CANONICAL_PARTITION_WORKSPACE", "N11", "N12"),
     ]
     assert [(r, g.run(r).input_snapshot, g.run(r).output_snapshot) for r, _, _ in expected] == expected
     assert all(g.run(r).raw["execution_mode"] == "CONTROLLED_DRY_RUN" for r, _, _ in expected)
-    assert g.summary()["latest_snapshot"] == "N10"
+    assert g.summary()["latest_snapshot"] == "N12"
 
 
 def test_triangle_zero_is_swap_fixed_and_member_of_triangle_family():
@@ -112,6 +114,52 @@ def test_i18_i25_compile_into_shared_metric_to_angular_family_but_keep_realizati
     assert members["P_I18"] == "OBJECT_NATIVE"
     assert members["P_I25"] == "PAIR_NATIVE"
     assert members["G_REINDIVIDUATED_ORDER_SCHEMA"] == "REINDIVIDUATED_SCHEMA"
+
+
+def test_counterfactual_state_recovery_is_exhaustive_and_certified():
+    g = graph()
+    family = g.entity("F_COUNTERFACTUAL_STATE_RECOVERY")
+    assert family.raw["properties"]["supports_nontrichotomic_partitions"] is True
+    assert family.raw["properties"]["supports_heterogeneous_eliminators"] is True
+    assert family.raw["properties"]["requires_unique_survivor"] is True
+    assert g.entity("INV_EXHAUSTIVENESS_BEFORE_SYNTHESIS").raw["properties"]["statement"] == (
+        "SURVIVOR SYNTHESIS REQUIRES EXHAUSTIVE PARTITION"
+    )
+    assert g.entity("INV_CERTIFIED_REJECTION_ONLY").raw["properties"]["statement"] == (
+        "ONLY CERTIFIED IMPOSSIBILITY REJECTS A COUNTERFACTUAL BRANCH"
+    )
+
+
+def test_partition_workspace_is_material_and_not_reindividuation_converse():
+    g = graph()
+    partition = g.entity("OP_PARTITION_WORKSPACE")
+    props = partition.raw["properties"]
+    assert props["layer"] == "MATERIAL_PROOF_TOPOLOGY"
+    assert props["may_register_subworkspaces"] is True
+    assert props["asserts_unverified_incidence"] is False
+    assert props["asserts_role_identity_as_material_identity"] is False
+    assert props["proof_license_policy"] == (
+        "PARTITION_REGISTERS_MATERIAL_STRUCTURE_BUT_DOES_NOT_BY_ITSELF_LICENSE_DOWNSTREAM_THEOREMS"
+    )
+
+    layer_split = g.entity("INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT")
+    assert layer_split.raw["properties"]["statement"] == (
+        "COGNITIVE_REINDIVIDUATION != MATERIAL_SUBWORKSPACE_EXTRACTION"
+    )
+
+
+def test_partition_requires_material_owner_maps_and_preserves_theorem_barrier():
+    g = graph()
+    barrier = g.entity("INV_PARTITION_OWNER_MAP_BARRIER")
+    assert barrier.raw["properties"]["statement"] == "OVERLAP MUST BE COMPUTED FROM MATERIAL OWNER MAPS"
+    corollaries = set(barrier.raw["properties"]["corollaries"])
+    assert "ROLE_ALIGNMENT != MATERIAL_IDENTITY" in corollaries
+    assert "VISUAL_CLOSURE != MATERIAL_SUBWORKSPACE" in corollaries
+    assert "PARTITION_SUCCESS != DOWNSTREAM_THEOREM_LICENSE" in corollaries
+
+    outgoing = {(edge.target, edge.type) for edge in g.outgoing("OP_PARTITION_WORKSPACE")}
+    assert ("INV_PARTITION_OWNER_MAP_BARRIER", "USES") in outgoing
+    assert ("INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT", "USES") in outgoing
 
 
 def test_run12_guardrail_is_canonicalized_as_invariants():
