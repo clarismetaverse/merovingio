@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "schema_version": "1.1.0",
+    "project": "Merovingio",
+    "delta_id": "N12_PARTITION_WORKSPACE",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical": true,
+    "source_experiments": [
+      "TRIANGLE_MULTIAGENT_ISOSCELES_PARTITION_RECOMPOSITION_RUN_16.md",
+      "TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md"
+    ],
+    "notes": "Promotes only the minimal material-subworkspace extraction operator that survived the positive isosceles/congruence run and the negative owner-map/false-overlap stress test. It is explicitly not the converse of OP_REINDIVIDUATE."
+  },
+  "entities": [
+    {
+      "id": "OP_PARTITION_WORKSPACE",
+      "type": "OPERATOR",
+      "name": "Partition material workspace into proposition-addressable subworkspaces",
+      "level": "META",
+      "properties": {
+        "layer": "MATERIAL_PROOF_TOPOLOGY",
+        "input": ["parent_workspace", "construction_carriers", "certified_material_facts"],
+        "outputs": [
+          "material_subworkspaces",
+          "owner_maps",
+          "overlap_maps",
+          "boundary_role_maps",
+          "preserved_contact_ledger"
+        ],
+        "may_register_subworkspaces": true,
+        "may_create_cognitive_schema_only": false,
+        "asserts_unverified_incidence": false,
+        "asserts_role_identity_as_material_identity": false,
+        "proof_license_policy": "PARTITION_REGISTERS_MATERIAL_STRUCTURE_BUT_DOES_NOT_BY_ITSELF_LICENSE_DOWNSTREAM_THEOREMS",
+        "failure_status_on_missing_material_fact": "BLOCKED_MISSING_MATERIAL_FACT"
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_ISOSCELES_PARTITION_RECOMPOSITION_RUN_16.md",
+          "TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md"
+        ]
+      }
+    },
+    {
+      "id": "INV_PARTITION_OWNER_MAP_BARRIER",
+      "type": "INVARIANT",
+      "name": "Partition owner-map barrier",
+      "level": "META",
+      "properties": {
+        "statement": "OVERLAP MUST BE COMPUTED FROM MATERIAL OWNER MAPS",
+        "corollaries": [
+          "ROLE_ALIGNMENT != MATERIAL_IDENTITY",
+          "VISUAL_CLOSURE != MATERIAL_SUBWORKSPACE",
+          "PARTITION_SUCCESS != DOWNSTREAM_THEOREM_LICENSE"
+        ],
+        "meaning": "A partition may expose real local proof objects only from certified point/segment/incidence ownership. Cognitive role similarity or visual appearance cannot fabricate overlap, shared carriers, or theorem preconditions."
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": ["TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md"]
+      }
+    },
+    {
+      "id": "INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT",
+      "type": "INVARIANT",
+      "name": "Cognitive/material individuation layer split",
+      "level": "META",
+      "properties": {
+        "statement": "COGNITIVE_REINDIVIDUATION != MATERIAL_SUBWORKSPACE_EXTRACTION",
+        "meaning": "OP_REINDIVIDUATE changes cognitive counting/role-domain organization on fixed material support; OP_PARTITION_WORKSPACE registers proposition-addressable material subconfigurations. They may trigger one another but are not converses."
+      },
+      "evidence": {
+        "status": "VALIDATED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_ISOSCELES_PARTITION_RECOMPOSITION_RUN_16.md",
+          "TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_PARTITION_USES_OWNER_MAP_BARRIER",
+      "source": "OP_PARTITION_WORKSPACE",
+      "target": "INV_PARTITION_OWNER_MAP_BARRIER",
+      "type": "USES",
+      "run_introduced": "RUN12_CANONICAL_PARTITION_WORKSPACE",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_PARTITION_USES_LAYER_SPLIT",
+      "source": "OP_PARTITION_WORKSPACE",
+      "target": "INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT",
+      "type": "USES",
+      "run_introduced": "RUN12_CANONICAL_PARTITION_WORKSPACE",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_REINDIVIDUATE_USES_LAYER_SPLIT",
+      "source": "OP_REINDIVIDUATE",
+      "target": "INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT",
+      "type": "USES",
+      "run_introduced": "RUN12_CANONICAL_PARTITION_WORKSPACE",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    },
+    {
+      "id": "E_PARTITION_SUPPORTS_RECOMPOSITION_TRAJECTORY",
+      "source": "OP_PARTITION_WORKSPACE",
+      "target": "OP_RECOMPOSE_GESTALTS",
+      "type": "CONVERGES_TO",
+      "relation": {
+        "meaning": "partition may create licensed local workspaces whose certified readouts can later be recomposed into a richer parent",
+        "inverse_claim": false
+      },
+      "run_introduced": "RUN12_CANONICAL_PARTITION_WORKSPACE",
+      "evidence": {"status": "VALIDATED_COGNITIVE"}
+    }
+  ],
+  "genealogies": [
+    {
+      "id": "GEN_PARTITION_WORKSPACE",
+      "target": "OP_PARTITION_WORKSPACE",
+      "genetic_identity_key": "material_subworkspace_extraction_from_blocked_congruence_affordance",
+      "paths": [
+        {
+          "id": "GEN_PARTITION_FROM_RUN16_17",
+          "origin": "blocked proposition affordance inside one constructed parent workspace",
+          "steps": [
+            {
+              "index": 0,
+              "event": "Run16 detects two salient local triangle readings inside one constructed isosceles workspace, while OP_REINDIVIDUATE cannot make them proposition-addressable material objects",
+              "input_entities": ["OP_REINDIVIDUATE", "P_I8"],
+              "output_entities": [],
+              "proposition_support": []
+            },
+            {
+              "index": 1,
+              "event": "Explicit material owner, overlap, boundary, and contact maps make the two local triangles valid SSS proof objects",
+              "input_entities": ["P_I8"],
+              "output_entities": [],
+              "proposition_support": ["P_I8"]
+            },
+            {
+              "index": 2,
+              "event": "Run17 separates role alignment from material ownership by using two distinct split points and rejects a false shared-carrier claim",
+              "input_entities": ["INV_PARTITION_OWNER_MAP_BARRIER"],
+              "output_entities": ["OP_PARTITION_WORKSPACE"],
+              "proposition_support": []
+            },
+            {
+              "index": 3,
+              "event": "Compiler promotes material workspace partition as distinct from cognitive re-individuation and preserves the downstream theorem-license barrier",
+              "input_entities": ["OP_PARTITION_WORKSPACE", "INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT", "INV_PARTITION_OWNER_MAP_BARRIER"],
+              "output_entities": ["OP_PARTITION_WORKSPACE"],
+              "proposition_support": []
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "status": "COMPILED_COGNITIVE",
+        "source_files": [
+          "TRIANGLE_MULTIAGENT_ISOSCELES_PARTITION_RECOMPOSITION_RUN_16.md",
+          "TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md"
+        ]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "RUN12_CANONICAL_PARTITION_WORKSPACE",
+      "execution_mode": "CONTROLLED_DRY_RUN",
+      "source_file": "TRIANGLE_MULTIAGENT_PARTITION_WORKSPACE_NEGATIVE_STRESS_RUN_17.md",
+      "input_snapshot": "N11",
+      "output_snapshot": "N12",
+      "delta": {
+        "add_entities": [
+          "OP_PARTITION_WORKSPACE",
+          "INV_PARTITION_OWNER_MAP_BARRIER",
+          "INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT"
+        ],
+        "add_edges": [
+          "E_PARTITION_USES_OWNER_MAP_BARRIER",
+          "E_PARTITION_USES_LAYER_SPLIT",
+          "E_REINDIVIDUATE_USES_LAYER_SPLIT",
+          "E_PARTITION_SUPPORTS_RECOMPOSITION_TRAJECTORY"
+        ],
+        "enrich_entities": ["OP_REINDIVIDUATE", "OP_RECOMPOSE_GESTALTS"],
+        "refactor": [
+          "split cognitive re-individuation from material subworkspace extraction",
+          "make owner/overlap/boundary/contact maps first-class prerequisites for material partition"
+        ],
+        "open_questions": [
+          "Does OP_PARTITION_WORKSPACE transfer cleanly outside triangle/congruence problems?",
+          "Should material PARTITION and local-to-parent RECOMPOSE eventually form a higher family without being declared strict inverses?",
+          "Can diagram construction events automatically supply certified partition carriers and owner maps?"
+        ],
+        "rejected_inferences": [
+          "role alignment implies material identity",
+          "visual closure creates a proposition-addressable subworkspace",
+          "successful partition automatically licenses I.8 or any other downstream theorem",
+          "OP_PARTITION_WORKSPACE is the converse of OP_REINDIVIDUATE"
+        ]
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "N12",
+      "after_run": "RUN12_CANONICAL_PARTITION_WORKSPACE",
+      "active_entities": [
+        "OP_PARTITION_WORKSPACE",
+        "OP_REINDIVIDUATE",
+        "OP_RECOMPOSE_GESTALTS",
+        "INV_PARTITION_OWNER_MAP_BARRIER",
+        "INV_REINDIVIDUATE_PARTITION_LAYER_SPLIT",
+        "F_COUNTERFACTUAL_STATE_RECOVERY",
+        "CAP_COUNTERFACTUAL_STATE_RECOVERY"
+      ],
+      "active_families": [
+        "F_COUNTERFACTUAL_STATE_RECOVERY",
+        "F_METRIC_ANGULAR_ORDER",
+        "F_RELATIONAL_COMPLETION_FIELD"
+      ],
+      "active_invariants": [
+        "COGNITIVE_REINDIVIDUATION != MATERIAL_SUBWORKSPACE_EXTRACTION",
+        "OVERLAP MUST BE COMPUTED FROM MATERIAL OWNER MAPS",
+        "ROLE_ALIGNMENT != MATERIAL_IDENTITY",
+        "VISUAL_CLOSURE != MATERIAL_SUBWORKSPACE",
+        "PARTITION_SUCCESS != DOWNSTREAM_THEOREM_LICENSE"
+      ],
+      "open_questions": [
+        "Can material partition be transferred to a non-isosceles, non-congruence construction?",
+        "Can a future diagram engine produce partition candidates while the validator independently certifies material ownership?"
+      ],
+      "notes": "Canonical N12 distinguishes cognitive re-individuation from material proof-object extraction. PARTITION registers real subworkspaces and maps; REINDIVIDUATE changes cognitive organization on fixed material support."
+    }
+  ]
+}
