@@ -10,7 +10,7 @@ Its purpose is to prevent a recurrent failure mode:
 
 Merovingio is not being developed primarily as a rule engine that blindly combines premises. Its central object of study is the **evolution of families of Gestalten, their genealogies, their multi-realizations, and the ontologies that emerge from repeated conceptual reorganization**.
 
-The proof layer remains important, but in this phase it is downstream.
+In the current research phase, **we are not trying to construct proofs at all**. Formalization is used only at a high level to double-check coherence with Merovingio's own evolving conceptual system.
 
 ---
 
@@ -35,17 +35,121 @@ ontology improvement
         ↓
 stabilization / compilation
         ↓
-ONLY AFTERWARDS:
+MUCH LATER, IN A DIFFERENT PHASE:
 proof certification / Euclidean compilation
 ```
 
 Do **not** make proof availability the main engine of exploration.
 
-A proof can certify a discovery later. It need not be the mechanism that generated the discovery.
+A future proof layer may certify a discovery. It must not determine the imagination, ontology, or trajectory of discovery in the present phase.
+
+## 1.2 Current phase gate: cognitive unification only
+
+The present phase is explicitly:
+
+```text
+COGNITIVE / UNIFICATION PHASE
+```
+
+not:
+
+```text
+THEOREM-PROVING PHASE
+```
+
+Therefore the central questions are:
+
+```text
+How do Gestalt families change?
+
+How does the same structure appear in several families?
+
+Which old concepts become special cases of a richer ontology?
+
+Which analogies force family mergers, splits, or new coordinates?
+
+Which disanalogies reveal hidden dimensions?
+
+What remains invariant when the conceptual reading changes?
+```
+
+Do not ask by default:
+
+```text
+Can this already be proved?
+Which Euclidean proposition licenses this step?
+Is there a complete proof path?
+```
+
+Those questions belong to a later phase unless they are needed for a coarse consistency check.
 
 ---
 
-# 2. Anti-pattern to avoid
+# 2. Role of formalization in the current phase
+
+Formalization is presently **meta-formalization**, not proof formalization.
+
+Its job is to check the internal coherence of the evolving cognitive architecture.
+
+Use it for high-level double checks such as:
+
+```text
+MATERIAL IDENTITY CONSISTENCY
+FAMILY MEMBERSHIP CONSISTENCY
+GENEALOGY CONSISTENCY
+MULTI-REALIZATION CONSISTENCY
+ROLE / OWNER-MAP CONSISTENCY
+ZERO / FIXED-STATE CONSISTENCY
+NO ACCIDENTAL CONCEPT DUPLICATION
+NO SILENT CHANGE OF WORKSPACE
+NO CONTRADICTION BETWEEN TWO REPRESENTATIONS
+```
+
+Formalization may ask:
+
+```text
+Can these two family descriptions coexist?
+
+Are we accidentally identifying two materially distinct objects?
+
+Did we call the same phenomenon two different concepts?
+
+Does a proposed family refinement preserve earlier successful readings?
+
+Does the same Gestalt retain a coherent genealogy across several families?
+```
+
+It should **not** ask:
+
+```text
+Have we proved this theorem from axioms?
+
+Is every cognitive step proposition-licensed?
+
+Can Lean / Tarski / Euclid certify this trajectory now?
+```
+
+unless we explicitly switch research phases.
+
+The current relation is:
+
+```text
+COGNITIVE DISCOVERY
+        ↓
+HIGH-LEVEL FORMAL COHERENCE CHECK
+
+not
+
+FORMAL PROOF RULES
+        ↓
+ALLOWED COGNITIVE DISCOVERY
+```
+
+Formalization is a **shadow / audit layer** around the conceptual system, not its generative core.
+
+---
+
+# 3. Anti-pattern to avoid
 
 Do not default to:
 
@@ -79,7 +183,7 @@ Or is it:
 
 ---
 
-# 3. What counts as a true operator
+# 4. What counts as a true operator
 
 A candidate should become an `OP_*` only if all of the following are plausibly true:
 
@@ -120,7 +224,7 @@ These are more naturally relations, family structures, realization signatures, o
 
 ---
 
-# 4. The primary unit: multi-realization of a Gestalt
+# 5. The primary unit: multi-realization of a Gestalt
 
 Do not assume:
 
@@ -164,7 +268,7 @@ as distinct dimensions.
 
 ---
 
-# 5. Family-first experimental protocol
+# 6. Family-first experimental protocol
 
 For a new experiment, follow this order.
 
@@ -218,7 +322,7 @@ Does a zero in F1 become a generic state in F2?
 
 Does a Gestalt previously treated as another concept appear as a different realization of the same deeper family?
 
-Do multiple theorem masks become regions of one host-relative family?
+Do several old categories become regions of one richer family?
 ```
 
 ## Stage E — Prefer ontology change
@@ -245,7 +349,7 @@ Do not freeze a structure because it is easy to formalize.
 
 ---
 
-# 6. Analogy
+# 7. Analogy
 
 A weak representation of analogy is:
 
@@ -275,7 +379,7 @@ of a deeper common organization
 
 ---
 
-# 7. Disanalogy
+# 8. Disanalogy
 
 Do not treat disanalogy merely as failed similarity.
 
@@ -286,7 +390,7 @@ A disanalogy can:
 - create a new family coordinate,
 - reveal an unstable zero,
 - force rebase,
-- show that two apparently identical masks have different genealogies,
+- show that two apparently identical forms have different genealogies,
 - generate a new conceptual object from the deformation path.
 
 Track the origin of the break:
@@ -302,14 +406,14 @@ and ask what **family structure** the break reveals.
 
 ---
 
-# 8. Ontology improvement test
+# 9. Ontology improvement test
 
 A genuine ontology improvement occurs when the system changes **what kind of things it thinks exist** or how previous things are classified.
 
 Examples:
 
 ```text
-three isolated theorem masks
+three isolated congruence criteria
 → regions/charts of one host-relative family
 
 triangle / congruence / parallel
@@ -327,9 +431,9 @@ Merely adding a relation is not automatically ontology improvement.
 
 ---
 
-# 9. Discovery-mode validator
+# 10. Discovery-mode coherence monitor
 
-During discovery the validator is deliberately light.
+During discovery, replace the old proof-style validator mentality with a **coherence monitor**.
 
 It should protect against:
 
@@ -337,9 +441,11 @@ It should protect against:
 - impossible incidence claims,
 - accidentally treating cognitive role alignment as material identity,
 - silently changing the frozen workspace,
-- obvious contradiction in the scene representation.
+- contradiction between two representations of the same Gestalt,
+- incompatible family assignments,
+- genealogy corruption.
 
-It should **not** dominate the run by requiring every conceptual move to have an immediate theorem certificate.
+It should **not** dominate the run by requiring theorem certificates.
 
 Use statuses such as:
 
@@ -349,31 +455,38 @@ STRUCTURALLY_SUPPORTED
 REORGANIZATION_PRESSURE
 STABILIZING
 UNRESOLVED
+INTERNALLY_INCOHERENT
 ```
 
-rather than filling the main experiment with PASS/REJECT bookkeeping.
+The important distinction is:
 
-Proof certification belongs in a later section.
+```text
+INTERNALLY_INCOHERENT
+!=
+NOT YET PROVED
+```
+
+In the present phase, "not yet proved" is usually irrelevant.
 
 ---
 
-# 10. Certification mode
+# 11. Future certification phase
 
-After a conceptual reorganization is interesting enough, run a separate certification pass:
+A theorem-certification phase may exist later, but it is **not the current research regime**.
+
+Future pipeline:
 
 ```text
-DISCOVERY RESULT
+MATURE COGNITIVE DISCOVERY
         ↓
-identify Euclidean/proof-readable projections
+select a proof-readable projection
         ↓
-find proposition support
+compile into Euclidean / formal proof language
         ↓
-compile proof graph
-        ↓
-validate theorem-level correctness
+validate correctness
 ```
 
-Keep this distinction explicit:
+Keep:
 
 ```text
 DISCOVERY GENEALOGY
@@ -381,19 +494,11 @@ DISCOVERY GENEALOGY
 PROOF CERTIFICATE
 ```
 
-and:
-
-```text
-COGNITIVE CYCLE
-!=
-LOGICAL CIRCULARITY
-```
-
-The proof layer certifies; it does not retroactively become the story of how the concept was discovered.
+The proof layer will eventually test whether a stabilized conceptual trajectory has a valid formal projection. It must not retroactively become the explanation of discovery.
 
 ---
 
-# 11. No blind-search mythology
+# 12. No blind-search mythology
 
 Do not pretend the experiment is neutral or theory-free.
 
@@ -430,7 +535,7 @@ Theory-guided discovery is expected.
 
 ---
 
-# 12. Preferred run structure
+# 13. Preferred run structure
 
 For future Merovingio experiments, default to:
 
@@ -444,20 +549,24 @@ For future Merovingio experiments, default to:
 6. FAMILY REORGANIZATION
 7. ONTOLOGY CHANGE
 8. STABILIZATIONS / OPEN STRUCTURES
-9. ONLY IF USEFUL: PROOF-CERTIFICATION APPENDIX
+9. HIGH-LEVEL COHERENCE AUDIT
 ```
 
 The main result should answer:
 
 > **How did the network's ontology or family organization change?**
 
-not merely:
+The final audit should answer only:
 
-> Which deductions succeeded?
+> **Is that reorganization internally coherent with Merovingio as currently constituted?**
+
+not:
+
+> Which deductions were formally proved?
 
 ---
 
-# 13. Rewrite rule for older runs
+# 14. Rewrite rule for older runs
 
 When revisiting Runs 18–21 or similar experiments, reinterpret provisional constructs according to:
 
@@ -474,11 +583,19 @@ Default assumption:
 
 > if a candidate only names a path through already existing operators and families, it is **not** a new operator.
 
+Also reinterpret old "proof validator" sections as:
+
+```text
+HIGH-LEVEL COHERENCE AUDITS
+```
+
+unless the experiment explicitly belongs to a later certification phase.
+
 Preserve the experiments. Refactor their interpretation.
 
 ---
 
-# 14. Stop conditions
+# 15. Stop conditions
 
 Pause before adding an operator if any of these are true:
 
@@ -492,17 +609,31 @@ Pause before adding an operator if any of these are true:
 
 Instead, investigate the family structure.
 
+Pause before invoking proof machinery if:
+
+- the purpose is conceptual unification,
+- the ontology is still changing,
+- the family itself is under rewrite,
+- proof pressure would force premature individuation,
+- the only question is internal coherence.
+
 ---
 
-# 15. Guiding maxim
+# 16. Guiding maxim
 
 ```text
 DO NOT FREEZE TOO EARLY.
+
+THIS PHASE IS COGNITIVE, NOT DEMONSTRATIVE.
 
 Prefer ontology change over rule creation.
 Prefer family deformation over relation naming.
 Prefer multi-realization over concept duplication.
 Prefer genealogy over theorem labels.
 Prefer constructive tension over immediate proof closure.
-Use proof as certification after discovery, not as the imagination of discovery.
+
+Formalize only enough to check high-level coherence
+with Merovingio's own evolving system.
+
+Proof comes later.
 ```
