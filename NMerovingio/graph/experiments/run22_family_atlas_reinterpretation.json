@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "experiment_id": "RUN22_FAMILY_ATLAS_REINTERPRETATION",
+    "execution_mode": "CONTROLLED_CONCEPTUAL_REWRITE",
+    "canonical": false,
+    "phase": "COGNITIVE_UNIFICATION",
+    "source_runs": [
+      "18A",
+      "18B",
+      "19",
+      "20",
+      "21"
+    ],
+    "method_skill": "NMerovingio/skills/discovery-first-ontology/SKILL.md"
+  },
+  "operator_policy": {
+    "new_operators_added": [],
+    "principle": "reinterpret before extending kernel"
+  },
+  "family_rewrite": {
+    "double_closure_field": {
+      "id": "F_DOUBLE_CLOSURE_FIELD",
+      "coordinates": {
+        "C1": [
+          "LEFT_CLOSURE",
+          "NONCLOSURE_ZERO",
+          "RIGHT_CLOSURE"
+        ],
+        "C2": [
+          "LEFT_CLOSURE",
+          "NONCLOSURE_ZERO",
+          "RIGHT_CLOSURE"
+        ]
+      },
+      "parallelogram_position": [
+        "NONCLOSURE_ZERO",
+        "NONCLOSURE_ZERO"
+      ],
+      "interpretation": "triangle-producing forms are deformations away from mutual zero"
+    },
+    "diagonal_correspondence_field": {
+      "id": "F_DIAGONAL_CORRESPONDENCE_FIELD",
+      "fixed_bridge": "I = shared diagonal identity",
+      "channel_source_domains": [
+        "T",
+        "M"
+      ],
+      "source_profiles": [
+        "TT",
+        "TM",
+        "MT",
+        "MM"
+      ],
+      "familiar_aliases": {
+        "TT": "ASA-like realization",
+        "TM": "SAS-like realization A",
+        "MT": "SAS-like realization B",
+        "MM": "SSS-like realization"
+      },
+      "unification": "profiles of one correspondence field, not four primitive concepts"
+    }
+  },
+  "gestalt_rewrite": {
+    "unified_diagonal_gestalt": {
+      "id": "G_DIAGONAL_PAIR_CORRESPONDENCE",
+      "replaces_provisional_duplicates": [
+        "G_ASA_PARALLELOGRAM_DIAGONAL_HOST",
+        "G_SAS_PARALLELOGRAM_DIAGONAL_HOST"
+      ],
+      "source_profile": "TT|TM|MT|MM"
+    },
+    "parallelogram_atlas": {
+      "id": "G_PARALLELOGRAM_STAR",
+      "realizations": [
+        {
+          "family": "F_DOUBLE_CLOSURE_FIELD",
+          "status": "MUTUAL_ZERO"
+        },
+        {
+          "family": "F_PARALLELOGRAM_PRODUCT",
+          "status": "GENERIC_OR_SPECIAL_BY_METRIC_ANGULAR_STATE"
+        },
+        {
+          "family": "F_DIAGONAL_CORRESPONDENCE_FIELD",
+          "status": "RICH_HOST"
+        },
+        {
+          "family": "triangle_closure_deformation",
+          "status": "CENTRAL_STATE"
+        }
+      ]
+    }
+  },
+  "reinterpretations": {
+    "ZERO_TRANSDUCTION_BY_HOST_PROJECTION": "REALIZATION_MAP_OR_DERIVED_PATH",
+    "SAS_TOPOLOGICAL_COMPLETION_BRIDGE": "FAMILY_TRAJECTORY",
+    "HOST_CONVERSION_SIGNATURE": "REALIZATION_METADATA",
+    "CROSS_DOMAIN_COMPLETION_THROUGH_CONGRUENCE": "DERIVED_FAMILY_PATH",
+    "DOMAIN_SOURCE_DISANALOGY": "GENEALOGICAL_RELATION",
+    "G_CONGRUENCE_DOMAIN_LATTICE": "LOCAL_CHART_OF_F_DIAGONAL_CORRESPONDENCE_FIELD"
+  },
+  "meta_structure_candidate": {
+    "id": "GESTALT_FAMILY_ATLAS",
+    "type": "META_STRUCTURE_CANDIDATE",
+    "not_operator": true,
+    "meaning": "one stabilized Gestalt may have several natural family coordinate systems with transition genealogies"
+  },
+  "ontology_changes": [
+    "parallel/parallelogram/triangle closure reorganized as regions of a double closure field",
+    "ASA/SAS/SSS demoted from isolated primitive masks to source profiles of a diagonal correspondence field in this host",
+    "parallelogram reinterpreted as cross-family stabilization rather than single-family concept",
+    "analogy/disanalogy reinterpreted as family-space deformation and chart transition pressure"
+  ],
+  "coherence_audit": {
+    "preserves": [
+      "MATERIAL_IDENTITY != ROLE_IDENTITY",
+      "COGNITIVE_REINDIVIDUATION != MATERIAL_PARTITION",
+      "STATE_IDENTITY != GENETIC_IDENTITY",
+      "ZERO_STATUS_IS_FAMILY_RELATIVE"
+    ],
+    "proof_certification_attempted": false
+  },
+  "next_test": "break one closure coordinate and track simultaneous deformation through closure, metric/angular, and diagonal-correspondence charts without adding operators"
+}
