@@ -1,0 +1,354 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "example_id": "TRIANGLE_GENEALOGY_COMPARISON_V041",
+    "architecture": "0.4.1",
+    "title": "Same triangle medium, different genealogies",
+    "short_label": "Compare genesis",
+    "purpose": "compare a quadrilateral-derived triangle medium with a circle-derived triangle medium without collapsing genetic identity",
+    "default_selected": "F_TRIANGLE_MEDIUM_SHARED"
+  },
+  "workspace": {
+    "id": "W_GENEALOGY_COMPARE",
+    "name": "Cross-workspace genealogy comparison",
+    "description": "Two different derivational environments converge on the same triangle relational medium. The triangle role is shared at the family level while the material supports and genetic signatures remain distinct."
+  },
+  "nodes": [
+    {
+      "id": "W_QUAD_SOURCE",
+      "type": "WORKSPACE",
+      "label": "Quadrilateral workspace",
+      "position": {
+        "x": 190,
+        "y": 70
+      }
+    },
+    {
+      "id": "W_CIRCLE_SOURCE",
+      "type": "WORKSPACE",
+      "label": "Circle workspace",
+      "position": {
+        "x": 770,
+        "y": 70
+      }
+    },
+    {
+      "id": "M_AC_QUAD",
+      "type": "MEDIAL_CARRIER",
+      "label": "AC · diagonal",
+      "position": {
+        "x": 190,
+        "y": 215
+      },
+      "material_identity": "quadrilateral diagonal AC",
+      "participations": [
+        {
+          "gestalt": "G_TRIANGLE_QUAD",
+          "role": "SIDE"
+        },
+        {
+          "gestalt": "G_QUAD_SOURCE",
+          "role": "DIAGONAL"
+        },
+        {
+          "gestalt": "GEN_QUAD_TRIANGLE",
+          "role": "GENETIC_BRIDGE"
+        }
+      ]
+    },
+    {
+      "id": "M_RADII_CIRCLE",
+      "type": "MEDIAL_CARRIER",
+      "label": "AB / AC / BC",
+      "position": {
+        "x": 770,
+        "y": 215
+      },
+      "material_identity": "circle-derived radius carrier packet",
+      "participations": [
+        {
+          "gestalt": "G_TRIANGLE_CIRCLE",
+          "role": "SIDES_FROM_RADII"
+        },
+        {
+          "gestalt": "G_CIRCLE_SOURCE",
+          "role": "RADIUS_PACKET"
+        },
+        {
+          "gestalt": "GEN_CIRCLE_TRIANGLE",
+          "role": "GENETIC_BRIDGE"
+        }
+      ]
+    },
+    {
+      "id": "G_QUAD_SOURCE",
+      "type": "GESTALT",
+      "label": "Quadrilateral + diagonal",
+      "position": {
+        "x": 90,
+        "y": 330
+      }
+    },
+    {
+      "id": "G_TRIANGLE_QUAD",
+      "type": "GESTALT",
+      "label": "Triangle medium · quad-derived",
+      "position": {
+        "x": 300,
+        "y": 330
+      }
+    },
+    {
+      "id": "G_CIRCLE_SOURCE",
+      "type": "GESTALT",
+      "label": "Two-circle construction",
+      "position": {
+        "x": 660,
+        "y": 330
+      }
+    },
+    {
+      "id": "G_TRIANGLE_CIRCLE",
+      "type": "GESTALT",
+      "label": "Triangle medium · circle-derived",
+      "position": {
+        "x": 870,
+        "y": 330
+      }
+    },
+    {
+      "id": "GEN_QUAD_TRIANGLE",
+      "type": "GENEALOGY",
+      "label": "genetic signature · diagonal rebase",
+      "position": {
+        "x": 300,
+        "y": 470
+      }
+    },
+    {
+      "id": "GEN_CIRCLE_TRIANGLE",
+      "type": "GENEALOGY",
+      "label": "genetic signature · radius intersection",
+      "position": {
+        "x": 660,
+        "y": 470
+      }
+    },
+    {
+      "id": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "FAMILY",
+      "label": "Triangle relational medium",
+      "position": {
+        "x": 480,
+        "y": 610
+      },
+      "insight": "Both branches realize the same triangle medium, but they do not become the same genealogy."
+    },
+    {
+      "id": "G_TRIANGLE_GENERIC_REGION",
+      "type": "GESTALT",
+      "label": "Generic triangle region",
+      "position": {
+        "x": 330,
+        "y": 735
+      }
+    },
+    {
+      "id": "G_TRIANGLE_EQUALITY_REGION",
+      "type": "GESTALT",
+      "label": "Equilateral zero region",
+      "position": {
+        "x": 630,
+        "y": 735
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_WQ_GQ",
+      "source": "W_QUAD_SOURCE",
+      "target": "G_QUAD_SOURCE",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_WQ_TQ",
+      "source": "W_QUAD_SOURCE",
+      "target": "G_TRIANGLE_QUAD",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_WC_GC",
+      "source": "W_CIRCLE_SOURCE",
+      "target": "G_CIRCLE_SOURCE",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_WC_TC",
+      "source": "W_CIRCLE_SOURCE",
+      "target": "G_TRIANGLE_CIRCLE",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_MQ_GQ",
+      "source": "M_AC_QUAD",
+      "target": "G_QUAD_SOURCE",
+      "type": "PARTICIPATES_IN",
+      "role": "DIAGONAL"
+    },
+    {
+      "id": "E_MQ_TQ",
+      "source": "M_AC_QUAD",
+      "target": "G_TRIANGLE_QUAD",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDE"
+    },
+    {
+      "id": "E_MQ_GEN",
+      "source": "M_AC_QUAD",
+      "target": "GEN_QUAD_TRIANGLE",
+      "type": "CARRIES_GENEALOGY"
+    },
+    {
+      "id": "E_MC_GC",
+      "source": "M_RADII_CIRCLE",
+      "target": "G_CIRCLE_SOURCE",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS_PACKET"
+    },
+    {
+      "id": "E_MC_TC",
+      "source": "M_RADII_CIRCLE",
+      "target": "G_TRIANGLE_CIRCLE",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDES_FROM_RADII"
+    },
+    {
+      "id": "E_MC_GEN",
+      "source": "M_RADII_CIRCLE",
+      "target": "GEN_CIRCLE_TRIANGLE",
+      "type": "CARRIES_GENEALOGY"
+    },
+    {
+      "id": "E_GQ_GEN",
+      "source": "G_QUAD_SOURCE",
+      "target": "GEN_QUAD_TRIANGLE",
+      "type": "GENETIC_SOURCE"
+    },
+    {
+      "id": "E_TQ_GEN",
+      "source": "G_TRIANGLE_QUAD",
+      "target": "GEN_QUAD_TRIANGLE",
+      "type": "GENETIC_RESULT"
+    },
+    {
+      "id": "E_GC_GEN",
+      "source": "G_CIRCLE_SOURCE",
+      "target": "GEN_CIRCLE_TRIANGLE",
+      "type": "GENETIC_SOURCE"
+    },
+    {
+      "id": "E_TC_GEN",
+      "source": "G_TRIANGLE_CIRCLE",
+      "target": "GEN_CIRCLE_TRIANGLE",
+      "type": "GENETIC_RESULT"
+    },
+    {
+      "id": "E_GENQ_F",
+      "source": "GEN_QUAD_TRIANGLE",
+      "target": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "REALIZES_AS"
+    },
+    {
+      "id": "E_GENC_F",
+      "source": "GEN_CIRCLE_TRIANGLE",
+      "target": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "REALIZES_AS"
+    },
+    {
+      "id": "E_TQ_F",
+      "source": "G_TRIANGLE_QUAD",
+      "target": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_TC_F",
+      "source": "G_TRIANGLE_CIRCLE",
+      "target": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_F_GENERIC",
+      "source": "F_TRIANGLE_MEDIUM_SHARED",
+      "target": "G_TRIANGLE_GENERIC_REGION",
+      "type": "HAS_REGION"
+    },
+    {
+      "id": "E_F_EQ",
+      "source": "F_TRIANGLE_MEDIUM_SHARED",
+      "target": "G_TRIANGLE_EQUALITY_REGION",
+      "type": "HAS_REGION"
+    },
+    {
+      "id": "E_TQ_GENERIC",
+      "source": "G_TRIANGLE_QUAD",
+      "target": "G_TRIANGLE_GENERIC_REGION",
+      "type": "OCCUPIES_REGION"
+    },
+    {
+      "id": "E_TC_EQ",
+      "source": "G_TRIANGLE_CIRCLE",
+      "target": "G_TRIANGLE_EQUALITY_REGION",
+      "type": "OCCUPIES_REGION"
+    }
+  ],
+  "perspectives": {
+    "MATERIAL": [
+      "W_QUAD_SOURCE",
+      "W_CIRCLE_SOURCE",
+      "M_AC_QUAD",
+      "M_RADII_CIRCLE"
+    ],
+    "CO_CONSTITUTION": [
+      "W_QUAD_SOURCE",
+      "W_CIRCLE_SOURCE",
+      "M_AC_QUAD",
+      "M_RADII_CIRCLE",
+      "G_QUAD_SOURCE",
+      "G_TRIANGLE_QUAD",
+      "G_CIRCLE_SOURCE",
+      "G_TRIANGLE_CIRCLE"
+    ],
+    "ATLAS": [
+      "G_TRIANGLE_QUAD",
+      "G_TRIANGLE_CIRCLE",
+      "GEN_QUAD_TRIANGLE",
+      "GEN_CIRCLE_TRIANGLE",
+      "F_TRIANGLE_MEDIUM_SHARED",
+      "G_TRIANGLE_GENERIC_REGION",
+      "G_TRIANGLE_EQUALITY_REGION"
+    ],
+    "ALL": []
+  },
+  "comparison": {
+    "shared_medium": "F_TRIANGLE_MEDIUM_SHARED",
+    "left_genealogy": {
+      "source": "quadrilateral + diagonal",
+      "medial_carrier": "AC",
+      "rebase": "diagonal / paired-triangle reading",
+      "triangle_state": "generic region"
+    },
+    "right_genealogy": {
+      "source": "two equal-radius circles",
+      "medial_carrier": "radius packet AB/AC/BC",
+      "rebase": "circle-intersection / radius reading",
+      "triangle_state": "equilateral zero region"
+    },
+    "invariant": "triangle relational medium",
+    "non_identity": "GENETIC_SIGNATURE",
+    "principle": "SAME_MEDIUM != SAME_GENEALOGY"
+  },
+  "insight": {
+    "title": "Same medium, different origin",
+    "body": "Both branches converge on the triangle as a relational medium. The left branch is generated by a diagonal rebase inside a quadrilateral workspace; the right by shared-radius co-constitution inside a circle workspace. They can occupy different regions of the same triangle family while remaining genetically distinct."
+  }
+}
