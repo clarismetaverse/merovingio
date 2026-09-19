@@ -1,6 +1,6 @@
 # Merovingio Cognitive Graph Explorer
 
-Small React + Cytoscape viewer for the machine-readable graph in `../graph/`.
+React + Cytoscape viewers for the machine-readable Merovingio graph and the v0.4.1 workspace / family-atlas model.
 
 ## Run locally
 
@@ -10,6 +10,11 @@ npm install
 npm run dev
 ```
 
+Open:
+
+- `/` — canonical cognitive graph explorer
+- `/workspace.html` — workspace co-constitution / family-atlas prototype
+
 Build:
 
 ```bash
@@ -17,38 +22,57 @@ npm run build
 npm run preview
 ```
 
-## Current views
+## Workspace Atlas prototype
 
-- **Full N9 graph** with ontology encoded by node shape and epistemic status by color.
-- **N0–N9 timeline**: selecting a snapshot keeps the whole graph visible but dims entities outside that snapshot's active cognitive foreground.
-- **Entity-layer filters** for workspaces, Gestalten, families, zero loci, registers, propositions, operators, agents and impetus nodes.
-- **Inspector** with raw structure, local graph connections, evidence provenance, and explicit genealogy paths.
-- **Search** across IDs, names and semantic aliases.
+The first v0.4.1 visual example uses one quadrilateral workspace with diagonal `AC`.
 
-## Visual grammar
+The prototype makes the architectural distinction visible:
 
-Node shape encodes ontology:
+```text
+WORKSPACE = genetic / derivational field
+ATLAS     = multiperspectival conceptual organization
+```
 
-- ellipse — workspace
-- rounded rectangle — Gestalt
-- hexagon — family
-- diamond — zero locus
-- barrel — register
-- rectangle — proposition
-- tag — operator
-- round diamond — agent
-- vee — impetus
+It renders:
 
-Node color encodes epistemic status (`SEED`, `PROP_LICENSED`, `VALIDATED_COGNITIVE`, `COGNITIVE_CANDIDATE`, etc.).
+- the material workspace;
+- co-participating Gestalten;
+- `AC` as one **MedialCarrier** rather than duplicated edges;
+- the different local roles of `AC` (side, diagonal, transversal, identity bridge);
+- an explicit co-constitution hub;
+- family charts realized by the Gestalten.
+
+Perspective controls let the same graph be read as:
+
+- **Material** — foreground material identity;
+- **Co constitution** — foreground carrier participation and blending;
+- **Atlas** — foreground family memberships;
+- **All** — full derivational environment.
+
+Selecting the medial carrier exposes every role it occupies without creating copies of the underlying segment.
+
+The data is in:
+
+`../graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json`
+
+## Cognitive graph view
+
+The original graph explorer provides:
+
+- canonical snapshot timeline;
+- entity-layer filters;
+- inspector;
+- genealogy;
+- graph search.
 
 ## Design principle
 
-The UI intentionally does **not** present one graph layout as the unique representation of Merovingio. Snapshot selection, type filters and entity inspection are themselves partializations of the underlying cognitive network.
+The UI intentionally does **not** present one graph layout as the unique representation of Merovingio. Perspective switching should preserve material identity while changing role, family, and Gestalt foregrounding.
 
-Next useful views:
+The workspace prototype is the first step toward synchronized views for:
 
-1. dedicated genealogy-only mode;
-2. graph-delta animation between snapshots;
-3. workspace/Gestalt partialization view;
-4. explicit impetus field / agent proposal overlay;
-5. Somaschini Graph mode for user-selected subgraphs.
+1. material support;
+2. medial carriers and co-constitution;
+3. family atlas / strata / fibers;
+4. hierarchical multi-parent organization;
+5. genealogy and deformation animation.
