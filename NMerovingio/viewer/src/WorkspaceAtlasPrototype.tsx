@@ -201,7 +201,7 @@ export default function WorkspaceAtlasPrototype() {
 
   const example = examples[exampleKey]
   const nodeById = useMemo(
-    () => new Map<string, AnyRecord>(example.nodes.map((node: AnyRecord) => [node.id, node])),
+    () => new Map<string, AnyRecord>(example.nodes.map((node: AnyRecord) => [node.id, node] as [string, AnyRecord])),
     [example],
   )
   const defaultSelected = example.metadata?.default_selected
