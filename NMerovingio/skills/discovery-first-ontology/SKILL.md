@@ -2,229 +2,357 @@
 
 ## Purpose
 
-Use this skill for **all Merovingio conceptual experiments, family injections, analogy/disanalogy work, Gestalt rewrites, ontology changes, and experiment design**.
+Use this skill for **all Merovingio conceptual experiments, family injections, analogy/disanalogy work, workspace design, Gestalt rewrites, ontology changes, visualization work, and experiment planning**.
 
 Its purpose is to prevent a recurrent failure mode:
 
-> importing theorem-prover / verification-first habits into the discovery phase, then inventing new operators whenever a new relation or proof-path appears.
+> importing theorem-prover / verification-first habits into the cognitive discovery phase, then overproducing operators, theorem-shaped entities, or premature definitions whenever a new relational path appears.
 
-Merovingio is not being developed primarily as a rule engine that blindly combines premises. Its central object of study is the **evolution of families of Gestalten, their genealogies, their multi-realizations, and the ontologies that emerge from repeated conceptual reorganization**.
+Merovingio is currently being developed as a **cognitive unification system**, not as a theorem prover.
 
-In the current research phase, **we are not trying to construct proofs at all**. Formalization is used only at a high level to double-check coherence with Merovingio's own evolving conceptual system.
+Its central objects are now:
+
+- **Derivational Workspaces**
+- **co-participating Gestalten**
+- **Medial Carriers / Medial Seeds**
+- **Relational Media**
+- **Family Fields / Charts / Strata / Fibers**
+- **Gestalt Family Atlases**
+- **cross-chart Genealogies**
+- **hierarchical multi-perspectival stabilizations**
+
+Formalization is used only as a high-level coherence shadow around this evolving ontology.
 
 ---
 
-# 1. Core stance
+# 0. Current phase gate
 
-## 1.1 Discovery before certification
-
-Default direction:
+The present research phase is explicitly:
 
 ```text
-RICH GESTALT / CONSTRUCTIVE WORKSPACE
-        ↓
-partializations, breaks, deformations, rebasings
-        ↓
-multiple simultaneous family readings
-        ↓
-analogy / disanalogy pressure
-        ↓
-family deformation / family merger / family split
-        ↓
-ontology improvement
-        ↓
-stabilization / compilation
-        ↓
-MUCH LATER, IN A DIFFERENT PHASE:
-proof certification / Euclidean compilation
-```
-
-Do **not** make proof availability the main engine of exploration.
-
-A future proof layer may certify a discovery. It must not determine the imagination, ontology, or trajectory of discovery in the present phase.
-
-## 1.2 Current phase gate: cognitive unification only
-
-The present phase is explicitly:
-
-```text
-COGNITIVE / UNIFICATION PHASE
+COGNITIVE / UNIFICATION / ONTOLOGY-DISCOVERY PHASE
 ```
 
 not:
 
 ```text
 THEOREM-PROVING PHASE
+FORMAL-CERTIFICATION PHASE
+RULE-ENUMERATION PHASE
 ```
 
-Therefore the central questions are:
+The central question is:
 
-```text
-How do Gestalt families change?
-
-How does the same structure appear in several families?
-
-Which old concepts become special cases of a richer ontology?
-
-Which analogies force family mergers, splits, or new coordinates?
-
-Which disanalogies reveal hidden dimensions?
-
-What remains invariant when the conceptual reading changes?
-```
-
-Do not ask by default:
-
-```text
-Can this already be proved?
-Which Euclidean proposition licenses this step?
-Is there a complete proof path?
-```
-
-Those questions belong to a later phase unless they are needed for a coarse consistency check.
-
----
-
-# 2. Role of formalization in the current phase
-
-Formalization is presently **meta-formalization**, not proof formalization.
-
-Its job is to check the internal coherence of the evolving cognitive architecture.
-
-Use it for high-level double checks such as:
-
-```text
-MATERIAL IDENTITY CONSISTENCY
-FAMILY MEMBERSHIP CONSISTENCY
-GENEALOGY CONSISTENCY
-MULTI-REALIZATION CONSISTENCY
-ROLE / OWNER-MAP CONSISTENCY
-ZERO / FIXED-STATE CONSISTENCY
-NO ACCIDENTAL CONCEPT DUPLICATION
-NO SILENT CHANGE OF WORKSPACE
-NO CONTRADICTION BETWEEN TWO REPRESENTATIONS
-```
-
-Formalization may ask:
-
-```text
-Can these two family descriptions coexist?
-
-Are we accidentally identifying two materially distinct objects?
-
-Did we call the same phenomenon two different concepts?
-
-Does a proposed family refinement preserve earlier successful readings?
-
-Does the same Gestalt retain a coherent genealogy across several families?
-```
-
-It should **not** ask:
-
-```text
-Have we proved this theorem from axioms?
-
-Is every cognitive step proposition-licensed?
-
-Can Lean / Tarski / Euclid certify this trajectory now?
-```
-
-unless we explicitly switch research phases.
-
-The current relation is:
-
-```text
-COGNITIVE DISCOVERY
-        ↓
-HIGH-LEVEL FORMAL COHERENCE CHECK
-
-not
-
-FORMAL PROOF RULES
-        ↓
-ALLOWED COGNITIVE DISCOVERY
-```
-
-Formalization is a **shadow / audit layer** around the conceptual system, not its generative core.
-
----
-
-# 3. Anti-pattern to avoid
+> **What new organization of families, media, workspaces, and genealogies becomes visible when a Gestalt is rebased, deformed, or read from another perspective?**
 
 Do not default to:
 
 ```text
-new phenomenon
-→ name a relation
-→ invent OP_X
-→ add guardrail
-→ ask whether the theorem is licensed
-→ freeze
+Which theorem follows?
+Which proposition licenses this?
+Can this already be formally proved?
 ```
 
-This overproduces operators and reproduces the latent ontology of theorem provers.
-
-Instead ask first:
-
-```text
-Is this really a new primitive operation?
-
-Or is it:
-- a new state of an existing family?
-- a new realization of the same Gestalt?
-- a family-relative reading?
-- a genealogy change?
-- a projection between existing families?
-- a family split / merge / refinement?
-- the same structure appearing under a different ontology?
-```
-
-**Operator creation is the last resort.**
+unless the user explicitly asks to switch into a later certification phase.
 
 ---
 
-# 4. What counts as a true operator
+# 1. Core research stance
 
-A candidate should become an `OP_*` only if all of the following are plausibly true:
-
-1. It describes a **content-independent cognitive/material move**, not one geometric theorem.
-2. Existing operators cannot generate the phenomenon as a path.
-3. The deficiency appears in **multiple geometrically distinct contexts**, not one local example.
-4. Representing it only as a family relation, realization map, genealogy, or derived path would lose essential structure.
-5. The operator changes what transformations are available to the system, rather than merely naming what happened.
-
-Provisional small kernel:
+Default discovery direction:
 
 ```text
-BREAK
-REBASE
-REINDIVIDUATE
-PARTITION_WORKSPACE
-HOST
-PROJECT
-RECOMPOSE_GESTALTS
-DECOMPILE
-COMPILE / STABILIZE
-COMPLETE
+RICH DERIVATIONAL WORKSPACE
+        ↓
+CO-PARTICIPATING GESTALTEN
+        ↓
+SHARED / MEDIAL CARRIERS
+        ↓
+REBASE THROUGH RELATIONAL MEDIA
+        ↓
+MULTIPLE FAMILY CHARTS
+        ↓
+ANALOGY / DISANALOGY PRESSURE
+        ↓
+FAMILY DEFORMATION / MERGER / SPLIT / EXPANSION
+        ↓
+ONTOLOGY IMPROVEMENT
+        ↓
+MULTI-PERSPECTIVAL STABILIZATION
+        ↓
+CONCEPTUAL OBJECT
 ```
 
-This list is not sacred. The important rule is **kernel pressure toward smallness**.
-
-Examples of things that should normally *not* become operators by default:
+Much later:
 
 ```text
-ZERO_TRANSDUCTION_BY_HOST_PROJECTION
-SAS_TOPOLOGICAL_COMPLETION_BRIDGE
-CROSS_DOMAIN_HOST_COMPLETION
-HOST_CONVERSION_SIGNATURE
-DOMAIN_SOURCE_DISANALOGY
+stabilized cognitive result
+        ↓
+proof-readable projection
+        ↓
+formal certification
 ```
 
-These are more naturally relations, family structures, realization signatures, or derived trajectories unless future evidence forces otherwise.
+The later proof layer may certify a discovery. It must not determine the imagination or ontology of the current phase.
 
 ---
 
-# 5. The primary unit: multi-realization of a Gestalt
+# 2. Workspace is now primary
+
+Do not treat `ConstructiveWorkspace` as passive background.
+
+The active interpretation is:
+
+```text
+WORKSPACE
+=
+GENETIC / DERIVATIONAL FIELD
+IN WHICH MULTIPLE GESTALTEN
+CO-CONSTITUTE ONE ANOTHER
+THROUGH SHARED MATERIAL CARRIERS
+```
+
+A workspace may contain:
+
+```text
+material elements
+material regions
+active Gestalten
+latent Gestalten
+medial carriers
+medial seeds
+shared regions
+carrier participations
+family realizations
+co-constitution clusters
+latent rebases
+derivational routes
+emerging object classes
+```
+
+Always ask:
+
+```text
+Which Gestalten coexist here?
+Which elements are materially shared?
+Which of those shared elements carry relations across Gestalten?
+Which higher classes become visible because of that co-participation?
+```
+
+---
+
+# 3. Multiple interpretation is weaker than co-constitutive participation
+
+Distinguish:
+
+```text
+ONE ELEMENT
++
+SEVERAL INTERPRETATIONS
+```
+
+from:
+
+```text
+ONE MATERIAL ELEMENT
+ACTUALLY PARTICIPATING
+IN SEVERAL GESTALTEN
+AND HELPING CONSTITUTE
+A HIGHER ORGANIZATION
+```
+
+Therefore preserve:
+
+```text
+MULTIPLE_INTERPRETATION
+!=
+CO_CONSTITUTIVE_PARTICIPATION
+```
+
+If a diagonal is simultaneously:
+
+```text
+side of triangle 1
+side of triangle 2
+diagonal of quadrilateral
+transversal in a parallel reading
+identity bridge in a correspondence reading
+```
+
+do not create five copies.
+
+Represent one material carrier with multiple participations.
+
+---
+
+# 4. Medial Carriers and Medial Seeds
+
+A **MedialCarrier** is a materially identical element shared across several Gestalten.
+
+It may carry:
+
+```text
+identity
+orientation
+adjacency
+incidence
+order
+direction class
+symmetry pressure
+residue
+boundary role
+correspondence
+```
+
+across family readings.
+
+A **MedialSeed** is a carrier whose full derivational potential is not yet exploited.
+
+Examples:
+
+```text
+diagonal
+shared chord
+circle-intersection point
+common tangent
+common face
+section plane
+shared axis
+common segment
+```
+
+Important:
+
+> MedialCarrier and MedialSeed are **ontological/data-structural entities**, not operators.
+
+When a new cross-family phenomenon appears, first ask whether it is already explained by shared-carrier participation before proposing a new mechanism.
+
+---
+
+# 5. Figures can be objects or relational media
+
+The key v0.4 principle is:
+
+```text
+FIGURE AS OBJECT
+!=
+FIGURE AS RELATIONAL MEDIUM
+```
+
+A triangle may be:
+
+- an object being classified,
+- a ternary relational frame,
+- a rebase medium for a circular construction,
+- a medium for a quadrilateral,
+- a carrier of analogy/disanalogy,
+- a generator of higher classifications.
+
+Likewise:
+
+```text
+quadrilateral
+circle
+gnomon
+tetrahedron
+section
+polygon
+solid
+```
+
+may act as media when they expose useful relational structure.
+
+Do not privilege one decomposition as ontologically final.
+
+---
+
+# 6. REBASE is a change of representational basis
+
+Use:
+
+```text
+REBASE(
+  same constructive support,
+  new relational medium
+)
+→ new visible correspondences
+→ new family coordinates
+→ preserved genealogy
+```
+
+A rebase does **not** imply that the old reading was wrong.
+
+It changes what becomes inferentially foregrounded.
+
+Examples:
+
+```text
+circle workspace
+→ triangle medium
+→ radius equality becomes side equality structure
+
+quadrilateral workspace
+→ triangle-pair medium
+→ diagonal correspondence becomes visible
+
+double-parallel workspace
+→ closure medium
+→ zero / finite-apex strata become visible
+```
+
+---
+
+# 7. Same state does not erase genealogy
+
+Always keep distinct:
+
+```text
+STATE_IDENTITY
+MEDIUM_IDENTITY
+GENETIC_IDENTITY
+MATERIAL_SUPPORT
+FAMILY_POSITION
+ROLE_ASSIGNMENT
+```
+
+The strongest recent principle is:
+
+```text
+STATE_IDENTITY
++
+MEDIUM_IDENTITY
+!=
+GENEALOGICAL_IDENTITY
+```
+
+Example:
+
+```text
+equilateral triangle from two equal-radius circles
+equilateral triangle from equal translation vectors + 60° closure
+```
+
+Both may occupy:
+
+```text
+same triangle medium
+same equilateral state
+```
+
+while retaining different:
+
+```text
+workspace
+medial carriers
+derivational route
+genetic signature
+```
+
+Never collapse convergent states into one genealogy.
+
+---
+
+# 8. The primary conceptual unit is now the Family Atlas
 
 Do not assume:
 
@@ -235,405 +363,712 @@ one Gestalt = one family = one concept
 Prefer:
 
 ```text
-GESTALT G
-  material_support = W
-
-  realizations:
-    in F1 -> state / zero / role
-    in F2 -> state / zero / role
-    in F3 -> host / projection / member
-    ...
+GESTALT FAMILY ATLAS {
+  one constructive support
+  several relational media
+  several family charts
+  several strata / fibers
+  cross-chart genealogies
+  nested sub-atlases
+  stabilization signature
+}
 ```
 
-The same material/cognitive organization may be:
-
-- a zero in one family,
-- a generic state in another,
-- a host in a third,
-- a projection of a richer object in a fourth,
-- a stabilized concept only after several such readings converge.
-
-Therefore always track:
+A mature concept may be better modeled as:
 
 ```text
-STATE_IDENTITY
-GENETIC_IDENTITY
-FAMILY_MEMBERSHIP
-REALIZATION_TOPOLOGY
-MATERIAL_SUPPORT
-ROLE_ASSIGNMENT
+Concept
+≈
+STABILIZE(
+  identity across several family charts
+)
 ```
 
-as distinct dimensions.
+rather than:
+
+```text
+Concept = property bundle
+```
 
 ---
 
-# 6. Family-first experimental protocol
+# 9. Family charts are not necessarily invertible coordinates
 
-For a new experiment, follow this order.
+A chart transition may be:
 
-## Stage A — Inject a rich Gestalt
+```text
+FUNCTIONAL
+PARTIAL
+RELATIONAL
+FIBERED
+```
 
-Start from the strongest meaningful workspace/figure/configuration.
+Example:
 
-Do **not** reduce it immediately to theorem-premise atoms.
+```text
+one topological closure state
+→ many compatible metric/angular realizations
+```
 
-Record its current material support and known Gestalt readings.
+So do not force:
 
-## Stage B — Map current family memberships
+```text
+state in F1
+→ unique state in F2
+```
+
+Prefer:
+
+```text
+state in F1
+→ constrained fiber / region in F2
+```
+
+The correct metaphor is:
+
+```text
+GESTALT CONSTRAINT ATLAS
+```
+
+not a classical coordinate atlas.
+
+---
+
+# 10. Static figure taxonomies should be pressure-tested as family strata
+
+When a classical taxonomy appears:
+
+```text
+triangle
+trapezoid
+parallelogram
+rectangle
+rhombus
+square
+cyclic quadrilateral
+...
+```
+
+ask whether some of these are better represented as:
+
+```text
+regions
+strata
+zeros
+boundary cases
+fibers
+intersections
+```
+
+inside richer family fields.
+
+Example already discovered:
+
+```text
+parallelogram = mutual zero
+trapezoid-like forms = one-axis closure deformations
+```
+
+inside a two-axis closure field.
+
+Prefer:
+
+```text
+figure taxonomy
+→ family stratification
+```
+
+when it increases compression and conceptual reach.
+
+---
+
+# 11. Composite figures are multi-medium objects
+
+For any composite object, ask for multiple admissible media.
+
+Example quadrilateral:
+
+```text
+triangle-pair medium
+transversal-pair medium
+opposite-side medium
+diagonal medium
+circle medium
+gnomonic / residual medium
+symmetry medium
+```
+
+Example solid:
+
+```text
+face medium
+section medium
+tetrahedral medium
+symmetry medium
+adjacency-cycle medium
+projection medium
+```
+
+A composite object should be allowed to participate in several hierarchies simultaneously.
+
+---
+
+# 12. Hierarchy is multi-parent and generated
+
+Do not preload a single hierarchy such as:
+
+```text
+point → line → triangle → quadrilateral → polygon
+```
+
+Hierarchies should emerge from successful rebases, carrier sharing, and family stabilizations.
+
+The same Gestalt may belong to several parents.
+
+The same sub-atlas may participate in multiple higher atlases.
+
+Therefore hierarchy should be:
+
+```text
+DAG-like
+multi-parent
+multi-perspectival
+genealogical
+context-relative
+```
+
+not a tree.
+
+---
+
+# 13. Analogy is an ontology-changing event
+
+A weak analogy is:
+
+```text
+G1 resembles G2
+```
+
+A strong analogy is:
+
+```text
+two previously separate descriptions
+turn out to be:
+- regions of one field
+- charts of one atlas
+- realizations of one medium
+- products of one shared genealogy
+- stabilizations around the same medial carriers
+```
+
+Strong analogy should preferentially pressure:
+
+```text
+family merge
+family split
+new chart
+new stratum
+new fiber relation
+shared medium
+shared genealogy
+reclassification of old concepts
+```
+
+not merely add an `ANALOGOUS_TO` edge.
+
+---
+
+# 14. Disanalogy is motion through family space
+
+Do not treat disanalogy as mere failed similarity or failed theorem condition.
+
+Represent:
+
+```text
+ONE DISANALOGY
+=
+ONE GENEALOGY
++
+MULTIPLE FAMILY-RELATIVE EXPRESSIONS
+```
+
+A single break may appear as:
+
+```text
+closure displacement
+metric residue
+angular residue
+gnomonic residual region
+oriented correspondence residue
+family rebase pressure
+```
+
+Do not duplicate the break separately in every chart.
+
+Track one origin with multiple chart images.
+
+---
+
+# 15. Residue is structural
+
+Residue may be:
+
+```text
+metric
+angular
+placement
+directional
+topological
+regional
+gnomonic
+genealogical
+```
+
+Prefer:
+
+```text
+RESIDUE
+=
+what remains structurally visible
+when one Gestalt is deformed relative to another
+```
+
+A residual region may itself become:
+
+```text
+new Gestalt
+new medium
+new family stratum
+new rebase ground
+```
+
+---
+
+# 16. Congruence and theorem labels are secondary in this phase
+
+Do not make:
+
+```text
+ASA
+SAS
+SSS
+```
+
+primary ontology when a richer family field explains them as central slices.
+
+If a theorem label becomes:
+
+```text
+zero region
+source profile
+central slice
+stabilization state
+```
+
+inside a deeper family, prefer the deeper family.
+
+General rule:
+
+```text
+THEOREM-LABEL DISTINCTION
+MAY BE ONTOLOGICALLY SECONDARY
+```
+
+---
+
+# 17. Operator creation is last resort
+
+Do not default to:
+
+```text
+new phenomenon
+→ name relation
+→ invent OP_X
+→ freeze
+```
+
+Before adding an operator, test whether the phenomenon is better understood as:
+
+```text
+family state
+family deformation
+chart transition
+realization map
+genealogical relation
+carrier participation
+co-constitution
+rebase
+stratum
+fiber
+shared medium
+derived path
+```
+
+A candidate should become `OP_*` only if:
+
+1. it is content-independent;
+2. it appears across multiple geometrically distinct contexts;
+3. existing operators cannot generate it;
+4. a family/chart/genealogy representation would lose essential structure;
+5. it genuinely changes the available transformation grammar.
+
+Keep kernel pressure toward smallness.
+
+Current provisional kernel:
+
+```text
+BREAK
+REBASE
+REINDIVIDUATE
+PARTITION_WORKSPACE
+HOST
+PROJECT
+RECOMPOSE_GESTALTS
+DECOMPILE
+COMPLETE
+COMPILE / STABILIZE
+```
+
+---
+
+# 18. Discovery protocol v2
+
+For each new experiment, use this sequence.
+
+## Stage A — Build the derivational workspace
+
+Identify:
+
+```text
+material support
+active Gestalten
+latent Gestalten
+medial carriers
+shared regions
+co-constitution clusters
+```
+
+## Stage B — Identify relational media
 
 Ask:
 
 ```text
-Where does this same Gestalt already live?
-
-In which families is it:
-- central?
-- zero?
-- generic?
-- unstable?
-- a host?
-- a projection?
-- a boundary case?
+Through which figures / structures can this workspace be rebased?
+triangle?
+circle?
+quadrilateral?
+gnomon?
+transversal?
+section?
+solid?
 ```
 
-## Stage C — Deform it
+## Stage C — Map the family atlas
+
+For each medium, ask:
+
+```text
+Which family chart appears?
+Which coordinates?
+Which zero / residual states?
+Which strata?
+Which fibers?
+```
+
+## Stage D — Deform
 
 Apply controlled:
 
 ```text
 BREAK
 REBASE
-PARTIALIZATION
-REINDIVIDUATION
+REINDIVIDUATE
 PARTITION when materially warranted
+whole/part shift
+residualization
 ```
 
-Track which family coordinates change together and which remain invariant.
+Track one genealogy across all chart images.
 
-## Stage D — Look for cross-family echoes
+## Stage E — Search for ontology change
 
-Ask:
+Ask whether the deformation reveals:
 
 ```text
-Does a deformation in F1 reappear as a familiar structure in F2?
-
-Does a zero in F1 become a generic state in F2?
-
-Does a Gestalt previously treated as another concept appear as a different realization of the same deeper family?
-
-Do several old categories become regions of one richer family?
+family expansion
+family merge
+family split
+new coordinate
+new chart
+new stratum
+new fiber relation
+new medium
+new hierarchy
+new carrier role
+new derived object class
 ```
 
-## Stage E — Prefer ontology change
+## Stage F — Compare convergent realizations
 
-Before naming anything new, ask whether the result demands:
+Actively look for:
 
-- family refinement,
-- family expansion,
-- family merge,
-- family split,
-- new coordinate axis,
-- new realization topology,
-- new shared host,
-- reclassification of existing concepts,
-- one concept becoming a special case of a larger organization.
+```text
+same state / different genealogy
+same medium / different genealogy
+same material support / different family role
+different support / same family state
+same carrier / multiple constitutive roles
+```
 
-Strong analogy should often produce one of these.
+These are high-value cases.
 
-## Stage F — Stabilize only after pressure
+## Stage G — High-level coherence audit only
 
-Only compile a concept/family when repeated trajectories make the organization useful and compressive.
+Check:
 
-Do not freeze a structure because it is easy to formalize.
+```text
+material identity consistency
+carrier identity consistency
+participation consistency
+co-constitution consistency
+family membership consistency
+genealogy continuity
+cross-chart compatibility
+no false fusion
+no accidental duplication
+no silent workspace change
+```
+
+Do not run proof-style validation unless explicitly requested.
 
 ---
 
-# 7. Analogy
+# 19. Visualization is part of the reasoning method
 
-A weak representation of analogy is:
+Do not treat visualization as presentation after the theory.
+
+In this trajectory, visualization is itself diagnostic.
+
+Prefer visualizations that preserve one material object while changing its relational halo.
+
+Important views:
 
 ```text
-G1 --ANALOGOUS_TO--> G2
+MATERIAL
+CO-CONSTITUTION
+ATLAS
+HIERARCHY
+GENEALOGY
+DEFORMATION
 ```
 
-A strong analogy is one that reorganizes the network:
+When perspectives switch:
 
 ```text
-G1 in F1
-G2 in F2
-        ↓
-shared genealogy / transformation / structural pressure
-        ↓
-discover F*
-        ↓
-G1 and G2 become
-- realizations,
-- states,
-- projections,
-- or partializations
-of a deeper common organization
+material identity stays visually anchored
+
+roles change
+family memberships change
+active Gestalten change
+genealogical emphasis changes
 ```
 
-**A strong analogy should usually change ontology, not merely add an edge.**
+Use visuals to test whether a proposed ontology is actually intelligible.
+
+If the ontology cannot be represented without duplicating the same material carrier or confusing genealogy with state, treat that as representational pressure.
 
 ---
 
-# 8. Disanalogy
+# 20. Visual comparison cases to prioritize
 
-Do not treat disanalogy merely as failed similarity.
-
-A disanalogy can:
-
-- expose a hidden axis,
-- split a family,
-- create a new family coordinate,
-- reveal an unstable zero,
-- force rebase,
-- show that two apparently identical forms have different genealogies,
-- generate a new conceptual object from the deformation path.
-
-Track the origin of the break:
+High-value visual experiments include:
 
 ```text
-SEED
-PROPAGATED
-RESIDUAL
-REBASED
+same support / different role
+same Gestalt / different family chart
+same medium / different genealogy
+same state / different genealogy
+same carrier / multiple co-constitutive participations
+one break / multiple chart images
+one concept / multiple hierarchy positions
 ```
 
-and ask what **family structure** the break reveals.
+These cases should drive future viewer development.
 
 ---
 
-# 9. Ontology improvement test
+# 21. Formalization is a shadow layer
 
-A genuine ontology improvement occurs when the system changes **what kind of things it thinks exist** or how previous things are classified.
-
-Examples:
+Formalization currently exists only to ask questions like:
 
 ```text
-three isolated congruence criteria
-→ regions/charts of one host-relative family
-
-triangle / congruence / parallel
-→ realizations of a deeper completion topology
-
-parallelogram
-→ same Gestalt simultaneously:
-   topological zero,
-   generic metric/angular state,
-   congruence host,
-   composite nonclosure organization
+Can these family descriptions coexist?
+Are we duplicating one material carrier?
+Did two distinct workspaces get falsely fused?
+Does genealogy survive a rebase?
+Does one state appear consistently across charts?
+Does a family refinement preserve earlier useful organization?
 ```
 
-Merely adding a relation is not automatically ontology improvement.
-
----
-
-# 10. Discovery-mode coherence monitor
-
-During discovery, replace the old proof-style validator mentality with a **coherence monitor**.
-
-It should protect against:
-
-- material identity errors,
-- impossible incidence claims,
-- accidentally treating cognitive role alignment as material identity,
-- silently changing the frozen workspace,
-- contradiction between two representations of the same Gestalt,
-- incompatible family assignments,
-- genealogy corruption.
-
-It should **not** dominate the run by requiring theorem certificates.
-
-Use statuses such as:
+It should not ask by default:
 
 ```text
-SPECULATIVE
-STRUCTURALLY_SUPPORTED
-REORGANIZATION_PRESSURE
-STABILIZING
-UNRESOLVED
-INTERNALLY_INCOHERENT
-```
-
-The important distinction is:
-
-```text
-INTERNALLY_INCOHERENT
-!=
-NOT YET PROVED
-```
-
-In the present phase, "not yet proved" is usually irrelevant.
-
----
-
-# 11. Future certification phase
-
-A theorem-certification phase may exist later, but it is **not the current research regime**.
-
-Future pipeline:
-
-```text
-MATURE COGNITIVE DISCOVERY
-        ↓
-select a proof-readable projection
-        ↓
-compile into Euclidean / formal proof language
-        ↓
-validate correctness
+Can Lean prove this?
+Which Euclidean proposition licenses this?
+Is every cognitive move deductively certified?
 ```
 
 Keep:
 
 ```text
-DISCOVERY GENEALOGY
-!=
-PROOF CERTIFICATE
+COGNITIVE DISCOVERY
+↓
+HIGH-LEVEL COHERENCE SHADOW
 ```
 
-The proof layer will eventually test whether a stabilized conceptual trajectory has a valid formal projection. It must not retroactively become the explanation of discovery.
+not:
+
+```text
+FORMAL RULE SYSTEM
+↓
+PERMITTED DISCOVERY
+```
 
 ---
 
-# 12. No blind-search mythology
+# 22. No blind-search mythology
 
-Do not pretend the experiment is neutral or theory-free.
+Do not pretend Merovingio is theory-free.
 
-Merovingio already has strong theoretical commitments:
+The current theory intentionally privileges:
 
-- Gestalt organization,
-- whole/part dynamics,
-- analogy,
-- disanalogy,
-- genealogy,
-- rebase,
-- constructive workspaces,
-- zero/fixed states,
-- family structure,
-- gnomonic growth,
-- multi-realization.
-
-Use these commitments actively.
+```text
+Gestalt organization
+whole/part
+analogy
+disanalogy
+genealogy
+rebase
+workspace co-constitution
+medial carriers
+zero/fixed states
+family fields
+residue
+multi-realization
+relational media
+atlas organization
+hierarchical stabilization
+```
 
 The test is not:
 
 ```text
-"Would this emerge from arbitrary rules with zero conceptual priors?"
+Would this emerge from arbitrary rules?
 ```
 
 The test is:
 
 ```text
-"Does this conceptual machinery repeatedly reorganize mathematics
-in fertile, compressive, non-ad-hoc ways across different domains?"
+Does this machinery repeatedly reorganize mathematics
+in fertile, compressive, non-ad-hoc ways
+across different geometric domains?
 ```
 
 Theory-guided discovery is expected.
 
 ---
 
-# 13. Preferred run structure
+# 23. Anti-patterns
 
-For future Merovingio experiments, default to:
+Avoid:
 
 ```text
-0. QUESTION / CONCEPTUAL PRESSURE
-1. RICH SEED GESTALT
-2. FAMILY FIELD BEFORE INJECTION
-3. DEFORMATION / BREAK / REBASE TRAJECTORY
-4. SAME GESTALT ACROSS MULTIPLE FAMILIES
-5. ANALOGY / DISANALOGY PRESSURES
-6. FAMILY REORGANIZATION
-7. ONTOLOGY CHANGE
-8. STABILIZATIONS / OPEN STRUCTURES
-9. HIGH-LEVEL COHERENCE AUDIT
+THEOREM-FIRST
+OPERATOR-PROLIFERATION
+PROPERTY-BUNDLE CONCEPTS
+ONE-CONCEPT-ONE-FAMILY
+ONE-FIGURE-ONE-DECOMPOSITION
+TREE-ONLY HIERARCHIES
+STATE = GENEALOGY COLLAPSE
+DUPLICATING SHARED MATERIAL CARRIERS
+TREATING VISUALIZATION AS DECORATION
+FORCING CHART TRANSITIONS TO BE FUNCTIONS
 ```
 
-The main result should answer:
+When any of these appears, actively reframe toward:
 
-> **How did the network's ontology or family organization change?**
+```text
+workspace
+carrier
+medium
+family field
+atlas
+genealogy
+stratum
+fiber
+rebase
+co-constitution
+```
 
-The final audit should answer only:
+---
 
-> **Is that reorganization internally coherent with Merovingio as currently constituted?**
+# 24. Preferred output style for future runs
+
+The main body of a Merovingio experiment should usually emphasize:
+
+```text
+0. CONCEPTUAL PRESSURE
+1. DERIVATIONAL WORKSPACE
+2. CO-PARTICIPATING GESTALTEN
+3. MEDIAL CARRIERS / SEEDS
+4. RELATIONAL MEDIA
+5. FAMILY ATLAS BEFORE DEFORMATION
+6. DEFORMATION / REBASE
+7. CROSS-CHART EFFECTS
+8. FAMILY / HIERARCHY REORGANIZATION
+9. ONTOLOGY CHANGE
+10. VISUAL INTERPRETATION
+11. HIGH-LEVEL COHERENCE AUDIT
+12. OPEN PRESSURES
+```
+
+The main conclusion should answer:
+
+> **What changed in the ontology of the workspace and its family atlas?**
 
 not:
 
-> Which deductions were formally proved?
+> Which deductions succeeded?
 
 ---
 
-# 14. Rewrite rule for older runs
-
-When revisiting Runs 18–21 or similar experiments, reinterpret provisional constructs according to:
-
-```text
-TRUE OPERATOR
-FAMILY STRUCTURE
-REALIZATION MAP
-RELATION
-DERIVED PATH
-GENEALOGY
-```
-
-Default assumption:
-
-> if a candidate only names a path through already existing operators and families, it is **not** a new operator.
-
-Also reinterpret old "proof validator" sections as:
-
-```text
-HIGH-LEVEL COHERENCE AUDITS
-```
-
-unless the experiment explicitly belongs to a later certification phase.
-
-Preserve the experiments. Refactor their interpretation.
-
----
-
-# 15. Stop conditions
-
-Pause before adding an operator if any of these are true:
-
-- the phenomenon appeared only once,
-- it contains theorem-specific vocabulary,
-- it can be expressed as a sequence of existing operators,
-- it only records a result of projection/recomposition,
-- it is better understood as a family-relative state,
-- it disappears when the same Gestalt is viewed in another family,
-- its apparent novelty comes only from renaming a relation.
-
-Instead, investigate the family structure.
-
-Pause before invoking proof machinery if:
-
-- the purpose is conceptual unification,
-- the ontology is still changing,
-- the family itself is under rewrite,
-- proof pressure would force premature individuation,
-- the only question is internal coherence.
-
----
-
-# 16. Guiding maxim
+# 25. Guiding maxims
 
 ```text
 DO NOT FREEZE TOO EARLY.
 
 THIS PHASE IS COGNITIVE, NOT DEMONSTRATIVE.
 
-Prefer ontology change over rule creation.
-Prefer family deformation over relation naming.
-Prefer multi-realization over concept duplication.
-Prefer genealogy over theorem labels.
-Prefer constructive tension over immediate proof closure.
+THE WORKSPACE IS A DERIVATIONAL ENVIRONMENT,
+NOT A PASSIVE CONTAINER.
 
-Formalize only enough to check high-level coherence
-with Merovingio's own evolving system.
+A FIGURE MAY BE AN OBJECT OR A RELATIONAL MEDIUM.
 
-Proof comes later.
+ONE MATERIAL CARRIER MAY CO-CONSTITUTE MANY GESTALTEN.
+
+STATE IDENTITY DOES NOT ERASE GENEALOGY.
+
+THE SAME MEDIUM MAY HOST DIFFERENT GENETIC CLASSES.
+
+PREFER FAMILY REORGANIZATION OVER RULE CREATION.
+
+PREFER MULTI-PERSPECTIVAL HIERARCHIES OVER TAXONOMIC TREES.
+
+PREFER ATLAS + GENEALOGY OVER PROPERTY BUNDLES.
+
+VISUALIZE THE SAME MATERIAL SUPPORT THROUGH MANY READINGS.
+
+FORMALIZE ONLY ENOUGH TO CHECK HIGH-LEVEL COHERENCE.
+
+PROOF COMES LATER.
 ```
