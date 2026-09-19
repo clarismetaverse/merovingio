@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "architecture_version": "0.4.1",
+    "phase": "COGNITIVE_UNIFICATION",
+    "proof_mode": false,
+    "purpose": "workspace co-constitution and medial-carrier ontology"
+  },
+  "entities": {
+    "MedialCarrier": {
+      "fields": [
+        "id",
+        "material_identity",
+        "carrier_kind",
+        "participates_in",
+        "carried_relations",
+        "preserved_contacts",
+        "orientation_data",
+        "genealogy",
+        "rebase_potential",
+        "blending_potential",
+        "classification_potential"
+      ],
+      "operator": false
+    },
+    "CarrierParticipation": {
+      "fields": [
+        "carrier_id",
+        "gestalt_id",
+        "family_id",
+        "local_role",
+        "local_orientation",
+        "local_relations",
+        "constitutive_weight",
+        "shared_with"
+      ],
+      "operator": false
+    },
+    "MedialSeed": {
+      "fields": [
+        "carrier_id",
+        "current_participations",
+        "latent_participations",
+        "unresolved_relational_pressure",
+        "candidate_family_bridges",
+        "candidate_higher_gestalts"
+      ],
+      "operator": false
+    },
+    "CoConstitutionStructure": {
+      "fields": [
+        "workspace_id",
+        "participating_gestalts",
+        "shared_carriers",
+        "shared_regions",
+        "mutual_dependencies",
+        "higher_gestalt_candidates",
+        "blending_mode",
+        "genealogy"
+      ],
+      "operator": false
+    },
+    "DerivationEnvironment": {
+      "fields": [
+        "workspace_id",
+        "current_gestalts",
+        "current_families",
+        "medial_carriers",
+        "medial_seeds",
+        "co_constitution_clusters",
+        "available_rebases",
+        "latent_family_transitions",
+        "emerging_object_classes"
+      ],
+      "operator": false
+    }
+  },
+  "principles": [
+    "MULTIPLE_INTERPRETATION != CO_CONSTITUTIVE_PARTICIPATION",
+    "WORKSPACE : ATLAS = GENETIC_FIELD : CONCEPTUAL_ORGANIZATION",
+    "ONE_MATERIAL_CARRIER_MANY_GESTALT_PARTICIPATIONS",
+    "MATERIAL_IDENTITY_PRESERVED_ACROSS_ROLE_CHANGES",
+    "MEDIAL_CARRIER_CAN_TRANSPORT_RELATIONAL_PRESSURE_WITHOUT_BEING_A_PROOF_RULE",
+    "HIGHER_GESTALT_MAY_EMERGE_FROM_CO_CONSTITUTIVE_BLEND"
+  ],
+  "example": {
+    "workspace": "quadrilateral ABCD with diagonal AC",
+    "carrier": "AC",
+    "participations": [
+      {
+        "gestalt": "triangle ABC",
+        "role": "SIDE"
+      },
+      {
+        "gestalt": "triangle ACD",
+        "role": "SIDE"
+      },
+      {
+        "gestalt": "quadrilateral ABCD",
+        "role": "DIAGONAL"
+      },
+      {
+        "gestalt": "parallel/transversal reading",
+        "role": "TRANSVERSAL"
+      },
+      {
+        "gestalt": "correspondence reading",
+        "role": "IDENTITY_BRIDGE"
+      }
+    ],
+    "material_identity_preserved": true
+  },
+  "coherence_checks": [
+    "carrier identity consistency",
+    "participation consistency",
+    "co-constitution consistency",
+    "no material duplication across views",
+    "no false fusion of distinct elements",
+    "genealogy continuity across participations"
+  ]
+}
