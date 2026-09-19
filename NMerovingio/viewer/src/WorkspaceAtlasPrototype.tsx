@@ -4,10 +4,11 @@ import cytoscape, { type Core, type ElementDefinition } from 'cytoscape'
 import quadJson from '../../graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json'
 import circlesJson from '../../graph/examples/workspace_two_circles_triangle_v0_4_1.json'
 import compareJson from '../../graph/examples/workspace_triangle_genealogy_comparison_v0_4_1.json'
+import sameStateJson from '../../graph/examples/workspace_equilateral_same_state_different_genealogy_v0_4_1.json'
 
 type AnyRecord = Record<string, any>
 type Perspective = 'MATERIAL' | 'CO_CONSTITUTION' | 'ATLAS' | 'ALL'
-type ExampleKey = 'QUADRILATERAL' | 'CIRCLES' | 'COMPARE'
+type ExampleKey = 'QUADRILATERAL' | 'CIRCLES' | 'COMPARE' | 'SAME_STATE'
 
 const perspectiveOrder: Perspective[] = ['MATERIAL', 'CO_CONSTITUTION', 'ATLAS', 'ALL']
 
@@ -15,6 +16,7 @@ const examples: Record<ExampleKey, AnyRecord> = {
   QUADRILATERAL: quadJson as AnyRecord,
   CIRCLES: circlesJson as AnyRecord,
   COMPARE: compareJson as AnyRecord,
+  SAME_STATE: sameStateJson as AnyRecord,
 }
 
 function makeElements(example: AnyRecord): ElementDefinition[] {
@@ -235,7 +237,7 @@ export default function WorkspaceAtlasPrototype() {
 
   useEffect(() => {
     setSelectedId(defaultSelected)
-    setPerspective(exampleKey === 'COMPARE' ? 'ATLAS' : 'CO_CONSTITUTION')
+    setPerspective(exampleKey === 'COMPARE' || exampleKey === 'SAME_STATE' ? 'ATLAS' : 'CO_CONSTITUTION')
   }, [exampleKey, defaultSelected])
 
   useEffect(() => {
@@ -299,13 +301,15 @@ export default function WorkspaceAtlasPrototype() {
     (edge: AnyRecord) => edge.source === selectedId || edge.target === selectedId,
   )
 
-  const exampleNumber = exampleKey === 'QUADRILATERAL' ? '01' : exampleKey === 'CIRCLES' ? '02' : '03'
+  const exampleNumber = exampleKey === 'QUADRILATERAL' ? '01' : exampleKey === 'CIRCLES' ? '02' : exampleKey === 'COMPARE' ? '03' : '04'
   const exampleTitle = example.metadata?.title
     || (exampleKey === 'QUADRILATERAL'
       ? 'Quadrilateral + diagonal AC'
       : exampleKey === 'CIRCLES'
         ? 'Two circles → equilateral triangle'
-        : 'Same triangle medium, different genealogies')
+        : exampleKey === 'COMPARE'
+          ? 'Same triangle medium, different genealogies'
+          : 'Same equilateral state, different genealogies')
 
   const selectedInsight = example.insight && (
     selectedId === defaultSelected
@@ -343,6 +347,12 @@ export default function WorkspaceAtlasPrototype() {
           onClick={() => setExampleKey('COMPARE')}
         >
           Compare genesis
+        </button>
+        <button
+          className={exampleKey === 'SAME_STATE' ? 'active' : ''}
+          onClick={() => setExampleKey('SAME_STATE')}
+        >
+          Same state ≠ genesis
         </button>
 
         <div className="bar-divider" />
@@ -391,6 +401,20 @@ export default function WorkspaceAtlasPrototype() {
             </>
           )}
 
+          {exampleKey === 'SAME_STATE' && (
+            <>
+              <p>
+                Here even the final triangle state is identical: both branches occupy the equilateral zero of the same triangle medium.
+                Only the genetic constitution remains different.
+              </p>
+              <div className="comparison-principle triple">
+                <strong>SAME MEDIUM + STATE</strong>
+                <span>≠</span>
+                <strong>SAME GENEALOGY</strong>
+              </div>
+            </>
+          )}
+
           <div className="equation-card">
             <span>Workspace</span>
             <strong>genetic field</strong>
@@ -416,9 +440,13 @@ export default function WorkspaceAtlasPrototype() {
             <span>
               {perspective === 'MATERIAL' && 'Keep material identity and workspace separation foregrounded.'}
               {perspective === 'CO_CONSTITUTION' && 'See how shared carriers fuse Gestalten inside each derivational environment.'}
-              {perspective === 'ATLAS' && (exampleKey === 'COMPARE'
-                ? 'See different genealogies converge on one triangle medium without collapsing their origins.'
-                : 'See the same Gestalten distributed across family charts.')}
+              {perspective === 'ATLAS' && (
+                exampleKey === 'COMPARE'
+                  ? 'See different genealogies converge on one triangle medium without collapsing their origins.'
+                  : exampleKey === 'SAME_STATE'
+                    ? 'See medium identity and state identity coincide while genealogy remains split.'
+                    : 'See the same Gestalten distributed across family charts.'
+              )}
               {perspective === 'ALL' && 'Full derivational environment.'}
             </span>
           </div>
@@ -465,7 +493,7 @@ export default function WorkspaceAtlasPrototype() {
             </div>
           </section>
 
-          {exampleKey === 'COMPARE' && example.comparison && (
+          {(exampleKey === 'COMPARE' || exampleKey === 'SAME_STATE') && example.comparison && (
             <section className="comparison-card">
               <h3>Genealogy comparison</h3>
               <div className="compare-row">
