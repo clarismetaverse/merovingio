@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "experiment_id": "RUN20_PARALLELOGRAM_INTO_SAS_FAMILY",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical": false,
+    "input_snapshot": "N12",
+    "comparison_run": "RUN19_PARALLELOGRAM_INTO_ASA_FAMILY",
+    "source_file": "TRIANGLE_MULTIAGENT_PARALLELOGRAM_INTO_SAS_FAMILY_RUN_20.md"
+  },
+  "seed": {
+    "parent": "G_MUTUAL_TRANSVERSAL_ZERO candidate over closed quadrilateral ABCD",
+    "facts": [
+      "AB || CD",
+      "AD || BC",
+      "diagonal AC"
+    ],
+    "deliberately_hidden_metric_facts": [
+      "AB = CD",
+      "AD = BC"
+    ]
+  },
+  "partition": {
+    "operator": "OP_PARTITION_WORKSPACE",
+    "triangles": [
+      "ABC",
+      "CDA"
+    ],
+    "shared_carrier": "AC",
+    "shared_relation": "AC = CA"
+  },
+  "stage_1": {
+    "name": "pure_topological_host_to_SAS",
+    "projections": [
+      "AB || CD -> angle BAC = angle DCA via P_I29",
+      "AD || BC -> angle DAC = angle BCA via P_I29"
+    ],
+    "sas_orientation": [
+      "AB ? CD",
+      "AC = CA",
+      "angle BAC = angle DCA"
+    ],
+    "result": "BLOCKED",
+    "reason": "MISSING_OPPOSITE_SIDE_METRIC_EQUALITY",
+    "key_invariant": "PARALLELISM_DOES_NOT_BY_ITSELF_LICENSE_LENGTH_EQUALITY"
+  },
+  "comparison_with_run19": {
+    "ASA": "TOPOLOGY + TOPOLOGY + IDENTITY -> CONGRUENCE",
+    "SAS": "TOPOLOGY + METRIC + IDENTITY -> CONGRUENCE -> TOPOLOGY_COMPLETION",
+    "interpretation": "different host-conversion signatures"
+  },
+  "stage_2": {
+    "injected_independent_metric_anchor": "AB = CD",
+    "sas_mask": [
+      "AB = CD",
+      "AC = CA",
+      "angle BAC = angle DCA"
+    ],
+    "proof_license": "P_I4",
+    "result": "G_PAIR_COINCIDENCE",
+    "completion_readout": "angle BCA = angle DAC",
+    "recovered_topological_fact": "BC || AD via P_I27"
+  },
+  "symmetric_channel": {
+    "seed": [
+      "AD || BC",
+      "AD = BC",
+      "AC = CA"
+    ],
+    "sas_angle": "angle DAC = angle BCA",
+    "congruence_readout": "angle BAC = angle DCA",
+    "recovered_topological_fact": "AB || CD"
+  },
+  "candidates": [
+    {
+      "id": "G_SAS_PARALLELOGRAM_DIAGONAL_HOST",
+      "type": "GESTALT",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "one topological zero + one independent metric anchor + shared diagonal -> SAS congruence -> second topological zero"
+    },
+    {
+      "id": "SAS_TOPOLOGICAL_COMPLETION_BRIDGE",
+      "type": "CAPABILITY_CANDIDATE",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "topology -> angle; metric -> side; SAS -> congruence; congruence -> angle; I27 -> missing topology"
+    },
+    {
+      "id": "HOST_CONVERSION_SIGNATURE",
+      "type": "METADATA_CANDIDATE",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "record genealogical source domains and host-completion affordances for congruence access masks"
+    }
+  ],
+  "disanalogy_map": [
+    "break topological zero -> included-angle coordinate destabilizes",
+    "break metric anchor -> non-shared-side coordinate destabilizes",
+    "break shared carrier identity -> common-side coordinate blocked"
+  ],
+  "guardrails": [
+    "BLOCKED != REJECTED",
+    "TOPOLOGICAL_ZERO != METRIC_ZERO",
+    "PARALLELISM_DOES_NOT_IMPLY_LENGTH_EQUALITY_WITHOUT_LICENSE",
+    "SHARED_ROLE != SHARED_MATERIAL_CARRIER",
+    "SAS_CONGRUENCE != PARALLELOGRAM",
+    "HOST_CONVERSION_SIGNATURE != THEOREM_IDENTITY"
+  ],
+  "result": "ASYMMETRIC_POSITIVE: PURE_HOST_BLOCKED; METRIC_ANCHOR_ENABLES_TOPOLOGICAL_COMPLETION"
+}
