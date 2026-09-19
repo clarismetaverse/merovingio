@@ -209,3 +209,19 @@ button, a { font: inherit; }
   .atlas-graph { height: 68vh; }
   .atlas-inspector { max-height: none; }
 }
+
+
+.bar-divider {
+  width: 1px;
+  height: 22px;
+  margin: 0 8px;
+  background: #2a3240;
+}
+
+.perspective-bar {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .bar-divider { display: none; }
+}
