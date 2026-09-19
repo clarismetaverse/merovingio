@@ -1,0 +1,344 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "example_id": "EQUILATERAL_SAME_STATE_DIFFERENT_GENEALOGY_V041",
+    "architecture": "0.4.1",
+    "title": "Same equilateral state, different genealogies",
+    "short_label": "Same state ≠ same genesis",
+    "purpose": "show state identity and medium identity with preserved genealogical non-identity",
+    "default_selected": "G_EQ_STATE_SHARED"
+  },
+  "workspace": {
+    "id": "W_EQ_COMPARE",
+    "name": "Cross-workspace equilateral comparison",
+    "description": "A circle-derived triangle and a translation/rhombic-lattice-derived triangle occupy the same equilateral state in the same triangle medium while preserving distinct material supports, medial carriers, and genetic signatures."
+  },
+  "nodes": [
+    {
+      "id": "W_CIRCLE_EQ",
+      "type": "WORKSPACE",
+      "label": "Circle workspace",
+      "position": {
+        "x": 170,
+        "y": 60
+      }
+    },
+    {
+      "id": "W_TRANSLATION_EQ",
+      "type": "WORKSPACE",
+      "label": "Translation / rhombic workspace",
+      "position": {
+        "x": 790,
+        "y": 60
+      }
+    },
+    {
+      "id": "G_CIRCLE_PAIR_EQ",
+      "type": "GESTALT",
+      "label": "Two equal-radius circles",
+      "position": {
+        "x": 85,
+        "y": 210
+      }
+    },
+    {
+      "id": "G_EQ_TRI_CIRCLE",
+      "type": "GESTALT",
+      "label": "Equilateral triangle · circle-derived",
+      "position": {
+        "x": 285,
+        "y": 210
+      }
+    },
+    {
+      "id": "G_TRANSLATION_BASIS",
+      "type": "GESTALT",
+      "label": "Equal translation basis · 60°",
+      "position": {
+        "x": 675,
+        "y": 210
+      }
+    },
+    {
+      "id": "G_EQ_TRI_TRANSLATION",
+      "type": "GESTALT",
+      "label": "Equilateral triangle · translation-derived",
+      "position": {
+        "x": 875,
+        "y": 210
+      }
+    },
+    {
+      "id": "M_RADIUS_PACKET",
+      "type": "MEDIAL_CARRIER",
+      "label": "radius packet",
+      "position": {
+        "x": 185,
+        "y": 335
+      },
+      "material_identity": "circle radius carriers AB/AC/BC",
+      "participations": [
+        {
+          "gestalt": "G_CIRCLE_PAIR_EQ",
+          "role": "RADIUS_RELATIONS"
+        },
+        {
+          "gestalt": "G_EQ_TRI_CIRCLE",
+          "role": "TRIANGLE_SIDES"
+        },
+        {
+          "gestalt": "GEN_EQ_CIRCLE",
+          "role": "GENETIC_CARRIER"
+        }
+      ]
+    },
+    {
+      "id": "M_TRANSLATION_PACKET",
+      "type": "MEDIAL_CARRIER",
+      "label": "u / v / (v-u)",
+      "position": {
+        "x": 775,
+        "y": 335
+      },
+      "material_identity": "translation carriers AB=u, AC=v, BC=v-u",
+      "participations": [
+        {
+          "gestalt": "G_TRANSLATION_BASIS",
+          "role": "TRANSLATION_RELATIONS"
+        },
+        {
+          "gestalt": "G_EQ_TRI_TRANSLATION",
+          "role": "TRIANGLE_SIDES"
+        },
+        {
+          "gestalt": "GEN_EQ_TRANSLATION",
+          "role": "GENETIC_CARRIER"
+        }
+      ]
+    },
+    {
+      "id": "GEN_EQ_CIRCLE",
+      "type": "GENEALOGY",
+      "label": "genesis · shared-radius co-constitution",
+      "position": {
+        "x": 285,
+        "y": 450
+      }
+    },
+    {
+      "id": "GEN_EQ_TRANSLATION",
+      "type": "GENEALOGY",
+      "label": "genesis · equal vectors + 60° closure",
+      "position": {
+        "x": 675,
+        "y": 450
+      }
+    },
+    {
+      "id": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "FAMILY",
+      "label": "Triangle relational medium",
+      "position": {
+        "x": 480,
+        "y": 570
+      }
+    },
+    {
+      "id": "G_EQ_STATE_SHARED",
+      "type": "GESTALT",
+      "label": "Equilateral state · EQ/EQ/EQ",
+      "position": {
+        "x": 480,
+        "y": 690
+      },
+      "state_signature": "side relations all EQ; angular relations all EQ",
+      "insight": "Both branches occupy exactly this same triangle-family state. The state is shared; the genealogy is not."
+    },
+    {
+      "id": "F_TRIANGLE_EQUALITY_SHARED",
+      "type": "FAMILY",
+      "label": "Triangle equality family",
+      "position": {
+        "x": 480,
+        "y": 805
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_WC_GC",
+      "source": "W_CIRCLE_EQ",
+      "target": "G_CIRCLE_PAIR_EQ",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_WC_TC",
+      "source": "W_CIRCLE_EQ",
+      "target": "G_EQ_TRI_CIRCLE",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_WT_GT",
+      "source": "W_TRANSLATION_EQ",
+      "target": "G_TRANSLATION_BASIS",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_WT_TT",
+      "source": "W_TRANSLATION_EQ",
+      "target": "G_EQ_TRI_TRANSLATION",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_MR_GC",
+      "source": "M_RADIUS_PACKET",
+      "target": "G_CIRCLE_PAIR_EQ",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS_RELATIONS"
+    },
+    {
+      "id": "E_MR_TC",
+      "source": "M_RADIUS_PACKET",
+      "target": "G_EQ_TRI_CIRCLE",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDES"
+    },
+    {
+      "id": "E_MR_GEN",
+      "source": "M_RADIUS_PACKET",
+      "target": "GEN_EQ_CIRCLE",
+      "type": "CARRIES_GENEALOGY"
+    },
+    {
+      "id": "E_MT_GT",
+      "source": "M_TRANSLATION_PACKET",
+      "target": "G_TRANSLATION_BASIS",
+      "type": "PARTICIPATES_IN",
+      "role": "TRANSLATION_RELATIONS"
+    },
+    {
+      "id": "E_MT_TT",
+      "source": "M_TRANSLATION_PACKET",
+      "target": "G_EQ_TRI_TRANSLATION",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDES"
+    },
+    {
+      "id": "E_MT_GEN",
+      "source": "M_TRANSLATION_PACKET",
+      "target": "GEN_EQ_TRANSLATION",
+      "type": "CARRIES_GENEALOGY"
+    },
+    {
+      "id": "E_GC_GEN",
+      "source": "G_CIRCLE_PAIR_EQ",
+      "target": "GEN_EQ_CIRCLE",
+      "type": "GENETIC_SOURCE"
+    },
+    {
+      "id": "E_TC_GEN",
+      "source": "G_EQ_TRI_CIRCLE",
+      "target": "GEN_EQ_CIRCLE",
+      "type": "GENETIC_RESULT"
+    },
+    {
+      "id": "E_GT_GEN",
+      "source": "G_TRANSLATION_BASIS",
+      "target": "GEN_EQ_TRANSLATION",
+      "type": "GENETIC_SOURCE"
+    },
+    {
+      "id": "E_TT_GEN",
+      "source": "G_EQ_TRI_TRANSLATION",
+      "target": "GEN_EQ_TRANSLATION",
+      "type": "GENETIC_RESULT"
+    },
+    {
+      "id": "E_TC_MEDIUM",
+      "source": "G_EQ_TRI_CIRCLE",
+      "target": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_TT_MEDIUM",
+      "source": "G_EQ_TRI_TRANSLATION",
+      "target": "F_TRIANGLE_MEDIUM_SHARED",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_GEN_C_STATE",
+      "source": "GEN_EQ_CIRCLE",
+      "target": "G_EQ_STATE_SHARED",
+      "type": "CONVERGES_TO_STATE"
+    },
+    {
+      "id": "E_GEN_T_STATE",
+      "source": "GEN_EQ_TRANSLATION",
+      "target": "G_EQ_STATE_SHARED",
+      "type": "CONVERGES_TO_STATE"
+    },
+    {
+      "id": "E_TC_STATE",
+      "source": "G_EQ_TRI_CIRCLE",
+      "target": "G_EQ_STATE_SHARED",
+      "type": "OCCUPIES_SAME_STATE"
+    },
+    {
+      "id": "E_TT_STATE",
+      "source": "G_EQ_TRI_TRANSLATION",
+      "target": "G_EQ_STATE_SHARED",
+      "type": "OCCUPIES_SAME_STATE"
+    },
+    {
+      "id": "E_STATE_FAM",
+      "source": "G_EQ_STATE_SHARED",
+      "target": "F_TRIANGLE_EQUALITY_SHARED",
+      "type": "MEMBER_OF"
+    },
+    {
+      "id": "E_MEDIUM_FAM",
+      "source": "F_TRIANGLE_MEDIUM_SHARED",
+      "target": "F_TRIANGLE_EQUALITY_SHARED",
+      "type": "CONTAINS_REGION"
+    }
+  ],
+  "perspectives": {
+    "MATERIAL": [
+      "W_CIRCLE_EQ",
+      "W_TRANSLATION_EQ",
+      "M_RADIUS_PACKET",
+      "M_TRANSLATION_PACKET"
+    ],
+    "CO_CONSTITUTION": [
+      "W_CIRCLE_EQ",
+      "W_TRANSLATION_EQ",
+      "M_RADIUS_PACKET",
+      "M_TRANSLATION_PACKET",
+      "G_CIRCLE_PAIR_EQ",
+      "G_EQ_TRI_CIRCLE",
+      "G_TRANSLATION_BASIS",
+      "G_EQ_TRI_TRANSLATION"
+    ],
+    "ATLAS": [
+      "G_EQ_TRI_CIRCLE",
+      "G_EQ_TRI_TRANSLATION",
+      "GEN_EQ_CIRCLE",
+      "GEN_EQ_TRANSLATION",
+      "F_TRIANGLE_MEDIUM_SHARED",
+      "G_EQ_STATE_SHARED",
+      "F_TRIANGLE_EQUALITY_SHARED"
+    ],
+    "ALL": []
+  },
+  "comparison": {
+    "state_identity": "G_EQ_STATE_SHARED",
+    "medium_identity": "F_TRIANGLE_MEDIUM_SHARED",
+    "left_genealogy": "shared-radius co-constitution",
+    "right_genealogy": "equal translation vectors + 60° closure",
+    "principle": "STATE_IDENTITY + MEDIUM_IDENTITY != GENEALOGICAL_IDENTITY"
+  },
+  "insight": {
+    "title": "Pure genetic non-identity",
+    "body": "This is the clean case: both derived triangles realize the same triangle medium and occupy the same equilateral state. What remains different is only how that state was constituted — by circular radius co-participation on the left and by translation/rhombic closure on the right."
+  }
+}
