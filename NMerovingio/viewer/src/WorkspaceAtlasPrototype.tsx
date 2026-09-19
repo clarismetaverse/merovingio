@@ -1,16 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import cytoscape, { type Core, type ElementDefinition } from 'cytoscape'
 
-import exampleJson from '../../graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json'
+import quadJson from '../../graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json'
+import circlesJson from '../../graph/examples/workspace_two_circles_triangle_v0_4_1.json'
 
 type AnyRecord = Record<string, any>
 type Perspective = 'MATERIAL' | 'CO_CONSTITUTION' | 'ATLAS' | 'ALL'
+type ExampleKey = 'QUADRILATERAL' | 'CIRCLES'
 
-const example = exampleJson as AnyRecord
-const nodeById = new Map<string, AnyRecord>(example.nodes.map((node: AnyRecord) => [node.id, node]))
 const perspectiveOrder: Perspective[] = ['MATERIAL', 'CO_CONSTITUTION', 'ATLAS', 'ALL']
 
-function makeElements(): ElementDefinition[] {
+const examples: Record<ExampleKey, AnyRecord> = {
+  QUADRILATERAL: quadJson as AnyRecord,
+  CIRCLES: circlesJson as AnyRecord,
+}
+
+function makeElements(example: AnyRecord): ElementDefinition[] {
   const nodes: ElementDefinition[] = example.nodes.map((node: AnyRecord) => ({
     data: {
       id: node.id,
@@ -154,6 +159,14 @@ function graphStyle(): any[] {
       },
     },
     {
+      selector: 'edge[type = "STABILIZES"]',
+      style: {
+        width: 2.3,
+        'line-color': '#6f86c7',
+        'target-arrow-color': '#6f86c7',
+      },
+    },
+    {
       selector: '.dimmed',
       style: {
         opacity: 0.1,
@@ -183,14 +196,31 @@ function graphStyle(): any[] {
 export default function WorkspaceAtlasPrototype() {
   const graphRef = useRef<HTMLDivElement | null>(null)
   const cyRef = useRef<Core | null>(null)
+  const [exampleKey, setExampleKey] = useState<ExampleKey>('QUADRILATERAL')
   const [perspective, setPerspective] = useState<Perspective>('CO_CONSTITUTION')
-  const [selectedId, setSelectedId] = useState<string>('M_AC')
 
-  const elements = useMemo(() => makeElements(), [])
+  const example = examples[exampleKey]
+  const nodeById = useMemo(
+    () => new Map<string, AnyRecord>(example.nodes.map((node: AnyRecord) => [node.id, node])),
+    [example],
+  )
+  const defaultSelected = example.metadata?.default_selected
+    || example.nodes.find((node: AnyRecord) => node.type === 'MEDIAL_CARRIER')?.id
+    || example.nodes[0]?.id
+  const [selectedId, setSelectedId] = useState<string>(defaultSelected)
+
+  const elements = useMemo(() => makeElements(example), [example])
   const selected = nodeById.get(selectedId)
 
   useEffect(() => {
-    if (!graphRef.current || cyRef.current) return
+    setSelectedId(defaultSelected)
+    setPerspective('CO_CONSTITUTION')
+  }, [exampleKey, defaultSelected])
+
+  useEffect(() => {
+    if (!graphRef.current) return
+
+    cyRef.current?.destroy()
 
     const cy = cytoscape({
       container: graphRef.current,
@@ -198,7 +228,7 @@ export default function WorkspaceAtlasPrototype() {
       style: graphStyle(),
       layout: { name: 'preset', fit: true, padding: 65 },
       wheelSensitivity: 0.18,
-      minZoom: 0.45,
+      minZoom: 0.42,
       maxZoom: 2.8,
     })
 
@@ -210,7 +240,7 @@ export default function WorkspaceAtlasPrototype() {
 
     return () => {
       cy.destroy()
-      cyRef.current = null
+      if (cyRef.current === cy) cyRef.current = null
     }
   }, [elements])
 
@@ -231,7 +261,7 @@ export default function WorkspaceAtlasPrototype() {
         }
       })
     }
-  }, [perspective])
+  }, [perspective, example])
 
   useEffect(() => {
     const cy = cyRef.current
@@ -242,11 +272,17 @@ export default function WorkspaceAtlasPrototype() {
     if (!node.length) return
     node.addClass('focused')
     node.neighborhood().addClass('neighbor')
-  }, [selectedId])
+  }, [selectedId, elements])
 
   const incidentEdges = example.edges.filter(
     (edge: AnyRecord) => edge.source === selectedId || edge.target === selectedId,
   )
+
+  const exampleNumber = exampleKey === 'QUADRILATERAL' ? '01' : '02'
+  const exampleTitle = example.metadata?.title
+    || (exampleKey === 'QUADRILATERAL' ? 'Quadrilateral + diagonal AC' : 'Two circles → equilateral triangle')
+
+  const selectedInsight = example.insight && selectedId === defaultSelected ? example.insight : null
 
   return (
     <div className="atlas-app">
@@ -254,12 +290,28 @@ export default function WorkspaceAtlasPrototype() {
         <div>
           <div className="atlas-eyebrow">MEROVINGIO / WORKSPACE v0.4.1</div>
           <h1>Workspace Co-Constitution Atlas</h1>
-          <p>One material carrier, many Gestalt participations, one derivational environment.</p>
+          <p>Material identity stays fixed while Gestalt participation and family organization change.</p>
         </div>
         <a href="/" className="back-link">Cognitive graph ↗</a>
       </header>
 
       <section className="perspective-bar">
+        <span>Example</span>
+        <button
+          className={exampleKey === 'QUADRILATERAL' ? 'active' : ''}
+          onClick={() => setExampleKey('QUADRILATERAL')}
+        >
+          Quadrilateral
+        </button>
+        <button
+          className={exampleKey === 'CIRCLES' ? 'active' : ''}
+          onClick={() => setExampleKey('CIRCLES')}
+        >
+          Circles → triangle
+        </button>
+
+        <div className="bar-divider" />
+
         <span>Perspective</span>
         {perspectiveOrder.map((item) => (
           <button
@@ -274,12 +326,20 @@ export default function WorkspaceAtlasPrototype() {
 
       <div className="atlas-layout">
         <aside className="concept-panel">
-          <div className="concept-kicker">Example 01</div>
-          <h2>Quadrilateral + diagonal AC</h2>
-          <p>
-            AC is not copied across views. It is one material segment co-participating as side,
-            diagonal, transversal and identity bridge.
-          </p>
+          <div className="concept-kicker">Example {exampleNumber}</div>
+          <h2>{exampleTitle}</h2>
+          <p>{example.workspace?.description}</p>
+
+          {exampleKey === 'QUADRILATERAL' ? (
+            <p>
+              AC is one material segment co-participating as side, diagonal, transversal and identity bridge.
+            </p>
+          ) : (
+            <p>
+              AB, AC, BC and the shared intersection C are fused across the two circle Gestalten and the derived triangle.
+              The triangle is a rebase of the circular workspace, not an unrelated figure added afterwards.
+            </p>
+          )}
 
           <div className="equation-card">
             <span>Workspace</span>
@@ -304,7 +364,7 @@ export default function WorkspaceAtlasPrototype() {
             <strong>{perspective.replace('_', ' ')}</strong>
             <span>
               {perspective === 'MATERIAL' && 'Keep material identity foregrounded.'}
-              {perspective === 'CO_CONSTITUTION' && 'See how one carrier binds several Gestalten.'}
+              {perspective === 'CO_CONSTITUTION' && 'See how shared carriers fuse several Gestalten in one workspace.'}
               {perspective === 'ATLAS' && 'See the same Gestalten distributed across family charts.'}
               {perspective === 'ALL' && 'Full derivational environment.'}
             </span>
@@ -352,7 +412,14 @@ export default function WorkspaceAtlasPrototype() {
             </div>
           </section>
 
-          {selectedId === 'M_AC' && (
+          {selectedInsight && (
+            <section className="insight-card">
+              <h3>{selectedInsight.title}</h3>
+              <p>{selectedInsight.body}</p>
+            </section>
+          )}
+
+          {exampleKey === 'QUADRILATERAL' && selectedId === 'M_AC' && (
             <section className="insight-card">
               <h3>Why AC matters</h3>
               <p>
