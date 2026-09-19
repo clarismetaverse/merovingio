@@ -276,3 +276,11 @@ button, a { font: inherit; }
   font-size: 10px;
   font-weight: 650;
 }
+
+
+.comparison-principle.triple {
+  border-color: #43513d;
+  background: rgba(63, 91, 60, .12);
+}
+.comparison-principle.triple strong { color: #b9d2b4; }
+.comparison-principle.triple span { color: #799174; }
