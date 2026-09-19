@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "experiment_id": "RUN23_SINGLE_AXIS_ATLAS_DEFORMATION",
+    "execution_mode": "CONTROLLED_COGNITIVE_EXPERIMENT",
+    "phase": "COGNITIVE_UNIFICATION",
+    "canonical": false,
+    "input_run": "RUN22_FAMILY_ATLAS_REINTERPRETATION",
+    "new_operators_added": []
+  },
+  "seed": {
+    "material_support": "four-edge workspace ABCD + diagonal AC",
+    "closure_state_before": [
+      "ZERO",
+      "ZERO"
+    ],
+    "closure_state_after": [
+      "ZERO",
+      "RIGHT_CLOSURE"
+    ],
+    "invariant_channel": "AB || CD",
+    "broken_channel": "AD || BC",
+    "finite_apex": "X = intersection of extended AD and BC"
+  },
+  "chart_images": {
+    "closure_chart": {
+      "before": [
+        "ZERO",
+        "ZERO"
+      ],
+      "after": [
+        "ZERO",
+        "RIGHT_CLOSURE"
+      ],
+      "semantic_stratum_before": "parallelogram-like",
+      "semantic_stratum_after": "trapezoid-like"
+    },
+    "whole_part_chart": {
+      "after": "four-edge residual band between nested triangles XAB and XDC",
+      "interpretation": "gnomonic/residual reading"
+    },
+    "metric_angular_chart": {
+      "transition_kind": "RELATIONAL_CONSTRAINT_WITH_FREE_FIBER",
+      "deterministic": false,
+      "proposed_family_expansion": "F_PARALLELOGRAM_PRODUCT -> F_FOUR_EDGE_METRIC_ANGULAR_FIELD"
+    },
+    "diagonal_correspondence_chart": {
+      "before": [
+        "T[ZERO]",
+        "T[ZERO]"
+      ],
+      "after": [
+        "T[ZERO]",
+        "T[RIGHT]"
+      ],
+      "interpretation": "one centered coordinate + one oriented residual coordinate",
+      "proposed_family_refinement": "source-domain plus internal state per coordinate"
+    }
+  },
+  "ontology_changes": [
+    "parallelogram and trapezoid become strata of F_DOUBLE_CLOSURE_FIELD",
+    "four-edge metric/angular family expands beyond parallelogram-only scope",
+    "ASA/SAS/SSS profiles become zero slices of a richer residual correspondence field",
+    "chart transitions are partial relational constraints, not necessarily functions",
+    "one disanalogy carries one cross-chart genealogy"
+  ],
+  "family_pressure": {
+    "retain": [
+      "F_DOUBLE_CLOSURE_FIELD"
+    ],
+    "generalize": [
+      {
+        "from": "F_PARALLELOGRAM_PRODUCT",
+        "to": "F_FOUR_EDGE_METRIC_ANGULAR_FIELD"
+      },
+      {
+        "from": "F_DIAGONAL_CORRESPONDENCE_FIELD[source-domain only]",
+        "to": "F_DIAGONAL_CORRESPONDENCE_FIELD[source-domain + qualitative state]"
+      }
+    ]
+  },
+  "meta_structure": {
+    "atlas_kind": "GESTALT_CONSTRAINT_ATLAS",
+    "transition_maps": "partial/relational",
+    "free_fibers_allowed": true
+  },
+  "disanalogy": {
+    "origin": "single closure break C2 ZERO -> RIGHT",
+    "identity": "one genealogy",
+    "chart_images": [
+      "closure displacement",
+      "finite-apex nested-triangle residue",
+      "metric/angular free fiber",
+      "diagonal correspondence oriented residue"
+    ]
+  },
+  "coherence_audit": {
+    "proof_certification_attempted": false,
+    "material_support_preserved": true,
+    "fabricated_metric_values": false,
+    "new_operator_required": false
+  },
+  "next_pressure": "inject residual/gnomonic band reading back into older triangle Gestalt family and test whether residue ontology reorganizes"
+}
