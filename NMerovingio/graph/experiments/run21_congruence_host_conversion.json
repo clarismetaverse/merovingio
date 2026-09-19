@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "experiment_id": "RUN21_CONGRUENCE_HOST_CONVERSION_TAXONOMY",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical": false,
+    "input_snapshot": "N12",
+    "source_file": "TRIANGLE_MULTIAGENT_CONGRUENCE_HOST_CONVERSION_RUN_21.md",
+    "dependencies": [
+      "RUN19_PARALLELOGRAM_INTO_ASA_FAMILY",
+      "RUN20_PARALLELOGRAM_INTO_SAS_FAMILY"
+    ]
+  },
+  "symbols": {
+    "T": "TOPOLOGICAL_DIRECTIONAL_ZERO",
+    "M": "METRIC_ZERO",
+    "I": "SHARED_MATERIAL_IDENTITY_BRIDGE",
+    "C": "PAIR_COINCIDENCE_CONGRUENCE"
+  },
+  "host": {
+    "parent": "double-parallel quadrilateral ABCD",
+    "diagonal": "AC",
+    "subtriangles": [
+      "ABC",
+      "CDA"
+    ],
+    "topological_registers": [
+      "AB || CD",
+      "AD || BC"
+    ],
+    "metric_registers": [
+      "AB = CD",
+      "AD = BC"
+    ],
+    "identity_bridge": "AC = CA"
+  },
+  "channels": {
+    "ASA": {
+      "input_signature": "TT+I",
+      "local_mask": [
+        "angle BAC = angle DCA",
+        "angle BCA = angle DAC",
+        "AC = CA"
+      ],
+      "completion": "C",
+      "host_enrichment": "MM"
+    },
+    "SAS_A": {
+      "input_signature": "TM+I",
+      "local_mask": [
+        "angle BAC = angle DCA",
+        "AB = CD",
+        "AC = CA"
+      ],
+      "completion": "C",
+      "host_enrichment": "MT",
+      "recovered_parallel": "AD || BC"
+    },
+    "SAS_B": {
+      "input_signature": "MT+I",
+      "local_mask": [
+        "angle BCA = angle DAC",
+        "AD = BC",
+        "AC = CA"
+      ],
+      "completion": "C",
+      "host_enrichment": "TM",
+      "recovered_parallel": "AB || CD"
+    },
+    "SSS": {
+      "input_signature": "MM+I",
+      "local_mask": [
+        "AB = CD",
+        "AD = BC",
+        "AC = CA"
+      ],
+      "completion": "C",
+      "host_enrichment": "TT",
+      "recovered_parallels": [
+        "AB || CD",
+        "AD || BC"
+      ]
+    }
+  },
+  "lattice": {
+    "corners": [
+      "TT",
+      "TM",
+      "MT",
+      "MM"
+    ],
+    "interpretation": "genealogical source combinations, not theorem-strength order",
+    "fixed_bridge": "I",
+    "common_completion_center": "C"
+  },
+  "candidates": [
+    {
+      "id": "F_CONGRUENCE_HOST_CONVERSION",
+      "type": "FAMILY",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "host-relative congruence criteria as domain-source signatures plus completion affordances"
+    },
+    {
+      "id": "G_CONGRUENCE_DOMAIN_LATTICE",
+      "type": "GESTALT",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "TT/ASA, TM+MT/SAS, MM/SSS around a fixed material identity bridge"
+    },
+    {
+      "id": "CROSS_DOMAIN_COMPLETION_THROUGH_CONGRUENCE",
+      "type": "CAPABILITY_CANDIDATE",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "certified pair coincidence exposes complementary metric/angular readouts that can be lifted back into parent topology"
+    },
+    {
+      "id": "DOMAIN_SOURCE_DISANALOGY",
+      "type": "RELATION_CANDIDATE",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "coordinate-wise change in genealogical source domain even when final relation values are equal"
+    }
+  ],
+  "invariants": [
+    "MASK_SHAPE_IDENTITY != GENEALOGICAL_SOURCE_IDENTITY",
+    "PAIR_COINCIDENCE_IS_NOT_ITSELF_A_TOPOLOGY_METRIC_BICONDITIONAL",
+    "LATTICE_POSITION_IS_NOT_THEOREM_STRENGTH",
+    "TOPOLOGICAL_ZERO != METRIC_ZERO",
+    "ROLE_PLACEMENT_REQUIRED_FOR_I27_I29_LIFTING"
+  ],
+  "result": "POSITIVE_TAXONOMY_DISCOVERY"
+}
