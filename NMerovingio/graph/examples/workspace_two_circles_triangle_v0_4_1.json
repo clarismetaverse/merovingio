@@ -1,0 +1,445 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "example_id": "WORKSPACE_TWO_CIRCLES_TRIANGLE_V041",
+    "architecture": "0.4.1",
+    "title": "Two circles → equilateral triangle",
+    "short_label": "Circles → triangle",
+    "purpose": "show how circle Gestalten co-constitute a triangle through shared material carriers",
+    "default_selected": "M_AB"
+  },
+  "workspace": {
+    "id": "W_TWO_CIRCLES",
+    "name": "Two equal-radius circles through opposite centers",
+    "description": "Circle α is centered at A with radius AB; circle β is centered at B with radius BA. Their intersection C yields a triangle whose three sides inherit one radius identity."
+  },
+  "nodes": [
+    {
+      "id": "W_TWO_CIRCLES",
+      "type": "WORKSPACE",
+      "label": "Workspace α ∩ β",
+      "position": {
+        "x": 480,
+        "y": 65
+      }
+    },
+    {
+      "id": "G_CIRCLE_A",
+      "type": "GESTALT",
+      "label": "Circle α · center A",
+      "position": {
+        "x": 190,
+        "y": 235
+      }
+    },
+    {
+      "id": "G_TRIANGLE_ABC",
+      "type": "GESTALT",
+      "label": "Triangle ABC",
+      "position": {
+        "x": 480,
+        "y": 215
+      }
+    },
+    {
+      "id": "G_CIRCLE_B",
+      "type": "GESTALT",
+      "label": "Circle β · center B",
+      "position": {
+        "x": 770,
+        "y": 235
+      }
+    },
+    {
+      "id": "G_RADIUS_EQUALITY",
+      "type": "GESTALT",
+      "label": "Shared radius packet",
+      "position": {
+        "x": 480,
+        "y": 395
+      }
+    },
+    {
+      "id": "G_EQUILATERAL_DERIVED",
+      "type": "GESTALT",
+      "label": "Equilateral stabilization",
+      "position": {
+        "x": 480,
+        "y": 535
+      }
+    },
+    {
+      "id": "M_AB",
+      "type": "MEDIAL_CARRIER",
+      "label": "AB",
+      "position": {
+        "x": 480,
+        "y": 320
+      },
+      "material_identity": "segment AB",
+      "participations": [
+        {
+          "gestalt": "G_CIRCLE_A",
+          "role": "RADIUS"
+        },
+        {
+          "gestalt": "G_CIRCLE_B",
+          "role": "RADIUS"
+        },
+        {
+          "gestalt": "G_TRIANGLE_ABC",
+          "role": "SIDE"
+        },
+        {
+          "gestalt": "G_RADIUS_EQUALITY",
+          "role": "COMMON_RADIUS_REFERENCE"
+        }
+      ]
+    },
+    {
+      "id": "M_AC",
+      "type": "MEDIAL_CARRIER",
+      "label": "AC",
+      "position": {
+        "x": 315,
+        "y": 355
+      },
+      "material_identity": "segment AC",
+      "participations": [
+        {
+          "gestalt": "G_CIRCLE_A",
+          "role": "RADIUS_TO_INTERSECTION"
+        },
+        {
+          "gestalt": "G_TRIANGLE_ABC",
+          "role": "SIDE"
+        },
+        {
+          "gestalt": "G_RADIUS_EQUALITY",
+          "role": "RADIUS_INSTANCE"
+        }
+      ]
+    },
+    {
+      "id": "M_BC",
+      "type": "MEDIAL_CARRIER",
+      "label": "BC",
+      "position": {
+        "x": 645,
+        "y": 355
+      },
+      "material_identity": "segment BC",
+      "participations": [
+        {
+          "gestalt": "G_CIRCLE_B",
+          "role": "RADIUS_TO_INTERSECTION"
+        },
+        {
+          "gestalt": "G_TRIANGLE_ABC",
+          "role": "SIDE"
+        },
+        {
+          "gestalt": "G_RADIUS_EQUALITY",
+          "role": "RADIUS_INSTANCE"
+        }
+      ]
+    },
+    {
+      "id": "M_C",
+      "type": "MEDIAL_CARRIER",
+      "label": "C",
+      "position": {
+        "x": 480,
+        "y": 295
+      },
+      "material_identity": "intersection point C",
+      "participations": [
+        {
+          "gestalt": "G_CIRCLE_A",
+          "role": "POINT_ON_CIRCLE"
+        },
+        {
+          "gestalt": "G_CIRCLE_B",
+          "role": "POINT_ON_CIRCLE"
+        },
+        {
+          "gestalt": "G_TRIANGLE_ABC",
+          "role": "VERTEX"
+        }
+      ]
+    },
+    {
+      "id": "CC_CIRCLE_TRIANGLE",
+      "type": "CO_CONSTITUTION",
+      "label": "circle ↔ triangle blend",
+      "position": {
+        "x": 480,
+        "y": 465
+      }
+    },
+    {
+      "id": "F_CIRCLE_RADIUS",
+      "type": "FAMILY",
+      "label": "Circle-radius family",
+      "position": {
+        "x": 180,
+        "y": 650
+      }
+    },
+    {
+      "id": "F_TRIANGLE_MEDIUM",
+      "type": "FAMILY",
+      "label": "Triangle relational medium",
+      "position": {
+        "x": 480,
+        "y": 665
+      }
+    },
+    {
+      "id": "F_TRIANGLE_EQUALITY",
+      "type": "FAMILY",
+      "label": "Triangle equality family",
+      "position": {
+        "x": 780,
+        "y": 650
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_W_CA",
+      "source": "W_TWO_CIRCLES",
+      "target": "G_CIRCLE_A",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_CB",
+      "source": "W_TWO_CIRCLES",
+      "target": "G_CIRCLE_B",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_TRI",
+      "source": "W_TWO_CIRCLES",
+      "target": "G_TRIANGLE_ABC",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_RAD",
+      "source": "W_TWO_CIRCLES",
+      "target": "G_RADIUS_EQUALITY",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_AB_CA",
+      "source": "M_AB",
+      "target": "G_CIRCLE_A",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS"
+    },
+    {
+      "id": "E_AB_CB",
+      "source": "M_AB",
+      "target": "G_CIRCLE_B",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS"
+    },
+    {
+      "id": "E_AB_TRI",
+      "source": "M_AB",
+      "target": "G_TRIANGLE_ABC",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDE"
+    },
+    {
+      "id": "E_AB_RAD",
+      "source": "M_AB",
+      "target": "G_RADIUS_EQUALITY",
+      "type": "PARTICIPATES_IN",
+      "role": "COMMON_REFERENCE"
+    },
+    {
+      "id": "E_AC_CA",
+      "source": "M_AC",
+      "target": "G_CIRCLE_A",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS_TO_C"
+    },
+    {
+      "id": "E_AC_TRI",
+      "source": "M_AC",
+      "target": "G_TRIANGLE_ABC",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDE"
+    },
+    {
+      "id": "E_AC_RAD",
+      "source": "M_AC",
+      "target": "G_RADIUS_EQUALITY",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS_INSTANCE"
+    },
+    {
+      "id": "E_BC_CB",
+      "source": "M_BC",
+      "target": "G_CIRCLE_B",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS_TO_C"
+    },
+    {
+      "id": "E_BC_TRI",
+      "source": "M_BC",
+      "target": "G_TRIANGLE_ABC",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDE"
+    },
+    {
+      "id": "E_BC_RAD",
+      "source": "M_BC",
+      "target": "G_RADIUS_EQUALITY",
+      "type": "PARTICIPATES_IN",
+      "role": "RADIUS_INSTANCE"
+    },
+    {
+      "id": "E_C_CA",
+      "source": "M_C",
+      "target": "G_CIRCLE_A",
+      "type": "PARTICIPATES_IN",
+      "role": "POINT_ON_CIRCLE"
+    },
+    {
+      "id": "E_C_CB",
+      "source": "M_C",
+      "target": "G_CIRCLE_B",
+      "type": "PARTICIPATES_IN",
+      "role": "POINT_ON_CIRCLE"
+    },
+    {
+      "id": "E_C_TRI",
+      "source": "M_C",
+      "target": "G_TRIANGLE_ABC",
+      "type": "PARTICIPATES_IN",
+      "role": "VERTEX"
+    },
+    {
+      "id": "E_AB_CC",
+      "source": "M_AB",
+      "target": "CC_CIRCLE_TRIANGLE",
+      "type": "SEEDS_CO_CONSTITUTION"
+    },
+    {
+      "id": "E_AC_CC",
+      "source": "M_AC",
+      "target": "CC_CIRCLE_TRIANGLE",
+      "type": "SEEDS_CO_CONSTITUTION"
+    },
+    {
+      "id": "E_BC_CC",
+      "source": "M_BC",
+      "target": "CC_CIRCLE_TRIANGLE",
+      "type": "SEEDS_CO_CONSTITUTION"
+    },
+    {
+      "id": "E_C_CC",
+      "source": "M_C",
+      "target": "CC_CIRCLE_TRIANGLE",
+      "type": "SEEDS_CO_CONSTITUTION"
+    },
+    {
+      "id": "E_CC_CA",
+      "source": "CC_CIRCLE_TRIANGLE",
+      "target": "G_CIRCLE_A",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_CC_CB",
+      "source": "CC_CIRCLE_TRIANGLE",
+      "target": "G_CIRCLE_B",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_CC_TRI",
+      "source": "CC_CIRCLE_TRIANGLE",
+      "target": "G_TRIANGLE_ABC",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_CC_RAD",
+      "source": "CC_CIRCLE_TRIANGLE",
+      "target": "G_RADIUS_EQUALITY",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_RAD_EQ",
+      "source": "G_RADIUS_EQUALITY",
+      "target": "G_EQUILATERAL_DERIVED",
+      "type": "STABILIZES"
+    },
+    {
+      "id": "E_TRI_EQ",
+      "source": "G_TRIANGLE_ABC",
+      "target": "G_EQUILATERAL_DERIVED",
+      "type": "STABILIZES"
+    },
+    {
+      "id": "E_CA_F",
+      "source": "G_CIRCLE_A",
+      "target": "F_CIRCLE_RADIUS",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_CB_F",
+      "source": "G_CIRCLE_B",
+      "target": "F_CIRCLE_RADIUS",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_TRI_F",
+      "source": "G_TRIANGLE_ABC",
+      "target": "F_TRIANGLE_MEDIUM",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_EQ_F",
+      "source": "G_EQUILATERAL_DERIVED",
+      "target": "F_TRIANGLE_EQUALITY",
+      "type": "REALIZES"
+    }
+  ],
+  "perspectives": {
+    "MATERIAL": [
+      "W_TWO_CIRCLES",
+      "M_AB",
+      "M_AC",
+      "M_BC",
+      "M_C"
+    ],
+    "CO_CONSTITUTION": [
+      "M_AB",
+      "M_AC",
+      "M_BC",
+      "M_C",
+      "CC_CIRCLE_TRIANGLE",
+      "G_CIRCLE_A",
+      "G_CIRCLE_B",
+      "G_TRIANGLE_ABC",
+      "G_RADIUS_EQUALITY",
+      "G_EQUILATERAL_DERIVED"
+    ],
+    "ATLAS": [
+      "G_CIRCLE_A",
+      "G_CIRCLE_B",
+      "G_TRIANGLE_ABC",
+      "G_RADIUS_EQUALITY",
+      "G_EQUILATERAL_DERIVED",
+      "F_CIRCLE_RADIUS",
+      "F_TRIANGLE_MEDIUM",
+      "F_TRIANGLE_EQUALITY"
+    ],
+    "ALL": []
+  },
+  "insight": {
+    "title": "Why AB is a stronger medial carrier",
+    "body": "AB is simultaneously the radius of both circle Gestalten and a side of the derived triangle. AC and BC inherit that same radius identity through the shared intersection C. The equilateral triangle is therefore a stabilization of one radius genealogy across three triangle sides, not just a static equality label."
+  }
+}
