@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "experiment_id": "RUN19_PARALLELOGRAM_INTO_ASA_FAMILY",
+    "execution_mode": "CONTROLLED_DRY_RUN",
+    "canonical": false,
+    "input_snapshot": "N12",
+    "source_file": "TRIANGLE_MULTIAGENT_PARALLELOGRAM_INTO_ASA_FAMILY_RUN_19.md"
+  },
+  "seed": {
+    "parent_workspace": "double_parallel_quadrilateral",
+    "facts": [
+      "AB || CD",
+      "AD || BC",
+      "diagonal AC",
+      "closed boundary A-B-C-D-A"
+    ],
+    "hidden_semantic_label_during_structural_phase": "parallelogram"
+  },
+  "partition": {
+    "operator": "OP_PARTITION_WORKSPACE",
+    "subworkspaces": [
+      "triangle ABC",
+      "triangle CDA"
+    ],
+    "shared_material_bridge": "AC",
+    "bridge_relation": "AC = CA"
+  },
+  "host_projection": [
+    {
+      "source_zero": "AB || CD / distributed nonclosure",
+      "transversal": "AC",
+      "proof_license": "P_I29",
+      "local_readout": "angle BAC = angle DCA"
+    },
+    {
+      "source_zero": "AD || BC / distributed nonclosure",
+      "transversal": "AC",
+      "proof_license": "P_I29",
+      "local_readout": "angle BCA = angle DAC"
+    }
+  ],
+  "asa_completion": {
+    "capability": "P_ASA_RAW",
+    "mask": [
+      "angle BAC = angle DCA",
+      "AC = CA",
+      "angle BCA = angle DAC"
+    ],
+    "result": "G_PAIR_COINCIDENCE",
+    "candidate_realization_topology": "PARALLELOGRAM_DIAGONAL_NATIVE"
+  },
+  "backward_enrichment": {
+    "local_congruence_readouts": [
+      "AB = CD",
+      "BC = AD",
+      "angle ABC = angle CDA"
+    ],
+    "return_operator": "OP_RECOMPOSE_GESTALTS",
+    "parent_effect": "ENRICHED_DOUBLE_PARALLEL_HOST"
+  },
+  "reverse_recovery": {
+    "local_angular_masks": [
+      "angle BAC = angle DCA",
+      "angle BCA = angle DAC"
+    ],
+    "proof_license": "P_I27",
+    "recovered_parent_facts": [
+      "AB || CD",
+      "BC || AD"
+    ],
+    "recovered_gestalt_candidate": "G_MUTUAL_TRANSVERSAL_ZERO",
+    "note": "AC = CA closes ASA congruence but is not needed for the two parallel certifications."
+  },
+  "candidates": [
+    {
+      "id": "G_ASA_PARALLELOGRAM_DIAGONAL_HOST",
+      "type": "GESTALT",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "two distributed nonclosure zeros + one shared material carrier -> ASA pair coincidence -> parent enrichment"
+    },
+    {
+      "id": "ZERO_TRANSDUCTION_BY_HOST_PROJECTION",
+      "type": "RELATION_CANDIDATE",
+      "status": "COGNITIVE_CANDIDATE",
+      "schema": "distributed topological zeros project to local zero coordinates of another family without zero-type identity"
+    }
+  ],
+  "factorized_genealogy": {
+    "asa_angle_coordinate_1": "projection of parent topological zero 1",
+    "asa_angle_coordinate_2": "projection of parent topological zero 2",
+    "asa_side_coordinate": "identity of shared diagonal carrier"
+  },
+  "disanalogy_transport": [
+    "break parent zero 1 -> local ASA angle coordinate 1 loses guaranteed EQ",
+    "break parent zero 2 -> local ASA angle coordinate 2 loses guaranteed EQ",
+    "shared diagonal metric bridge remains invariant under either single parallel break"
+  ],
+  "guardrails": [
+    "NOT_EVERY_ASA_PAIR_IS_A_PARALLELOGRAM",
+    "ASA != G_MUTUAL_TRANSVERSAL_ZERO",
+    "TOPOLOGICAL_ZERO != CONGRUENCE_ZERO",
+    "SHARED_SIDE_EQUALITY_DOES_NOT_CERTIFY_PARALLELISM",
+    "ANGLE_EQUALITY_REQUIRES_VALIDATED_ALTERNATE_ANGLE_PLACEMENT_FOR_I27",
+    "COGNITIVE_CYCLE != LOGICAL_CIRCULARITY"
+  ],
+  "result": "POSITIVE_HOST_INJECTION"
+}
