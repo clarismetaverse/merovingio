@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "example_id": "WORKSPACE_QUADRILATERAL_DIAGONAL_V041",
+    "architecture": "0.4.1",
+    "purpose": "visual prototype of workspace co-constitution through a medial carrier"
+  },
+  "workspace": {
+    "id": "W_QUAD_AC",
+    "name": "Quadrilateral ABCD + diagonal AC",
+    "description": "One constructive workspace in which several Gestalten co-participate through the same material diagonal."
+  },
+  "nodes": [
+    {
+      "id": "W_QUAD_AC",
+      "type": "WORKSPACE",
+      "label": "Workspace ABCD + AC",
+      "position": {
+        "x": 480,
+        "y": 70
+      }
+    },
+    {
+      "id": "G_TRI_ABC",
+      "type": "GESTALT",
+      "label": "Triangle ABC",
+      "position": {
+        "x": 200,
+        "y": 245
+      }
+    },
+    {
+      "id": "G_QUAD_ABCD",
+      "type": "GESTALT",
+      "label": "Quadrilateral ABCD",
+      "position": {
+        "x": 480,
+        "y": 225
+      }
+    },
+    {
+      "id": "G_TRI_ACD",
+      "type": "GESTALT",
+      "label": "Triangle ACD",
+      "position": {
+        "x": 760,
+        "y": 245
+      }
+    },
+    {
+      "id": "G_TRANSVERSAL_AC",
+      "type": "GESTALT",
+      "label": "AC as transversal",
+      "position": {
+        "x": 325,
+        "y": 400
+      }
+    },
+    {
+      "id": "G_DIAGONAL_CORR",
+      "type": "GESTALT",
+      "label": "Diagonal correspondence",
+      "position": {
+        "x": 635,
+        "y": 400
+      }
+    },
+    {
+      "id": "M_AC",
+      "type": "MEDIAL_CARRIER",
+      "label": "AC",
+      "position": {
+        "x": 480,
+        "y": 355
+      },
+      "material_identity": "segment AC",
+      "participations": [
+        {
+          "gestalt": "G_TRI_ABC",
+          "role": "SIDE"
+        },
+        {
+          "gestalt": "G_TRI_ACD",
+          "role": "SIDE"
+        },
+        {
+          "gestalt": "G_QUAD_ABCD",
+          "role": "DIAGONAL"
+        },
+        {
+          "gestalt": "G_TRANSVERSAL_AC",
+          "role": "TRANSVERSAL"
+        },
+        {
+          "gestalt": "G_DIAGONAL_CORR",
+          "role": "IDENTITY_BRIDGE"
+        }
+      ]
+    },
+    {
+      "id": "CC_AC",
+      "type": "CO_CONSTITUTION",
+      "label": "AC co-constitution",
+      "position": {
+        "x": 480,
+        "y": 500
+      }
+    },
+    {
+      "id": "F_TRIANGLE_MEDIUM",
+      "type": "FAMILY",
+      "label": "Triangle medium",
+      "position": {
+        "x": 140,
+        "y": 625
+      }
+    },
+    {
+      "id": "F_DOUBLE_CLOSURE",
+      "type": "FAMILY",
+      "label": "Double closure field",
+      "position": {
+        "x": 360,
+        "y": 650
+      }
+    },
+    {
+      "id": "F_FOUR_EDGE",
+      "type": "FAMILY",
+      "label": "Four-edge metric/angular",
+      "position": {
+        "x": 600,
+        "y": 650
+      }
+    },
+    {
+      "id": "F_DIAGONAL_FIELD",
+      "type": "FAMILY",
+      "label": "Diagonal correspondence field",
+      "position": {
+        "x": 825,
+        "y": 625
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "E_W_T1",
+      "source": "W_QUAD_AC",
+      "target": "G_TRI_ABC",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_Q",
+      "source": "W_QUAD_AC",
+      "target": "G_QUAD_ABCD",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_T2",
+      "source": "W_QUAD_AC",
+      "target": "G_TRI_ACD",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_TR",
+      "source": "W_QUAD_AC",
+      "target": "G_TRANSVERSAL_AC",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_W_DC",
+      "source": "W_QUAD_AC",
+      "target": "G_DIAGONAL_CORR",
+      "type": "SUPPORTS"
+    },
+    {
+      "id": "E_AC_T1",
+      "source": "M_AC",
+      "target": "G_TRI_ABC",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDE"
+    },
+    {
+      "id": "E_AC_T2",
+      "source": "M_AC",
+      "target": "G_TRI_ACD",
+      "type": "PARTICIPATES_IN",
+      "role": "SIDE"
+    },
+    {
+      "id": "E_AC_Q",
+      "source": "M_AC",
+      "target": "G_QUAD_ABCD",
+      "type": "PARTICIPATES_IN",
+      "role": "DIAGONAL"
+    },
+    {
+      "id": "E_AC_TR",
+      "source": "M_AC",
+      "target": "G_TRANSVERSAL_AC",
+      "type": "PARTICIPATES_IN",
+      "role": "TRANSVERSAL"
+    },
+    {
+      "id": "E_AC_DC",
+      "source": "M_AC",
+      "target": "G_DIAGONAL_CORR",
+      "type": "PARTICIPATES_IN",
+      "role": "IDENTITY_BRIDGE"
+    },
+    {
+      "id": "E_CC_AC",
+      "source": "M_AC",
+      "target": "CC_AC",
+      "type": "SEEDS_CO_CONSTITUTION"
+    },
+    {
+      "id": "E_CC_T1",
+      "source": "CC_AC",
+      "target": "G_TRI_ABC",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_CC_T2",
+      "source": "CC_AC",
+      "target": "G_TRI_ACD",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_CC_Q",
+      "source": "CC_AC",
+      "target": "G_QUAD_ABCD",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_CC_DC",
+      "source": "CC_AC",
+      "target": "G_DIAGONAL_CORR",
+      "type": "CO_CONSTITUTES"
+    },
+    {
+      "id": "E_T1_F",
+      "source": "G_TRI_ABC",
+      "target": "F_TRIANGLE_MEDIUM",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_T2_F",
+      "source": "G_TRI_ACD",
+      "target": "F_TRIANGLE_MEDIUM",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_Q_C",
+      "source": "G_QUAD_ABCD",
+      "target": "F_DOUBLE_CLOSURE",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_Q_M",
+      "source": "G_QUAD_ABCD",
+      "target": "F_FOUR_EDGE",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_TR_C",
+      "source": "G_TRANSVERSAL_AC",
+      "target": "F_DOUBLE_CLOSURE",
+      "type": "REALIZES"
+    },
+    {
+      "id": "E_DC_F",
+      "source": "G_DIAGONAL_CORR",
+      "target": "F_DIAGONAL_FIELD",
+      "type": "REALIZES"
+    }
+  ],
+  "perspectives": {
+    "MATERIAL": [
+      "W_QUAD_AC",
+      "M_AC"
+    ],
+    "CO_CONSTITUTION": [
+      "M_AC",
+      "CC_AC",
+      "G_TRI_ABC",
+      "G_TRI_ACD",
+      "G_QUAD_ABCD",
+      "G_TRANSVERSAL_AC",
+      "G_DIAGONAL_CORR"
+    ],
+    "ATLAS": [
+      "G_TRI_ABC",
+      "G_TRI_ACD",
+      "G_QUAD_ABCD",
+      "G_TRANSVERSAL_AC",
+      "G_DIAGONAL_CORR",
+      "F_TRIANGLE_MEDIUM",
+      "F_DOUBLE_CLOSURE",
+      "F_FOUR_EDGE",
+      "F_DIAGONAL_FIELD"
+    ],
+    "ALL": []
+  }
+}
