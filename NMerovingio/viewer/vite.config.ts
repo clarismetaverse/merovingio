@@ -13,6 +13,12 @@ export default defineConfig({
     }
   },
   build: {
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        graph: path.resolve(here, 'index.html'),
+        workspace: path.resolve(here, 'workspace.html')
+      }
+    }
   }
 })
