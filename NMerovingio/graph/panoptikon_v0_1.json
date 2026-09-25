@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "project": "Merovingio",
+    "concept": "PANOPTIKON",
+    "version": "0.1",
+    "phase": "COGNITIVE_UNIFICATION",
+    "proof_mode": false
+  },
+  "definition": "Global synoptic cognitive field linking Gestalten, families, workspaces, family atlases, genealogies, rebases, deformation fields and porismatic regions.",
+  "levels": [
+    "GESTALT",
+    "FAMILY",
+    "WORKSPACE",
+    "FAMILY_ATLAS",
+    "PANOPTIKON"
+  ],
+  "principles": [
+    "LOCAL_RECOGNITION_CAN_ACTIVATE_A_FAMILY_FIELD",
+    "SEGMENTATION_IS_DYNAMIC",
+    "FIGURE_EQUALS_STATE_PLUS_DEFORMATION_NEIGHBORHOOD",
+    "THEOREM_AS_EXPLORATION_PATH",
+    "PORISM_AS_REGION_OF_AVAILABLE_CONTINUATION",
+    "WORKSPACE_LOCAL_GENETIC_FIELD_VS_PANOPTIKON_GLOBAL_SYNOPTIC_FIELD",
+    "PROOF_CERTIFICATE_NOT_EQUAL_DISCOVERY_GENEALOGY"
+  ],
+  "cognitive_density_dimensions": [
+    "GESTALT_OVERLAP",
+    "MEDIAL_CARRIER_DENSITY",
+    "FAMILY_OVERLAP",
+    "REBASE_COUNT",
+    "GENEALOGICAL_CONVERGENCE",
+    "PORISMATIC_REACH",
+    "CROSS_CHART_VISIBILITY",
+    "SEGMENTATION_REUSE"
+  ],
+  "schema": {
+    "workspaces": [],
+    "family_atlases": [],
+    "gestalt_families": [],
+    "shared_media": [],
+    "shared_carriers": [],
+    "cross_workspace_genealogies": [],
+    "rebase_routes": [],
+    "deformation_fields": [],
+    "porismatic_regions": [],
+    "cognitive_density_map": {},
+    "active_perspectives": [],
+    "hierarchy_edges": [],
+    "overlap_edges": [],
+    "convergence_edges": []
+  }
+}
