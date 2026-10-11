@@ -67,6 +67,17 @@ In particular, we want to observe paths such as:
 
 ## Files
 
+### Panoptikon v0.2 — bridge planning
+
+- [Fondamenti del modello teorico v0.2](docs/Merovingio_Panoptikon_Fondamenti_v0_2.md) — ontologia, BridgePotential e ranking congiunto Frame + Bridge + RoleMap; capitoli 5 e 7 per I.10.
+- [Fixture I.10 pre-costruzione v0.2](tests/fixtures/Merovingio_I10_BridgePlanning_Fixture_v0_2.yaml) — stato W1, piano bisettrice + I.4/LAL, negativo circolare I.8/LLL e piano incompleto.
+
+I due file conservano i contenuti della Library. La fixture è una specifica del testbed, non un test già eseguito dal motore: D e CD sono output proposti, e AD=DB va certificato solo dopo costruzione e verifica. Jev ordina i candidati; costruzione e certificazione restano deterministiche.
+
+La v0.2 affianca [Panoptikon v0.1](PANOPTIKON_V01.md) e il suo [schema](graph/panoptikon_v0_1.json), senza sostituirli né cambiare la versione dell'architettura cognitiva.
+
+Nomi equivalenti fra documento e fixture: I.4/LAL (`EUCLID_I_4_LAL`) = `EUCLID_I4_SAS`; I.8/LLL = `EUCLID_I8_SSS`; I.9 = `EUCLID_I9_ANGLE_BISECTOR`. Le uguaglianze AC=BC e AB=BC della fixture implicano AC=AB, riportata nello stato W1 del documento.
+
 - `SPEC.md` — conceptual and computational contract.
 - `data/propositions.json` — tiny proposition memory.
 - `src/reasoner.py` — minimal executable prototype.

@@ -1,0 +1,96 @@
+schema_version: '0.2'
+case_id: EUCLID_I10_PRECONSTRUCTION
+purpose: 'Test di pianificazione costruttiva prima della bisettrice'
+
+state:
+  id: W1
+  workspace: equilateral_triangle_on_AB
+  objects_present:
+    points: [A, B, C]
+    segments: [AB, AC, BC]
+    angles: [ACB]
+  verified_relations:
+    - {predicate: equal_length, args: [AC, BC], provenance: I1_equilateral}
+    - {predicate: equal_length, args: [AB, BC], provenance: I1_equilateral}
+  goal:
+    predicate: equal_length
+    args: [AD, DB]
+    note: 'D non esiste ancora: è una variabile-obiettivo, NON un fatto'
+  theorems_available: [EUCLID_I4_SAS, EUCLID_I8_SSS, EUCLID_I9_ANGLE_BISECTOR]
+  latent_spaces:
+    - {id: ANGULAR_PARTITION, induced_by: angle_ACB}
+    - {id: SEGMENT_PARTITION_GOAL, induced_by: segment_AB}
+  forbidden_as_premises:
+    - {predicate: midpoint, args: [D, AB]}
+    - {predicate: equal_length, args: [AD, DB]}
+    - {predicate: equal_angle, args: [ACD, DCB]}
+    - {predicate: perpendicular, args: [CD, AB]}
+
+candidate_plans:
+  - id: PLAN_A_BISECTOR_TO_SAS
+    frame: EUCLID_I4_SAS
+    bridge:
+      operation: bisect_angle_then_intersect_segment
+      from: C
+      angle: ACB
+      onto: AB
+      proposed_outputs: [ray_CD, point_D, segment_CD]
+      known_generator: EUCLID_I9_ANGLE_BISECTOR
+    role_mapping_after_construction:
+      triangle_1: [A, C, D]
+      triangle_2: [B, C, D]
+      vertex_correspondence: {A: B, C: C, D: D}
+      equal_side_1: [AC, BC]
+      included_equal_angle: [ACD, DCB]
+      equal_side_2: [CD, CD]
+    cross_space_effect:
+      source: ANGULAR_PARTITION
+      target: SEGMENT_PARTITION_GOAL
+      candidate_generic_space: ANGLE_TO_METRIC_DIVISION
+    status: constructive_candidate
+    verification_required:
+      - construction_admissible
+      - new_angle_equality_from_I9
+      - included_angle_position_consistent
+      - noncircular_dependencies
+      - congruence_by_I4
+      - goal_from_congruent_corresponding_sides
+
+  - id: PLAN_B_SSS_WITH_GOAL_AS_PREMISE
+    frame: EUCLID_I8_SSS
+    bridge: null
+    role_mapping:
+      equal_side_1: [AC, BC]
+      equal_side_2: [CD, CD]
+      equal_side_3: [AD, DB]
+    status: reject_circular
+    reason: 'Richiede la stessa uguaglianza AD=DB che dovrebbe dimostrare; D non esiste in W1'
+
+  - id: PLAN_C_ARBITRARY_C_TO_BASE
+    frame: EUCLID_I4_SAS
+    bridge:
+      operation: choose_arbitrary_point_on_segment_then_join
+      segment: AB
+      point: D
+      join: [C, D]
+    role_mapping_after_construction:
+      equal_side_1: [AC, BC]
+      included_equal_angle: null
+      equal_side_2: [CD, CD]
+    status: incomplete_frame
+    reason: 'Manca una giustificazione per ∠ACD = ∠DCB'
+
+expected:
+  first_plan_to_explore: PLAN_A_BISECTOR_TO_SAS
+  expected_derived_relation_after_verification: {predicate: equal_length, args: [AD, DB]}
+  must_not_claim_before_proof: [midpoint_D, perpendicular_CD_AB, equal_length_AD_DB]
+  decisions_for_jev: [SELECT_PLAN, RANK_CANDIDATE_ROLE_MAPS, PRIORITIZE_CONSEQUENCES]
+  responsibilities_not_for_jev: [EXECUTE_CONSTRUCTION, VERIFY_GEOMETRIC_RELATIONS, CERTIFY_PROOF]
+
+metrics:
+  - productive_plan_at_k
+  - circular_plan_selection_rate
+  - verified_goal_completion_rate
+  - search_nodes_until_verified_goal
+  - total_cost_and_latency
+  - transfer_under_renaming_or_reflection
