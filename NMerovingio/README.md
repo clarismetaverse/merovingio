@@ -2,6 +2,8 @@
 
 A deliberately tiny research reasoner for Euclid Book I, restricted to the **isosceles workspace** and propositions **I.5, I.6, I.7, I.18, I.19**.
 
+This introduction describes the existing executable prototype and its original experiment. The [Panoptikon v0.3 research specification](docs/Merovingio_Panoptikon_Fondamenti_v0_3.md) develops the cognitive process separately, including perception of the current graph, construction history and probabilistic grouping. Its I.10 fixture is illustrative and is not yet consumed by the engine.
+
 The goal is not theorem proving by broad search. The goal is to test whether a reasoner can **generate useful analogies and disanalogies from a single stabilized Gestalt**, especially the counterfactual pattern made explicit by I.6.
 
 ## Core hypothesis
@@ -66,6 +68,15 @@ In particular, we want to observe paths such as:
 `isosceles base -> minimal break -> counterfactual run -> contact with known equality/disquality regime -> elimination / propagation -> I.18 or I.19-like relation`
 
 ## Files
+
+### Panoptikon v0.3 — processo cognitivo
+
+- [Fondamenti v0.3](docs/Merovingio_Panoptikon_Fondamenti_v0_3.md) — spazi di premessa e conclusione, role binding ipotetico, apertura delle Gestalt e propagazione di plausibilità; §7.4 include `target_instantiation_line` e l'obiettivo dell'istanziazione.
+- [Fixture cognitiva I.10 v0.3](tests/fixtures/Merovingio_I10_CognitiveProcess_Fixture_v0_3.yaml) — input W1 con alternative di binding, traccia illustrativa dei Generic Spaces e riferimento di certificazione distinto.
+
+La costruzione, il grafo e la loro genealogia alimentano la scelta cognitiva. SAS può emergere come framing conclusivo; il controllo formale certifica la relazione proposta. Pesi delle bolle, regole di apertura/disassemblaggio e integrazione Jev restano da progettare. La fixture non va inviata integralmente al modello: `cognitive_input` è l'input iniziale, mentre le sezioni `*_do_not_submit` sono riferimenti d'autore per la valutazione.
+
+La v0.3 rivede il nucleo cognitivo della v0.2 conservandone i file originali, senza modificare il reasoner o attestare esperimenti Jev.
 
 ### Panoptikon v0.2 — bridge planning
 

@@ -1,0 +1,298 @@
+schema_version: '0.3'
+case_id: EUCLID_I10_COGNITIVE_PROCESS
+kind: illustrative_specification
+execution_status: not_run
+purpose: 'Descrivere binding, aperture e propagazione cognitiva prima della certificazione'
+
+usage_contract:
+  initial_model_input: cognitive_input
+  author_only_sections:
+    - reference_trace_do_not_submit
+    - certification_reference_do_not_submit
+  later_input: 'Solo lo stato e gli eventi effettivamente disponibili al passo corrente'
+  full_fixture_is_model_input: false
+  reference_trace_is_observed_jev_reasoning: false
+  probability_update_algorithm: unspecified
+  bubble_opening_and_disassembly_algorithm: unspecified
+
+cognitive_input:
+  state:
+    id: W1
+    workspace: equilateral_triangle_on_AB
+    objects_present:
+      points: [A, B, C]
+      segments: [AB, AC, BC]
+      angles: [ACB, CAB, ABC]
+    construction_history:
+      - {id: H0, operation: given_segment, outputs: [AB]}
+      - {id: H1, operation: equilateral_on_segment, inputs: [AB], outputs: [C, AC, BC], source: I1}
+    available_relations:
+      - {predicate: equal_length, args: [AC, BC], provenance: H1}
+      - {predicate: equal_length, args: [AB, BC], provenance: H1}
+    perceptual_relations:
+      - {predicate: opposite_in_triangle, angle: ACB, side: AB}
+      - {predicate: opposite_in_triangle, angle: CAB, side: BC}
+      - {predicate: opposite_in_triangle, angle: ABC, side: AC}
+    goal:
+      predicate: equal_length
+      args: [AD, DB]
+      status: desired
+      carrier: AB
+      D: prospective_partition_variable
+  mental_spaces:
+    - id: MS_PREMISE_BISECTION
+      role: premise_resource
+      content: remembered_angle_bisection_schema
+      available_frame: ANGLE_BISECTION
+      construction_resource: EUCLID_I9_ANGLE_BISECTOR
+      local_instantiation: open
+    - id: MS_PREMISE_TRIANGLE
+      role: constructed_context
+      members: [A, B, C, AB, AC, BC]
+      provenance: H1
+    - id: MS_GOAL_BASE
+      role: desired_conclusion
+      carrier: AB
+      desired_organization: two_equal_parts
+  candidate_bindings:
+    - candidate_id: BIND_BISECTOR_AT_C
+      at_state: W1
+      status: matching_hypothesis
+      source_mental_space: MS_PREMISE_BISECTION
+      target_mental_space: MS_GOAL_BASE
+      frame_to_instantiate: ANGLE_BISECTION
+      instantiation_objective: connect_angular_partition_to_desired_base_partition
+      role_mapping_hypothesis:
+        angle_to_partition: ACB
+        angle_vertex: C
+        rays: [CA, CB]
+        opposite_goal_carrier: AB
+      target_instantiation_line:
+        status: proposed
+        source_vertex: C
+        host_angle: ACB
+        target_carrier: AB
+        orientation_hypothesis: internal_angle_bisection
+        proposed_ray: ray_CD
+        intersection_variable: D
+        resulting_segment_if_realized: CD
+        objective: let_one_partition_connect_angle_and_base_spaces
+        endpoint_metric_role: open
+      cognitive_cues:
+        - opposition_between_bound_angle_and_goal_side
+        - potential_for_coupled_groupings_from_one_generator
+        - prior_opposition_bindings_if_retrieved
+      memory_evidence_refs: []
+      probability: null
+      final_demonstrative_frame: null
+    - candidate_id: BIND_BISECTOR_AT_A
+      at_state: W1
+      status: matching_hypothesis
+      source_mental_space: MS_PREMISE_BISECTION
+      target_mental_space: MS_GOAL_BASE
+      frame_to_instantiate: ANGLE_BISECTION
+      instantiation_objective: connect_angular_partition_to_desired_base_partition
+      role_mapping_hypothesis:
+        angle_to_partition: CAB
+        angle_vertex: A
+        rays: [AC, AB]
+        opposite_side: BC
+        goal_carrier: AB
+      target_instantiation_line:
+        status: proposed
+        source_vertex: A
+        host_angle: CAB
+        target_carrier: BC
+        orientation_hypothesis: internal_angle_bisection
+        proposed_ray: ray_AE
+        intersection_variable: E
+        resulting_segment_if_realized: AE
+        objective: explore_relation_of_this_partition_to_goal_on_AB
+        endpoint_metric_role: open
+      cognitive_cues:
+        - incidence_between_bound_vertex_and_goal_carrier
+        - opposition_between_bound_angle_and_another_side
+        - potential_for_coupled_groupings_from_one_generator
+        - prior_opposition_bindings_if_retrieved
+      memory_evidence_refs: []
+      probability: null
+      final_demonstrative_frame: null
+    - candidate_id: BIND_BISECTOR_AT_B
+      at_state: W1
+      status: matching_hypothesis
+      source_mental_space: MS_PREMISE_BISECTION
+      target_mental_space: MS_GOAL_BASE
+      frame_to_instantiate: ANGLE_BISECTION
+      instantiation_objective: connect_angular_partition_to_desired_base_partition
+      role_mapping_hypothesis:
+        angle_to_partition: ABC
+        angle_vertex: B
+        rays: [BA, BC]
+        opposite_side: AC
+        goal_carrier: AB
+      target_instantiation_line:
+        status: proposed
+        source_vertex: B
+        host_angle: ABC
+        target_carrier: AC
+        orientation_hypothesis: internal_angle_bisection
+        proposed_ray: ray_BF
+        intersection_variable: F
+        resulting_segment_if_realized: BF
+        objective: explore_relation_of_this_partition_to_goal_on_AB
+        endpoint_metric_role: open
+      cognitive_cues:
+        - incidence_between_bound_vertex_and_goal_carrier
+        - opposition_between_bound_angle_and_another_side
+        - potential_for_coupled_groupings_from_one_generator
+        - prior_opposition_bindings_if_retrieved
+      memory_evidence_refs: []
+      probability: null
+      final_demonstrative_frame: null
+  process_policy:
+    use_current_graph: true
+    use_construction_history: true
+    allow_partial_matching: true
+    allow_competing_expectations: true
+    allow_imagined_construction: true
+    require_complete_proof_tree_for_choice: false
+    cognitive_plausibility_is_formal_certification: false
+
+reference_trace_do_not_submit:
+  status: author_illustration
+  hypothesis_to_evaluate: 'Opposizione rispetto ad AB e origine comune possono dare priorità al binding su C'
+  mandatory_sequence: false
+  anticipated_groupings_allowed: true
+  event_realization_must_be_recorded: true
+  events:
+    - id: E_BIND
+      phase: W1
+      action: propose_binding
+      binding_ref: BIND_BISECTOR_AT_C
+      reasons: [opposite_angle_to_goal_side, possible_recall_of_opposition_bindings]
+      actual_memory_evidence_refs: []
+      observed_jev_probability: null
+    - id: E_LINE
+      phase: W2_in_this_illustration
+      action: realize_selected_instantiation
+      follows: [E_BIND]
+      operation: bisect_angle_then_intersect_segment
+      resource: EUCLID_I9_ANGLE_BISECTOR
+      inputs: [C, ACB, AB]
+      outputs: [ray_CD, D, CD, AD, DB]
+      resulting_incidence: {between: [A, D, B], incident: [D, ray_CD]}
+      angular_relation:
+        predicate: equal_angle
+        args: [ACD, DCB]
+        source: I9_construction
+        initially_bound_space: MS_PREMISE_BISECTION
+      note: 'Una variante immaginata mantiene separati questi output dagli oggetti reali di W1'
+    - id: E_LOCAL_GROUPS
+      action: open_local_groupings
+      follows: [E_LINE]
+      creates: [GS_LEFT, GS_RIGHT]
+    - id: E_TRIANGLES
+      action: reframe_as_triangles
+      follows: [E_LOCAL_GROUPS]
+      creates: [GS_TRIANGLE_PAIR]
+    - id: E_COMMON_ORIGIN
+      action: connect_through_shared_generator
+      follows: [E_LOCAL_GROUPS]
+      creates: [GS_COMMON_GENERATOR]
+      note: 'Può precedere o accompagnare il reframing triangolare'
+    - id: E_OPPOSITIONS
+      action: open_opposite_angle_side_roles
+      follows: [E_TRIANGLES]
+      creates: [GS_OPPOSITE_LEFT, GS_OPPOSITE_RIGHT]
+    - id: E_CROSS_PAIRS
+      action: align_corresponding_pairs
+      follows: [E_TRIANGLES, E_COMMON_ORIGIN]
+      creates: [GS_ANGLE_PAIRS, GS_SIDE_PAIRS]
+    - id: E_PROPAGATION
+      action: propagate_expectation_toward_goal
+      follows: [E_OPPOSITIONS, E_CROSS_PAIRS]
+      creates: [GS_ANGLE_TO_BASE]
+      expectation: {predicate: equal_length, args: [AD, DB], cognitive_status: plausible, formal_status: unverified}
+      probability_before: null
+      probability_after: null
+      explanation: 'Gli angoli uguali e le parti della base sono collegati attraverso opposizioni locali, corrispondenze e origine comune'
+    - id: E_SAS
+      action: propose_conclusive_reframing
+      follows: [E_PROPAGATION]
+      frame_candidate: EUCLID_I4_SAS
+      status: cognitive_candidate_for_certification
+
+  generic_spaces:
+    - id: GS_LEFT
+      kind: local_relational_package
+      generator_event: E_LINE
+      members: [ACD, CAD, ADC, AC, AD, CD, D]
+    - id: GS_RIGHT
+      kind: local_relational_package
+      generator_event: E_LINE
+      members: [DCB, CBD, CDB, BC, DB, CD, D]
+    - id: GS_TRIANGLE_PAIR
+      kind: triangle_reframing
+      connects: [GS_LEFT, GS_RIGHT]
+      triangles: [[A, C, D], [B, C, D]]
+    - id: GS_COMMON_GENERATOR
+      kind: coupled_whole
+      connects: [GS_LEFT, GS_RIGHT]
+      generator_event: E_LINE
+      shared_members: [CD, D]
+      source_configuration: ABC
+      cognitive_effect: common_origin_supports_correspondence_expectation
+      statistical_independence_of_members: false
+      congruence_from_common_origin_alone: unverified
+    - id: GS_OPPOSITE_LEFT
+      connects: [GS_LEFT]
+      angle_side_pairs: [[ACD, AD], [CAD, CD], [ADC, AC]]
+    - id: GS_OPPOSITE_RIGHT
+      connects: [GS_RIGHT]
+      angle_side_pairs: [[DCB, DB], [CBD, CD], [CDB, BC]]
+    - id: GS_ANGLE_PAIRS
+      connects: [GS_TRIANGLE_PAIR, GS_COMMON_GENERATOR]
+      pairs:
+        - {args: [ACD, DCB], equality_source: I9_construction}
+        - {args: [CAD, CBD], equality_status: open_in_this_trace}
+        - {args: [ADC, CDB], equality_status: anticipated}
+    - id: GS_SIDE_PAIRS
+      connects: [GS_TRIANGLE_PAIR, GS_COMMON_GENERATOR]
+      pairs:
+        - {args: [AC, BC], equality_source: H1}
+        - {args: [CD, CD], equality_source: shared_segment_identity}
+        - {args: [AD, DB], equality_status: desired_and_anticipated}
+    - id: GS_ANGLE_TO_BASE
+      connects: [GS_OPPOSITE_LEFT, GS_OPPOSITE_RIGHT, GS_ANGLE_PAIRS, GS_SIDE_PAIRS, GS_COMMON_GENERATOR]
+      source_mental_space: MS_PREMISE_BISECTION
+      target_mental_space: MS_GOAL_BASE
+      cross_space_roles: {left_angle: ACD, left_opposite_side: AD, right_angle: DCB, right_opposite_side: DB}
+      propagated_content: equality_expectation
+      formal_status: unverified
+
+  additional_anticipations:
+    - {predicate: midpoint, args: [D, AB], cognitive_status: plausible, formal_status: unverified}
+    - {predicate: perpendicular, args: [CD, AB], cognitive_status: plausible, formal_status: unverified}
+  evaluation_variants:
+    - renamed_points_and_rotated_figure
+    - different_goal_side
+    - non_equilateral_triangle
+    - arbitrary_line_instead_of_angle_bisection
+    - same_figure_different_construction_genealogy
+    - with_and_without_retrieved_prior_workspaces
+
+certification_reference_do_not_submit:
+  role: separate_geometric_control
+  initial_binding_selection_oracle: false
+  frame: EUCLID_I4_SAS
+  triangle_1: [A, C, D]
+  triangle_2: [B, C, D]
+  vertex_correspondence: {A: B, C: C, D: D}
+  premises:
+    - {predicate: equal_length, args: [AC, BC], source: H1}
+    - {predicate: equal_angle, args: [ACD, DCB], source: I9_construction}
+    - {predicate: equal_length, args: [CD, CD], source: shared_segment_identity}
+  checks: [construction_admissible, included_angle_correspondence, premise_provenance, noncircular_proof_dependencies]
+  conclusion_if_certified: {predicate: equal_length, args: [AD, DB]}
+  midpoint_requires: [equal_length_AD_DB, between_A_D_B]
+  perpendicularity: requires_separate_derivation
