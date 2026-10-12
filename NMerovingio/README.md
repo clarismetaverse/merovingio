@@ -78,6 +78,8 @@ La costruzione, il grafo e la loro genealogia alimentano la scelta cognitiva. SA
 
 La v0.3 rivede il nucleo cognitivo della v0.2 conservandone i file originali, senza modificare il reasoner o attestare esperimenti Jev.
 
+Il §5.4bis segue anche la prosecuzione dalle partizioni in C e D: i Generic Spaces generati portano all'attenzione nuove domande e proposizioni, e possono orientare l'esplorazione oltre il goal iniziale.
+
 ### Panoptikon v0.2 — bridge planning
 
 - [Fondamenti del modello teorico v0.2](docs/Merovingio_Panoptikon_Fondamenti_v0_2.md) — ontologia, BridgePotential e ranking congiunto Frame + Bridge + RoleMap; capitoli 5 e 7 per I.10.

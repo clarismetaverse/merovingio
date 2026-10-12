@@ -23,6 +23,7 @@ Gli obiettivi prioritari sono:
 4. **Propagazione cognitiva:** far circolare aspettative di uguaglianza e corrispondenza attraverso questi collegamenti prima della prova completa.
 5. **Cognitive soundness:** rappresentare quanto una configurazione appare coerente e promettente rispetto alla relazione cercata, con alternative ancora aperte.
 6. **Certificazione separata:** sottoporre una relazione e il relativo framing a controllo geometrico quando si vuole registrare una dimostrazione.
+7. **Prosecuzione esplorativa:** usare i Generic Spaces generati per far emergere nuove domande, richiamare altre proposizioni o proporre congetture, anche oltre il goal iniziale.
 
 La significatività di un elemento può precedere la conoscenza della sua necessità o utilità dimostrativa. Una scelta iniziale non richiede il calcolo deterministico dell'intero albero di prova. Il controllo rimane vincolante per usare la parola «dimostrato», ma non costituisce il motore principale della scelta cognitiva.
 
@@ -199,6 +200,24 @@ La congruenza degli angoli della bisettrice entra inizialmente nello spazio ango
 
 La regolarità dell'equilatero e l'origine comune rafforzano l'aspettativa di corrispondenza. La genealogia condivisa non rende da sola congruenti le due parti di ogni triangolo: il sistema può rivedere l'aspettativa quando cambia il contesto. In D si generano due angoli adiacenti; l'interpretazione di essi come retti può essere un'anticipazione saliente, con stato formale ancora aperto.
 
+### 5.4bis Dalle partizioni create a nuove proposizioni da esplorare
+
+I Generic Spaces possono orientare l'attenzione verso nuove relazioni. Gli stessi elementi dei due gruppi laterali vengono raggruppati di nuovo: una coppia di angoli attorno a C e una coppia attorno a D. La storia della linea CD rende significativo questo confronto.
+
+| Organizzazione | Angolo complessivo | Partizione e ruolo della linea |
+|---|---|---|
+| `GS_APEX_ANGULAR_PARTITION` | ∠ACB, angolo dell'equilatero | Il raggio CD lo divide in ∠ACD e ∠DCB, uguali per la bisezione. |
+| `GS_BASE_ANGULAR_PARTITION` | ∠ADB, angolo piatto poiché A-D-B | Il raggio DC lo divide in ∠ADC e ∠CDB; l'uguaglianza può essere anticipata cognitivamente. |
+| `GS_COUPLED_ANGULAR_PARTITIONS` | Confronto delle due organizzazioni | Uno stesso carrier collega due partizioni angolari: la bisezione è disponibile in C e diventa una possibile interpretazione anche in D. |
+
+Il Generic Space comune mette in corrispondenza **angolo intero, linea partitrice e due parti uguali**. Le uguaglianze riguardano ciascuna coppia: non si richiede uguaglianza di misura fra gli angoli in C e quelli in D. Il carrier è lo stesso, mentre i raggi CD e DC hanno origine e verso differenti. In D, la bisezione dell'angolo piatto rende saliente il framing di perpendicolarità.
+
+Questa apertura può far emergere una domanda ulteriore: «la linea che biseca l'angolo al vertice realizza anche una bisezione dell'angolo piatto sulla base?». Il processo può richiamare una proposizione conosciuta sulla relazione fra angolo piatto, angoli adiacenti uguali e perpendicolarità; oppure proporre una congettura sulle condizioni in cui una bisezione angolare si collega a un'altezza. Quali condizioni sopravvivono passando dall'equilatero ad altre configurazioni resta una domanda da esplorare e verificare.
+
+Le nuove proposizioni entrano così nell'attenzione **attraverso le partizioni già prodotte**. Il sistema conserva una genealogia del tipo `costruzione → partizioni → Generic Space → nuova domanda → proposizione richiamata o congettura proposta`. La nuova domanda può diventare un goal ulteriore anche dopo la soluzione di I.10. Non occorre che il certificatore abbia già chiuso la prova precedente per aprire questa direzione cognitiva.
+
+Il registro formale conserva il suo percorso: una volta verificata I.4, l'uguaglianza degli angoli corrispondenti in D, insieme all'angolo piatto, consente di certificare che sono retti. Questa derivazione documenta il controllo della relazione; la genealogia cognitiva registra separatamente come essa è diventata interessante.
+
 ### 5.5 SAS come framing conclusivo e certificazione
 
 Quando le corrispondenze si organizzano nei due triangoli, SAS può diventare una via particolarmente diretta e plausibile. Riconoscere questa configurazione è ancora un atto cognitivo; verificare formalmente I.4 è un passaggio distinto. Il contenuto matematico è quello del §5.2: AC=BC, ∠ACD=∠DCB e CD=CD consentono di concludere AD=DB.
@@ -209,7 +228,7 @@ La prova certifica la relazione anticipata. Se il controllo fallisce, l'anticipa
 
 Il ciclo proposto è:
 
-`FOCUS → PROPOSE_BINDING → INSTANTIATE / IMAGINE → OPEN_GROUPINGS → CONNECT / REFRAME → PROPAGATE_EXPECTATIONS → REVISE`
+`FOCUS → PROPOSE_BINDING → INSTANTIATE / IMAGINE → OPEN_GROUPINGS → CONNECT / REFRAME → PROPAGATE_EXPECTATIONS → PROPOSE_QUESTIONS → REVISE`
 
 Le frecce indicano dipendenze illustrative. I passaggi possono ripetersi, coesistere e riaprire organizzazioni precedenti. La procedura con cui Jev e gli altri componenti realizzano ciascun passaggio resta da progettare.
 
@@ -223,6 +242,9 @@ flowchart TD
     G --> R[Connessioni e reframing]
     R --> E[Propagazione di aspettative]
     E --> B
+    R --> N[Nuove domande dalle partizioni]
+    N --> T[Proposizioni richiamate o congetture]
+    T --> Q
     E --> S[Framing dimostrativo candidato]
     S -. richiesta di certificazione .-> V[Controllo geometrico]
     V --> F[Esito e relazioni certificate]
@@ -232,6 +254,8 @@ flowchart TD
 Jev partecipa alle scelte probabilistiche su binding, aperture, collegamenti e reframing. Il supporto alla costruzione può calcolare intersezioni e aggiornare il grafo; il certificatore verifica le affermazioni formali. Questi calcoli locali non richiedono che sia già stato risolto l'intero albero della dimostrazione prima di scegliere la costruzione.
 
 Una traccia deve distinguere **PROPAGATE_EXPECTATIONS**, che può precedere la prova, da **RECORD_CERTIFIED_RELATIONS**, che ne richiede l'esito. La registrazione dei Generic Spaces continua anche quando manca un certificato.
+
+**PROPOSE_QUESTIONS** rende esplicita la generatività dei Generic Spaces: l'organizzazione corrente suggerisce quale relazione approfondire e quali proposizioni portare all'attenzione. Il goal può quindi evolvere a partire dal workspace. Una proposizione già conosciuta richiamata dalla memoria e una nuova congettura mantengono origini e stati distinti.
 
 ## 7. Istanziazione e apertura progressiva nel caso I.10
 
@@ -308,6 +332,7 @@ La fixture distingue l'input cognitivo dai riferimenti per l'autore: il primo co
 4. **Connessione e reframing:** come collegare i gruppi locali, riconoscerli come triangoli e conservarne la comune origine?
 5. **Propagazione:** quanto si rafforza l'aspettativa di uguaglianza dei lati opposti quando gli angoli uguali e i lati-obiettivo si trovano nello stesso sistema di corrispondenze?
 6. **Framing conclusivo:** quando SAS diventa una lettura diretta della configurazione e merita una richiesta di certificazione?
+7. **Prosecuzione esplorativa:** quali nuove domande e proposizioni diventano significative grazie alle partizioni già create, per esempio confrontando la bisezione in C con la possibile bisezione dell'angolo piatto in D?
 
 Queste domande esplicitano l'ipotesi architetturale. Non sappiamo ancora se Jev le realizzi efficacemente né come misurare e aggiornare i pesi delle bolle. Il punto da verificare è la formazione progressiva di significato, includendo fallimenti, ritorni e alternative.
 
@@ -365,6 +390,7 @@ Il prossimo lavoro concettuale può partire dal confronto fra più tracce di bin
 - Genealogia esplicita dei due gruppi, reframing triangolare, generatore comune, opposizioni locali e coppie trasversali.
 - SAS distinto come framing conclusivo e come successivo certificato geometrico.
 - Traccia illustrativa, input cognitivo e riferimento di certificazione separati nella fixture v0.3; versioni v0.2 conservate.
+- Prosecuzione dalle partizioni angolari in C e D a nuove domande, proposizioni richiamate e congetture, con genealogia esplicita e possibili nuovi goal.
 
 ## Provenienza e riferimenti
 

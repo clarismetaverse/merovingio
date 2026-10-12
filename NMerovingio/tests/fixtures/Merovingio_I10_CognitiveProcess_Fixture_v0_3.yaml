@@ -221,6 +221,21 @@ reference_trace_do_not_submit:
       follows: [E_PROPAGATION]
       frame_candidate: EUCLID_I4_SAS
       status: cognitive_candidate_for_certification
+    - id: E_ANGULAR_REGROUPING
+      action: refocus_on_angular_partitions_at_carrier_endpoints
+      follows: [E_LOCAL_GROUPS, E_COMMON_ORIGIN]
+      creates: [GS_APEX_ANGULAR_PARTITION, GS_BASE_ANGULAR_PARTITION]
+      note: 'Può emergere prima o dopo SAS; conserva la genealogia dei gruppi laterali'
+    - id: E_COUPLED_PARTITIONS
+      action: align_whole_partitioning_ray_and_parts
+      follows: [E_ANGULAR_REGROUPING]
+      creates: [GS_COUPLED_ANGULAR_PARTITIONS]
+    - id: E_NEW_QUESTIONS
+      action: propose_questions_from_existing_partitions
+      follows: [E_COUPLED_PARTITIONS]
+      question_refs: [Q_BASE_BISECTION, Q_TRANSFER_CONDITIONS]
+      requires_prior_proof_completion: false
+      can_continue_after_original_goal_completion: true
 
   generic_spaces:
     - id: GS_LEFT
@@ -269,6 +284,50 @@ reference_trace_do_not_submit:
       cross_space_roles: {left_angle: ACD, left_opposite_side: AD, right_angle: DCB, right_opposite_side: DB}
       propagated_content: equality_expectation
       formal_status: unverified
+    - id: GS_APEX_ANGULAR_PARTITION
+      connects: [GS_LEFT, GS_RIGHT]
+      generator_event: E_LINE
+      vertex: C
+      whole_angle: ACB
+      partitioning_ray: ray_CD
+      parts: [ACD, DCB]
+      equality_source: I9_construction
+    - id: GS_BASE_ANGULAR_PARTITION
+      connects: [GS_LEFT, GS_RIGHT]
+      generator_event: E_LINE
+      vertex: D
+      whole_angle: ADB
+      whole_angle_kind: straight
+      whole_angle_source: between_A_D_B
+      partitioning_ray: ray_DC
+      parts: [ADC, CDB]
+      parts_relation: adjacent_supplementary
+      equality_status: anticipated
+      perpendicularity_status: anticipated
+      formal_equality_status: unverified
+    - id: GS_COUPLED_ANGULAR_PARTITIONS
+      connects: [GS_APEX_ANGULAR_PARTITION, GS_BASE_ANGULAR_PARTITION, GS_COMMON_GENERATOR]
+      generic_roles: [whole_angle, partitioning_ray, paired_parts, equality_within_pair]
+      shared_carrier: line_CD
+      local_partitioning_rays: [ray_CD, ray_DC]
+      transferred_content: equal_bipartition_expectation
+      cross_vertex_equal_angle_measures: not_asserted
+      cognitive_effect: bring_further_propositions_into_attention
+      formal_status: conjectural_alignment
+
+  exploratory_questions:
+    - id: Q_BASE_BISECTION
+      source_generic_space: GS_COUPLED_ANGULAR_PARTITIONS
+      question: 'La bisezione in C si accompagna a una bisezione dell’angolo piatto in D?'
+      proposed_new_focus: relation_between_bisection_and_perpendicularity
+      memory_retrieval_target: equal_adjacent_angles_on_a_straight_line
+      retrieved_proposition_refs: []
+      epistemic_status: open_question
+    - id: Q_TRANSFER_CONDITIONS
+      source_generic_space: GS_COUPLED_ANGULAR_PARTITIONS
+      question: 'In quali altre configurazioni la bisettrice dal vertice può assumere anche il ruolo di altezza?'
+      proposed_new_focus: conditions_for_transfer_beyond_equilateral_workspace
+      epistemic_status: conjecture_to_formulate_and_test
 
   additional_anticipations:
     - {predicate: midpoint, args: [D, AB], cognitive_status: plausible, formal_status: unverified}
@@ -295,4 +354,10 @@ certification_reference_do_not_submit:
   checks: [construction_admissible, included_angle_correspondence, premise_provenance, noncircular_proof_dependencies]
   conclusion_if_certified: {predicate: equal_length, args: [AD, DB]}
   midpoint_requires: [equal_length_AD_DB, between_A_D_B]
-  perpendicularity: requires_separate_derivation
+  perpendicularity:
+    status: requires_separate_derivation
+    candidate_derivation:
+      - equal_angles_ADC_CDB_from_verified_I4_correspondence
+      - adjacent_angles_sum_to_straight_angle_from_between_A_D_B
+      - equal_adjacent_supplementary_angles_are_right
+    cognitive_discovery_is_recorded_separately: true
