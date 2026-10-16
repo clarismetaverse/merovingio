@@ -1,0 +1,47 @@
+name: Jev Vision — Structural Bridge Selection v0.7
+
+on:
+  push:
+    branches:
+      - 'experiment/jev-structural-bridges-v0.7'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/jev-structural-bridges-v07.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jev-v07-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Geometry, counterbalance, no-leakage tests
+        run: python -m unittest discover -s tests -v
+      - name: Evaluate 24 bridge-selection decisions with Jev Vision
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python src/structural_bridges_v07.py output_bridges
+      - name: Upload only sanitized results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-structural-bridges-v07
+          path: |
+            experiments/jev_i10_maxblend_v03/output_bridges/bridge_results.json
+            experiments/jev_i10_maxblend_v03/output_bridges/images/**/*.png
+          retention-days: 7
