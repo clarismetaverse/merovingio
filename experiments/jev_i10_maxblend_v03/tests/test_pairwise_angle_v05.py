@@ -32,8 +32,8 @@ class PairwiseChecks(unittest.TestCase):
             exposed=json.dumps({k:v for k,v in payload.items() if k!="assets"}).lower()
             for forbidden in ("bisector","median","i.10","i.4","midpoint","sas","congruence"):
                 self.assertNotIn(forbidden,exposed)
-            self.assertEqual(payload["questions"]["angle_partition"]["type"],"choice")
-            self.assertEqual(len(payload["questions"]["angle_partition"]["criteria"]),3)
+            self.assertEqual(payload["questions"]["best_bridge"]["type"],"choice")
+            self.assertEqual(len(payload["questions"]["best_bridge"]["criteria"]),3)
 
 if __name__=="__main__":
     unittest.main()
