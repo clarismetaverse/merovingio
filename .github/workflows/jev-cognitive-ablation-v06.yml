@@ -1,0 +1,47 @@
+name: Jev Vision - Mental Spaces ablation v0.6
+
+on:
+  push:
+    branches:
+      - 'experiment/jev-mental-spaces-v0.6'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/jev-cognitive-ablation-v06.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jev-mental-spaces-v06-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Verify geometry, states and leakage
+        run: python -m unittest discover -s tests -v
+      - name: Jev live 3-condition ablation
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python src/cognitive_ablation_v06.py output_ablation
+      - name: Upload sanitized report and images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-cognitive-ablation-v06
+          path: |
+            experiments/jev_i10_maxblend_v03/output_ablation/ablation_results.json
+            experiments/jev_i10_maxblend_v03/output_ablation/images/**/*.png
+          retention-days: 7
