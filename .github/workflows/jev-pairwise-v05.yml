@@ -1,0 +1,43 @@
+name: Jev Vision - pairwise angle partition v0.5
+
+on:
+  push:
+    branches:
+      - 'experiment/jev-vision-pairwise-v0.5'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/jev-pairwise-v05.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Local geometry and leakage checks
+        run: python -m unittest discover -s tests -v
+      - name: Jev live pairwise trial
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python src/pairwise_angle_v05.py output_pairwise
+      - name: Save non-sensitive report and diagrams
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-pairwise-v05-results
+          path: |
+            experiments/jev_i10_maxblend_v03/output_pairwise/pairwise_results.json
+            experiments/jev_i10_maxblend_v03/output_pairwise/images/**/*.png
+          retention-days: 7
