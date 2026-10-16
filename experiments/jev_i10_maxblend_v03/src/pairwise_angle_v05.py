@@ -19,7 +19,7 @@ PROMPT = (
     "The initial mental space is the angular sector at vertex C, between rays CA and CB. "
     "Which candidate connector partitions that angular sector into two equal angular parts? "
     "Base lengths need not be equal. Compare the geometric angle openings, not the apparent "
-    "horizontal center of the base. Select none if neither candidate does so."
+    "horizontal center of the base. Always choose one of the two presented constructions."
 )
 
 
@@ -77,7 +77,6 @@ def prepare(out, shape, reverse):
                 "criteria": {
                     "K1": "Candidate image img-k1",
                     "K2": "Candidate image img-k2",
-                    "none": "Neither candidate realizes an equal angular partition",
                 },
             }
         },
@@ -96,7 +95,7 @@ def evaluate(out):
             response = call_jev(payload)
             answer = response["answers"]["best_bridge"]
             selected_id = answer.get("choice")
-            if selected_id not in ("K1", "K2", "none"):
+            if selected_id not in ("K1", "K2"):
                 raise ValueError("Unexpected answer identifier")
             selected_method = mapping.get(selected_id)
             trial = {
@@ -117,7 +116,7 @@ def evaluate(out):
             trials.append(trial)
             print(shape, trial["order"], selected_id, "correct=", trial["correct"])
     report = {
-        "experiment": "pairwise angular partition: bisector versus median",
+        "experiment": "forced pairwise angular partition: bisector versus median",
         "model": "jev-1.14.0",
         "epistemic_scope": "visual role selection only; no I.10 theorem or proof supplied",
         "correct": sum(t["correct"] for t in trials),

@@ -33,7 +33,7 @@ class PairwiseChecks(unittest.TestCase):
             for forbidden in ("bisector","median","i.10","i.4","midpoint","sas","congruence"):
                 self.assertNotIn(forbidden,exposed)
             self.assertEqual(payload["questions"]["best_bridge"]["type"],"choice")
-            self.assertEqual(len(payload["questions"]["best_bridge"]["criteria"]),3)
+            self.assertEqual(len(payload["questions"]["best_bridge"]["criteria"]),2)
 
 if __name__=="__main__":
     unittest.main()
