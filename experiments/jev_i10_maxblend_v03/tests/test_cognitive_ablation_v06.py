@@ -46,7 +46,7 @@ class TestAblation(unittest.TestCase):
                     "congruent triangles", "sas criterion"
                 ):
                     self.assertNotIn(forbidden,visible)
-                assert "CA" in visible or cond=="visual"
+                self.assertTrue("ca" in visible or cond=="visual")
 
     def test_generic_space_candidate_not_certified(self):
         a=generic_alignment("K1")
