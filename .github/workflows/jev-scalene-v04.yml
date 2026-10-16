@@ -1,0 +1,43 @@
+name: Jev Vision - scalene anti-symmetry v0.4
+
+on:
+  push:
+    branches:
+      - 'experiment/jev-vision-scalene-v0.4'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/jev-scalene-v04.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run local tests
+        run: python -m unittest discover -s tests -v
+      - name: Compare scalene candidates with Jev
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python src/scalene_stress.py output_scalene
+      - name: Publish sanitized report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-scalene-v04
+          path: |
+            experiments/jev_i10_maxblend_v03/output_scalene/scalene_results.json
+            experiments/jev_i10_maxblend_v03/output_scalene/images/**/*.png
+          retention-days: 7
