@@ -1,0 +1,50 @@
+name: Jev Vision - I10 MaxBlend (experimental)
+
+on:
+  push:
+    branches:
+      - 'experiment/jev-vision-i10-v0.3'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/jev-i10-maxblend.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jev-i10-maxblend-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install runtime dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Validate local geometric baseline and payload
+        run: python -m unittest discover -s tests -v
+      - name: Evaluate I.10 candidates on Jev Vision 1.14
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          # The key is never printed, persisted, or interpolated into a command.
+          python src/run_jev_ci.py output
+      - name: Publish non-sensitive experiment artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-i10-maxblend-results
+          path: |
+            experiments/jev_i10_maxblend_v03/output/jev_summary.json
+            experiments/jev_i10_maxblend_v03/output/results.json
+            experiments/jev_i10_maxblend_v03/output/images/*.png
+          retention-days: 7
