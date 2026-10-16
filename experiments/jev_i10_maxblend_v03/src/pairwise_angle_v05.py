@@ -71,7 +71,7 @@ def prepare(out, shape, reverse):
         },
         "assets": assets,
         "questions": {
-            "angle_partition": {
+            "best_bridge": {
                 "type": "choice",
                 "instructions": PROMPT,
                 "criteria": {
@@ -94,7 +94,7 @@ def evaluate(out):
         for reverse in (False, True):
             payload, mapping = prepare(out, shape, reverse)
             response = call_jev(payload)
-            answer = response["answers"]["angle_partition"]
+            answer = response["answers"]["best_bridge"]
             selected_id = answer.get("choice")
             if selected_id not in ("K1", "K2", "none"):
                 raise ValueError("Unexpected answer identifier")
