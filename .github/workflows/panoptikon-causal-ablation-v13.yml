@@ -1,0 +1,45 @@
+name: Panoptikon - Causal Order Ablation v1.3
+
+on:
+  push:
+    branches:
+      - 'experiment/panoptikon-causal-ablation-v1.3'
+    paths:
+      - 'NMerovingio/causal_ablation_v13/**'
+      - '.github/workflows/panoptikon-causal-ablation-v13.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: panoptikon-causal-v13-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: NMerovingio/causal_ablation_v13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install requests
+      - name: Geometry and isolation test suite
+        run: python -m unittest discover -s tests -v
+      - name: Run Jev three-factor ablation (56 judgments)
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python causal_ablation_v13.py output
+      - name: Publish sanitized experiment results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: panoptikon-causal-ablation-v13
+          path: NMerovingio/causal_ablation_v13/output/jev_causal_ablation_v13.json
+          retention-days: 7
