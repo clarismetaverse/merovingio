@@ -1,0 +1,47 @@
+name: Jev Vision — Fixed Construction Reframing v0.8
+
+on:
+  push:
+    branches:
+      - 'experiment/jev-single-construction-reframing-v0.8'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/jev-fixed-reframing-v08.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jev-v08-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+      - name: Validate geometry, candidate orders and request hygiene
+        run: python -m unittest discover -s tests -v
+      - name: Query Jev Vision on identical construction and different active spaces
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python src/fixed_workspace_reframing_v08.py output_reframing
+      - name: Export sanitized experiment
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-fixed-reframing-v08
+          path: |
+            experiments/jev_i10_maxblend_v03/output_reframing/reframing_results.json
+            experiments/jev_i10_maxblend_v03/output_reframing/images/*.png
+          retention-days: 7
