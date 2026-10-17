@@ -1,0 +1,47 @@
+name: Panoptikon - Mental Space Emergence v1.4 (3 modalities)
+
+on:
+  push:
+    branches:
+      - 'experiment/panoptikon-emergence-v1.4'
+    paths:
+      - 'NMerovingio/gestalt_emergence_v14/**'
+      - '.github/workflows/panoptikon-emergence-v14.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: emergence-v14-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  emergence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: NMerovingio/gestalt_emergence_v14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Dependencies
+        run: python -m pip install requests Pillow
+      - name: Offline geometry, modality and information-leakage checks
+        run: python -m unittest discover -s tests -v
+      - name: Evaluate 72 Jev v1.14 role-emergence judgments
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python emergence_v14.py output
+      - name: Save sanitized reports and visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: panoptikon-emergence-v14
+          path: |
+            NMerovingio/gestalt_emergence_v14/output/emergence_v14_results.json
+            NMerovingio/gestalt_emergence_v14/output/images/**/*.png
+          retention-days: 7
