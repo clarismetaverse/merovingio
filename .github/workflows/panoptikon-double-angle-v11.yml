@@ -1,0 +1,46 @@
+name: Panoptikon - Double Angular Pair Genealogy v1.1
+
+on:
+  push:
+    branches:
+      - 'experiment/panoptikon-double-angle-genealogy-v1.1'
+    paths:
+      - 'NMerovingio/double_angle_genealogy/**'
+      - '.github/workflows/panoptikon-double-angle-v11.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: NMerovingio/double_angle_genealogy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Jev dependencies
+        run: python -m pip install requests Pillow
+      - name: Run deterministic geometry and leakage tests
+        run: python -m unittest discover -s tests -v
+      - name: Write deterministic geometry and genealogies
+        run: python core.py output/double_angle_geometry.json
+      - name: Run Jev live with fixed diagrams and alternative histories
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python jev_double_angle.py output
+      - name: Upload non-sensitive reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: panoptikon-double-angle-genealogy-v11
+          path: |
+            NMerovingio/double_angle_genealogy/output/double_angle_geometry.json
+            NMerovingio/double_angle_genealogy/output/jev_double_angle_results.json
+            NMerovingio/double_angle_genealogy/output/images/*.png
+          retention-days: 7
