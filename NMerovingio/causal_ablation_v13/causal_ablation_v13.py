@@ -154,16 +154,6 @@ def make_payload(shape,condition,history='upper_first',presentation='canonical')
             }
         },
     }
-    if condition=='chronology':
-        questions['last_emergence']={
-            'type':'choice',
-            'instructions':(
-                'Based on step numbers and happens_before edges, which of the two '
-                'angular-partition spaces was created later? Ignore array order.'),
-            'criteria':{
-                'upper':'The upper apex partition appeared later',
-                'lower':'The lower right-angle pair appeared later'},
-        }
     return {'model':MODEL,'state':state,'questions':questions}
 
 
@@ -222,6 +212,8 @@ def produce_report(destination):
         raise SystemExit('Missing TYPESAFE_API_KEY: no live calls made')
     destination=Path(destination)
     destination.mkdir(parents=True,exist_ok=True)
+    # Exact same typed judgments in every experimental condition.
+    assert make_payload('iso_low','final')['questions']==make_payload('iso_low','supports')['questions']==make_payload('iso_low','chronology')['questions']
     trials=[]
     for item in schedule():
         shape=item['shape'];cond=item['condition']
@@ -233,13 +225,8 @@ def produce_report(destination):
                 'oracle_shared_carrier':oracle['shared_carrier'],
                 'shared_correct':(response['shared_carrier']>=0.5)==oracle['shared_carrier'],
                 'cross_metric_rejection_correct':response['false_metric_transfer']<0.5}
-        if cond=='chronology':
-            later='lower' if h=='upper_first' else 'upper'
-            record['later_expected_offline']=later
-            record['later_correct']=response['last_emergence']['choice']==later
-            record['graph_signature']=canonical_signature(graph(shape,h,True))
-        elif cond=='supports':
-            record['graph_signature']=canonical_signature(graph(shape,h,False))
+        if cond in ('chronology','supports'):
+            record['graph_signature']=canonical_signature(graph(shape,h,cond=='chronology'))
         trials.append(record)
         print(f'{shape}/{cond}/{h}/{presentation}: shared={record["shared_correct"]} p_joint={p_joint(record)}',flush=True)
     agg={}
@@ -253,8 +240,6 @@ def produce_report(destination):
             'input_tokens':sum((x['response']['usage'] or {}).get('input_tokens',0) for x in subset),
             'output_tokens':sum((x['response']['usage'] or {}).get('output_tokens',0) for x in subset),
         }
-    agg['chronology']['later_correct']=sum(x.get('later_correct',False) for x in trials)
-    agg['chronology']['later_tested']=sum('later_correct' in x for x in trials)
     paired=[]
     for shape in SHAPES:
         for presentation in PRESENTATIONS:

@@ -48,7 +48,7 @@ class CausalTests(unittest.TestCase):
                 self.assertNotIn('happens_before',json.dumps(u))
                 t=p.make_payload(shape,'chronology','upper_first',pr)
                 self.assertEqual(u['questions']['exploratory_focus'],t['questions']['exploratory_focus'])
-                self.assertIn('last_emergence',t['questions'])
+                self.assertEqual(u['questions'],t['questions'])
             f=p.make_payload(shape,'final')
             self.assertNotIn('support_graph',f['state'])
 

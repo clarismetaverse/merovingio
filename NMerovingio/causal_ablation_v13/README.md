@@ -27,8 +27,7 @@ Questions shared by F/S/T:
 - `noul` cross-pair metric equality (objective false control).
 - `choice` exploratory salience: upper, lower, joint correspondence, separate reading. **No uniquely correct choice.**
 
-Additional T diagnostic:
-- `choice` which angular partition emerged later, objectively checked from the temporal DAG. It measures graph comprehension, not proof or novel Generic Space discovery.
+The three **exact same** typed questions are sent in F, S and T. The temporal-comprehension diagnostic was collected in the earlier pilot run, and removed from this primary ablation to eliminate question-batch differences.
 
 We calculate per-condition averages, the matched support-only variability and the *difference in differences*:
 
