@@ -1,0 +1,45 @@
+name: Panoptikon - Gestalt Dynamics v1.0
+
+on:
+  push:
+    branches:
+      - 'experiment/panoptikon-gestalt-dynamics-v1.0'
+    paths:
+      - 'NMerovingio/gestalt_dynamics/**'
+      - '.github/workflows/panoptikon-gestalt-dynamics-v10.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cognitive-fixture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: NMerovingio/gestalt_dynamics
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Jev client dependency
+        run: python -m pip install requests
+      - name: Check geometric invariants and genealogies
+        run: python -m unittest discover -s tests -v
+      - name: Generate deterministic Gestalt dynamics
+        run: python core.py output/gestalt_dynamics.json
+      - name: Run four exploratory Jev judgments
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python jev_probe.py
+      - name: Export research artifacts without secrets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: panoptikon-gestalt-dynamics-v10
+          path: |
+            NMerovingio/gestalt_dynamics/output/gestalt_dynamics.json
+            NMerovingio/gestalt_dynamics/output/jev_genealogy_probe.json
+          retention-days: 7
