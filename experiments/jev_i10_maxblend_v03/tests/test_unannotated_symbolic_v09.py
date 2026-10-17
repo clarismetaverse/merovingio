@@ -45,7 +45,7 @@ class TestUnannotatedSymbolic(unittest.TestCase):
                     self.assertEqual(im.size,(900,900))
                     colors=im.getcolors(maxcolors=100000)
                     self.assertIsNotNone(colors)
-                    self.assertLess(len(colors),5)
+                    self.assertTrue(all(rgb[0] <= rgb[1] <= rgb[2] for _,rgb in colors))
                     self.assertGreater(len(colors),1)
 
     def test_no_answer_key_or_goal_in_requests(self):
