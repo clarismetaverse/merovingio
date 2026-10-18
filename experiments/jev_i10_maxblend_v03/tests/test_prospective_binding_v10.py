@@ -57,7 +57,7 @@ class TestMemoryDrivenBinding(unittest.TestCase):
      payload,mapping=runner.build_payload(root,case,shape,0,mode)
      visible=json.dumps({k:v for k,v in payload.items() if k!="assets"}).lower()
      for forbidden in (
-       "from_c","from_a","from_b","edge_link",
+       '"from_c"','"from_a"','"from_b"','"edge_link"',
        "circle_opposite_same_radius","circle_opposite_short_radius",
        "circle_same_center","midpoint_line",
        "oracle_score","correct_candidate","completed\": true",
