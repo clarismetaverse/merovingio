@@ -1,0 +1,51 @@
+name: Temporal Genealogy Order Ablation Jev 1.14
+on:
+  push:
+    branches: ['codex/temporal-genealogy-order-ablation']
+    paths: ['experiments/temporal_genealogy_order/**', '.github/workflows/temporal-genealogy-order.yml']
+  workflow_dispatch:
+    inputs:
+      live:
+        description: Run the paid Jev evaluation using the repository secret
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: temporal-order-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r experiments/jev_i10_maxblend_v03/requirements.txt
+      - name: Offline geometry and non-leakage tests
+        run: python -m unittest discover -s experiments/temporal_genealogy -v
+      - name: Snapshot, order, guard and pairing tests
+        run: python -m unittest discover -s experiments/temporal_genealogy_order -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: NMerovingio/viewer/package-lock.json
+      - name: Build existing viewer
+        working-directory: NMerovingio/viewer
+        run: npm ci && npm run build
+      - name: Generate offline baseline artifacts
+        run: python experiments/temporal_genealogy_order/benchmark_order.py --out output_temporal_order
+      - name: Evaluate Jev through Actions only
+        if: (github.event_name == 'workflow_dispatch' && inputs.live) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[jev-live]'))
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python experiments/temporal_genealogy_order/benchmark_order.py --out output_temporal_order --live
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: merovingio-temporal-genealogy-order
+          path: output_temporal_order/
+          retention-days: 30
