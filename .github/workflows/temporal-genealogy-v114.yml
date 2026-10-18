@@ -4,6 +4,11 @@ on:
     branches: ['codex/temporal-genealogy-jev-v1.14']
     paths: ['experiments/temporal_genealogy/**', '.github/workflows/temporal-genealogy-v114.yml']
   workflow_dispatch:
+    inputs:
+      live:
+        description: Run the paid Jev evaluation using the repository secret
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -32,6 +37,7 @@ jobs:
       - name: Generate offline baseline artifacts
         run: python experiments/temporal_genealogy/benchmark.py --out output_temporal
       - name: Evaluate Jev through Actions only
+        if: github.event_name == 'workflow_dispatch' && inputs.live
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: python experiments/temporal_genealogy/benchmark.py --out output_temporal --live

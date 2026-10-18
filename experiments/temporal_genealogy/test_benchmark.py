@@ -27,6 +27,13 @@ class BenchmarkTests(unittest.TestCase):
      no_options=json.dumps({k:v for k,v in p.items() if k!="questions"})+p["questions"]["origin"]["instructions"]
      for code in m:self.assertNotIn(code,no_options)
      if condition=="final_only":self.assertEqual(p,q)
+ def test_offline_has_no_accuracy(self):
+  rows=[{"condition":"sequence","history":"circle","predicted":"not_run","correct":None}]
+  self.assertIsNone(summarize(rows)["sequence"]["genealogy_accuracy"])
+ def test_sanitize_removes_free_text(self):
+  result=sanitize({"secret":"sensitive","answers":{"origin":{"choice":"none","confidence":.5,"reliability":"sensitive","rationale":"sensitive"}},"usage":{"input_tokens":10,"secret":"sensitive"}})
+  self.assertNotIn("sensitive",json.dumps(result))
+  self.assertEqual(result["usage"],{"input_tokens":10})
  def test_sources(self):
   ps=provenance();ids={n["id"] for s in ps for n in s["nodes"]}
   self.assertTrue({"GEN_EQ_CIRCLE","GEN_EQ_TRANSLATION","M_RADIUS_PACKET","M_TRANSLATION_PACKET"}<=ids)

@@ -1,5 +1,5 @@
 """Temporal genealogy: controlled visual histories, not geometric proof."""
-import argparse, base64, hashlib, json, math, os, random
+import argparse, base64, hashlib, html, json, math, os, random
 from pathlib import Path
 from PIL import Image, ImageDraw
 
@@ -93,15 +93,20 @@ def summarize(records):
             key=r["history"] if condition!="final_only" else "non_identifiable"
             matrix.setdefault(key,{})[r["predicted"]]=matrix.setdefault(key,{}).get(r["predicted"],0)+1
         confidence=[r["response"]["answer"]["confidence"] for r in rows if isinstance(r.get("response",{}).get("answer",{}).get("confidence"),(float,int))]
-        result[condition]={"n":len(rows),"failures":sum(r["predicted"]=="failure" for r in rows),"confusion_matrix":matrix,"genealogy_accuracy":None if condition=="final_only" else sum(r["correct"] is True for r in rows)/len(rows) if rows else None,"abstention_rate":sum(r["predicted"]=="none" for r in rows)/len(rows) if rows else None,"mean_confidence":sum(confidence)/len(confidence) if confidence else None,"confidence_n":len(confidence)}
+        result[condition]={"n":len(rows),"failures":sum(r["predicted"]=="failure" for r in rows),"confusion_matrix":matrix,"genealogy_accuracy":None if condition=="final_only" or all(r["predicted"]=="not_run" for r in rows) else sum(r["correct"] is True for r in rows)/len(rows) if rows else None,"abstention_rate":sum(r["predicted"]=="none" for r in rows)/len(rows) if rows else None,"mean_confidence":sum(confidence)/len(confidence) if confidence else None,"confidence_n":len(confidence)}
     return result
 
 def viewer(out):
     groups=[]
+    if (out/"results.json").exists():
+        report=json.loads((out/"results.json").read_text(encoding="utf-8"))
+        groups.append("<h2>Observed results</h2><pre>"+html.escape(json.dumps({"status":report["status"],"by_condition":report["by_condition"]},indent=2))+"</pre>")
     for a,r in ((0,1),(37,1),(0,-1),(37,-1)):
         groups.append(f"<h2>Rotation {a}, reflection {r}</h2>")
         for h in ("circle","translation"):
             groups.append(f"<h3>{h}</h3>"+"".join(f'<img width="220" src="images/{h}_{a}_{r}_{f}.png">' for f in range(3)))
+    for h in ("circle","translation"):
+        groups.append("<details><summary>Per-frame structural evidence: "+h+"</summary><pre>"+html.escape(json.dumps(spaces(h),indent=2))+"</pre></details>")
     (out/"viewer.html").write_text('<!doctype html><meta charset="utf-8"><title>Temporal Genealogy</title><style>body{font:16px system-ui;max-width:1000px;margin:2em auto}img{border:1px solid #ccc}</style><h1>SAME_FINAL_STATE != SAME_GENEALOGY</h1><p>Observer viewer; labels here never enter model-visible images. Multiple images do not establish internal sequential reasoning. See results.json for outcomes.</p>'+''.join(groups),encoding="utf-8")
 
 def main(out,live=False):
