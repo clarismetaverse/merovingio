@@ -26,6 +26,13 @@ type GraphEdge = AnyRecord & {
   evidence?: { status?: string }
 }
 
+type Genealogy = AnyRecord & {
+  id: string
+  target?: string
+  genetic_identity_key?: string
+  paths?: AnyRecord[]
+}
+
 type Snapshot = AnyRecord & {
   id: string
   after_run?: string | null
@@ -56,8 +63,8 @@ const edges = mergeById(
   (canonicalDelta.edges || []) as GraphEdge[],
 )
 const genealogies = mergeById(
-  (genealogyJson as AnyRecord).genealogies as AnyRecord[],
-  (canonicalDelta.genealogies || []) as AnyRecord[],
+  (genealogyJson as AnyRecord).genealogies as Genealogy[],
+  (canonicalDelta.genealogies || []) as Genealogy[],
 )
 const snapshots = mergeById(
   (snapshotsJson as AnyRecord).snapshots as Snapshot[],
