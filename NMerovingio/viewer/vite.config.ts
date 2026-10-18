@@ -17,7 +17,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         graph: path.resolve(here, 'index.html'),
-        workspace: path.resolve(here, 'workspace.html')
+        workspace: path.resolve(here, 'workspace.html'),
+        generic: path.resolve(here, 'generic-spaces.html')
       }
     }
   }

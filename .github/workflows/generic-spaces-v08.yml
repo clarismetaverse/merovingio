@@ -1,0 +1,44 @@
+name: Merovingio v0.8 - Generic Space Explorer CI
+
+on:
+  push:
+    branches:
+      - 'experiment/generic-space-visualization-v0.8'
+    paths:
+      - 'NMerovingio/viewer/**'
+      - 'NMerovingio/graph/examples/generic_spaces_v0_8.json'
+      - 'NMerovingio/tests/test_generic_space_v0_8.py'
+      - '.github/workflows/generic-spaces-v08.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate Generic Space schema and epistemic integrity
+        run: python -m unittest discover -s NMerovingio/tests -p 'test_generic_space_v0_8.py' -v
+      - name: Install viewer dependencies
+        working-directory: NMerovingio/viewer
+        run: npm install --no-audit --no-fund
+      - name: Typecheck and bundle all three viewer pages
+        working-directory: NMerovingio/viewer
+        run: npm run build
+      - name: Ensure Generic Space page was emitted
+        run: test -f NMerovingio/viewer/dist/generic-spaces.html
+      - name: Publish static viewer bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-generic-space-explorer-v08
+          path: NMerovingio/viewer/dist/
+          retention-days: 14

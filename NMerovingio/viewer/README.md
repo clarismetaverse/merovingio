@@ -76,3 +76,8 @@ The workspace prototype is the first step toward synchronized views for:
 3. family atlas / strata / fibers;
 4. hierarchical multi-parent organization;
 5. genealogy and deformation animation.
+
+
+## Generic Space Explorer (v0.8)
+
+The third independent viewer entry is `/generic-spaces.html`: a synchronized geometric workspace, abstract Generic Space role diagram, and epistemic/genealogy inspector. See [GENERIC_SPACES_V08.md](GENERIC_SPACES_V08.md) for the interactive stages, memory/induction/blend distinctions and caveats. The ranking is demonstrative, not learned or supplied by Jev.

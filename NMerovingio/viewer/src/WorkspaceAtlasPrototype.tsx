@@ -325,7 +325,7 @@ export default function WorkspaceAtlasPrototype() {
           <h1>Workspace Co-Constitution Atlas</h1>
           <p>Material identity stays fixed while Gestalt participation and family organization change.</p>
         </div>
-        <a href="/" className="back-link">Cognitive graph ↗</a>
+        <div style={{ display: 'flex', gap: 8 }}><a href="./generic-spaces.html" className="back-link">Generic Spaces ↗</a><a href="/" className="back-link">Cognitive graph ↗</a></div>
       </header>
 
       <section className="perspective-bar">

@@ -1,0 +1,372 @@
+{
+  "meta": {
+    "project": "Merovingio / Panoptikon",
+    "version": "0.8.0",
+    "purpose": "Visual explorer of instantiated, remembered, induced, blended and incomplete Generic Spaces",
+    "epistemic_note": "Illustrative manually constructed fixture. Relations and salience are hypothetical except explicit incidence/betweenness; no theorem is proven; Jev is not called.",
+    "provenance": "Euclidean triangle ABC -> proposed carrier CD -> conceptual re-grouping"
+  },
+  "points": {
+    "A": [
+      95,
+      355
+    ],
+    "B": [
+      505,
+      355
+    ],
+    "C": [
+      300,
+      44
+    ],
+    "D": [
+      300,
+      355
+    ]
+  },
+  "stages": [
+    {
+      "id": "given",
+      "label": "01 · Figura iniziale",
+      "description": "Triangolo ABC, prima del bridge CD."
+    },
+    {
+      "id": "constructed",
+      "label": "02 · Connessione CD",
+      "description": "La costruzione CD crea due Mental Spaces confinanti."
+    },
+    {
+      "id": "blended",
+      "label": "03 · Reframing",
+      "description": "CD viene interpretato in più ruoli e induce nuove astrazioni."
+    }
+  ],
+  "mental_spaces": [
+    {
+      "id": "MS_INITIAL_SIDE",
+      "label": "Lato AB",
+      "objects": [
+        "A",
+        "B",
+        "AB"
+      ],
+      "origin": "given"
+    },
+    {
+      "id": "MS_INITIAL_ANGLE",
+      "label": "Angolo al vertice C",
+      "objects": [
+        "C",
+        "CA",
+        "CB",
+        "angleACB"
+      ],
+      "origin": "given"
+    },
+    {
+      "id": "MS_LEFT",
+      "label": "Sottofigura ACD",
+      "objects": [
+        "A",
+        "C",
+        "D",
+        "CA",
+        "CD",
+        "AD",
+        "angleACD"
+      ],
+      "origin": "construction CD",
+      "available_at": 1
+    },
+    {
+      "id": "MS_RIGHT",
+      "label": "Sottofigura BCD",
+      "objects": [
+        "B",
+        "C",
+        "D",
+        "CB",
+        "CD",
+        "DB",
+        "angleDCB"
+      ],
+      "origin": "construction CD",
+      "available_at": 1
+    }
+  ],
+  "generic_spaces": [
+    {
+      "id": "GS_PAIR_ADJACENT",
+      "name": "Partizione in due figure adiacenti",
+      "source": "memory",
+      "family": "Partizione / doppio sottospazio",
+      "activation_stage": 0,
+      "statuses": [
+        "richiamato · parziale",
+        "istanziato · strutturale",
+        "istanziato · reinterpretato"
+      ],
+      "mental_spaces": [
+        "MS_LEFT",
+        "MS_RIGHT"
+      ],
+      "description": "Pattern astratto richiamato dalla memoria: due regioni chiuse con bordo condiviso. Prima di CD i ruoli sono solo prospettici.",
+      "roles": [
+        {
+          "id": "outer",
+          "label": "Lati esterni",
+          "left": "lato α",
+          "right": "lato β",
+          "left_object": "CA",
+          "right_object": "CB",
+          "available_at": 0
+        },
+        {
+          "id": "common",
+          "label": "Bordo comune",
+          "left": "segmento σ",
+          "right": "segmento σ",
+          "left_object": "CD",
+          "right_object": "CD",
+          "available_at": 1
+        },
+        {
+          "id": "base",
+          "label": "Base partizionata",
+          "left": "tratto p",
+          "right": "tratto q",
+          "left_object": "AD",
+          "right_object": "DB",
+          "available_at": 1
+        }
+      ],
+      "missing": [
+        {
+          "id": "carrier",
+          "title": "Bordo comune CD",
+          "resolved_at": 1,
+          "proposal": "Collega C a un punto D interno ad AB",
+          "evidence": "candidate construction"
+        }
+      ],
+      "salience": {
+        "context": [
+          0.7,
+          0.94,
+          0.9
+        ],
+        "generative": [
+          0.94,
+          0.65,
+          0.63
+        ]
+      },
+      "genealogical_sources": [
+        "Memoria di partizioni vertice–lato (schema)"
+      ],
+      "epistemic_status": "schema recuperato; corrispondenze geometriche strutturali dopo CD; nessuna uguaglianza dedotta"
+    },
+    {
+      "id": "GS_SIDE_ANGLE",
+      "name": "Allineamento misto lati–angoli",
+      "source": "induced",
+      "family": "Ruoli incrociati / lati–angoli",
+      "activation_stage": 1,
+      "statuses": [
+        "non ancora indotto",
+        "indotto · candidato",
+        "indotto · candidato"
+      ],
+      "mental_spaces": [
+        "MS_LEFT",
+        "MS_RIGHT"
+      ],
+      "description": "Due regioni vengono lette simultaneamente mediante lato esterno, carrier condiviso e settore angolare. L'allineamento non certifica che i settori abbiano uguale misura.",
+      "roles": [
+        {
+          "id": "outer",
+          "label": "Lato esterno",
+          "left": "lato α",
+          "right": "lato β",
+          "left_object": "CA",
+          "right_object": "CB",
+          "available_at": 1
+        },
+        {
+          "id": "inner",
+          "label": "Elemento mediale",
+          "left": "ponte σ",
+          "right": "ponte σ",
+          "left_object": "CD",
+          "right_object": "CD",
+          "available_at": 1
+        },
+        {
+          "id": "wedge",
+          "label": "Settore incluso",
+          "left": "settore u",
+          "right": "settore v",
+          "left_object": "angleACD",
+          "right_object": "angleDCB",
+          "available_at": 1
+        }
+      ],
+      "missing": [],
+      "salience": {
+        "context": [
+          0.03,
+          0.83,
+          0.96
+        ],
+        "generative": [
+          0.08,
+          0.91,
+          0.9
+        ]
+      },
+      "genealogical_sources": [
+        "MS_LEFT + MS_RIGHT",
+        "Posizione del nuovo carrier CD"
+      ],
+      "epistemic_status": "candidato per allineamento di ruoli; i vincoli metrici non sono dimostrati"
+    },
+    {
+      "id": "GS_MULTIPLE_ROLE",
+      "name": "Carrier mediale multi-ruolo",
+      "source": "blend",
+      "family": "Identità / co-costituzione",
+      "activation_stage": 2,
+      "statuses": [
+        "non ancora emergente",
+        "prefigurato · non stabilizzato",
+        "emergente · ipotetico"
+      ],
+      "mental_spaces": [
+        "MS_INITIAL_ANGLE",
+        "MS_INITIAL_SIDE",
+        "MS_LEFT",
+        "MS_RIGHT"
+      ],
+      "description": "La stessa identità materiale CD viene reinterpretata come lato condiviso, partizione angolare e trasporto fra un vertice e una base. Il blend genera una nuova astrazione di carrier mediale.",
+      "roles": [
+        {
+          "id": "shared",
+          "label": "Parte di due sottospazi",
+          "left": "lato di ACD",
+          "right": "lato di BCD",
+          "left_object": "CD",
+          "right_object": "CD",
+          "available_at": 1
+        },
+        {
+          "id": "link",
+          "label": "Contatto fra domini",
+          "left": "vertice angolare",
+          "right": "punto sulla base",
+          "left_object": "C",
+          "right_object": "D",
+          "available_at": 1
+        },
+        {
+          "id": "partition",
+          "label": "Doppia funzione",
+          "left": "divisione settore",
+          "right": "divisione figura",
+          "left_object": "angleACB",
+          "right_object": "CD",
+          "available_at": 2
+        }
+      ],
+      "missing": [],
+      "salience": {
+        "context": [
+          0,
+          0.28,
+          0.84
+        ],
+        "generative": [
+          0.01,
+          0.5,
+          0.97
+        ]
+      },
+      "genealogical_sources": [
+        "GS_PAIR_ADJACENT",
+        "GS_SIDE_ANGLE",
+        "Co-occorrenza dei ruoli di CD"
+      ],
+      "epistemic_status": "nuova ipotesi concettuale prodotta dal blend; nessuna certificazione metrica"
+    },
+    {
+      "id": "GS_PARALLEL_TRANSPORT",
+      "name": "Trasversale fra due carrier",
+      "source": "memory",
+      "family": "Parallelismo / trasporto",
+      "activation_stage": 0,
+      "statuses": [
+        "richiamato · molto incompleto",
+        "incompleto · attivabile",
+        "incompleto · prospettico"
+      ],
+      "mental_spaces": [
+        "MS_INITIAL_SIDE",
+        "MS_INITIAL_ANGLE"
+      ],
+      "description": "Schema di memoria per due carrier e una trasversale. Il workspace attuale fornisce AB e CD, ma manca un secondo carrier parallelo ad AB.",
+      "roles": [
+        {
+          "id": "lower",
+          "label": "Primo carrier",
+          "left": "carrier ℓ₁",
+          "right": "supporto AB",
+          "left_object": "AB",
+          "right_object": "AB",
+          "available_at": 0
+        },
+        {
+          "id": "upper",
+          "label": "Secondo carrier",
+          "left": "carrier ℓ₂",
+          "right": "ruolo mancante",
+          "left_object": null,
+          "right_object": null,
+          "available_at": 99
+        },
+        {
+          "id": "cut",
+          "label": "Trasversale",
+          "left": "direzione t",
+          "right": "carrier CD",
+          "left_object": "CD",
+          "right_object": "CD",
+          "available_at": 1
+        }
+      ],
+      "missing": [
+        {
+          "id": "parallel",
+          "title": "Secondo carrier parallelo ad AB",
+          "resolved_at": null,
+          "proposal": "Costruisci per C una retta parallela ad AB",
+          "evidence": "proposta non eseguita; disegno fantasma"
+        }
+      ],
+      "salience": {
+        "context": [
+          0.1,
+          0.22,
+          0.21
+        ],
+        "generative": [
+          0.74,
+          0.83,
+          0.88
+        ]
+      },
+      "genealogical_sources": [
+        "Famiglia parallele + trasversale (schema richiamato)"
+      ],
+      "epistemic_status": "memoria a priori, istanziazione incompleta; non è stato costruito alcun parallelismo"
+    }
+  ]
+}
