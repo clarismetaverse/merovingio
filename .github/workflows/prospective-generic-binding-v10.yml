@@ -1,0 +1,48 @@
+name: Merovingio v1.0 - Prospective Generic Binding Jev
+
+on:
+  push:
+    branches:
+      - 'experiment/prospective-generic-binding-v1.0'
+    paths:
+      - 'experiments/jev_i10_maxblend_v03/**'
+      - '.github/workflows/prospective-generic-binding-v10.yml'
+      - 'NMerovingio/graph/generic_space_memory_v0_9.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: merovingio-prospective-binding-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: experiments/jev_i10_maxblend_v03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Geometry, provenance and prompt-leakage unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Jev prospective binding, source-memory ablation and negative controls
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python src/prospective_binding_v10.py output_prospective
+      - name: Upload sanitized prospective-binding report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-prospective-binding-v10
+          path: |
+            experiments/jev_i10_maxblend_v03/output_prospective/prospective_results.json
+            experiments/jev_i10_maxblend_v03/output_prospective/images/**/*.png
+          retention-days: 14
