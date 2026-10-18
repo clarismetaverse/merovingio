@@ -1,0 +1,42 @@
+name: Merovingio Generic Space Memory v0.9
+
+on:
+  push:
+    branches:
+      - 'experiment/generic-space-memory-v0.9'
+    paths:
+      - 'NMerovingio/**'
+      - '.github/workflows/generic-space-memory-v09.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Historical Generic Space provenance and epistemic tests
+        run: python -m unittest discover -s NMerovingio/tests -p 'test_generic*_v0_*.py' -v
+      - name: Install React viewer dependencies
+        working-directory: NMerovingio/viewer
+        run: npm install --no-audit --no-fund
+      - name: Typecheck and bundle three viewers
+        working-directory: NMerovingio/viewer
+        run: npm run build
+      - name: Check Generic Space Explorer entry
+        run: test -f NMerovingio/viewer/dist/generic-spaces.html
+      - name: Upload compiled viewer
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-generic-memory-v09
+          path: NMerovingio/viewer/dist/
+          retention-days: 14

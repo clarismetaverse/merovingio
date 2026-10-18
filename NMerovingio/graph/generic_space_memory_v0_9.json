@@ -1,0 +1,609 @@
+{
+  "version": "0.9",
+  "kind": "generic_space_memory",
+  "sources": [
+    {
+      "path": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+      "source_kind": "workspace_example",
+      "workspace_id": "W_QUAD_AC",
+      "proposition_ids": [],
+      "evidence_scope": "repository_fixture_or_catalog_record_not_formal_proof"
+    },
+    {
+      "path": "NMerovingio/graph/examples/workspace_two_circles_triangle_v0_4_1.json",
+      "source_kind": "workspace_example",
+      "workspace_id": "W_TWO_CIRCLES",
+      "proposition_ids": [],
+      "evidence_scope": "repository_fixture_or_catalog_record_not_formal_proof"
+    },
+    {
+      "path": "NMerovingio/graph/examples/workspace_triangle_genealogy_comparison_v0_4_1.json",
+      "source_kind": "workspace_example",
+      "workspace_id": "W_GENEALOGY_COMPARE",
+      "proposition_ids": [],
+      "evidence_scope": "repository_fixture_or_catalog_record_not_formal_proof"
+    },
+    {
+      "path": "NMerovingio/graph/examples/workspace_equilateral_same_state_different_genealogy_v0_4_1.json",
+      "source_kind": "workspace_example",
+      "workspace_id": "W_EQ_COMPARE",
+      "proposition_ids": [],
+      "evidence_scope": "repository_fixture_or_catalog_record_not_formal_proof"
+    },
+    {
+      "path": "NMerovingio/data/propositions.json",
+      "source_kind": "proposition_catalog",
+      "workspace_id": null,
+      "proposition_ids": [
+        "I.5",
+        "I.6",
+        "I.7",
+        "I.18",
+        "I.19"
+      ],
+      "evidence_scope": "repository_fixture_or_catalog_record_not_formal_proof"
+    }
+  ],
+  "principle": "MEMORY_ABSTRACTION_NEQ_PROOF; NO_EQUALITY_TRANSFER; PRESERVE_GENEALOGY",
+  "entries": [
+    {
+      "id": "GS_HIST_DOUBLE_TRIANGLE",
+      "name": "Due triangoli con carrier comune",
+      "kind": "workspace_abstraction",
+      "provenance": {
+        "file": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+        "workspace_id": "W_QUAD_AC",
+        "proposition_id": null,
+        "node_ids": [
+          "M_AC",
+          "G_TRI_ABC",
+          "G_TRI_ACD",
+          "G_QUAD_ABCD"
+        ],
+        "source_kind": "workspace_abstraction",
+        "status": "source_observed_structural_pattern"
+      },
+      "tags": [
+        "triangle",
+        "medial_carrier",
+        "shared_side",
+        "partition_two_regions",
+        "paired_triangles"
+      ],
+      "goal_tags": [
+        "shared_side",
+        "partition_two_regions",
+        "triangle"
+      ],
+      "abstract_roles": [
+        {
+          "role": "carrier",
+          "source_objects": [
+            "M_AC"
+          ],
+          "relation": "same_material_carrier"
+        },
+        {
+          "role": "region_pair",
+          "source_objects": [
+            "G_TRI_ABC",
+            "G_TRI_ACD"
+          ],
+          "relation": "both_participate_in_same_carrier"
+        }
+      ],
+      "genealogical_note": "ASTRAZIONE candidata dai ruoli SIDE del medesimo carrier AC nelle due Gestalten triangolari; non assumere congruenza.",
+      "interpretation": "candidate_generic_space_abstraction",
+      "metric_status": "not_certified_by_memory",
+      "memory_status": "retrievable_template",
+      "conservation": "preserve_source_identity_and_genealogy",
+      "source_excerpt_ids": [
+        "M_AC",
+        "G_TRI_ABC",
+        "G_TRI_ACD",
+        "G_QUAD_ABCD"
+      ]
+    },
+    {
+      "id": "GS_HIST_MEDIAL_POLYROLE",
+      "name": "Carrier condiviso fra più Gestalten",
+      "kind": "workspace_abstraction",
+      "provenance": {
+        "file": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+        "workspace_id": "W_QUAD_AC",
+        "proposition_id": null,
+        "node_ids": [
+          "M_AC",
+          "G_TRANSVERSAL_AC",
+          "G_DIAGONAL_CORR",
+          "G_QUAD_ABCD"
+        ],
+        "source_kind": "workspace_abstraction",
+        "status": "source_observed_structural_pattern"
+      },
+      "tags": [
+        "medial_carrier",
+        "multi_role_carrier",
+        "co_constitution",
+        "provenance_reinterpretation"
+      ],
+      "goal_tags": [
+        "multi_role_carrier",
+        "co_constitution",
+        "role_alignment"
+      ],
+      "abstract_roles": [
+        {
+          "role": "material_identity",
+          "source_objects": [
+            "M_AC"
+          ],
+          "relation": "one_material_identity"
+        },
+        {
+          "role": "interpretive_roles",
+          "source_objects": [
+            "G_TRANSVERSAL_AC",
+            "G_DIAGONAL_CORR",
+            "G_QUAD_ABCD"
+          ],
+          "relation": "distinct_participations"
+        }
+      ],
+      "genealogical_note": "ASTRAZIONE: un singolo segmento AC ha ruoli di lato, diagonale, trasversale e ponte in Gestalten diverse.",
+      "interpretation": "candidate_generic_space_abstraction",
+      "metric_status": "not_certified_by_memory",
+      "memory_status": "retrievable_template",
+      "conservation": "preserve_source_identity_and_genealogy",
+      "source_excerpt_ids": [
+        "M_AC",
+        "G_TRANSVERSAL_AC",
+        "G_DIAGONAL_CORR",
+        "G_QUAD_ABCD"
+      ]
+    },
+    {
+      "id": "GS_HIST_RADIUS_TRIANGLE",
+      "name": "Intersezione di raggi e lato triangolare",
+      "kind": "workspace_abstraction",
+      "provenance": {
+        "file": "NMerovingio/graph/examples/workspace_two_circles_triangle_v0_4_1.json",
+        "workspace_id": "W_TWO_CIRCLES",
+        "proposition_id": null,
+        "node_ids": [
+          "M_AB",
+          "M_AC",
+          "M_BC",
+          "M_C",
+          "G_TRIANGLE_ABC",
+          "G_RADIUS_EQUALITY"
+        ],
+        "source_kind": "workspace_abstraction",
+        "status": "source_observed_structural_pattern"
+      },
+      "tags": [
+        "circle",
+        "two_circles",
+        "radius",
+        "triangle",
+        "common_reference",
+        "intersection",
+        "equilateral"
+      ],
+      "goal_tags": [
+        "intersection",
+        "circle",
+        "triangle"
+      ],
+      "abstract_roles": [
+        {
+          "role": "common_reference",
+          "source_objects": [
+            "M_AB"
+          ],
+          "relation": "circle_radius_and_triangle_side"
+        },
+        {
+          "role": "convergence_vertex",
+          "source_objects": [
+            "M_C"
+          ],
+          "relation": "shared_circle_intersection"
+        },
+        {
+          "role": "derived_sides",
+          "source_objects": [
+            "M_AC",
+            "M_BC"
+          ],
+          "relation": "radius_instances"
+        }
+      ],
+      "genealogical_note": "Schema astratto dalla costruzione a due circonferenze: gli oggetti hanno genealogia comune di raggio, come documentato dal workspace.",
+      "interpretation": "candidate_generic_space_abstraction",
+      "metric_status": "not_certified_by_memory",
+      "memory_status": "retrievable_template",
+      "conservation": "preserve_source_identity_and_genealogy",
+      "source_excerpt_ids": [
+        "M_AB",
+        "M_AC",
+        "M_BC",
+        "M_C",
+        "G_TRIANGLE_ABC",
+        "G_RADIUS_EQUALITY"
+      ]
+    },
+    {
+      "id": "GS_HIST_SHARED_MEDIUM",
+      "name": "Stessa forma relazionale, genealogie distinte",
+      "kind": "workspace_abstraction",
+      "provenance": {
+        "file": "NMerovingio/graph/examples/workspace_triangle_genealogy_comparison_v0_4_1.json",
+        "workspace_id": "W_GENEALOGY_COMPARE",
+        "proposition_id": null,
+        "node_ids": [
+          "GEN_QUAD_TRIANGLE",
+          "GEN_CIRCLE_TRIANGLE",
+          "F_TRIANGLE_MEDIUM_SHARED"
+        ],
+        "source_kind": "workspace_abstraction",
+        "status": "source_observed_structural_pattern"
+      },
+      "tags": [
+        "triangle",
+        "shared_family",
+        "different_genealogy",
+        "cross_workspace",
+        "family_atlas"
+      ],
+      "goal_tags": [
+        "triangle",
+        "provenance_reinterpretation",
+        "shared_family"
+      ],
+      "abstract_roles": [
+        {
+          "role": "common_medium",
+          "source_objects": [
+            "F_TRIANGLE_MEDIUM_SHARED"
+          ],
+          "relation": "same_family"
+        },
+        {
+          "role": "left_genealogy",
+          "source_objects": [
+            "GEN_QUAD_TRIANGLE"
+          ],
+          "relation": "quad_diagonal_genesis"
+        },
+        {
+          "role": "right_genealogy",
+          "source_objects": [
+            "GEN_CIRCLE_TRIANGLE"
+          ],
+          "relation": "circle_intersection_genesis"
+        }
+      ],
+      "genealogical_note": "L'istanza di triangolo può essere la stessa famiglia ma mantenere provenienza non identica; schema dal confronto esplicito.",
+      "interpretation": "candidate_generic_space_abstraction",
+      "metric_status": "not_certified_by_memory",
+      "memory_status": "retrievable_template",
+      "conservation": "preserve_source_identity_and_genealogy",
+      "source_excerpt_ids": [
+        "GEN_QUAD_TRIANGLE",
+        "GEN_CIRCLE_TRIANGLE",
+        "F_TRIANGLE_MEDIUM_SHARED"
+      ]
+    },
+    {
+      "id": "GS_HIST_EQUAL_STATE",
+      "name": "Equilatero uguale, genesi differente",
+      "kind": "workspace_abstraction",
+      "provenance": {
+        "file": "NMerovingio/graph/examples/workspace_equilateral_same_state_different_genealogy_v0_4_1.json",
+        "workspace_id": "W_EQ_COMPARE",
+        "proposition_id": null,
+        "node_ids": [
+          "GEN_EQ_CIRCLE",
+          "GEN_EQ_TRANSLATION",
+          "G_EQ_STATE_SHARED",
+          "F_TRIANGLE_MEDIUM_SHARED"
+        ],
+        "source_kind": "workspace_abstraction",
+        "status": "source_observed_structural_pattern"
+      },
+      "tags": [
+        "triangle",
+        "equilateral",
+        "same_state",
+        "different_genealogy",
+        "cross_workspace"
+      ],
+      "goal_tags": [
+        "equilateral",
+        "triangle",
+        "different_genealogy"
+      ],
+      "abstract_roles": [
+        {
+          "role": "state_identity",
+          "source_objects": [
+            "G_EQ_STATE_SHARED"
+          ],
+          "relation": "same_equilateral_state"
+        },
+        {
+          "role": "circle_genealogy",
+          "source_objects": [
+            "GEN_EQ_CIRCLE"
+          ],
+          "relation": "distinct_genesis"
+        },
+        {
+          "role": "translation_genealogy",
+          "source_objects": [
+            "GEN_EQ_TRANSLATION"
+          ],
+          "relation": "distinct_genesis"
+        }
+      ],
+      "genealogical_note": "Due genesi arrivano allo stesso stato equilatero nel workspace comparativo; NON trasferire prova o identità di genealogia.",
+      "interpretation": "candidate_generic_space_abstraction",
+      "metric_status": "not_certified_by_memory",
+      "memory_status": "retrievable_template",
+      "conservation": "preserve_source_identity_and_genealogy",
+      "source_excerpt_ids": [
+        "GEN_EQ_CIRCLE",
+        "GEN_EQ_TRANSLATION",
+        "G_EQ_STATE_SHARED",
+        "F_TRIANGLE_MEDIUM_SHARED"
+      ]
+    },
+    {
+      "id": "GS_PROP_I_5",
+      "name": "Schema proposizione I.5 · propagate equality side to angle",
+      "kind": "proposition_catalog_pattern",
+      "provenance": {
+        "file": "NMerovingio/data/propositions.json",
+        "workspace_id": null,
+        "proposition_id": "I.5",
+        "node_ids": [],
+        "source_kind": "proposition_catalog_pattern",
+        "status": "catalogued_rule_only_not_workspace_proof"
+      },
+      "tags": [
+        "isosceles",
+        "side_equality",
+        "opposite_angle",
+        "relation_transfer"
+      ],
+      "goal_tags": [
+        "isosceles",
+        "side_equality",
+        "opposite_angle",
+        "relation_transfer"
+      ],
+      "abstract_roles": [
+        {
+          "role": "preconditions",
+          "source_objects": [
+            "side_left = side_right"
+          ],
+          "relation": "catalogued_premise"
+        },
+        {
+          "role": "effect",
+          "source_objects": [
+            "angle_left = angle_right"
+          ],
+          "relation": "catalogued_conclusion"
+        }
+      ],
+      "genealogical_note": "Schema ricavato dal record della proposizione, NON prova geometrica o workspace ricostruito.",
+      "interpretation": "catalogued_theorem_role_template",
+      "metric_status": "requires_independent_proof_or_verifier",
+      "memory_status": "retrievable_template",
+      "conservation": "never_upgrade_catalogue_to_proven_status",
+      "source_excerpt_ids": [
+        "I.5"
+      ]
+    },
+    {
+      "id": "GS_PROP_I_6",
+      "name": "Schema proposizione I.6 · reject side disanalogy under equal angles",
+      "kind": "proposition_catalog_pattern",
+      "provenance": {
+        "file": "NMerovingio/data/propositions.json",
+        "workspace_id": null,
+        "proposition_id": "I.6",
+        "node_ids": [],
+        "source_kind": "proposition_catalog_pattern",
+        "status": "catalogued_rule_only_not_workspace_proof"
+      },
+      "tags": [
+        "isosceles",
+        "angle_equality",
+        "opposite_side",
+        "converse"
+      ],
+      "goal_tags": [
+        "isosceles",
+        "angle_equality",
+        "opposite_side",
+        "converse"
+      ],
+      "abstract_roles": [
+        {
+          "role": "preconditions",
+          "source_objects": [
+            "angle_left = angle_right"
+          ],
+          "relation": "catalogued_premise"
+        },
+        {
+          "role": "effect",
+          "source_objects": [
+            "side_left = side_right"
+          ],
+          "relation": "catalogued_conclusion"
+        }
+      ],
+      "genealogical_note": "Schema ricavato dal record della proposizione, NON prova geometrica o workspace ricostruito.",
+      "interpretation": "catalogued_theorem_role_template",
+      "metric_status": "requires_independent_proof_or_verifier",
+      "memory_status": "retrievable_template",
+      "conservation": "never_upgrade_catalogue_to_proven_status",
+      "source_excerpt_ids": [
+        "I.6"
+      ]
+    },
+    {
+      "id": "GS_PROP_I_7",
+      "name": "Schema proposizione I.7 · reject second compatible closure",
+      "kind": "proposition_catalog_pattern",
+      "provenance": {
+        "file": "NMerovingio/data/propositions.json",
+        "workspace_id": null,
+        "proposition_id": "I.7",
+        "node_ids": [],
+        "source_kind": "proposition_catalog_pattern",
+        "status": "catalogued_rule_only_not_workspace_proof"
+      },
+      "tags": [
+        "triangle",
+        "fixed_base",
+        "two_side_constraints",
+        "uniqueness"
+      ],
+      "goal_tags": [
+        "triangle",
+        "fixed_base",
+        "two_side_constraints",
+        "uniqueness"
+      ],
+      "abstract_roles": [
+        {
+          "role": "preconditions",
+          "source_objects": [
+            "fixed_base",
+            "two_fixed_corresponding_side_lengths"
+          ],
+          "relation": "catalogued_premise"
+        },
+        {
+          "role": "effect",
+          "source_objects": [
+            "no_distinct_second_vertex_on_same_side_with_same_distances"
+          ],
+          "relation": "catalogued_conclusion"
+        }
+      ],
+      "genealogical_note": "Schema ricavato dal record della proposizione, NON prova geometrica o workspace ricostruito.",
+      "interpretation": "catalogued_theorem_role_template",
+      "metric_status": "requires_independent_proof_or_verifier",
+      "memory_status": "retrievable_template",
+      "conservation": "never_upgrade_catalogue_to_proven_status",
+      "source_excerpt_ids": [
+        "I.7"
+      ]
+    },
+    {
+      "id": "GS_PROP_I_18",
+      "name": "Schema proposizione I.18 · propagate side disanalogy to opposite angle",
+      "kind": "proposition_catalog_pattern",
+      "provenance": {
+        "file": "NMerovingio/data/propositions.json",
+        "workspace_id": null,
+        "proposition_id": "I.18",
+        "node_ids": [],
+        "source_kind": "proposition_catalog_pattern",
+        "status": "catalogued_rule_only_not_workspace_proof"
+      },
+      "tags": [
+        "triangle",
+        "side_order",
+        "opposite_angle",
+        "relation_transfer"
+      ],
+      "goal_tags": [
+        "triangle",
+        "side_order",
+        "opposite_angle",
+        "relation_transfer"
+      ],
+      "abstract_roles": [
+        {
+          "role": "preconditions",
+          "source_objects": [
+            "side_left > side_right"
+          ],
+          "relation": "catalogued_premise"
+        },
+        {
+          "role": "effect",
+          "source_objects": [
+            "opposite_angle_left > opposite_angle_right"
+          ],
+          "relation": "catalogued_conclusion"
+        }
+      ],
+      "genealogical_note": "Schema ricavato dal record della proposizione, NON prova geometrica o workspace ricostruito.",
+      "interpretation": "catalogued_theorem_role_template",
+      "metric_status": "requires_independent_proof_or_verifier",
+      "memory_status": "retrievable_template",
+      "conservation": "never_upgrade_catalogue_to_proven_status",
+      "source_excerpt_ids": [
+        "I.18"
+      ]
+    },
+    {
+      "id": "GS_PROP_I_19",
+      "name": "Schema proposizione I.19 · propagate angle disanalogy to opposite side",
+      "kind": "proposition_catalog_pattern",
+      "provenance": {
+        "file": "NMerovingio/data/propositions.json",
+        "workspace_id": null,
+        "proposition_id": "I.19",
+        "node_ids": [],
+        "source_kind": "proposition_catalog_pattern",
+        "status": "catalogued_rule_only_not_workspace_proof"
+      },
+      "tags": [
+        "triangle",
+        "angle_order",
+        "opposite_side",
+        "relation_transfer"
+      ],
+      "goal_tags": [
+        "triangle",
+        "angle_order",
+        "opposite_side",
+        "relation_transfer"
+      ],
+      "abstract_roles": [
+        {
+          "role": "preconditions",
+          "source_objects": [
+            "opposite_angle_left > opposite_angle_right"
+          ],
+          "relation": "catalogued_premise"
+        },
+        {
+          "role": "effect",
+          "source_objects": [
+            "side_left > side_right"
+          ],
+          "relation": "catalogued_conclusion"
+        }
+      ],
+      "genealogical_note": "Schema ricavato dal record della proposizione, NON prova geometrica o workspace ricostruito.",
+      "interpretation": "catalogued_theorem_role_template",
+      "metric_status": "requires_independent_proof_or_verifier",
+      "memory_status": "retrievable_template",
+      "conservation": "never_upgrade_catalogue_to_proven_status",
+      "source_excerpt_ids": [
+        "I.19"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import sample from '../../graph/examples/generic_spaces_v0_8.json'
+import GenericMemoryPanel from './GenericMemoryPanel'
+import './generic-memory.css'
 
 type PointName = 'A' | 'B' | 'C' | 'D'
 type Stage = 0 | 1 | 2
@@ -249,11 +251,11 @@ export default function GenericSpacesExplorer(){
     <main className="gv-app">
       <header className="gv-topbar">
         <div>
-          <div className="gv-kicker">MEROVINGIO / PANOPTIKON · v0.8</div>
+          <div className="gv-kicker">MEROVINGIO / PANOPTIKON · v0.9</div>
           <h1>Generic Space Explorer</h1>
           <p>Tra figura concreta, astrazione richiamata e blending emergente.</p>
         </div>
-        <div className="gv-links"><a href="./workspace.html">Workspace Atlas ↗</a><a href="./index.html">Grafo cognitivo ↗</a></div>
+        <div className="gv-links"><a href="#historical-generic-memory">Memoria teoremi ↓</a><a href="./workspace.html">Workspace Atlas ↗</a><a href="./index.html">Grafo cognitivo ↗</a></div>
       </header>
       <nav className="gv-timeline" aria-label="Sequenza costruttiva">
         {model.stages.map((item,index)=>(
@@ -300,6 +302,7 @@ export default function GenericSpacesExplorer(){
             <div className="gv-status">{selected.statuses[stage]}</div>
             <p>{selected.epistemic_status}</p>
           </section>
+          <GenericMemoryPanel stage={stage}/>
           <section>
             <h3>Mental Spaces coinvolti</h3>
             {selected.mental_spaces.map(id=>{
