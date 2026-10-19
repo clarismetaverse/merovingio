@@ -98,8 +98,12 @@ def build_payload(out,shape,repeat):
         if key!="initial":asset_files[key]=geometry.render(out/"images"/shape/(method+".png"),shape,method)
         graphs[code]=proposal(shape,method)
         candidates.append({"id":code,"image":key,"hypothetical_geometry":graphs[code]})
+    for path in asset_files.values():
+        with Image.open(path) as source:
+            resized=source.resize((512,369),Image.Resampling.LANCZOS)
+        resized.save(path)
     assets={k:{"type":"image","format":"png","data_base64":base64.b64encode(p.read_bytes()).decode("ascii")} for k,p in asset_files.items()}
-    state={"initial_image":"initial","existing_mental_spaces":[{"id":k,"description":d} for k,d,_ in DIMENSIONS if not k.startswith("GS_")],"existing_generic_spaces":[{"id":"G1","roles":DIMENSIONS[6][1]},{"id":"G2","roles":DIMENSIONS[7][1]}],"hypothetical_candidates":candidates,"epistemic_status":"Prospective construction proposals with code-extracted incidences. No metric equality, congruence or theorem is certified. Compare each proposal with the initial workspace."}
+    state={"initial_image":"initial","coordinate_system":"Construction coordinates; raster views are uniformly scaled.","existing_mental_spaces":[{"id":k,"description":d} for k,d,_ in DIMENSIONS if not k.startswith("GS_")],"existing_generic_spaces":[{"id":"G1","roles":DIMENSIONS[6][1]},{"id":"G2","roles":DIMENSIONS[7][1]}],"hypothetical_candidates":candidates,"epistemic_status":"Prospective construction proposals with code-extracted incidences. No metric equality, congruence or theorem is certified. Compare each proposal with the initial workspace."}
     questions={};meta={};serial=0
     def add(instructions,criteria,info):
         nonlocal serial
@@ -216,6 +220,9 @@ def main(out,live=False):
                 record={"shape":shape,"repeat":repeat,"kind":kind,"question_count":len(p["questions"]),"body_bytes":len(json.dumps(p).encode()),"candidate_mapping":mapping,"question_metadata":{k:meta[k] for k in p["questions"]},"asset_audit":audit,"model_input":{k:v for k,v in p.items() if k!="assets"},"request_sha256":hashlib.sha256(json.dumps(p,sort_keys=True).encode()).hexdigest()}
                 if live:record.update(transport(p))
                 report["calls"].append(record);save(out,report);print("Recorded",len(report["calls"]),"/ 8",kind,len(p["questions"]),flush=True)
+                if kind=="full" and record.get("failure")=="HTTP_400":
+                    report["status"]="request_validation_failed";save(out,report);viewer(out,report)
+                    raise SystemExit("Full request rejected; stopped further calls; sanitized artifact saved")
     report["status"]="completed_with_failures" if live and any("failure" in r for r in report["calls"]) else "completed" if live else "offline_only"
     save(out,report);viewer(out,report)
     if report["status"]=="completed_with_failures":raise SystemExit("Sanitized failures recorded")
