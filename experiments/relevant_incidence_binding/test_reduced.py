@@ -53,7 +53,8 @@ class RelevantStateTests(unittest.TestCase):
    self.assertEqual(len(info),24);self.assertEqual(sum(m['valid_listed_n'] for m in info),8)
  def test_full_baseline_is_exact_source_state(self):
   p,meta,*_=self.payload();prior=b.prior_call(0)
-  self.assertEqual(p['state'],prior['model_input']['state'])
+  state=copy.deepcopy(p['state']);self.assertEqual(state.pop('image_asset_manifest'),list(p['assets']))
+  self.assertEqual(state,prior['model_input']['state'])
   for q,v in p['questions'].items():self.assertEqual(v,prior['model_input']['questions'][q])
  def test_no_oracle_or_case_leakage(self):
   p,*_=self.payload(case='distinct_coincident',condition='relevant_state');text=json.dumps({k:v for k,v in p.items() if k!='assets'})

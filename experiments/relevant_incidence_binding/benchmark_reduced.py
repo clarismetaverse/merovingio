@@ -51,6 +51,9 @@ def build_payload(out,replica,case,condition):
   path=out/a['file'];path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
   p['assets'][a['asset']]={'type':'image','format':'png','data_base64':base64.b64encode(data).decode('ascii')}
  assert hashlib.sha256(json.dumps(p,sort_keys=True).encode()).hexdigest()==old['request_sha256']
+ # Preserve explicit references to the unchanged image context after snapshot pruning.
+ # This identical manifest is added to BOTH conditions, before the state intervention.
+ p['state']['image_asset_manifest']=list(p['assets'])
  keys={q for q,m in old['question_metadata'].items() if m['case']==case}
  p['questions']={q:v for q,v in p['questions'].items() if q in keys};assert len(p['questions'])==2
  meta={q:copy.deepcopy(old['question_metadata'][q]) for q in p['questions']}
