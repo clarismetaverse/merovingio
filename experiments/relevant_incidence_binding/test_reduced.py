@@ -64,7 +64,8 @@ class RelevantStateTests(unittest.TestCase):
  def test_actions_guard(self):
   with patch.dict(os.environ,{},clear=True):
    with self.assertRaises(SystemExit):b.main(self.out/'blocked',True)
-   with self.assertRaises(RuntimeError):b.source.previous.transport({})
+   with self.assertRaises(RuntimeError):b.transport({})
+   with self.assertRaises(SystemExit):b.diagnose(self.out/'blocked')
   self.assertFalse((self.out/'blocked').exists())
 
 if __name__=='__main__':unittest.main()

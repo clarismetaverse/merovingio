@@ -1,6 +1,6 @@
 """Matched full versus relevance-pruned state; identical witness questions and IDs."""
 from __future__ import annotations
-import argparse,base64,copy,hashlib,html,json,os,random,sys
+import argparse,base64,copy,hashlib,html,json,os,random,sys,time
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -100,6 +100,28 @@ def viewer(out,report):
 def save(out,report):
  report['analysis']=analyze(report['calls']);temp=out/'results.tmp';temp.write_text(json.dumps(report,indent=2),encoding='utf-8');temp.replace(out/'results.json');viewer(out,report)
 
+def transport(payload):
+ if os.getenv('GITHUB_ACTIONS')!='true' or not os.getenv('TYPESAFE_API_KEY'):raise RuntimeError('actions_secret_required')
+ import requests
+ start=time.perf_counter()
+ try:
+  response=requests.post('https://api.typesafe.ai/v1/systemone',headers={'Authorization':'Bearer '+os.environ['TYPESAFE_API_KEY'],'TypeSafe-Danger-Zone-Images':'true'},json=payload,timeout=180)
+  if response.status_code==200:result={'response':source.previous.sanitize(response.json(),payload['questions'])}
+  else:
+   body=response.text.lower()
+   result={'failure':'HTTP_'+str(response.status_code),'validation_flags':{key:key in body for key in ('asset','unused','unreferenced','reference','state','image','token','context','invalid','missing','schema','limit','65536','32768')}}
+ except Exception:result={'failure':'transport_or_typed_schema_failure'}
+ result['elapsed_seconds']=time.perf_counter()-start
+ return result
+
+def diagnose(out):
+ if os.getenv('GITHUB_ACTIONS')!='true' or not os.getenv('TYPESAFE_API_KEY'):raise SystemExit('Actions and repository secret required')
+ out.mkdir(parents=True,exist_ok=True)
+ pairs=[(replica,case) for replica in REPLICAS for case in source.CASES];random.Random(SEED).shuffle(pairs)
+ payload,*_=build_payload(out,*pairs[0],'relevant_state');result=transport(payload)
+ (out/'diagnostic.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+ print(json.dumps({key:value for key,value in result.items() if key!='response'}),flush=True)
+
 def main(out,live=False):
  if live and (os.getenv('GITHUB_ACTIONS')!='true' or not os.getenv('TYPESAFE_API_KEY')):raise SystemExit('Actions and repository secret required')
  out.mkdir(parents=True,exist_ok=True)
@@ -112,7 +134,7 @@ def main(out,live=False):
   for condition in CONDITIONS if index%2==0 else tuple(reversed(CONDITIONS)):
    p,meta,audit,stats,old,prior_hash=build_payload(out,replica,case,condition)
    record={'replica':replica,'case':case,'condition':condition,'question_count':2,'question_metadata':meta,'asset_audit':audit,'state_sizes':stats,'historical_answers':old,'prior_request_sha256':prior_hash,'model_input':{k:v for k,v in p.items() if k!='assets'},'request_sha256':hashlib.sha256(json.dumps(p,sort_keys=True).encode()).hexdigest(),'body_bytes':len(json.dumps(p).encode())}
-   if live:record.update(source.previous.transport(p))
+   if live:record.update(transport(p))
    report['calls'].append(record);save(out,report);print('Recorded',len(report['calls']),'/ 24',condition,flush=True)
    if record.get('failure') in ('HTTP_400','HTTP_401','HTTP_403'):
     report['status']='request_rejected';save(out,report);raise SystemExit('Stopped after request rejection; sanitized artifact saved')
@@ -120,4 +142,4 @@ def main(out,live=False):
  if report['status']=='completed_with_failures':raise SystemExit('Sanitized failures recorded')
 
 if __name__=='__main__':
- ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,default=Path('output_relevant_incidence'));ap.add_argument('--live',action='store_true');args=ap.parse_args();main(args.out,args.live)
+ ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,default=Path('output_relevant_incidence'));ap.add_argument('--live',action='store_true');ap.add_argument('--diagnose',action='store_true');args=ap.parse_args();diagnose(args.out) if args.diagnose else main(args.out,args.live)
