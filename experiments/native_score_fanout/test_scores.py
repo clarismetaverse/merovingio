@@ -34,6 +34,11 @@ class NativeScoreTests(unittest.TestCase):
     self.assertAlmostEqual(values[expected],1)
  def test_generic_gates_and_new_interface(self):
   self.assertEqual(len(MEMORY["entries"]),10);self.assertEqual(len(schemas()),12)
+  records=[record for _,_,record in schemas()]
+  self.assertEqual(len({json.dumps(record,sort_keys=True) for record in records}),12)
+  for schema,origin,record in schemas():
+   if schema.startswith("GS_PROP_"):
+    self.assertEqual([r["constraints"] for r in record["roles"]],[r["source_objects"] for r in ENTRIES[schema]["abstract_roles"]])
   for shape in geometry.SHAPES:
    self.assertTrue(binding_check(shape,"edge_link","NEW_SHARED_INTERFACE")["instantiated"])
    self.assertFalse(binding_check(shape,"edge_link","GS_HIST_DOUBLE_TRIANGLE")["instantiated"])

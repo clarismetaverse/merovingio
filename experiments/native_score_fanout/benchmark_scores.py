@@ -73,7 +73,11 @@ def schemas():
     for e in MEMORY["entries"]:
         record={"roles":[{"role":r["role"],"relation":r["relation"]} for r in e["abstract_roles"]]}
         if e["id"]=="GS_HIST_DOUBLE_TRIANGLE":record["required_region_types"]=["triangle","triangle"]
-        if e["kind"]!="workspace_abstraction":record["premise_policy"]="Catalogued premises and conclusions require certified bindings; do not infer them from appearance."
+        if e["kind"]!="workspace_abstraction":
+            # Catalogue source_objects are semantic constraints, unlike historical node IDs.
+            # Preserve these contents so distinct propositions do not collapse to one schema.
+            for role,source in zip(record["roles"],e["abstract_roles"]):role["constraints"]=source["source_objects"]
+            record["premise_policy"]="Catalogued premises and conclusions require certified bindings; do not infer them from appearance."
         records.append((e["id"],"memory",record))
     records.extend([("NEW_SHARED_INTERFACE","grammar_proposal",{"roles":[{"role":"region_pair","relation":"two adjacent closed polygonal regions"},{"role":"interface","relation":"the same newly constructed segment is a boundary of both regions"}]}),("NEW_CONGRUENT_PAIR","grammar_proposal",{"roles":[{"role":"region_pair","relation":"two adjacent closed polygonal regions"},{"role":"pair_relation","relation":"congruence of the two regions, requiring certified metric support"}]})])
     return records
