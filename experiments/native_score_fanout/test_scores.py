@@ -9,11 +9,12 @@ class NativeScoreTests(unittest.TestCase):
  def tearDown(self):self.tmp.cleanup()
  def test_native_fanout_and_probe(self):
   p,m,meta,audit,probe=build_payload(self.out,"left",0)
-  self.assertEqual(len(p["questions"]),220);self.assertEqual(len(probe),8)
+  self.assertEqual(len(p["questions"]),100);self.assertEqual(len(probe),8)
   self.assertTrue(all(q["type"]=="score" and len(q["criteria"])==4 for q in p["questions"].values()))
   self.assertEqual(sum(v["stage"]=="bridge" for v in meta.values()),40)
-  self.assertEqual(sum(v["stage"]=="generic" for v in meta.values()),180)
+  self.assertEqual(sum(v["stage"]=="generic" for v in meta.values()),60)
   self.assertEqual(len({v["schema"] for v in meta.values() if v["stage"]=="generic"}),12)
+  self.assertEqual({v["axis"] for v in meta.values() if v["stage"]=="generic"},{"compatibility"})
   self.assertEqual(len(p["assets"]),5)
  def test_independent_split_geometry(self):
   for shape in geometry.SHAPES:
