@@ -192,6 +192,23 @@ def viewer(out,report):
     for g in analysis["bridge_rankings"]:
         rows.append(f"<tr><td>{g['shape']}/{g['repeat']}</td><td>{g['profile']}</td><td>{e(str(g['top_methods']))}</td><td>{e(str(g['selected_method']))}</td><td>{g['reference_method']}</td></tr>")
     body='<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Native Jev Score Fan-out</title><style>body{font:16px system-ui;max-width:1200px;margin:2em auto;padding:1em;color:#26313d}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd;padding:.5em}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{width:210px;border:1px solid #ccd}details{margin:1em 0}</style><h1>Native Score bridge ranking and Generic Space search</h1><p>Status: '+e(report["status"])+'. Native per-dimension scores; composites and gates are code. All ten stored schemas plus two code-generated hypotheses are evaluated speculatively for every proposal.</p><pre>'+e(json.dumps(analysis["counts"],indent=2))+'</pre><table><tr><th>Scene</th><th>Priority profile</th><th>Top methods</th><th>Selected</th><th>Independent reference</th></tr>'+"".join(rows)+'</table><details><summary>Profiles, dimension scores and full bridge rankings</summary><pre>'+e(json.dumps(analysis["bridge_rankings"],indent=2))+'</pre></details><details><summary>8 versus 100 native questions</summary><pre>'+e(json.dumps(analysis["batch_comparisons"],indent=2))+'</pre></details><details><summary>Generic Space binding scores and independent checks</summary><pre>'+e(json.dumps(analysis["generic_space_bindings"],indent=2))+'</pre></details>'
+    body+='<h2>Workspace condiviso e costo delle domande</h2><p>State rappresenta il workspace: oggetti, immagini, Mental Spaces, Generic Spaces e bridge ipotetici. Le domande valutano aspetti diversi dello stesso workspace. Pesi e riferimenti di valutazione restano esterni.</p><table><tr><th>Scena / replica</th><th>8 domande, secondi</th><th>100 domande, secondi</th><th>Token input 8 / 100</th></tr>'
+    for c in analysis['batch_comparisons']:
+        body+=f"<tr><td>{c['shape']} / {c['repeat']}</td><td>{c['probe_seconds']:.3f}</td><td>{c['full_seconds']:.3f}</td><td>{c['probe_usage']['input_tokens']} / {c['full_usage']['input_tokens']}</td></tr>"
+    body+='</table><p>Quattro coppie descrittive. Non dimostrano latenza costante per 2000 schemi. Verde: soglia Jev superata e binding confermato dal codice. Giallo: binding previsto dal controllo locale ma sotto la soglia Jev.</p>'
+    for shape in geometry.SHAPES:
+        for repeat in range(2):
+            entries=[g for g in analysis['generic_space_bindings'] if g['shape']==shape and g['repeat']==repeat]
+            if not entries:continue
+            body+=f'<h2>Matrice schemi {shape} / {repeat}</h2><table><tr><th>Schema</th>'+''.join('<th>'+e(m)+'</th>' for m in METHODS)+'</tr>'
+            for schema,_,_ in schemas():
+                body+='<tr><td>'+e(schema)+'</td>'
+                for method in METHODS:
+                    g=next(g for g in entries if g['schema']==schema and g['method']==method)
+                    color='#d8eddd' if g['accepted_binding'] else '#fff1bd' if g['independent_binding_check']['instantiated'] else '#fff'
+                    body+=f'<td style="background:{color}">{g["composite"]:.3f}</td>'
+                body+='</tr>'
+            body+='</table>'
     for shape in geometry.SHAPES:
         body+=f"<h2>{shape}</h2>"+"".join(f'<figure style="display:inline-block"><img src="images/{shape}/{m if m!="no_op" else "initial"}.png"><figcaption>{m}</figcaption></figure>' for m in METHODS)
     body+='<details><summary>Raw sanitized Score responses and reconstructable input audit</summary><pre>'+e(json.dumps(report["calls"],indent=2))+'</pre></details></html>'

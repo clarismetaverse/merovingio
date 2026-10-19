@@ -1,0 +1,54 @@
+{
+  "source_commit": "1cf3919c0d98021c62c5e85f85f5b4b2b4e51909",
+  "run_id": "39216941401",
+  "status": "completed",
+  "request_hashes_verified": 8,
+  "native_answers_verified": 432,
+  "matched_context_pairs_verified": 4,
+  "native_normalization_verified": true,
+  "max_probability_sum_deviation": 0.009999999999999898,
+  "probability_sum_note": "Native rounded probabilities preserved; tolerance 0.021, no renormalization.",
+  "composites_and_independent_gates_recomputed": true,
+  "counts": {
+    "api_calls_attempted": 8,
+    "api_failures": 0,
+    "native_score_answers": 432,
+    "ranking_groups": 8,
+    "unique_reference_top": 8,
+    "selected_reference": 8,
+    "model_supported_gs_bindings": 16,
+    "unsupported_bindings_above_model_threshold": 0,
+    "accepted_bindings": 16,
+    "accepted_generated_schema_bindings": 16
+  },
+  "broad_schema_screen_vs_local_binding_gate": {
+    "TP": 16,
+    "FP": 0,
+    "FN": 28,
+    "TN": 196
+  },
+  "gate_caveat": "This checks the supplied region-pair reference, not theorem validity or autonomous discovery.",
+  "usage_totals": {
+    "input_tokens": 227552,
+    "output_tokens": 7376,
+    "total_tokens": null
+  },
+  "mean_confidence": 0.7921990740740741,
+  "numeric_answer_reliability_count": 0,
+  "max_native_score_probability_delta": 0.029999999999999805,
+  "timing_summary": {
+    "probe": {
+      "n": 4,
+      "mean_seconds": 0.17023672750000074,
+      "median_seconds": 0.16273716899999968,
+      "mean_input_tokens": 12246.5
+    },
+    "full": {
+      "n": 4,
+      "mean_seconds": 0.37978071250000056,
+      "median_seconds": 0.39239089599999843,
+      "mean_input_tokens": 44641.5
+    }
+  },
+  "mean_overlap_absolute_normalized_score_change": 0.006875000000000001
+}
