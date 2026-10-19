@@ -1,0 +1,443 @@
+{
+  "source_commit": "951dadb81197a67750020a16d03a9aad1b562d26",
+  "run_id": "39220562883",
+  "status": "completed",
+  "request_hashes_verified": 16,
+  "native_answers_verified": 320,
+  "original_source_requests_reconstructed": 4,
+  "description_rubric_and_asset_invariants_verified": true,
+  "condition_statistics_recomputed": true,
+  "usage_totals": {
+    "input_tokens": 166688,
+    "output_tokens": 13621,
+    "total_tokens": null
+  },
+  "max_native_probability_sum_deviation": 0.009999999999999898,
+  "native_rounding_policy": "Preserve server scores and rounded probabilities without renormalization.",
+  "mean_reported_confidence": 0.66053125,
+  "numeric_answer_reliability_count": 0,
+  "primitive_disagreements": {
+    "compact_generic": {
+      "paired_n": 40,
+      "threshold_vs_choice": 3,
+      "modal_vs_choice": 6
+    },
+    "explicit_generic": {
+      "paired_n": 40,
+      "threshold_vs_choice": 0,
+      "modal_vs_choice": 0
+    },
+    "compact_concrete": {
+      "paired_n": 40,
+      "threshold_vs_choice": 16,
+      "modal_vs_choice": 13
+    },
+    "explicit_concrete": {
+      "paired_n": 40,
+      "threshold_vs_choice": 0,
+      "modal_vs_choice": 0
+    }
+  },
+  "by_condition": {
+    "compact_generic": {
+      "score": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 0,
+            "not_supported": 28,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 0,
+        "positive_bindings_recognized": 0,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.37275,
+        "mean_positive_score": 0.4010714285714286,
+        "mean_negative_score": 0.16111111111111112,
+        "modal_level_matrix": {
+          "supported": {
+            "supported": 9,
+            "not_supported": 19,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "mean_absolute_change_from_original_100q": 0.016083333333333335,
+        "by_schema": {
+          "GS_HIST_DOUBLE_TRIANGLE": {
+            "mean_positive_score": 0.6241666666666666,
+            "recognized": 0,
+            "positive_n": 12
+          },
+          "GS_HIST_MEDIAL_POLYROLE": {
+            "mean_positive_score": 0.23374999999999996,
+            "recognized": 0,
+            "positive_n": 16
+          }
+        }
+      },
+      "choice": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 3,
+            "not_supported": 25,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 3,
+        "positive_bindings_recognized": 3,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.38825
+      }
+    },
+    "explicit_generic": {
+      "score": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 28,
+            "not_supported": 0,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 28,
+        "positive_bindings_recognized": 28,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.6697499999999998,
+        "mean_positive_score": 0.8863095238095241,
+        "mean_negative_score": 0.13305555555555554,
+        "modal_level_matrix": {
+          "supported": {
+            "supported": 28,
+            "not_supported": 0,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "mean_absolute_change_from_original_100q": 0.3443333333333333,
+        "by_schema": {
+          "GS_HIST_DOUBLE_TRIANGLE": {
+            "mean_positive_score": 0.8922222222222222,
+            "recognized": 12,
+            "positive_n": 12
+          },
+          "GS_HIST_MEDIAL_POLYROLE": {
+            "mean_positive_score": 0.8818749999999999,
+            "recognized": 16,
+            "positive_n": 16
+          }
+        }
+      },
+      "choice": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 28,
+            "not_supported": 0,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 28,
+        "positive_bindings_recognized": 28,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.67675
+      }
+    },
+    "compact_concrete": {
+      "score": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 12,
+            "not_supported": 16,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 12,
+        "positive_bindings_recognized": 12,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.5919999999999999,
+        "mean_positive_score": 0.7536904761904761,
+        "mean_negative_score": 0.22944444444444448,
+        "modal_level_matrix": {
+          "supported": {
+            "supported": 24,
+            "not_supported": 4,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "mean_absolute_change_from_original_100q": 0.26124999999999987,
+        "by_schema": {
+          "GS_HIST_DOUBLE_TRIANGLE": {
+            "mean_positive_score": 0.9950000000000001,
+            "recognized": 12,
+            "positive_n": 12
+          },
+          "GS_HIST_MEDIAL_POLYROLE": {
+            "mean_positive_score": 0.5727083333333334,
+            "recognized": 0,
+            "positive_n": 16
+          }
+        }
+      },
+      "choice": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 15,
+            "not_supported": 0,
+            "none": 13
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 15,
+        "positive_bindings_recognized": 15,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 13,
+        "mean_confidence": 0.6825000000000002
+      }
+    },
+    "explicit_concrete": {
+      "score": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 28,
+            "not_supported": 0,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 28,
+        "positive_bindings_recognized": 28,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.94725,
+        "mean_positive_score": 0.9778571428571426,
+        "mean_negative_score": 0.22777777777777777,
+        "modal_level_matrix": {
+          "supported": {
+            "supported": 28,
+            "not_supported": 0,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "mean_absolute_change_from_original_100q": 0.4181666666666666,
+        "by_schema": {
+          "GS_HIST_DOUBLE_TRIANGLE": {
+            "mean_positive_score": 0.9963888888888889,
+            "recognized": 12,
+            "positive_n": 12
+          },
+          "GS_HIST_MEDIAL_POLYROLE": {
+            "mean_positive_score": 0.9639583333333333,
+            "recognized": 16,
+            "positive_n": 16
+          }
+        }
+      },
+      "choice": {
+        "n": 40,
+        "matrix": {
+          "supported": {
+            "supported": 28,
+            "not_supported": 0,
+            "none": 0
+          },
+          "not_supported": {
+            "supported": 0,
+            "not_supported": 12,
+            "none": 0
+          }
+        },
+        "previously_missed_recovered": 28,
+        "positive_bindings_recognized": 28,
+        "positive_n": 28,
+        "false_positive_n": 0,
+        "negative_n": 12,
+        "abstentions": 0,
+        "mean_confidence": 0.9549999999999998
+      }
+    }
+  },
+  "paired_score_effects": {
+    "compact_generic -> explicit_generic": {
+      "paired_n": 40,
+      "positive_n": 28,
+      "mean_positive_score_delta": 0.4852380952380952,
+      "mean_negative_score_delta": -0.028055555555555566,
+      "new_positive_recognitions": 28,
+      "lost_positive_recognitions": 0
+    },
+    "compact_concrete -> explicit_concrete": {
+      "paired_n": 40,
+      "positive_n": 28,
+      "mean_positive_score_delta": 0.22416666666666663,
+      "mean_negative_score_delta": -0.0016666666666666798,
+      "new_positive_recognitions": 16,
+      "lost_positive_recognitions": 0
+    },
+    "compact_generic -> compact_concrete": {
+      "paired_n": 40,
+      "positive_n": 28,
+      "mean_positive_score_delta": 0.3526190476190476,
+      "mean_negative_score_delta": 0.06833333333333334,
+      "new_positive_recognitions": 12,
+      "lost_positive_recognitions": 0
+    },
+    "explicit_generic -> explicit_concrete": {
+      "paired_n": 40,
+      "positive_n": 28,
+      "mean_positive_score_delta": 0.09154761904761903,
+      "mean_negative_score_delta": 0.09472222222222221,
+      "new_positive_recognitions": 0,
+      "lost_positive_recognitions": 0
+    }
+  },
+  "fixed_threshold_sensitivity": {
+    "compact_generic": {
+      "0.5": {
+        "positive_recovered": 12,
+        "false_positive_n": 1
+      },
+      "0.65": {
+        "positive_recovered": 6,
+        "false_positive_n": 0
+      },
+      "0.75": {
+        "positive_recovered": 0,
+        "false_positive_n": 0
+      },
+      "0.85": {
+        "positive_recovered": 0,
+        "false_positive_n": 0
+      }
+    },
+    "explicit_generic": {
+      "0.5": {
+        "positive_recovered": 28,
+        "false_positive_n": 0
+      },
+      "0.65": {
+        "positive_recovered": 28,
+        "false_positive_n": 0
+      },
+      "0.75": {
+        "positive_recovered": 28,
+        "false_positive_n": 0
+      },
+      "0.85": {
+        "positive_recovered": 25,
+        "false_positive_n": 0
+      }
+    },
+    "compact_concrete": {
+      "0.5": {
+        "positive_recovered": 25,
+        "false_positive_n": 4
+      },
+      "0.65": {
+        "positive_recovered": 15,
+        "false_positive_n": 4
+      },
+      "0.75": {
+        "positive_recovered": 12,
+        "false_positive_n": 0
+      },
+      "0.85": {
+        "positive_recovered": 12,
+        "false_positive_n": 0
+      }
+    },
+    "explicit_concrete": {
+      "0.5": {
+        "positive_recovered": 28,
+        "false_positive_n": 4
+      },
+      "0.65": {
+        "positive_recovered": 28,
+        "false_positive_n": 4
+      },
+      "0.75": {
+        "positive_recovered": 28,
+        "false_positive_n": 0
+      },
+      "0.85": {
+        "positive_recovered": 28,
+        "false_positive_n": 0
+      }
+    }
+  }
+}

@@ -151,10 +151,11 @@ def analyze(calls):
 
 def viewer(out,report):
  e=html.escape;a=report['analysis'];body='<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Generic Spaces descrizioni e scoring</title><style>body{font:16px system-ui;max-width:1200px;margin:2rem auto;padding:1rem;color:#26313d}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #ccd;padding:.5rem;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{width:180px}details{margin:1rem 0}</style><h1>Descrizione del Generic Space o scoring?</h1><p>Stesso workspace, geometria e immagini. Due fattori incrociati: descrizione compatta o esplicita nello state; criteri generici o concreti. Score e Choice usano gli stessi quattro testi dei livelli; Choice aggiunge none.</p><p>Stato: '+e(report['status'])+'. 20 domande per chiamata; due schemi storici. Il riferimento riguarda il binding strutturale locale, non una prova geometrica.</p><table><tr><th>Condizione</th><th>Tipo</th><th>Binding positivi riconosciuti</th><th>Falsi positivi</th><th>None</th><th>Score medio positivi</th></tr>'
+ labels={'compact_generic':'Descrizione compatta / criteri generici','explicit_generic':'Descrizione esplicita / criteri generici','compact_concrete':'Descrizione compatta / criteri concreti','explicit_concrete':'Descrizione esplicita / criteri concreti'}
  for cond,primitives in a['by_condition'].items():
   for kind,v in primitives.items():
-   score=v.get('mean_positive_score');body+='<tr><td>'+e(cond)+'</td><td>'+kind+'</td><td>'+str(v['positive_bindings_recognized'])+'/'+str(v['positive_n'])+'</td><td>'+str(v['false_positive_n'])+'/'+str(v['negative_n'])+'</td><td>'+str(v['abstentions'])+'</td><td>'+('—' if score is None else f'{score:.3f}')+'</td></tr>'
- body+='</table><p>La soglia Score principale rimane 0,75. Le soglie alternative e la classe modale sono diagnostiche calcolate dagli stessi output; non sono ottimizzate come soluzione.</p>'
+   score=v.get('mean_positive_score');body+='<tr><td>'+e(labels[cond])+'</td><td>'+kind+'</td><td>'+str(v['positive_bindings_recognized'])+'/'+str(v['positive_n'])+'</td><td>'+str(v['false_positive_n'])+'/'+str(v['negative_n'])+'</td><td>'+str(v['abstentions'])+'</td><td>'+('—' if score is None else f'{score:.3f}')+'</td></tr>'
+ body+='</table><p>La soglia Score principale rimane 0,75. Le soglie alternative e la classe modale sono diagnostiche calcolate dagli stessi output; non sono ottimizzate come soluzione.</p><p><a href="VERIFIED_RESULTS.md">Interpretazione verificata e limiti della prova</a></p>'
  for title,value in [('Effetti appaiati dei due fattori',a['paired_score_effects']),('Sensibilità alla soglia senza nuove chiamate',a['fixed_threshold_sensitivity']),('Matrici complete e riferimento al batch precedente',a['by_condition']),('Definizioni aggiunte nello state',EXPLANATIONS),('Limiti',report['limits'])]:
   body+='<details><summary>'+title+'</summary><pre>'+e(json.dumps(value,indent=2,ensure_ascii=False))+'</pre></details>'
  for shape in base.geometry.SHAPES:
@@ -169,6 +170,9 @@ def save(out,report):
 def main(out,live=False):
  if live and (os.getenv('GITHUB_ACTIONS')!='true' or not os.getenv('TYPESAFE_API_KEY')):raise SystemExit('Actions and repository secret required')
  out.mkdir(parents=True,exist_ok=True)
+ for name in ('PROTOCOL.md','VERIFIED_RESULTS.md'):
+  path=Path(__file__).parent/name
+  if path.exists():(out/name).write_text(path.read_text(encoding='utf-8'),encoding='utf-8')
  source_hash=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
  report={'experiment':'Historical Generic Space description x rubric ablation v1','model':'jev-1.14.0','status':'running' if live else 'offline_only','source_commit':os.getenv('GITHUB_SHA'),'run_id':os.getenv('GITHUB_RUN_ID'),'prior_run_id':PRIOR['run_id'],'prior_results_sha256':source_hash,'conditions':CONDITIONS,'definitions':EXPLANATIONS,'primary_threshold':base.GS_MIN,'fixed_diagnostic_thresholds':THRESHOLDS,'limits':LIMITS,'calls':[]}
  trials=[(shape,repeat,cond) for shape in base.geometry.SHAPES for repeat in range(2) for cond in CONDITIONS]
