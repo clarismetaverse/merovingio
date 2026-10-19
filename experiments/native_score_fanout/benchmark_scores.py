@@ -139,7 +139,10 @@ def transport(payload):
     start=time.perf_counter()
     try:
         res=requests.post("https://api.typesafe.ai/v1/systemone",headers={"Authorization":"Bearer "+os.environ["TYPESAFE_API_KEY"],"TypeSafe-Danger-Zone-Images":"true"},json=payload,timeout=180)
-        result={"failure":"HTTP_"+str(res.status_code)} if res.status_code!=200 else {"response":sanitize(res.json(),payload["questions"])}
+        if res.status_code!=200:
+            body=res.text.lower()
+            result={"failure":"HTTP_"+str(res.status_code),"validation_flags":{k:k in body for k in ("context","token","question","criteria","limit","length","image","validation","65536","32768","200","220","128")}}
+        else:result={"response":sanitize(res.json(),payload["questions"])}
     except Exception:result={"failure":"transport_or_score_schema_failure"}
     result["elapsed_seconds"]=time.perf_counter()-start
     return result
@@ -191,6 +194,13 @@ def viewer(out,report):
 def save(out,report):
     report["analysis"]=analyze(report["calls"]);tmp=out/"results.tmp";tmp.write_text(json.dumps(report,indent=2),encoding="utf-8");tmp.replace(out/"results.json")
 
+def diagnose(out):
+    out.mkdir(parents=True,exist_ok=True)
+    p,_,_,_,_=build_payload(out,"left",0)
+    result=transport(p)
+    (out/"diagnostic.json").write_text(json.dumps(result,indent=2),encoding="utf-8")
+    print(json.dumps(result),flush=True)
+
 def main(out,live=False):
     if live and (os.getenv("GITHUB_ACTIONS")!="true" or not os.getenv("TYPESAFE_API_KEY")):raise SystemExit("Actions and repository secret required; no live call")
     out.mkdir(parents=True,exist_ok=True)
@@ -210,4 +220,4 @@ def main(out,live=False):
     if report["status"]=="completed_with_failures":raise SystemExit("Sanitized failures recorded")
 
 if __name__=="__main__":
-    ap=argparse.ArgumentParser();ap.add_argument("--out",type=Path,default=Path("output_native_scores"));ap.add_argument("--live",action="store_true");a=ap.parse_args();main(a.out,a.live)
+    ap=argparse.ArgumentParser();ap.add_argument("--out",type=Path,default=Path("output_native_scores"));ap.add_argument("--live",action="store_true");ap.add_argument("--diagnose",action="store_true");a=ap.parse_args();diagnose(a.out) if a.diagnose else main(a.out,a.live)

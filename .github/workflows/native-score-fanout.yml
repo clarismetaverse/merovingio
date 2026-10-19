@@ -44,6 +44,11 @@ jobs:
         run: npm ci && npm run build
       - name: Generate offline baseline artifacts
         run: python experiments/native_score_fanout/benchmark_scores.py --out output_native_scores
+      - name: Diagnose request validation with sanitized flags only
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[jev-diagnostic]')
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python experiments/native_score_fanout/benchmark_scores.py --out output_native_scores --diagnose
       - name: Evaluate Jev through Actions only
         if: (github.event_name == 'workflow_dispatch' && inputs.live) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[jev-live]'))
         env:
