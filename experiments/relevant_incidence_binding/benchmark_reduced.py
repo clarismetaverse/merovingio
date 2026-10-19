@@ -14,7 +14,7 @@ CONDITIONS=('full_state','relevant_state')
 SEED=20261025
 LIMITS=[
  'Two previously used replicas (0 and 3), all six near-counterexample cases and both schemas. Two questions per call, 24 calls, 48 total answers.',
- 'The new full-state baseline also has two questions per call. Compare with historical twelve-question responses before attributing a change to state reduction.',
+ 'The new full-state baseline also has two questions per call and the common image manifest. Compare historical responses descriptively; batch, run and manifest effects are not separately isolated.',
  'Only state is pruned. Contracts, object IDs, retained records, instructions, option labels/order and all original image assets are identical within every matched pair.',
  'The reduced state keeps one queried snapshot and the transitive object-reference closure of EVERY offered witness, not just the correct one. Every boundary-use record is preserved.',
  'Coordinates and polygon cycles remain because adjacency, containment and full host coverage cannot be checked from material incidences alone.',
@@ -85,10 +85,11 @@ def analyze(calls):
 def viewer(out,report):
  e=html.escape;a=report['analysis'];body='<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Binding state completo e incidenze rilevanti</title><style>body{font:16px system-ui;max-width:1200px;margin:2rem auto;padding:1rem;color:#26313d}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #ccd;padding:.5rem}pre{white-space:pre-wrap;overflow-wrap:anywhere}details{margin:1rem 0}img{width:230px}</style><h1>Binding degli ID con contesto ridotto</h1><p>Stato: '+e(report['status'])+'. 48 domande totali, due per chiamata. Ogni coppia mantiene domande, contratti, ID, opzioni e immagini identici. Lo state ridotto è la chiusura dei riferimenti di tutte le opzioni, senza risultati del verificatore.</p><table><tr><th>Condizione</th><th>Esatte</th><th>Witness positivi</th><th>None negativi</th></tr>'
  for cond,g in a['by_condition'].items():
-  v=g['overall'];body+='<tr><td>'+cond+'</td><td>'+str(v['correct'])+'/'+str(v['n'])+'</td><td>'+str(v['positive_witnesses_correct'])+'/'+str(v['positive_n'])+'</td><td>'+str(v['negative_none_correct'])+'/'+str(v['negative_n'])+'</td></tr>'
+  v=g['overall'];body+='<tr><td>'+('State completo' if cond=='full_state' else 'Sole incidenze rilevanti')+'</td><td>'+str(v['correct'])+'/'+str(v['n'])+'</td><td>'+str(v['positive_witnesses_correct'])+'/'+str(v['positive_n'])+'</td><td>'+str(v['negative_none_correct'])+'/'+str(v['negative_n'])+'</td></tr>'
  body+='</table><table><tr><th>Caso</th><th>State completo</th><th>State ridotto</th></tr>'
+ labels={'shared':'Caso base','distinct_coincident':'Carrier coincidenti con identità distinte','partial_use':'Uso parziale del carrier','triangle_quadrilateral':'Triangolo e quadrilatero','wrong_host':'Figura ospite diversa','omitted_valid':'Witness valido escluso dalle opzioni'}
  for case in source.CASES:
-  body+='<tr><td>'+case+'</td>'
+  body+='<tr><td>'+labels[case]+'</td>'
   for cond in CONDITIONS:
    v=a['by_condition'][cond]['by_case'][case];body+='<td>'+str(v['correct'])+'/'+str(v['n'])+'</td>'
   body+='</tr>'
