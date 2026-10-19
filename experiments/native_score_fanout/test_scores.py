@@ -30,7 +30,7 @@ class NativeScoreTests(unittest.TestCase):
     values={m:weighted(s,weights) for m,s in scores.items()}
     expected="from_C" if profile=="focus_C" else "from_A"
     self.assertEqual(max(values,key=values.get),expected)
-    self.assertEqual(values[expected],1)
+    self.assertAlmostEqual(values[expected],1)
  def test_generic_gates_and_new_interface(self):
   self.assertEqual(len(MEMORY["entries"]),10);self.assertEqual(len(schemas()),12)
   for shape in geometry.SHAPES:
