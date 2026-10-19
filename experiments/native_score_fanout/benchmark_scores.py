@@ -105,14 +105,15 @@ def build_payload(out,shape,repeat):
         nonlocal serial
         serial+=1;q="Q"+str(serial).zfill(4);questions[q]={"type":"score","instructions":instructions,"criteria":criteria};meta[q]=info
     library=schemas();rng.shuffle(library)
+    state["schema_hypotheses"]={"H"+str(i+1):record for i,(_,_,record) in enumerate(library)}
     for code,method in mapping.items():
         for axis,description,levels in DIMENSIONS:
             add({"candidate":code,"reference_space":description,"question":"How does this hypothetical new connector engage or instantiate this existing space? Judge only this dimension using the supplied levels; the unchanged initial figure is not a new bridge."},levels,{"stage":"bridge","candidate":code,"axis":axis})
         for i,(schema,origin,record) in enumerate(library):
             for region in (0,1):
                 boundary=graphs[code]["regions"][region] if graphs[code]["regions"] else []
-                add({"candidate":code,"schema":record,"region_boundary_nodes":boundary,"question":"How completely does this proposed region supply its local object and relation roles in the schema? Empty region supplies no roles. Do not import an unbound metric premise."},LOCAL_LEVELS,{"stage":"generic","candidate":code,"schema":schema,"schema_origin":origin,"axis":"region_"+str(region+1)})
-            add({"candidate":code,"schema":record,"question":"How completely is this schema's cross-space relation instantiated by the proposed pair of regions and the supplied certified facts? A theorem premise is not established by a plausible drawing."},ALIGN_LEVELS,{"stage":"generic","candidate":code,"schema":schema,"schema_origin":origin,"axis":"alignment"})
+                add({"candidate":code,"schema_ref":"H"+str(i+1),"region_boundary_nodes":boundary,"question":"Using schema_ref in state.schema_hypotheses, how completely does this proposed region supply its local object and relation roles in the schema? Empty region supplies no roles. Do not import an unbound metric premise."},LOCAL_LEVELS,{"stage":"generic","candidate":code,"schema":schema,"schema_origin":origin,"axis":"region_"+str(region+1)})
+            add({"candidate":code,"schema_ref":"H"+str(i+1),"question":"Using schema_ref in state.schema_hypotheses, how completely is this schema's cross-space relation instantiated by the proposed pair of regions and the supplied certified facts? A theorem premise is not established by a plausible drawing."},ALIGN_LEVELS,{"stage":"generic","candidate":code,"schema":schema,"schema_origin":origin,"axis":"alignment"})
     assert len(questions)==220
     payload={"model":"jev-1.14.0","assets":assets,"state":state,"questions":questions}
     audit=[{"asset":k,"file":p.relative_to(out).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest()} for k,p in asset_files.items()]
