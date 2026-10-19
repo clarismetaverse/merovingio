@@ -128,6 +128,8 @@ def analyze(calls):
 
 def viewer(out,report):
  e=html.escape;a=report['analysis'];body='<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Tabella delle incidenze e confronto degli ID</title><style>body{font:16px system-ui;max-width:1200px;margin:2rem auto;padding:1rem;color:#26313d}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #ccd;padding:.5rem}pre{white-space:pre-wrap;overflow-wrap:anywhere}details{margin:1rem 0}</style><h1>Grafo ridotto o tabella esplicita delle incidenze?</h1><p>Stato: '+e(report['status'])+'. 48 confronti di witness e quattro controlli letterali degli ID. I fatti, gli ID, i contratti, le immagini e le domande principali restano identici; cambia solo la rappresentazione dello state.</p><table><tr><th>Formato</th><th>Esatte</th><th>Witness positivi</th><th>None negativi</th></tr>'
+ if not a['native_answers']:
+  body=body.replace('<table><tr><th>Formato</th>','<p style="padding:1rem;background:#fff1bd"><strong>Nessuna risposta Jev disponibile.</strong> Questi sono input preparati. Le celle 0/0 non sono risultati sperimentali. La pipeline live è in attesa del runner GitHub.</p><table><tr><th>Formato</th>',1)
  for cond,g in a['by_condition'].items():
   v=g['overall'];body+='<tr><td>'+('Grafo ridotto' if cond=='graph' else 'Tabelle esplicite')+'</td><td>'+str(v['correct'])+'/'+str(v['n'])+'</td><td>'+str(v['positive_witnesses_correct'])+'/'+str(v['positive_n'])+'</td><td>'+str(v['negative_none_correct'])+'/'+str(v['negative_n'])+'</td></tr>'
  body+='</table><p>Controlli separati sugli ID letterali: '+str(a['literal_id_controls']['correct'])+'/'+str(a['literal_id_controls']['n'])+'. Questi controlli non includono un grafo e non dimostrano il corretto recupero delle incidenze.</p><table><tr><th>Caso</th><th>Grafo</th><th>Tabelle</th></tr>'
@@ -137,6 +139,14 @@ def viewer(out,report):
    v=a['by_condition'][cond]['by_case'][case];body+='<td>'+str(v['correct'])+'/'+str(v['n'])+'</td>'
   body+='</tr>'
  body+='</table><p>Sempre none varrebbe 16/24 per condizione. I conteggi sono nativi, senza correzioni del verificatore.</p>'
+ if a['native_answers']:
+  body+='<p><strong>Binding invalidi accettati, inclusi positivi con alternativa errata:</strong> '
+  body+='; '.join(('grafo' if cond=='graph' else 'tabelle')+' '+str(sum(row.get('wrong_witness',0) for row in group['overall']['matrix'].values())) for cond,group in a['by_condition'].items())
+  body+='. Il confronto letterale degli ID e il binding completo sono compiti diversi. Questo piccolo campione non separa ancora recupero dei riferimenti, integrazione dei vincoli e politica di risposta.</p>'
+ shown=set()
+ for call in report['calls']:
+  if not call['asset_audit'] or call['replica'] in shown:continue
+  shown.add(call['replica']);body+='<h2>Immagini originali, replica '+str(call['replica'])+'</h2>'+''.join('<img style="width:230px;max-width:100%" alt="Stato originale della costruzione" src="'+asset['file']+'">' for asset in call['asset_audit'])
  example=next((c for c in report['calls'] if c['kind']=='binding' and c['condition']=='incidence_tables'),None)
  if example:
   body+='<h2>Esempio reale delle tabelle inviate</h2>'
@@ -146,7 +156,7 @@ def viewer(out,report):
     for row in t['rows']:body+='<tr>'+''.join('<td>'+e(json.dumps(v) if isinstance(v,list) else str(v))+'</td>' for v in row)+'</tr>'
     body+='</table>'
  for title,value in [('Confronti appaiati e baseline storica',a['paired_summary']),('Controlli degli ID',a['literal_id_controls']),('Matrici complete',a['by_condition']),('Limiti',report['limits']),('Input e risposte sanitizzate',report['calls'])]:body+='<details><summary>'+title+'</summary><pre>'+e(json.dumps(value,indent=2,ensure_ascii=False))+'</pre></details>'
- body+='<p><a href="VERIFIED_RESULTS.md">Interpretazione e audit verificato</a></p></html>';(out/'viewer.html').write_text(body,encoding='utf-8')
+ body+='<p><a href="VERIFIED_RESULTS.md">Stato della prova e interpretazione</a></p></html>';(out/'viewer.html').write_text(body,encoding='utf-8')
 
 def save(out,report):
  report['analysis']=analyze(report['calls']);temp=out/'results.tmp';temp.write_text(json.dumps(report,indent=2),encoding='utf-8');temp.replace(out/'results.json');viewer(out,report)
