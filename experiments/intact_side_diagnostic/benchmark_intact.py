@@ -136,7 +136,8 @@ def viewer(out,report):
  else:
   body+='<table><tr><th>Versione</th><th>Corretti</th><th>TP / FN</th><th>TN / FP</th><th>Astensioni</th><th>Brier</th></tr>'
   for c,s in a['by_condition'].items():
-   m=s['matrix'];body+='<tr><td>'+TITLES[c]+'</td><td>'+str(s['correct'])+'/'+str(s['answers'])+'</td><td>'+str(m['tp'])+' / '+str(m['fn'])+'</td><td>'+str(m['tn'])+' / '+str(m['fp'])+'</td><td>'+str(m['abstain_positive']+m['abstain_negative'])+'</td><td>'+f"{s['mean_brier']:.4f}"+'</td></tr>'
+   m=s['matrix'];loss=f"{s['mean_brier']:.4f}" if s['mean_brier'] is not None else 'non disponibile'
+   body+='<tr><td>'+TITLES[c]+'</td><td>'+str(s['correct'])+'/'+str(s['answers'])+'</td><td>'+str(m['tp'])+' / '+str(m['fn'])+'</td><td>'+str(m['tn'])+' / '+str(m['fp'])+'</td><td>'+str(m['abstain_positive']+m['abstain_negative'])+'</td><td>'+loss+'</td></tr>'
   body+='</table>'
  body+='<p class="note">Il riferimento richiede un lato originale completo sul bordo di UNA delle due nuove regioni. Due bridge lo conservano; il terzo lo divide fra le regioni. Sempre sì farebbe 4/6. Sono due viste della stessa geometria, non sei geometrie indipendenti. Noul è probabilità di sì, non intensità della pertinenza.</p>'
  for replica in range(2):
@@ -159,8 +160,25 @@ def viewer(out,report):
 def save(out,report):
  report['analysis']=analyze(report['calls']);tmp=out/'results.tmp';tmp.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');tmp.replace(out/'results.json');viewer(out,report)
 
-def main(out,live=False):
+def resume_records(source,out):
+ """Reuse only verified, byte-identical completed requests; never repeat paid answers."""
+ old=json.loads(source.read_text(encoding='utf-8'));seen=set();records=[]
+ assert old['model']=='jev-1.14.0' and old['decision_policy']=={'threshold':.5,'equal_threshold':'abstain_counted_incorrect'}
+ assert old['analysis']==analyze(old['calls'])
+ for rec in old['calls']:
+  assert rec.get('response') and 'failure' not in rec
+  key=(rec['replica'],rec['condition']);assert key not in seen;seen.add(key)
+  payload,meta,assets=build_payload(out,*key)
+  assert prior.base.digest(payload)==rec['request_sha256']
+  assert archive.same({k:v for k,v in payload.items() if k!='assets'},rec['model_input']) and assets==rec['asset_audit']
+  assert all(archive.same(rec[k],v) for k,v in meta.items())
+  response=rec['response'];assert sanitize({'model':response['returned_model'],**{k:v for k,v in response.items() if k!='returned_model'}},payload['questions'])==response
+  reused=copy.deepcopy(rec);reused.setdefault('evaluation_run_id',old['run_id']);reused.setdefault('evaluation_source_commit',old['source_commit']);records.append(reused)
+ return records,{'run_id':old['run_id'],'source_commit':old['source_commit'],'artifact_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'reused_requests':len(records),'repeated_requests':0}
+
+def main(out,live=False,resume=None):
  if live and (os.getenv('GITHUB_ACTIONS')!='true' or not os.getenv('TYPESAFE_API_KEY')):raise SystemExit('Actions and repository secret required')
+ if resume and not live:raise SystemExit('Resume requires an Actions live run')
  out.mkdir(parents=True,exist_ok=True)
  for name in ('PROTOCOL.md','VERIFIED_RESULTS.md'):
   source=Path(__file__).parent/name
@@ -168,10 +186,13 @@ def main(out,live=False):
  report={'experiment':'Intact original side — wording and premise access v1','status':'running' if live else 'offline_only','model':'jev-1.14.0','source_commit':os.getenv('GITHUB_SHA'),'run_id':os.getenv('GITHUB_RUN_ID'),
   'decision_policy':{'threshold':.5,'equal_threshold':'abstain_counted_incorrect'},'limits':LIMITS,
   'provenance':{'prior_run':archive.PRIOR['run_id'],'prior_source_commit':archive.PRIOR['source_commit'],'prior_results_canonical_sha256':prior.base.digest(archive.PRIOR)},'calls':[]}
+ if resume:report['calls'],report['resume_provenance']=resume_records(resume,out);save(out,report)
+ completed={(c['replica'],c['condition']) for c in report['calls']}
  events=[(rep,c) for rep in range(2) for c in CONDITIONS];random.Random(SEED).shuffle(events)
  for replica,condition in events:
+  if (replica,condition) in completed:continue
   p,meta,audit=build_payload(out,replica,condition);rec={**meta,'asset_audit':audit,'model_input':{k:v for k,v in p.items() if k!='assets'},'request_sha256':prior.base.digest(p)}
-  if live:rec.update(transport(p))
+  if live:rec.update(transport(p));rec.update(evaluation_run_id=os.getenv('GITHUB_RUN_ID'),evaluation_source_commit=os.getenv('GITHUB_SHA'))
   report['calls'].append(rec);save(out,report);print('Recorded',len(report['calls']),'/6',flush=True)
   if rec.get('failure') in ('HTTP_400','HTTP_401','HTTP_403'):
    report['status']='request_rejected';save(out,report);raise SystemExit('Request rejected; sanitized artifact saved')
@@ -179,4 +200,4 @@ def main(out,live=False):
  if report['status']=='completed_with_failures':raise SystemExit('Sanitized failures recorded')
 
 if __name__=='__main__':
- ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,default=Path('output_intact_side_diagnostic'));ap.add_argument('--live',action='store_true');args=ap.parse_args();main(args.out,args.live)
+ ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,default=Path('output_intact_side_diagnostic'));ap.add_argument('--live',action='store_true');ap.add_argument('--resume',type=Path);args=ap.parse_args();main(args.out,args.live,args.resume)

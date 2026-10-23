@@ -34,3 +34,7 @@ Chiamate solo da GitHub Actions, modello jev-1.14.0, secret TYPESAFE_API_KEY, he
 Le tabelle forniscono intenzionalmente premesse: non misuriamo estrazione autonoma da immagini, prova geometrica, pertinenza aperta o ragionamento temporale interno. Le immagini sono alternative prospective, non una sequenza di costruzione. SAME_FINAL_STATE != SAME_GENEALOGY resta il quadro storico; questo controllo riguarda l'interpretazione di una proprietà locale della trasformazione strutturale.
 
 Documentazione Noul: https://docs.typesafe.ai/primitives/noul
+
+## Ripresa tecnica, senza cambiare domande o input
+
+Il run 39946481728 si è interrotto dopo la prima richiesta (coverage, presentazione 1) per un errore di formattazione del viewer sulle condizioni ancora vuote. I tre giudizi sono stati salvati integralmente in interrupted_run.json. Dopo la correzione del solo reporting, la ripresa verifica hash, input, metadati e risposte sanificate dell'artifact e riusa questa richiesta senza inviarla di nuovo. Esegue le cinque richieste mancanti nell'ordine originario. Ogni risposta conserva run e commit di effettiva esecuzione; il campione totale resta 18 giudizi, senza retry o selezione di risposte.

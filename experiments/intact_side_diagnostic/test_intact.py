@@ -127,4 +127,18 @@ class IntactSideTests(unittest.TestCase):
    self.assertEqual(result['requests_reconstructed'],6);self.assertEqual(result['native_noul_answers_verified'],0)
    self.assertIn('nessuna risposta', (out/'viewer.html').read_text(encoding='utf-8'))
 
+ def test_partial_live_viewer_and_resume_keep_original_answers_without_network(self):
+  source=Path(b.__file__).parent/'interrupted_run.json'
+  with tempfile.TemporaryDirectory() as t:
+   records,provenance=b.resume_records(source,Path(t))
+   self.assertEqual(len(records),1);self.assertEqual(provenance['reused_requests'],1);self.assertEqual(provenance['repeated_requests'],0)
+   old=json.loads(source.read_text(encoding='utf-8'));self.assertEqual(records[0]['response'],old['calls'][0]['response'])
+   b.save(Path(t),old);self.assertIn('non disponibile',(Path(t)/'viewer.html').read_text(encoding='utf-8'))
+
+ def test_resume_rejects_changed_requests(self):
+  source=Path(b.__file__).parent/'interrupted_run.json';data=json.loads(source.read_text(encoding='utf-8'));data['calls'][0]['request_sha256']='bad'
+  with tempfile.TemporaryDirectory() as t:
+   path=Path(t)/'tampered.json';path.write_text(json.dumps(data),encoding='utf-8')
+   with self.assertRaises(AssertionError):b.resume_records(path,Path(t))
+
 if __name__=='__main__':unittest.main()

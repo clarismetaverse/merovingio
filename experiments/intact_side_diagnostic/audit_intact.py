@@ -7,6 +7,13 @@ def audit(out):
  r=json.loads((out/'results.json').read_text(encoding='utf-8'))
  assert r['decision_policy']=={'threshold':.5,'equal_threshold':'abstain_counted_incorrect'}
  assert r['provenance']['prior_results_canonical_sha256']==b.prior.base.digest(b.archive.PRIOR)
+ if r.get('resume_provenance'):
+  source=Path(b.__file__).parent/'interrupted_run.json';previous=json.loads(source.read_text(encoding='utf-8'));provenance=r['resume_provenance']
+  assert provenance=={'run_id':previous['run_id'],'source_commit':previous['source_commit'],'artifact_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'reused_requests':len(previous['calls']),'repeated_requests':0}
+  for old in previous['calls']:
+   found=next(c for c in r['calls'] if (c['replica'],c['condition'])==(old['replica'],old['condition']))
+   assert all(found[k]==v for k,v in old.items())
+   assert found['evaluation_run_id']==previous['run_id'] and found['evaluation_source_commit']==previous['source_commit']
  seen=set();answers=[];groups={};coverage_rows=0
  with tempfile.TemporaryDirectory() as t:
   for call in r['calls']:
@@ -41,6 +48,8 @@ def audit(out):
   'matched_triplets_verified':sum(len(g)==3 for g in groups.values()),'frozen_image_bytes_and_recorded_request_hashes_exact':True,
   'by_condition':r['analysis']['by_condition'],'paired':r['analysis']['paired'],'usage_totals':r['analysis']['usage_totals'],
   'separate_confidence_count':sum(a['confidence'] is not None for a in answers),'numeric_reliability_count':sum(a['reliability'] is not None for a in answers),'generator_numeric_tolerance':1e-12}
+ result['evaluation_runs']=sorted({c.get('evaluation_run_id',r['run_id']) for c in r['calls'] if c.get('response')})
+ result['reused_requests']=r.get('resume_provenance',{}).get('reused_requests',0)
  (out/'artifact-verification.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');return result
 
 if __name__=='__main__':print(json.dumps(audit(Path(sys.argv[1])),indent=2))
