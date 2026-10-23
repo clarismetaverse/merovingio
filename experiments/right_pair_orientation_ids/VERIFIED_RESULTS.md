@@ -34,7 +34,7 @@ La sola rotazione con gli ID originali alza quasi allo stesso modo entrambe le p
 
 ## Che cosa è stato tenuto fisso
 
-- Coppia originale: C914 = B_to_near_C positivo; C850 = C_to_near_B negativo. La biiezione dei candidati li rinomina rispettivamente C113/C675, senza scambiare i ruoli o le posizioni.
+- Coppia originale: C914 = B_to_near_C positivo; C850 = C_to_near_B negativo. La biiezione dei candidati li rinomina rispettivamente C675/C113, senza scambiare i ruoli o le posizioni.
 - Orientazione: si annulla soltanto la rotazione di 51° intorno a (160,160), mantenendo la riflessione originaria, scala e centro. Nessun cambiamento di lunghezze, incidenze o regioni. Nei payload a ID fissi cambiano solo i PNG; state, certificati, metriche e domande restano esatti.
 - ID: stessa biiezione in entrambe le orientazioni, applicata a punti/lettere, candidati, carrier, regioni, Mental/Generic Spaces e riferimenti delle immagini. Ruoli, tipi, predicati e descrizioni non cambiano; host, initial e question IDs restano costanti. La biiezione inversa ricostruisce esattamente state e domande del baseline in tutte le celle.
 - La rinomina modifica insieme le lettere nei pixel e i riferimenti strutturati. Non isola il confronto di ID puramente testuali. Le variazioni di rendering dovute alla rotazione fanno parte dell'intervento di presentazione.
