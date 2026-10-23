@@ -1,0 +1,36 @@
+name: Merovingio v3 - Co-generated Poristic Gestalten
+
+on:
+  push:
+    branches:
+      - 'experiment/gestalt-co-generative-porism-v3'
+    paths:
+      - 'NMerovingio/experiments/gestalt_heat_v3/**'
+      - '.github/workflows/gestalt-co-generative-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cognitive-ablation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test co-generation, mediation, provenance and false-inference guards
+        run: python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v3 -p 'test_*.py' -v
+      - name: Run 5 ablations x 3 geometries x 32 seeds
+        run: python NMerovingio/experiments/gestalt_heat_v3/poristic.py --seeds 32 --budget 18
+      - name: Generate offline timeline viewer and measured report
+        run: python NMerovingio/experiments/gestalt_heat_v3/viewer.py
+      - name: Upload executed trace and viewer
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-co-generative-porism-v3
+          path: NMerovingio/experiments/gestalt_heat_v3/results/
+          retention-days: 30
