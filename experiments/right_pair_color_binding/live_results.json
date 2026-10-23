@@ -1,0 +1,1839 @@
+{
+  "experiment": "Right pair color and color-to-ID binding v1",
+  "status": "completed",
+  "model": "jev-1.14.0",
+  "source_commit": "2b12ec67791a683134a297351e54dff3044437b2",
+  "run_id": "39999505442",
+  "decision_policy": {
+    "threshold": 0.5,
+    "equal_threshold": "abstain_counted_incorrect"
+  },
+  "limits": [
+    "Six new native Noul judgments in three requests of two questions: an exact monochrome request replay, color-only PNGs, and those SAME colored PNGs plus an object-identity legend. No coverage table, Score, composite, retries or additional questions.",
+    "The two original right-triangle bridges, 51-degree orientation/reflection, IDs, order, explicit objective and all material/metric facts remain fixed. Monochrome reuses actual archived PNG bytes and reconstructs the exact prior isolated-baseline request hash.",
+    "Color-only modifies RGB values at existing ink locations. Canvas, coordinates, line width, point radius, label text/font/placement, white region interiors and non-white pixel mask remain unchanged. All original sides have stable distinct colors; the same original vertex retains its color in both diagrams.",
+    "Both new carriers share purple; both new contact points share magenta. Colors encode original object identity or drawing kind, never candidate validity, goal satisfaction, positive/negative status or a region coverage verdict. No red/green answer marking or region filling.",
+    "The legend lists all three original sides, all five visible point IDs and both new material carriers uniformly. It adds color-to-ID associations only, not side membership, coverage, usefulness or any new geometric premise.",
+    "Same fixed p>.5=yes, p<.5=no, p=.5=abstention counted incorrect. Report each raw probability, per-arm matrices/Brier, positive-minus-negative margins and matched probability differences. No post-hoc threshold fitting or unique-winner policy.",
+    "One preselected pair, one palette, one response per arm. This is a bounded presentation/binding diagnostic, not three independent geometries, statistical attribution, calibrated deployment, proof or autonomous image extraction.",
+    "Historical isolated monochrome .67/.51 is context only; the new same-request replay may differ between calls. Images and structured facts remain together. Multiple images are alternative candidates, not evidence of internal sequential reasoning."
+  ],
+  "historical_context": {
+    "run_id": "39996906771",
+    "source_commit": "d53a94003d5098d8f62c44fceee7a2bac03a5fef",
+    "arm": "original",
+    "p_yes_by_method": {
+      "B_to_near_C": 0.67,
+      "C_to_near_B": 0.51
+    }
+  },
+  "provenance": {
+    "parent_commit": "e9ed7abd22bda84bc6d77bd4f2bdf033452fb4b8",
+    "source_request_sha256": "e2705533edc23214c1e69b6ee2377aade89d2551379fc37459299d4f3f0f66a4",
+    "archived_results_canonical_sha256": "bfb065250820996a9cd2e95ac4c7ee7bf1a654f90e76f1112b31a09e21425c29",
+    "fixture_manifest_sha256": "c07c94e557ed2b8647c8e87777c4c4307bc327543878b036bd701d5a5ae9c0b2"
+  },
+  "calls": [
+    {
+      "arm": "monochrome",
+      "replica": 0,
+      "condition": "explicit",
+      "candidate_mapping": {
+        "C914": "B_to_near_C",
+        "C850": "C_to_near_B"
+      },
+      "point_labels": {
+        "A": "T",
+        "B": "A",
+        "C": "S",
+        "D": "N",
+        "E": "R",
+        "F": "M",
+        "G": "Z"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C914"
+        },
+        "Q003": {
+          "candidate": "C850"
+        }
+      },
+      "reference": {
+        "C914": true,
+        "C850": false
+      },
+      "observer_material_certificates": {
+        "C914": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+          "verified_metric_facts": {
+            "region_areas": [
+              1510.024999395584,
+              13590.224999787693
+            ],
+            "region_side_length_profiles": [
+              [
+                16.149999998486624,
+                236.84514455177532,
+                247.0855115125024
+              ],
+              [
+                145.35000000230272,
+                186.99999999411617,
+                236.84514455177532
+              ]
+            ],
+            "region_pair_congruent_by_computed_side_lengths": false,
+            "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+          }
+        },
+        "C850": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "G"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "G",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+          "verified_metric_facts": {
+            "region_areas": [
+              13590.224999677699,
+              1510.025000125157
+            ],
+            "region_side_length_profiles": [
+              [
+                161.50000000078936,
+                168.29999999518606,
+                233.2533815415039
+              ],
+              [
+                18.699999998930117,
+                233.2533815415039,
+                247.0855115125024
+              ]
+            ],
+            "region_pair_congruent_by_computed_side_lengths": false,
+            "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C914",
+          "file": "images/monochrome/image_C914.png",
+          "sha256": "aba4588734cd0b8bfd66332fd3019fbfafdeaa9e3286c64faa676f48edf17f48"
+        },
+        {
+          "asset": "image_C850",
+          "file": "images/monochrome/image_C850.png",
+          "sha256": "1d2009b87702cbe4f586e970ed2bda62bd0667245d823beee99420fd841e8b12"
+        },
+        {
+          "asset": "initial",
+          "file": "images/monochrome/initial.png",
+          "sha256": "f1c2c8719c91c6431e5c68b82335e90c181f62c4bf55272e75af4a68a77fbf7c"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_T": {
+              "kind": "angular_fan",
+              "root_vertex": "T",
+              "incident_original_sides": [
+                [
+                  "T",
+                  "A"
+                ],
+                [
+                  "T",
+                  "S"
+                ]
+              ]
+            },
+            "side_T": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "A",
+                "S"
+              ]
+            },
+            "fan_A": {
+              "kind": "angular_fan",
+              "root_vertex": "A",
+              "incident_original_sides": [
+                [
+                  "A",
+                  "T"
+                ],
+                [
+                  "A",
+                  "S"
+                ]
+              ]
+            },
+            "side_A": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "T",
+                "S"
+              ]
+            },
+            "fan_S": {
+              "kind": "angular_fan",
+              "root_vertex": "S",
+              "incident_original_sides": [
+                [
+                  "S",
+                  "T"
+                ],
+                [
+                  "S",
+                  "A"
+                ]
+              ]
+            },
+            "side_S": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "T",
+                "A"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "H176": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "H161": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C914": {
+              "image": "image_C914",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "H176": {
+                    "carrier": "S_C914",
+                    "regions": [
+                      "R_C914_1",
+                      "R_C914_2"
+                    ],
+                    "host": "host"
+                  },
+                  "H161": {
+                    "carrier": "S_C914",
+                    "regions": [
+                      "R_C914_1",
+                      "R_C914_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C914",
+                  "endpoints": [
+                    "A",
+                    "M"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "A",
+                  "interior_contact_on_original_side": [
+                    "T",
+                    "S"
+                  ],
+                  "contact_point": "M",
+                  "closed_regions": [
+                    "R_C914_1",
+                    "R_C914_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+                "verified_metric_facts": {
+                  "region_areas": [
+                    1510.024999395584,
+                    13590.224999787693
+                  ],
+                  "region_side_length_profiles": [
+                    [
+                      16.149999998486624,
+                      236.84514455177532,
+                      247.0855115125024
+                    ],
+                    [
+                      145.35000000230272,
+                      186.99999999411617,
+                      236.84514455177532
+                    ]
+                  ],
+                  "region_pair_congruent_by_computed_side_lengths": false,
+                  "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+                }
+              },
+              "region_vertex_cycles": [
+                [
+                  "A",
+                  "S",
+                  "M"
+                ],
+                [
+                  "M",
+                  "T",
+                  "A"
+                ]
+              ]
+            },
+            "C850": {
+              "image": "image_C850",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "H176": {
+                    "carrier": "S_C850",
+                    "regions": [
+                      "R_C850_1",
+                      "R_C850_2"
+                    ],
+                    "host": "host"
+                  },
+                  "H161": {
+                    "carrier": "S_C850",
+                    "regions": [
+                      "R_C850_1",
+                      "R_C850_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C850",
+                  "endpoints": [
+                    "S",
+                    "Z"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "S",
+                  "interior_contact_on_original_side": [
+                    "T",
+                    "A"
+                  ],
+                  "contact_point": "Z",
+                  "closed_regions": [
+                    "R_C850_1",
+                    "R_C850_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+                "verified_metric_facts": {
+                  "region_areas": [
+                    13590.224999677699,
+                    1510.025000125157
+                  ],
+                  "region_side_length_profiles": [
+                    [
+                      161.50000000078936,
+                      168.29999999518606,
+                      233.2533815415039
+                    ],
+                    [
+                      18.699999998930117,
+                      233.2533815415039,
+                      247.0855115125024
+                    ]
+                  ],
+                  "region_pair_congruent_by_computed_side_lengths": false,
+                  "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+                }
+              },
+              "region_vertex_cycles": [
+                [
+                  "S",
+                  "T",
+                  "Z"
+                ],
+                [
+                  "Z",
+                  "A",
+                  "S"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "side_S",
+              "fan_T",
+              "fan_A"
+            ],
+            "designated_reference_side": [
+              "T",
+              "A"
+            ],
+            "description": "Prepare a later comparison using at least one of the TWO NEW regions induced by the candidate bridge whose OWN boundary contains the COMPLETE designated original reference side, from one original endpoint to the other. Keeping that side in the original host, or covering it only by taking the union of pieces from different regions, does not satisfy this request. The two original endpoints are interchangeable; no endpoint and no size balance is preferred."
+          },
+          "certified_host_facts": {
+            "designated_reference_side": [
+              "T",
+              "A"
+            ],
+            "other_two_original_sides_have_equal_length": false,
+            "status": "Verified from explicit coordinates; no metric relation is inferred from the images."
+          },
+          "evidence_policy": "All candidates pass both historical local GS contracts. Treat inline code-certified material and metric relations as supplied facts. Independently answer whether each candidate supplies a subfigure meeting the active objective. Several candidates, or none, may satisfy it. No unique winner is required."
+        },
+        "questions": {
+          "Q001": {
+            "type": "noul",
+            "instructions": {
+              "candidate_ref": "C914",
+              "objective_ref": "active_objective",
+              "question": "Does this candidate supply a subfigure that satisfies the active objective?"
+            }
+          },
+          "Q003": {
+            "type": "noul",
+            "instructions": {
+              "candidate_ref": "C850",
+              "objective_ref": "active_objective",
+              "question": "Does this candidate supply a subfigure that satisfies the active objective?"
+            }
+          }
+        }
+      },
+      "request_sha256": "e2705533edc23214c1e69b6ee2377aade89d2551379fc37459299d4f3f0f66a4",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "noul",
+            "noul": 0.54,
+            "confidence": null,
+            "reliability": null
+          },
+          "Q003": {
+            "type": "noul",
+            "noul": 0.48,
+            "confidence": null,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 3357,
+          "output_tokens": 42,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.12515405400000645
+    },
+    {
+      "arm": "color_legend",
+      "replica": 2,
+      "condition": "explicit",
+      "candidate_mapping": {
+        "C914": "B_to_near_C",
+        "C850": "C_to_near_B"
+      },
+      "point_labels": {
+        "A": "T",
+        "B": "A",
+        "C": "S",
+        "D": "N",
+        "E": "R",
+        "F": "M",
+        "G": "Z"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C914"
+        },
+        "Q003": {
+          "candidate": "C850"
+        }
+      },
+      "reference": {
+        "C914": true,
+        "C850": false
+      },
+      "observer_material_certificates": {
+        "C914": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+          "verified_metric_facts": {
+            "region_areas": [
+              1510.024999395584,
+              13590.224999787693
+            ],
+            "region_side_length_profiles": [
+              [
+                16.149999998486624,
+                236.84514455177532,
+                247.0855115125024
+              ],
+              [
+                145.35000000230272,
+                186.99999999411617,
+                236.84514455177532
+              ]
+            ],
+            "region_pair_congruent_by_computed_side_lengths": false,
+            "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+          }
+        },
+        "C850": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "G"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "G",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+          "verified_metric_facts": {
+            "region_areas": [
+              13590.224999677699,
+              1510.025000125157
+            ],
+            "region_side_length_profiles": [
+              [
+                161.50000000078936,
+                168.29999999518606,
+                233.2533815415039
+              ],
+              [
+                18.699999998930117,
+                233.2533815415039,
+                247.0855115125024
+              ]
+            ],
+            "region_pair_congruent_by_computed_side_lengths": false,
+            "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C914",
+          "file": "images/color/image_C914.png",
+          "sha256": "d85eb3cca4062ff5235b6f69ca176f6d0cad2b90bb340e6ad1bf19926d2c9785"
+        },
+        {
+          "asset": "image_C850",
+          "file": "images/color/image_C850.png",
+          "sha256": "b93aa449ef59134957ee4e110ac868143104464f89dd71c6ca27ab1060e1b981"
+        },
+        {
+          "asset": "initial",
+          "file": "images/color/initial.png",
+          "sha256": "81d17ee4918b4f89af96292b97a3cccb8aa1a6a368d619f7e4cc3435670c64a2"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_T": {
+              "kind": "angular_fan",
+              "root_vertex": "T",
+              "incident_original_sides": [
+                [
+                  "T",
+                  "A"
+                ],
+                [
+                  "T",
+                  "S"
+                ]
+              ]
+            },
+            "side_T": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "A",
+                "S"
+              ]
+            },
+            "fan_A": {
+              "kind": "angular_fan",
+              "root_vertex": "A",
+              "incident_original_sides": [
+                [
+                  "A",
+                  "T"
+                ],
+                [
+                  "A",
+                  "S"
+                ]
+              ]
+            },
+            "side_A": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "T",
+                "S"
+              ]
+            },
+            "fan_S": {
+              "kind": "angular_fan",
+              "root_vertex": "S",
+              "incident_original_sides": [
+                [
+                  "S",
+                  "T"
+                ],
+                [
+                  "S",
+                  "A"
+                ]
+              ]
+            },
+            "side_S": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "T",
+                "A"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "H176": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "H161": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C914": {
+              "image": "image_C914",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "H176": {
+                    "carrier": "S_C914",
+                    "regions": [
+                      "R_C914_1",
+                      "R_C914_2"
+                    ],
+                    "host": "host"
+                  },
+                  "H161": {
+                    "carrier": "S_C914",
+                    "regions": [
+                      "R_C914_1",
+                      "R_C914_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C914",
+                  "endpoints": [
+                    "A",
+                    "M"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "A",
+                  "interior_contact_on_original_side": [
+                    "T",
+                    "S"
+                  ],
+                  "contact_point": "M",
+                  "closed_regions": [
+                    "R_C914_1",
+                    "R_C914_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+                "verified_metric_facts": {
+                  "region_areas": [
+                    1510.024999395584,
+                    13590.224999787693
+                  ],
+                  "region_side_length_profiles": [
+                    [
+                      16.149999998486624,
+                      236.84514455177532,
+                      247.0855115125024
+                    ],
+                    [
+                      145.35000000230272,
+                      186.99999999411617,
+                      236.84514455177532
+                    ]
+                  ],
+                  "region_pair_congruent_by_computed_side_lengths": false,
+                  "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+                }
+              },
+              "region_vertex_cycles": [
+                [
+                  "A",
+                  "S",
+                  "M"
+                ],
+                [
+                  "M",
+                  "T",
+                  "A"
+                ]
+              ]
+            },
+            "C850": {
+              "image": "image_C850",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "H176": {
+                    "carrier": "S_C850",
+                    "regions": [
+                      "R_C850_1",
+                      "R_C850_2"
+                    ],
+                    "host": "host"
+                  },
+                  "H161": {
+                    "carrier": "S_C850",
+                    "regions": [
+                      "R_C850_1",
+                      "R_C850_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C850",
+                  "endpoints": [
+                    "S",
+                    "Z"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "S",
+                  "interior_contact_on_original_side": [
+                    "T",
+                    "A"
+                  ],
+                  "contact_point": "Z",
+                  "closed_regions": [
+                    "R_C850_1",
+                    "R_C850_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+                "verified_metric_facts": {
+                  "region_areas": [
+                    13590.224999677699,
+                    1510.025000125157
+                  ],
+                  "region_side_length_profiles": [
+                    [
+                      161.50000000078936,
+                      168.29999999518606,
+                      233.2533815415039
+                    ],
+                    [
+                      18.699999998930117,
+                      233.2533815415039,
+                      247.0855115125024
+                    ]
+                  ],
+                  "region_pair_congruent_by_computed_side_lengths": false,
+                  "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+                }
+              },
+              "region_vertex_cycles": [
+                [
+                  "S",
+                  "T",
+                  "Z"
+                ],
+                [
+                  "Z",
+                  "A",
+                  "S"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "side_S",
+              "fan_T",
+              "fan_A"
+            ],
+            "designated_reference_side": [
+              "T",
+              "A"
+            ],
+            "description": "Prepare a later comparison using at least one of the TWO NEW regions induced by the candidate bridge whose OWN boundary contains the COMPLETE designated original reference side, from one original endpoint to the other. Keeping that side in the original host, or covering it only by taking the union of pieces from different regions, does not satisfy this request. The two original endpoints are interchangeable; no endpoint and no size balance is preferred."
+          },
+          "certified_host_facts": {
+            "designated_reference_side": [
+              "T",
+              "A"
+            ],
+            "other_two_original_sides_have_equal_length": false,
+            "status": "Verified from explicit coordinates; no metric relation is inferred from the images."
+          },
+          "evidence_policy": "All candidates pass both historical local GS contracts. Treat inline code-certified material and metric relations as supplied facts. Independently answer whether each candidate supplies a subfigure meeting the active objective. Several candidates, or none, may satisfy it. No unique winner is required.",
+          "visual_object_key": {
+            "scope": "Colors distinguish object identity or drawing kind. Shared hues do not merge distinct material IDs across alternative candidates. Colors do not encode validity or goal satisfaction.",
+            "original_side_colors": [
+              {
+                "mental_space_ref": "side_S",
+                "endpoints": [
+                  "T",
+                  "A"
+                ],
+                "name": "amber",
+                "hex": "#E69F00"
+              },
+              {
+                "mental_space_ref": "side_T",
+                "endpoints": [
+                  "A",
+                  "S"
+                ],
+                "name": "blue",
+                "hex": "#0072B2"
+              },
+              {
+                "mental_space_ref": "side_A",
+                "endpoints": [
+                  "S",
+                  "T"
+                ],
+                "name": "teal",
+                "hex": "#009E73"
+              }
+            ],
+            "point_colors": [
+              {
+                "point_ref": "T",
+                "name": "orange_red",
+                "hex": "#D55E00"
+              },
+              {
+                "point_ref": "A",
+                "name": "navy",
+                "hex": "#225EA8"
+              },
+              {
+                "point_ref": "S",
+                "name": "dark_teal",
+                "hex": "#00796B"
+              },
+              {
+                "point_ref": "M",
+                "name": "magenta",
+                "hex": "#C13F8A"
+              },
+              {
+                "point_ref": "Z",
+                "name": "magenta",
+                "hex": "#C13F8A"
+              }
+            ],
+            "new_carrier_colors": [
+              {
+                "candidate_ref": "C914",
+                "material_ref": "S_C914",
+                "name": "purple",
+                "hex": "#7A3E9D"
+              },
+              {
+                "candidate_ref": "C850",
+                "material_ref": "S_C850",
+                "name": "purple",
+                "hex": "#7A3E9D"
+              }
+            ]
+          }
+        },
+        "questions": {
+          "Q001": {
+            "type": "noul",
+            "instructions": {
+              "candidate_ref": "C914",
+              "objective_ref": "active_objective",
+              "question": "Does this candidate supply a subfigure that satisfies the active objective?"
+            }
+          },
+          "Q003": {
+            "type": "noul",
+            "instructions": {
+              "candidate_ref": "C850",
+              "objective_ref": "active_objective",
+              "question": "Does this candidate supply a subfigure that satisfies the active objective?"
+            }
+          }
+        }
+      },
+      "request_sha256": "c71b8a2f845d181b431ba54cb7622f8f72c9a13cd63a202b89af1036c4034b56",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "noul",
+            "noul": 0.7,
+            "confidence": null,
+            "reliability": null
+          },
+          "Q003": {
+            "type": "noul",
+            "noul": 0.56,
+            "confidence": null,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 3847,
+          "output_tokens": 42,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.1319963189999953
+    },
+    {
+      "arm": "color",
+      "replica": 1,
+      "condition": "explicit",
+      "candidate_mapping": {
+        "C914": "B_to_near_C",
+        "C850": "C_to_near_B"
+      },
+      "point_labels": {
+        "A": "T",
+        "B": "A",
+        "C": "S",
+        "D": "N",
+        "E": "R",
+        "F": "M",
+        "G": "Z"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C914"
+        },
+        "Q003": {
+          "candidate": "C850"
+        }
+      },
+      "reference": {
+        "C914": true,
+        "C850": false
+      },
+      "observer_material_certificates": {
+        "C914": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+          "verified_metric_facts": {
+            "region_areas": [
+              1510.024999395584,
+              13590.224999787693
+            ],
+            "region_side_length_profiles": [
+              [
+                16.149999998486624,
+                236.84514455177532,
+                247.0855115125024
+              ],
+              [
+                145.35000000230272,
+                186.99999999411617,
+                236.84514455177532
+              ]
+            ],
+            "region_pair_congruent_by_computed_side_lengths": false,
+            "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+          }
+        },
+        "C850": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "G"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "G",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+          "verified_metric_facts": {
+            "region_areas": [
+              13590.224999677699,
+              1510.025000125157
+            ],
+            "region_side_length_profiles": [
+              [
+                161.50000000078936,
+                168.29999999518606,
+                233.2533815415039
+              ],
+              [
+                18.699999998930117,
+                233.2533815415039,
+                247.0855115125024
+              ]
+            ],
+            "region_pair_congruent_by_computed_side_lengths": false,
+            "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C914",
+          "file": "images/color/image_C914.png",
+          "sha256": "d85eb3cca4062ff5235b6f69ca176f6d0cad2b90bb340e6ad1bf19926d2c9785"
+        },
+        {
+          "asset": "image_C850",
+          "file": "images/color/image_C850.png",
+          "sha256": "b93aa449ef59134957ee4e110ac868143104464f89dd71c6ca27ab1060e1b981"
+        },
+        {
+          "asset": "initial",
+          "file": "images/color/initial.png",
+          "sha256": "81d17ee4918b4f89af96292b97a3cccb8aa1a6a368d619f7e4cc3435670c64a2"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_T": {
+              "kind": "angular_fan",
+              "root_vertex": "T",
+              "incident_original_sides": [
+                [
+                  "T",
+                  "A"
+                ],
+                [
+                  "T",
+                  "S"
+                ]
+              ]
+            },
+            "side_T": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "A",
+                "S"
+              ]
+            },
+            "fan_A": {
+              "kind": "angular_fan",
+              "root_vertex": "A",
+              "incident_original_sides": [
+                [
+                  "A",
+                  "T"
+                ],
+                [
+                  "A",
+                  "S"
+                ]
+              ]
+            },
+            "side_A": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "T",
+                "S"
+              ]
+            },
+            "fan_S": {
+              "kind": "angular_fan",
+              "root_vertex": "S",
+              "incident_original_sides": [
+                [
+                  "S",
+                  "T"
+                ],
+                [
+                  "S",
+                  "A"
+                ]
+              ]
+            },
+            "side_S": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "T",
+                "A"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "H176": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "H161": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C914": {
+              "image": "image_C914",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "H176": {
+                    "carrier": "S_C914",
+                    "regions": [
+                      "R_C914_1",
+                      "R_C914_2"
+                    ],
+                    "host": "host"
+                  },
+                  "H161": {
+                    "carrier": "S_C914",
+                    "regions": [
+                      "R_C914_1",
+                      "R_C914_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C914",
+                  "endpoints": [
+                    "A",
+                    "M"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "A",
+                  "interior_contact_on_original_side": [
+                    "T",
+                    "S"
+                  ],
+                  "contact_point": "M",
+                  "closed_regions": [
+                    "R_C914_1",
+                    "R_C914_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+                "verified_metric_facts": {
+                  "region_areas": [
+                    1510.024999395584,
+                    13590.224999787693
+                  ],
+                  "region_side_length_profiles": [
+                    [
+                      16.149999998486624,
+                      236.84514455177532,
+                      247.0855115125024
+                    ],
+                    [
+                      145.35000000230272,
+                      186.99999999411617,
+                      236.84514455177532
+                    ]
+                  ],
+                  "region_pair_congruent_by_computed_side_lengths": false,
+                  "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+                }
+              },
+              "region_vertex_cycles": [
+                [
+                  "A",
+                  "S",
+                  "M"
+                ],
+                [
+                  "M",
+                  "T",
+                  "A"
+                ]
+              ]
+            },
+            "C850": {
+              "image": "image_C850",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "H176": {
+                    "carrier": "S_C850",
+                    "regions": [
+                      "R_C850_1",
+                      "R_C850_2"
+                    ],
+                    "host": "host"
+                  },
+                  "H161": {
+                    "carrier": "S_C850",
+                    "regions": [
+                      "R_C850_1",
+                      "R_C850_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C850",
+                  "endpoints": [
+                    "S",
+                    "Z"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "S",
+                  "interior_contact_on_original_side": [
+                    "T",
+                    "A"
+                  ],
+                  "contact_point": "Z",
+                  "closed_regions": [
+                    "R_C850_1",
+                    "R_C850_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local material boundary-use, convex partition and explicit-coordinate metric checks; no general theorem or equality transfer.",
+                "verified_metric_facts": {
+                  "region_areas": [
+                    13590.224999677699,
+                    1510.025000125157
+                  ],
+                  "region_side_length_profiles": [
+                    [
+                      161.50000000078936,
+                      168.29999999518606,
+                      233.2533815415039
+                    ],
+                    [
+                      18.699999998930117,
+                      233.2533815415039,
+                      247.0855115125024
+                    ]
+                  ],
+                  "region_pair_congruent_by_computed_side_lengths": false,
+                  "status": "Certified numerical relations of this explicit synthetic coordinate fixture, not a theorem inferred from pixels."
+                }
+              },
+              "region_vertex_cycles": [
+                [
+                  "S",
+                  "T",
+                  "Z"
+                ],
+                [
+                  "Z",
+                  "A",
+                  "S"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "side_S",
+              "fan_T",
+              "fan_A"
+            ],
+            "designated_reference_side": [
+              "T",
+              "A"
+            ],
+            "description": "Prepare a later comparison using at least one of the TWO NEW regions induced by the candidate bridge whose OWN boundary contains the COMPLETE designated original reference side, from one original endpoint to the other. Keeping that side in the original host, or covering it only by taking the union of pieces from different regions, does not satisfy this request. The two original endpoints are interchangeable; no endpoint and no size balance is preferred."
+          },
+          "certified_host_facts": {
+            "designated_reference_side": [
+              "T",
+              "A"
+            ],
+            "other_two_original_sides_have_equal_length": false,
+            "status": "Verified from explicit coordinates; no metric relation is inferred from the images."
+          },
+          "evidence_policy": "All candidates pass both historical local GS contracts. Treat inline code-certified material and metric relations as supplied facts. Independently answer whether each candidate supplies a subfigure meeting the active objective. Several candidates, or none, may satisfy it. No unique winner is required."
+        },
+        "questions": {
+          "Q001": {
+            "type": "noul",
+            "instructions": {
+              "candidate_ref": "C914",
+              "objective_ref": "active_objective",
+              "question": "Does this candidate supply a subfigure that satisfies the active objective?"
+            }
+          },
+          "Q003": {
+            "type": "noul",
+            "instructions": {
+              "candidate_ref": "C850",
+              "objective_ref": "active_objective",
+              "question": "Does this candidate supply a subfigure that satisfies the active objective?"
+            }
+          }
+        }
+      },
+      "request_sha256": "52d5941493576244bd8448db3dda3022dc3a86b9fc2ed716ad4d767cd3e8809c",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "noul",
+            "noul": 0.68,
+            "confidence": null,
+            "reliability": null
+          },
+          "Q003": {
+            "type": "noul",
+            "noul": 0.51,
+            "confidence": null,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 3357,
+          "output_tokens": 42,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.18769336899998734
+    }
+  ],
+  "analysis": {
+    "api_calls_attempted": 3,
+    "api_failures": 0,
+    "native_noul_answers": 6,
+    "usage_totals": {
+      "input_tokens": 10561,
+      "output_tokens": 126,
+      "total_tokens": null
+    },
+    "overall": {
+      "answers": 6,
+      "correct": 4,
+      "positive_cases": 3,
+      "negative_cases": 3,
+      "always_yes_correct": 3,
+      "matrix": {
+        "tp": 3,
+        "fn": 0,
+        "fp": 2,
+        "tn": 1,
+        "abstain_positive": 0,
+        "abstain_negative": 0
+      },
+      "mean_brier": 0.20135
+    },
+    "arms": {
+      "monochrome": {
+        "summary": {
+          "answers": 2,
+          "correct": 2,
+          "positive_cases": 1,
+          "negative_cases": 1,
+          "always_yes_correct": 1,
+          "matrix": {
+            "tp": 1,
+            "fn": 0,
+            "fp": 0,
+            "tn": 1,
+            "abstain_positive": 0,
+            "abstain_negative": 0
+          },
+          "mean_brier": 0.22099999999999997
+        },
+        "p_positive": 0.54,
+        "p_negative": 0.48,
+        "margin": 0.06000000000000005,
+        "both_correct": true,
+        "strict_order": true
+      },
+      "color": {
+        "summary": {
+          "answers": 2,
+          "correct": 1,
+          "positive_cases": 1,
+          "negative_cases": 1,
+          "always_yes_correct": 1,
+          "matrix": {
+            "tp": 1,
+            "fn": 0,
+            "fp": 1,
+            "tn": 0,
+            "abstain_positive": 0,
+            "abstain_negative": 0
+          },
+          "mean_brier": 0.18124999999999997
+        },
+        "p_positive": 0.68,
+        "p_negative": 0.51,
+        "margin": 0.17000000000000004,
+        "both_correct": false,
+        "strict_order": true
+      },
+      "color_legend": {
+        "summary": {
+          "answers": 2,
+          "correct": 1,
+          "positive_cases": 1,
+          "negative_cases": 1,
+          "always_yes_correct": 1,
+          "matrix": {
+            "tp": 1,
+            "fn": 0,
+            "fp": 1,
+            "tn": 0,
+            "abstain_positive": 0,
+            "abstain_negative": 0
+          },
+          "mean_brier": 0.20180000000000003
+        },
+        "p_positive": 0.7,
+        "p_negative": 0.56,
+        "margin": 0.1399999999999999,
+        "both_correct": false,
+        "strict_order": true
+      }
+    },
+    "observations": [
+      {
+        "replica": 0,
+        "condition": "explicit",
+        "candidate": "C914",
+        "method": "B_to_near_C",
+        "reference": true,
+        "p_yes": 0.54,
+        "decision": true,
+        "correct": true,
+        "brier": 0.21159999999999995
+      },
+      {
+        "replica": 0,
+        "condition": "explicit",
+        "candidate": "C850",
+        "method": "C_to_near_B",
+        "reference": false,
+        "p_yes": 0.48,
+        "decision": false,
+        "correct": true,
+        "brier": 0.2304
+      },
+      {
+        "replica": 2,
+        "condition": "explicit",
+        "candidate": "C914",
+        "method": "B_to_near_C",
+        "reference": true,
+        "p_yes": 0.7,
+        "decision": true,
+        "correct": true,
+        "brier": 0.09000000000000002
+      },
+      {
+        "replica": 2,
+        "condition": "explicit",
+        "candidate": "C850",
+        "method": "C_to_near_B",
+        "reference": false,
+        "p_yes": 0.56,
+        "decision": true,
+        "correct": false,
+        "brier": 0.31360000000000005
+      },
+      {
+        "replica": 1,
+        "condition": "explicit",
+        "candidate": "C914",
+        "method": "B_to_near_C",
+        "reference": true,
+        "p_yes": 0.68,
+        "decision": true,
+        "correct": true,
+        "brier": 0.10239999999999996
+      },
+      {
+        "replica": 1,
+        "condition": "explicit",
+        "candidate": "C850",
+        "method": "C_to_near_B",
+        "reference": false,
+        "p_yes": 0.51,
+        "decision": true,
+        "correct": false,
+        "brier": 0.2601
+      }
+    ],
+    "descriptive_contrasts": {
+      "monochrome_to_color": {
+        "p_positive": 0.14,
+        "p_negative": 0.030000000000000027,
+        "margin": 0.10999999999999999
+      },
+      "color_to_color_legend": {
+        "p_positive": 0.019999999999999907,
+        "p_negative": 0.050000000000000044,
+        "margin": -0.030000000000000138
+      }
+    }
+  }
+}
