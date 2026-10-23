@@ -121,7 +121,7 @@ def _feedback(act,focus,condition):
     if condition!="recursive_coupled" and condition!="recursive_genealogy_blind":
         return act.copy(),{}
     a={k:round(v*.990,6) for k,v in act.items()}
-    delta={focus.lower():.11,"opposition":.085}
+    delta={"angles" if focus=="ANGLE" else "sides":.11,"opposition":.085}
     if condition=="recursive_coupled":delta["coorigin"]=.06
     for k,v in delta.items():
         a[k]=round(min(1.,a[k]+v),6)
