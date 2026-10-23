@@ -38,7 +38,6 @@ def objects_for(figure,method):
  mix=lambda a,b,t:[(1-t)*a[i]+t*b[i] for i in (0,1)]
  raw.update(D=mix(raw['A'],raw['B'],eps),G=mix(raw['A'],raw['B'],1-eps),E=mix(raw['B'],raw['C'],1-eps),F=mix(raw['A'],raw['C'],1-eps))
  source,contact={'A_to_near_C':('A','E'),'C_to_near_A':('C','D'),'B_to_near_C':('B','F'),'C_to_near_B':('C','G')}[method]
- opposite=[v for v in 'ABC' if v!=source]
  # Explicit consistently ordered face cycles; no reference labels are consulted.
  faces={'A':[['A','B',contact],[contact,'C','A']],'B':[['B','C',contact],[contact,'A','B']],'C':[['C','A',contact],[contact,'B','C']]}[source]
  angle=math.radians(cfg['rotation']);reflection=cfg['reflection']
@@ -85,7 +84,12 @@ def freeze_fixtures():
    base.render(objects,labels,path,bridge=candidate is not None)
    assets.append({'asset':asset,'file':relative.as_posix(),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
   manifest['figures'][figure]={'asset_audit':assets,'objects_sha256':{m:base.digest(objects_for(figure,m)) for m in METHODS},'candidate_mapping':mapping,'point_labels':labels}
- (fixtures/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+ (fixtures/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
+
+def fixture_manifest_sha256():
+ # Hash Git's LF text representation; platform checkout EOL does not change data.
+ # PNG bytes, recorded requests and native responses are never normalized.
+ return hashlib.sha256((HERE/'fixtures/manifest.json').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 
 def build_payload(out,figure):
  replica=list(FIGURES).index(figure);mapping,labels,gs=layout(figure)
@@ -158,7 +162,7 @@ def main(out,live=False):
   if source.exists():(out/name).write_text(source.read_text(encoding='utf-8'),encoding='utf-8')
  report={'experiment':'Explicit intact-side request on new figures v1','status':'running' if live else 'offline_only','model':'jev-1.14.0','source_commit':os.getenv('GITHUB_SHA'),'run_id':os.getenv('GITHUB_RUN_ID'),
   'decision_policy':{'threshold':.5,'equal_threshold':'abstain_counted_incorrect'},'limits':LIMITS,
-  'provenance':{'parent_commit':'b3fdbbf1b4985489995bce685958e5eab5aaa714','prior_explicit_run':'39946781738','fixture_manifest_sha256':hashlib.sha256((HERE/'fixtures/manifest.json').read_bytes()).hexdigest()},'calls':[]}
+  'provenance':{'parent_commit':'b3fdbbf1b4985489995bce685958e5eab5aaa714','prior_explicit_run':'39946781738','fixture_manifest_sha256':fixture_manifest_sha256()},'calls':[]}
  events=list(FIGURES);random.Random(SEED).shuffle(events)
  for figure in events:
   p,meta,audit=build_payload(out,figure);rec={**meta,'asset_audit':audit,'model_input':{k:v for k,v in p.items() if k!='assets'},'request_sha256':base.digest(p)}

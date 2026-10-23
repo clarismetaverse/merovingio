@@ -6,7 +6,7 @@ import benchmark_new as b
 def audit(out):
  r=json.loads((out/'results.json').read_text(encoding='utf-8'));seen=set();answers=[];contracts=0
  assert r['decision_policy']=={'threshold':.5,'equal_threshold':'abstain_counted_incorrect'}
- assert r['provenance']['fixture_manifest_sha256']==hashlib.sha256((b.HERE/'fixtures/manifest.json').read_bytes()).hexdigest()
+ assert r['provenance']['fixture_manifest_sha256']==b.fixture_manifest_sha256()
  with tempfile.TemporaryDirectory() as t:
   for call in r['calls']:
    assert call['figure'] not in seen;seen.add(call['figure'])

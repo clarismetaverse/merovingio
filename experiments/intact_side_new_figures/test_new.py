@@ -91,6 +91,13 @@ class NewFigureTests(unittest.TestCase):
      o=b.objects_for(figure,method)
      for point in [o[v]['xy'] for v in o if o[v]['type']=='point']:self.assertTrue(all(14<x<290 for x in point))
 
+ def test_manifest_hash_uses_git_lf_representation_on_both_platforms(self):
+  raw=b'{"fixture": 1}\r\n'
+  with tempfile.TemporaryDirectory() as t,patch.object(b,'HERE',Path(t)):
+   path=Path(t)/'fixtures/manifest.json';path.parent.mkdir();path.write_bytes(raw)
+   expected=hashlib.sha256(raw.replace(b'\r\n',b'\n')).hexdigest();self.assertEqual(b.fixture_manifest_sha256(),expected)
+   path.write_bytes(raw.replace(b'\r\n',b'\n'));self.assertEqual(b.fixture_manifest_sha256(),expected)
+
  def test_aliases_and_candidate_positions_are_not_fixed_by_reference(self):
   orders=[]
   for figure in b.FIGURES:
