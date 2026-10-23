@@ -1,0 +1,2219 @@
+{
+  "experiment": "Segment continuation v1",
+  "status": "completed",
+  "model": "jev-1.14.0",
+  "run_id": "40007031575",
+  "source_commit": "cf0daca85d53ec0fe81fecdf99359bf1a4256ae9",
+  "parent_commit": "90083c9c27e8ecd48bd81668c46b25bb38ba46fb",
+  "fixture_manifest_sha256": "fc44b4971e9e2ddd75d6a0f62bfddba57f0134a17bb75a18cbb8b18aa7db990a",
+  "limits": [
+    "Eight independent requests, one native Choice each: two histories x four evidence conditions. No extra questions, retries, composites, confidence thresholds or repair calls.",
+    "Both histories have exactly the same final PNG and candidate images. In one only A moves outwards, in the other only B. Full evidence plus an explicit equal-step continuation rule determines a unique next edit.",
+    "Final-only is non-identifiable. Next-step accuracy is null there; report unsupported proposals and insufficient-evidence behavior separately. The two preplanned final-only requests are byte-identical and are not retries.",
+    "Text-history has no past-frame image observations but retains visual candidate criteria. It tests textual history PLUS visual option matching, not an entirely text-only model input.",
+    "All histories use the same rotated/reflected coordinates, endpoint identities, palette, option order and codes. Blue/amber identify A/B, not correctness. One transform, one scale, two templates: no generalization estimate.",
+    "The raster tracker reads colored endpoint centers from the actual PNGs and matches predicted coordinates to the candidate PNGs. It receives no history name, gold, scene coordinates or renderer metadata. It assumes this clean palette and separable endpoint markers; no general vision system is claimed.",
+    "The text tracker computes endpoint displacements from supplied coordinates and matches candidate PNG endpoint centers. Combined reports both trackers. Their checks do not establish autonomous extraction of workspace topology.",
+    "Code checks collinearity, unchanged endpoint, segment length and equal-step extrapolation independently of Jev. Choosing a supplied next-view is not free-form construction generation or exact coordinate generation by the model.",
+    "The explicit constant-displacement rule supplies the extrapolation policy. Sequences alone cannot establish unique human intention. Accuracy measures this bounded imitation task, not geometric proof or internal sequential reasoning.",
+    "A sequence advantage over final-only would show use of additional observations, not a necessity of three frames: two distinct endpoint observations suffice under the supplied rule. No middle-only, shuffled-order or reverse-order live ablation is included in the eight-question budget.",
+    "Image options include inward edits, outward edits at either endpoint, and no change; all are valid nondegenerate collinear segments, but not all are prolongations. Insufficient evidence is a separate text option.",
+    "Native probabilities, confidence, usage and numeric reliability if supplied are preserved. Missing values remain null. Latency is descriptive and no speed or cost advantage over tracking is assumed."
+  ],
+  "calls": [
+    {
+      "history": "move_B",
+      "condition": "final_only",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": null,
+      "reference_response": "insufficient",
+      "identifiable": false,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            172.0,
+            177.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            152.0,
+            162.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 2,
+              "image": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "7080a2743edd827b7e0acf3baf6849b77996ff62a6ca67eb4b98c7d3de88ae18",
+      "baseline_predictions": {
+        "raster": "insufficient",
+        "coordinates": null,
+        "matched": "insufficient"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K883",
+            "probabilities": {
+              "K883": 0.96,
+              "K551": 0.0,
+              "K567": 0.0,
+              "K814": 0.04,
+              "K680": 0.0,
+              "K538": 0.0
+            },
+            "confidence": 0.95,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 3144,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.23608441100000022
+    },
+    {
+      "history": "move_B",
+      "condition": "text_history",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": "extend_B",
+      "reference_response": "extend_B",
+      "identifiable": true,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            172.0,
+            177.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            152.0,
+            162.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 0,
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  172.0,
+                  177.0
+                ]
+              }
+            },
+            {
+              "step": 1,
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  152.0,
+                  162.0
+                ]
+              }
+            },
+            {
+              "step": 2,
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "19bebc137187be81271b27945063bd82081539a28ef30ddd06669f0cb8dd5f3d",
+      "baseline_predictions": {
+        "raster": null,
+        "coordinates": "extend_B",
+        "matched": "extend_B"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K680",
+            "probabilities": {
+              "K883": 0.01,
+              "K551": 0.05,
+              "K567": 0.25,
+              "K814": 0.26,
+              "K680": 0.29,
+              "K538": 0.14
+            },
+            "confidence": 0.15,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 2858,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.20197599999999483
+    },
+    {
+      "history": "move_B",
+      "condition": "combined",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": "extend_B",
+      "reference_response": "extend_B",
+      "identifiable": true,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            172.0,
+            177.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            152.0,
+            162.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 0,
+              "image": "fd676003-0eaa-33bb-15f1-bb8330c6e7fa",
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  172.0,
+                  177.0
+                ]
+              }
+            },
+            {
+              "step": 1,
+              "image": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  152.0,
+                  162.0
+                ]
+              }
+            },
+            {
+              "step": 2,
+              "image": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "fd676003-0eaa-33bb-15f1-bb8330c6e7fa",
+          "file": "images/fd676003-0eaa-33bb-15f1-bb8330c6e7fa.png",
+          "sha256": "4ad450532088011682e1b51616cac7f0ac66c57eda5f6bf5f2e8203965c60261"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "36eeda76625a9dc81ef0c168c59b2de3cad4f55b2403b90356ff62f8f2be3de4",
+      "baseline_predictions": {
+        "raster": "extend_B",
+        "coordinates": "extend_B",
+        "matched": "extend_B"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K680",
+            "probabilities": {
+              "K883": 0.0,
+              "K551": 0.0,
+              "K567": 0.08,
+              "K814": 0.32,
+              "K680": 0.59,
+              "K538": 0.01
+            },
+            "confidence": 0.51,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 4153,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.24112592499999863
+    },
+    {
+      "history": "move_B",
+      "condition": "images",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": "extend_B",
+      "reference_response": "extend_B",
+      "identifiable": true,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            172.0,
+            177.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            152.0,
+            162.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 0,
+              "image": "fd676003-0eaa-33bb-15f1-bb8330c6e7fa"
+            },
+            {
+              "step": 1,
+              "image": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+            },
+            {
+              "step": 2,
+              "image": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "fd676003-0eaa-33bb-15f1-bb8330c6e7fa",
+          "file": "images/fd676003-0eaa-33bb-15f1-bb8330c6e7fa.png",
+          "sha256": "4ad450532088011682e1b51616cac7f0ac66c57eda5f6bf5f2e8203965c60261"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "b94d3e16afad04689d99a538bbd06389c14fbb94b7cead2df0848e4d811bc298",
+      "baseline_predictions": {
+        "raster": "extend_B",
+        "coordinates": null,
+        "matched": "extend_B"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K567",
+            "probabilities": {
+              "K883": 0.09,
+              "K551": 0.0,
+              "K567": 0.69,
+              "K814": 0.04,
+              "K680": 0.18,
+              "K538": 0.0
+            },
+            "confidence": 0.63,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 4024,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.17199274100000395
+    },
+    {
+      "history": "move_A",
+      "condition": "combined",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": "extend_A",
+      "reference_response": "extend_A",
+      "identifiable": true,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            212.0,
+            207.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            232.0,
+            222.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 0,
+              "image": "227b8354-6f34-de13-4925-2a30e350b8e4",
+              "endpoint_coordinates": {
+                "A": [
+                  212.0,
+                  207.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            },
+            {
+              "step": 1,
+              "image": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+              "endpoint_coordinates": {
+                "A": [
+                  232.0,
+                  222.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            },
+            {
+              "step": 2,
+              "image": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "227b8354-6f34-de13-4925-2a30e350b8e4",
+          "file": "images/227b8354-6f34-de13-4925-2a30e350b8e4.png",
+          "sha256": "d9d9a6f772b080207c610dc607bf401534ebb9e8db5c588a8d5d8f713d402ab0"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "37cef52d1730786eb23623ec4abe03e8acc8f24a797e67da7e4d43947194ef08",
+      "baseline_predictions": {
+        "raster": "extend_A",
+        "coordinates": "extend_A",
+        "matched": "extend_A"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K567",
+            "probabilities": {
+              "K883": 0.0,
+              "K551": 0.0,
+              "K567": 0.71,
+              "K814": 0.12,
+              "K680": 0.17,
+              "K538": 0.0
+            },
+            "confidence": 0.65,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 4160,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.17685820299999477
+    },
+    {
+      "history": "move_A",
+      "condition": "text_history",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": "extend_A",
+      "reference_response": "extend_A",
+      "identifiable": true,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            212.0,
+            207.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            232.0,
+            222.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 0,
+              "endpoint_coordinates": {
+                "A": [
+                  212.0,
+                  207.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            },
+            {
+              "step": 1,
+              "endpoint_coordinates": {
+                "A": [
+                  232.0,
+                  222.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            },
+            {
+              "step": 2,
+              "endpoint_coordinates": {
+                "A": [
+                  252.0,
+                  237.0
+                ],
+                "B": [
+                  132.0,
+                  147.0
+                ]
+              }
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "2694fca8f70dcd46f8312a49049305a09e6899c510a717d9c499547320c9be47",
+      "baseline_predictions": {
+        "raster": null,
+        "coordinates": "extend_A",
+        "matched": "extend_A"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K567",
+            "probabilities": {
+              "K883": 0.01,
+              "K551": 0.01,
+              "K567": 0.82,
+              "K814": 0.09,
+              "K680": 0.07,
+              "K538": 0.0
+            },
+            "confidence": 0.78,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 2858,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.19755502699999994
+    },
+    {
+      "history": "move_A",
+      "condition": "images",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": "extend_A",
+      "reference_response": "extend_A",
+      "identifiable": true,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            212.0,
+            207.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            232.0,
+            222.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 0,
+              "image": "227b8354-6f34-de13-4925-2a30e350b8e4"
+            },
+            {
+              "step": 1,
+              "image": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+            },
+            {
+              "step": 2,
+              "image": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "227b8354-6f34-de13-4925-2a30e350b8e4",
+          "file": "images/227b8354-6f34-de13-4925-2a30e350b8e4.png",
+          "sha256": "d9d9a6f772b080207c610dc607bf401534ebb9e8db5c588a8d5d8f713d402ab0"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "67038e0a04b7cad6d0562aee8241bfd52e23404132321855dbb35f43b58ce1d4",
+      "baseline_predictions": {
+        "raster": "extend_A",
+        "coordinates": null,
+        "matched": "extend_A"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K567",
+            "probabilities": {
+              "K883": 0.05,
+              "K551": 0.01,
+              "K567": 0.6,
+              "K814": 0.04,
+              "K680": 0.3,
+              "K538": 0.0
+            },
+            "confidence": 0.52,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 4031,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.16551283500000125
+    },
+    {
+      "history": "move_A",
+      "condition": "final_only",
+      "option_mapping": {
+        "K883": "insufficient",
+        "K551": "shorten_B",
+        "K567": "extend_A",
+        "K814": "hold",
+        "K680": "extend_B",
+        "K538": "shorten_A"
+      },
+      "reference_next_action": null,
+      "reference_response": "insufficient",
+      "identifiable": false,
+      "numeric_history_observer_only": [
+        {
+          "A": [
+            212.0,
+            207.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            232.0,
+            222.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        },
+        {
+          "A": [
+            252.0,
+            237.0
+          ],
+          "B": [
+            132.0,
+            147.0
+          ]
+        }
+      ],
+      "candidate_certificates_observer_only": {
+        "extend_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "extend_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_A": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "shorten_B": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 125.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": false,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        },
+        "hold": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 150.0,
+          "changed_endpoints": [],
+          "contains_current_segment": true,
+          "strict_extension": false,
+          "equal_step_size_if_changed": true
+        }
+      },
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace": "One segment with stable endpoint identities across observations and candidate images.",
+          "point_identity": {
+            "A": "blue marker",
+            "B": "amber marker"
+          },
+          "coordinate_convention": "Image pixels: origin top left, x increases rightward and y downward.",
+          "observation_order": "earliest to latest",
+          "observations": [
+            {
+              "step": 2,
+              "image": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+            }
+          ]
+        },
+        "questions": {
+          "next": {
+            "type": "choice",
+            "instructions": "Choose the next picture that continues the observed change by ONE EQUAL STEP: keep the previously stationary endpoint fixed and move the changing endpoint by its previous per-step displacement. The observations are earliest to latest. This is continuation of a demonstrated edit, not a theorem. If the observations do not determine which endpoint was changing, choose insufficient evidence. An unchanged segment is an actual proposed edit, distinct from insufficient evidence.",
+            "criteria": {
+              "K883": {
+                "description": "The observations do not determine a unique next edit."
+              },
+              "K551": {
+                "next_view": "0ce35f92-ec8f-6f59-55a0-ececb4273144"
+              },
+              "K567": {
+                "next_view": "f034afed-3ee5-c422-a8ae-d74652bcde5c"
+              },
+              "K814": {
+                "next_view": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+              },
+              "K680": {
+                "next_view": "487731aa-defd-e177-6201-9afc7cc3149b"
+              },
+              "K538": {
+                "next_view": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47"
+              }
+            }
+          }
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+          "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+          "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+        },
+        {
+          "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+          "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+          "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+        },
+        {
+          "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+          "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+          "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+        },
+        {
+          "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+          "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+          "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+        },
+        {
+          "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+          "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+          "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+        }
+      ],
+      "request_sha256": "7080a2743edd827b7e0acf3baf6849b77996ff62a6ca67eb4b98c7d3de88ae18",
+      "baseline_predictions": {
+        "raster": "insufficient",
+        "coordinates": null,
+        "matched": "insufficient"
+      },
+      "response": {
+        "answers": {
+          "next": {
+            "type": "choice",
+            "choice": "K883",
+            "probabilities": {
+              "K883": 0.98,
+              "K551": 0.0,
+              "K567": 0.0,
+              "K814": 0.02,
+              "K680": 0.0,
+              "K538": 0.0
+            },
+            "confidence": 0.98,
+            "reliability": null
+          }
+        },
+        "usage": {
+          "input_tokens": 3144,
+          "output_tokens": 80,
+          "total_tokens": null
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.20994289300000446
+    }
+  ],
+  "analysis": {
+    "native_choice_answers": 8,
+    "api_calls_attempted": 8,
+    "api_failures": 0,
+    "by_condition": {
+      "final_only": {
+        "prepared": 2,
+        "answered": 2,
+        "next_step_correct": null,
+        "next_step_accuracy": null,
+        "insufficient_evidence": 2,
+        "unsupported_next_step_proposals": 0,
+        "control_policy_correct": 2,
+        "confusion_matrix": {
+          "non_identifiable": {
+            "insufficient": 2
+          }
+        },
+        "matched_tracker_next_step_correct": null,
+        "matched_tracker_control_abstentions": 2
+      },
+      "images": {
+        "prepared": 2,
+        "answered": 2,
+        "next_step_correct": 1,
+        "next_step_accuracy": 0.5,
+        "insufficient_evidence": 0,
+        "unsupported_next_step_proposals": null,
+        "control_policy_correct": null,
+        "confusion_matrix": {
+          "extend_B": {
+            "extend_A": 1
+          },
+          "extend_A": {
+            "extend_A": 1
+          }
+        },
+        "matched_tracker_next_step_correct": 2,
+        "matched_tracker_control_abstentions": null
+      },
+      "text_history": {
+        "prepared": 2,
+        "answered": 2,
+        "next_step_correct": 2,
+        "next_step_accuracy": 1.0,
+        "insufficient_evidence": 0,
+        "unsupported_next_step_proposals": null,
+        "control_policy_correct": null,
+        "confusion_matrix": {
+          "extend_B": {
+            "extend_B": 1
+          },
+          "extend_A": {
+            "extend_A": 1
+          }
+        },
+        "matched_tracker_next_step_correct": 2,
+        "matched_tracker_control_abstentions": null
+      },
+      "combined": {
+        "prepared": 2,
+        "answered": 2,
+        "next_step_correct": 2,
+        "next_step_accuracy": 1.0,
+        "insufficient_evidence": 0,
+        "unsupported_next_step_proposals": null,
+        "control_policy_correct": null,
+        "confusion_matrix": {
+          "extend_B": {
+            "extend_B": 1
+          },
+          "extend_A": {
+            "extend_A": 1
+          }
+        },
+        "matched_tracker_next_step_correct": 2,
+        "matched_tracker_control_abstentions": null
+      }
+    },
+    "observations": [
+      {
+        "condition": "final_only",
+        "history": "move_B",
+        "identifiable": false,
+        "reference_next_action": null,
+        "reference_response": "insufficient",
+        "selected": "insufficient",
+        "next_step_correct": null,
+        "evidence_policy_correct": true,
+        "confidence": 0.95,
+        "failure": null,
+        "trackers": {
+          "raster": "insufficient",
+          "coordinates": null,
+          "matched": "insufficient"
+        },
+        "selected_geometry": null,
+        "probabilities_by_action": {
+          "insufficient": 0.96,
+          "shorten_B": 0.0,
+          "extend_A": 0.0,
+          "hold": 0.04,
+          "extend_B": 0.0,
+          "shorten_A": 0.0
+        }
+      },
+      {
+        "condition": "text_history",
+        "history": "move_B",
+        "identifiable": true,
+        "reference_next_action": "extend_B",
+        "reference_response": "extend_B",
+        "selected": "extend_B",
+        "next_step_correct": true,
+        "evidence_policy_correct": true,
+        "confidence": 0.15,
+        "failure": null,
+        "trackers": {
+          "raster": null,
+          "coordinates": "extend_B",
+          "matched": "extend_B"
+        },
+        "selected_geometry": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "probabilities_by_action": {
+          "insufficient": 0.01,
+          "shorten_B": 0.05,
+          "extend_A": 0.25,
+          "hold": 0.26,
+          "extend_B": 0.29,
+          "shorten_A": 0.14
+        }
+      },
+      {
+        "condition": "combined",
+        "history": "move_B",
+        "identifiable": true,
+        "reference_next_action": "extend_B",
+        "reference_response": "extend_B",
+        "selected": "extend_B",
+        "next_step_correct": true,
+        "evidence_policy_correct": true,
+        "confidence": 0.51,
+        "failure": null,
+        "trackers": {
+          "raster": "extend_B",
+          "coordinates": "extend_B",
+          "matched": "extend_B"
+        },
+        "selected_geometry": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "B"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "probabilities_by_action": {
+          "insufficient": 0.0,
+          "shorten_B": 0.0,
+          "extend_A": 0.08,
+          "hold": 0.32,
+          "extend_B": 0.59,
+          "shorten_A": 0.01
+        }
+      },
+      {
+        "condition": "images",
+        "history": "move_B",
+        "identifiable": true,
+        "reference_next_action": "extend_B",
+        "reference_response": "extend_B",
+        "selected": "extend_A",
+        "next_step_correct": false,
+        "evidence_policy_correct": false,
+        "confidence": 0.63,
+        "failure": null,
+        "trackers": {
+          "raster": "extend_B",
+          "coordinates": null,
+          "matched": "extend_B"
+        },
+        "selected_geometry": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "probabilities_by_action": {
+          "insufficient": 0.09,
+          "shorten_B": 0.0,
+          "extend_A": 0.69,
+          "hold": 0.04,
+          "extend_B": 0.18,
+          "shorten_A": 0.0
+        }
+      },
+      {
+        "condition": "combined",
+        "history": "move_A",
+        "identifiable": true,
+        "reference_next_action": "extend_A",
+        "reference_response": "extend_A",
+        "selected": "extend_A",
+        "next_step_correct": true,
+        "evidence_policy_correct": true,
+        "confidence": 0.65,
+        "failure": null,
+        "trackers": {
+          "raster": "extend_A",
+          "coordinates": "extend_A",
+          "matched": "extend_A"
+        },
+        "selected_geometry": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "probabilities_by_action": {
+          "insufficient": 0.0,
+          "shorten_B": 0.0,
+          "extend_A": 0.71,
+          "hold": 0.12,
+          "extend_B": 0.17,
+          "shorten_A": 0.0
+        }
+      },
+      {
+        "condition": "text_history",
+        "history": "move_A",
+        "identifiable": true,
+        "reference_next_action": "extend_A",
+        "reference_response": "extend_A",
+        "selected": "extend_A",
+        "next_step_correct": true,
+        "evidence_policy_correct": true,
+        "confidence": 0.78,
+        "failure": null,
+        "trackers": {
+          "raster": null,
+          "coordinates": "extend_A",
+          "matched": "extend_A"
+        },
+        "selected_geometry": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "probabilities_by_action": {
+          "insufficient": 0.01,
+          "shorten_B": 0.01,
+          "extend_A": 0.82,
+          "hold": 0.09,
+          "extend_B": 0.07,
+          "shorten_A": 0.0
+        }
+      },
+      {
+        "condition": "images",
+        "history": "move_A",
+        "identifiable": true,
+        "reference_next_action": "extend_A",
+        "reference_response": "extend_A",
+        "selected": "extend_A",
+        "next_step_correct": true,
+        "evidence_policy_correct": true,
+        "confidence": 0.52,
+        "failure": null,
+        "trackers": {
+          "raster": "extend_A",
+          "coordinates": null,
+          "matched": "extend_A"
+        },
+        "selected_geometry": {
+          "nondegenerate": true,
+          "collinear_with_current": true,
+          "length": 175.0,
+          "changed_endpoints": [
+            "A"
+          ],
+          "contains_current_segment": true,
+          "strict_extension": true,
+          "equal_step_size_if_changed": true
+        },
+        "probabilities_by_action": {
+          "insufficient": 0.05,
+          "shorten_B": 0.01,
+          "extend_A": 0.6,
+          "hold": 0.04,
+          "extend_B": 0.3,
+          "shorten_A": 0.0
+        }
+      },
+      {
+        "condition": "final_only",
+        "history": "move_A",
+        "identifiable": false,
+        "reference_next_action": null,
+        "reference_response": "insufficient",
+        "selected": "insufficient",
+        "next_step_correct": null,
+        "evidence_policy_correct": true,
+        "confidence": 0.98,
+        "failure": null,
+        "trackers": {
+          "raster": "insufficient",
+          "coordinates": null,
+          "matched": "insufficient"
+        },
+        "selected_geometry": null,
+        "probabilities_by_action": {
+          "insufficient": 0.98,
+          "shorten_B": 0.0,
+          "extend_A": 0.0,
+          "hold": 0.02,
+          "extend_B": 0.0,
+          "shorten_A": 0.0
+        }
+      }
+    ],
+    "paired_descriptive_changes": {
+      "images_to_text_history": {
+        "pairs": 2,
+        "improved": 1,
+        "worsened": 0
+      },
+      "images_to_combined": {
+        "pairs": 2,
+        "improved": 1,
+        "worsened": 0
+      },
+      "text_history_to_combined": {
+        "pairs": 2,
+        "improved": 0,
+        "worsened": 0
+      }
+    },
+    "usage_totals": {
+      "input_tokens": 28372,
+      "output_tokens": 640,
+      "total_tokens": null
+    }
+  }
+}
