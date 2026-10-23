@@ -1,0 +1,36 @@
+name: Merovingio v4 - Recursive Angle Side Opposition REBASE
+
+on:
+  push:
+    branches:
+      - 'experiment/recursive-opposition-rebase-v4'
+    paths:
+      - 'NMerovingio/experiments/gestalt_heat_v4/**'
+      - '.github/workflows/recursive-opposition-rebase-v4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recursive-opposition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Graph-grounded, novelty and epistemic tests
+        run: python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v4 -p 'test_*.py' -v
+      - name: Run six conditions x three geometries x 48 seeds
+        run: python NMerovingio/experiments/gestalt_heat_v4/rebase_loop.py --seeds 48 --budget 8
+      - name: Generate interactive offline timeline and measured report
+        run: python NMerovingio/experiments/gestalt_heat_v4/viewer.py
+      - name: Upload all results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-recursive-opposition-rebase-v4
+          path: NMerovingio/experiments/gestalt_heat_v4/results/
+          retention-days: 30
