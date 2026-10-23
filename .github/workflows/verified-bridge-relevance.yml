@@ -67,4 +67,3 @@ jobs:
           name: merovingio-verified-bridge-relevance
           path: output_verified_bridge_relevance/
           retention-days: 30
-

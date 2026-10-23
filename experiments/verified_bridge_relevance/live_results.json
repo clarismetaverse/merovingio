@@ -1,0 +1,4693 @@
+{
+  "experiment": "Native relevance scoring of preverified bridges v1",
+  "status": "completed",
+  "model": "jev-1.14.0",
+  "source_commit": "bdc8099061e22f0822577182903dfbe6aafb9c2b",
+  "run_id": "39938696779",
+  "weights": {
+    "mental_spaces": 0.5,
+    "generic_spaces": 0.5
+  },
+  "limits": [
+    "36 native Score answers in six serial requests of six questions: three certified candidates, three objectives, two transformed presentations of ONE host triangle.",
+    "Every candidate passes both local historical GS contracts before any model request. Certificates and inline structural relations are supplied intentionally; Jev does not retrieve or validate a binding.",
+    "The objective is explicit. Usefulness is operationalized as relevance to a specified angular-fan/opposite-side comparison, not universal mathematical creativity or open-ended discovery.",
+    "Within each replica only active_objective changes. Candidate order, aliases, geometry, images, certificates, questions and criteria are identical. Across replicas aliases/order change and the host is rotated/reflected.",
+    "Mental and Generic relevance are two correlated semantic views of the same objective, not statistically independent tests. Equal weights are fixed before live evaluation.",
+    "All candidates instantiate the same two GS contracts. Validity alone cannot select a candidate. A fixed candidate can match only one of three objectives per replica.",
+    "The reference preference is computed from geometric incidence under the declared objective. No gold score, reference winner, rank, weights or missing-premise diagnosis enters the model input.",
+    "This small synthetic test has no invalid-candidate negatives, no human usefulness judgments, no uncertified control arm and no causal comparison against earlier Choice experiments.",
+    "Score normalization and composite ranking are code; native scores, probabilities and confidence are preserved. No threshold tuning, post-hoc weights, retries or repair calls.",
+    "Alternative images are prospective candidates, not a temporal sequence. They do not demonstrate internal sequential reasoning, proof or autonomous visual extraction."
+  ],
+  "provenance": {
+    "memory_path": "NMerovingio/graph/generic_space_memory_v0_9.json",
+    "memory_sha256": "aae636a0c76f5e1aec1ccd9299573dfa67d7627c2b2702c0e2b63faf3478c950",
+    "historical_templates": [
+      {
+        "id": "GS_HIST_DOUBLE_TRIANGLE",
+        "name": "Due triangoli con carrier comune",
+        "kind": "workspace_abstraction",
+        "provenance": {
+          "file": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+          "workspace_id": "W_QUAD_AC",
+          "proposition_id": null,
+          "node_ids": [
+            "M_AC",
+            "G_TRI_ABC",
+            "G_TRI_ACD",
+            "G_QUAD_ABCD"
+          ],
+          "source_kind": "workspace_abstraction",
+          "status": "source_observed_structural_pattern"
+        },
+        "tags": [
+          "triangle",
+          "medial_carrier",
+          "shared_side",
+          "partition_two_regions",
+          "paired_triangles"
+        ],
+        "goal_tags": [
+          "shared_side",
+          "partition_two_regions",
+          "triangle"
+        ],
+        "abstract_roles": [
+          {
+            "role": "carrier",
+            "source_objects": [
+              "M_AC"
+            ],
+            "relation": "same_material_carrier"
+          },
+          {
+            "role": "region_pair",
+            "source_objects": [
+              "G_TRI_ABC",
+              "G_TRI_ACD"
+            ],
+            "relation": "both_participate_in_same_carrier"
+          }
+        ],
+        "genealogical_note": "ASTRAZIONE candidata dai ruoli SIDE del medesimo carrier AC nelle due Gestalten triangolari; non assumere congruenza.",
+        "interpretation": "candidate_generic_space_abstraction",
+        "metric_status": "not_certified_by_memory",
+        "memory_status": "retrievable_template",
+        "conservation": "preserve_source_identity_and_genealogy",
+        "source_excerpt_ids": [
+          "M_AC",
+          "G_TRI_ABC",
+          "G_TRI_ACD",
+          "G_QUAD_ABCD"
+        ]
+      },
+      {
+        "id": "GS_HIST_MEDIAL_POLYROLE",
+        "name": "Carrier condiviso fra pi\u00f9 Gestalten",
+        "kind": "workspace_abstraction",
+        "provenance": {
+          "file": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+          "workspace_id": "W_QUAD_AC",
+          "proposition_id": null,
+          "node_ids": [
+            "M_AC",
+            "G_TRANSVERSAL_AC",
+            "G_DIAGONAL_CORR",
+            "G_QUAD_ABCD"
+          ],
+          "source_kind": "workspace_abstraction",
+          "status": "source_observed_structural_pattern"
+        },
+        "tags": [
+          "medial_carrier",
+          "multi_role_carrier",
+          "co_constitution",
+          "provenance_reinterpretation"
+        ],
+        "goal_tags": [
+          "multi_role_carrier",
+          "co_constitution",
+          "role_alignment"
+        ],
+        "abstract_roles": [
+          {
+            "role": "material_identity",
+            "source_objects": [
+              "M_AC"
+            ],
+            "relation": "one_material_identity"
+          },
+          {
+            "role": "interpretive_roles",
+            "source_objects": [
+              "G_TRANSVERSAL_AC",
+              "G_DIAGONAL_CORR",
+              "G_QUAD_ABCD"
+            ],
+            "relation": "distinct_participations"
+          }
+        ],
+        "genealogical_note": "ASTRAZIONE: un singolo segmento AC ha ruoli di lato, diagonale, trasversale e ponte in Gestalten diverse.",
+        "interpretation": "candidate_generic_space_abstraction",
+        "metric_status": "not_certified_by_memory",
+        "memory_status": "retrievable_template",
+        "conservation": "preserve_source_identity_and_genealogy",
+        "source_excerpt_ids": [
+          "M_AC",
+          "G_TRANSVERSAL_AC",
+          "G_DIAGONAL_CORR",
+          "G_QUAD_ABCD"
+        ]
+      }
+    ]
+  },
+  "calls": [
+    {
+      "replica": 0,
+      "goal_vertex": "A",
+      "candidate_mapping": {
+        "C897": "from_A",
+        "C306": "from_C",
+        "C646": "from_B"
+      },
+      "point_labels": {
+        "A": "D",
+        "B": "E",
+        "C": "A",
+        "D": "F",
+        "E": "B",
+        "F": "C"
+      },
+      "gs_aliases": {
+        "GS_HIST_DOUBLE_TRIANGLE": "G178",
+        "GS_HIST_MEDIAL_POLYROLE": "G995"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C897",
+          "axis": "mental_spaces"
+        },
+        "Q002": {
+          "candidate": "C646",
+          "axis": "generic_spaces"
+        },
+        "Q003": {
+          "candidate": "C646",
+          "axis": "mental_spaces"
+        },
+        "Q004": {
+          "candidate": "C306",
+          "axis": "mental_spaces"
+        },
+        "Q005": {
+          "candidate": "C897",
+          "axis": "generic_spaces"
+        },
+        "Q006": {
+          "candidate": "C306",
+          "axis": "generic_spaces"
+        }
+      },
+      "reference_method": "from_A",
+      "geometry_certificates": {
+        "C897": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "A",
+              "E"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "A",
+            "interior_contact_on_original_side": [
+              "B",
+              "C"
+            ],
+            "contact_point": "E",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C306": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "D"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "D",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C646": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C897",
+          "file": "images/replica_0/image_C897.png",
+          "sha256": "55ba0471ef58a88dabb37851380b48438f2389bd63e0481fdf040f926f39ba5b"
+        },
+        {
+          "asset": "image_C306",
+          "file": "images/replica_0/image_C306.png",
+          "sha256": "45f1b65af8f6017e62a623dda4985a868a0a6e7fd04547fade36cfe1d7634b45"
+        },
+        {
+          "asset": "image_C646",
+          "file": "images/replica_0/image_C646.png",
+          "sha256": "ada3fa42ec2fd3601c269a5664ec51de85b5189e4cf8f710cc7326f6b81516b7"
+        },
+        {
+          "asset": "initial",
+          "file": "images/replica_0/initial.png",
+          "sha256": "248949290e332f754dfaf77b4b282836e8e0ead3a542ea6013cf9087147ac25e"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_D": {
+              "kind": "angular_fan",
+              "root_vertex": "D",
+              "incident_original_sides": [
+                [
+                  "D",
+                  "E"
+                ],
+                [
+                  "D",
+                  "A"
+                ]
+              ]
+            },
+            "side_D": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "E",
+                "A"
+              ]
+            },
+            "fan_E": {
+              "kind": "angular_fan",
+              "root_vertex": "E",
+              "incident_original_sides": [
+                [
+                  "E",
+                  "D"
+                ],
+                [
+                  "E",
+                  "A"
+                ]
+              ]
+            },
+            "side_E": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "A"
+              ]
+            },
+            "fan_A": {
+              "kind": "angular_fan",
+              "root_vertex": "A",
+              "incident_original_sides": [
+                [
+                  "A",
+                  "D"
+                ],
+                [
+                  "A",
+                  "E"
+                ]
+              ]
+            },
+            "side_A": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "E"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "G178": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "G995": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C897": {
+              "image": "image_C897",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C897",
+                    "regions": [
+                      "R_C897_1",
+                      "R_C897_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C897",
+                    "regions": [
+                      "R_C897_1",
+                      "R_C897_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C897",
+                  "endpoints": [
+                    "D",
+                    "B"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "D",
+                  "interior_contact_on_original_side": [
+                    "E",
+                    "A"
+                  ],
+                  "contact_point": "B",
+                  "closed_regions": [
+                    "R_C897_1",
+                    "R_C897_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "D",
+                  "E",
+                  "B"
+                ],
+                [
+                  "B",
+                  "A",
+                  "D"
+                ]
+              ]
+            },
+            "C306": {
+              "image": "image_C306",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C306",
+                    "regions": [
+                      "R_C306_1",
+                      "R_C306_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C306",
+                    "regions": [
+                      "R_C306_1",
+                      "R_C306_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C306",
+                  "endpoints": [
+                    "A",
+                    "F"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "A",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "E"
+                  ],
+                  "contact_point": "F",
+                  "closed_regions": [
+                    "R_C306_1",
+                    "R_C306_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "A",
+                  "D",
+                  "F"
+                ],
+                [
+                  "F",
+                  "E",
+                  "A"
+                ]
+              ]
+            },
+            "C646": {
+              "image": "image_C646",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C646",
+                    "regions": [
+                      "R_C646_1",
+                      "R_C646_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C646",
+                    "regions": [
+                      "R_C646_1",
+                      "R_C646_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C646",
+                  "endpoints": [
+                    "E",
+                    "C"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "E",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "A"
+                  ],
+                  "contact_point": "C",
+                  "closed_regions": [
+                    "R_C646_1",
+                    "R_C646_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "E",
+                  "A",
+                  "C"
+                ],
+                [
+                  "C",
+                  "D",
+                  "E"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "fan_D",
+              "side_D"
+            ],
+            "description": "Compare the two parts of the active angular fan together with the two parts of the opposite original side, using adjacent closed subfigures and their shared new carrier as the common organizing relation."
+          },
+          "evidence_policy": "All three bridges and BOTH GS bindings for each are already checked by code. Use their inline certified relations as supplied facts. Judge relevance to the active objective. Formal admissibility alone does not imply usefulness for that objective. No equality, congruence or proof is asserted."
+        },
+        "questions": {
+          "Q001": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C897",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q002": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C646",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q003": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C646",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q004": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C306",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q005": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C897",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q006": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C306",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          }
+        }
+      },
+      "request_sha256": "df10415b55691b6171f42ba45933ba9d69f5239f3ab5e4b99b7c239401981888",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "score",
+            "score": 2.09,
+            "normalized_score": 0.6966666666666667,
+            "confidence": 0.1,
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.3,
+              "2": 0.27,
+              "3": 0.42
+            },
+            "reliability": null,
+            "score_probability_delta": -0.010000000000000231
+          },
+          "Q002": {
+            "type": "score",
+            "score": 1.57,
+            "normalized_score": 0.5233333333333333,
+            "confidence": 0.33,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.45,
+              "2": 0.38,
+              "3": 0.12
+            },
+            "reliability": null,
+            "score_probability_delta": 2.220446049250313e-16
+          },
+          "Q003": {
+            "type": "score",
+            "score": 1.54,
+            "normalized_score": 0.5133333333333333,
+            "confidence": 0.28,
+            "probabilities": {
+              "0": 0.09,
+              "1": 0.44,
+              "2": 0.31,
+              "3": 0.16
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q004": {
+            "type": "score",
+            "score": 1.69,
+            "normalized_score": 0.5633333333333334,
+            "confidence": 0.14,
+            "probabilities": {
+              "0": 0.08,
+              "1": 0.39,
+              "2": 0.28,
+              "3": 0.25
+            },
+            "reliability": null,
+            "score_probability_delta": -0.010000000000000231
+          },
+          "Q005": {
+            "type": "score",
+            "score": 2.16,
+            "normalized_score": 0.7200000000000001,
+            "confidence": 0.43,
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.16,
+              "2": 0.45,
+              "3": 0.37
+            },
+            "reliability": null,
+            "score_probability_delta": -0.009999999999999787
+          },
+          "Q006": {
+            "type": "score",
+            "score": 1.91,
+            "normalized_score": 0.6366666666666666,
+            "confidence": 0.37,
+            "probabilities": {
+              "0": 0.04,
+              "1": 0.28,
+              "2": 0.41,
+              "3": 0.27
+            },
+            "reliability": null,
+            "score_probability_delta": -2.220446049250313e-16
+          }
+        },
+        "usage": {
+          "input_tokens": 4604,
+          "output_tokens": 100
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.19109990300000135
+    },
+    {
+      "replica": 1,
+      "goal_vertex": "A",
+      "candidate_mapping": {
+        "C843": "from_B",
+        "C176": "from_A",
+        "C415": "from_C"
+      },
+      "point_labels": {
+        "A": "D",
+        "B": "E",
+        "C": "C",
+        "D": "B",
+        "E": "A",
+        "F": "F"
+      },
+      "gs_aliases": {
+        "GS_HIST_DOUBLE_TRIANGLE": "G860",
+        "GS_HIST_MEDIAL_POLYROLE": "G770"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C415",
+          "axis": "generic_spaces"
+        },
+        "Q002": {
+          "candidate": "C843",
+          "axis": "generic_spaces"
+        },
+        "Q003": {
+          "candidate": "C176",
+          "axis": "generic_spaces"
+        },
+        "Q004": {
+          "candidate": "C176",
+          "axis": "mental_spaces"
+        },
+        "Q005": {
+          "candidate": "C843",
+          "axis": "mental_spaces"
+        },
+        "Q006": {
+          "candidate": "C415",
+          "axis": "mental_spaces"
+        }
+      },
+      "reference_method": "from_A",
+      "geometry_certificates": {
+        "C843": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C176": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "A",
+              "E"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "A",
+            "interior_contact_on_original_side": [
+              "B",
+              "C"
+            ],
+            "contact_point": "E",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C415": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "D"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "D",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C843",
+          "file": "images/replica_1/image_C843.png",
+          "sha256": "3eeb8136bf1b3a71e2492d6500a2f88d63b50a2f464dbf355f6c75f9f10ccac5"
+        },
+        {
+          "asset": "image_C176",
+          "file": "images/replica_1/image_C176.png",
+          "sha256": "7e1dca936ba706d615eea50babbd2091a356e5a209ea93ed70424fd12a4d6cbd"
+        },
+        {
+          "asset": "image_C415",
+          "file": "images/replica_1/image_C415.png",
+          "sha256": "bdd6dee35648faca804719ecc953d80bd2bfff53c781de6b2240bcc3cf33fef2"
+        },
+        {
+          "asset": "initial",
+          "file": "images/replica_1/initial.png",
+          "sha256": "1b2610bd03e3809940305b00a86e76c688975f76e017a425955c066847fcf09a"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_D": {
+              "kind": "angular_fan",
+              "root_vertex": "D",
+              "incident_original_sides": [
+                [
+                  "D",
+                  "E"
+                ],
+                [
+                  "D",
+                  "C"
+                ]
+              ]
+            },
+            "side_D": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "E",
+                "C"
+              ]
+            },
+            "fan_E": {
+              "kind": "angular_fan",
+              "root_vertex": "E",
+              "incident_original_sides": [
+                [
+                  "E",
+                  "D"
+                ],
+                [
+                  "E",
+                  "C"
+                ]
+              ]
+            },
+            "side_E": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "C"
+              ]
+            },
+            "fan_C": {
+              "kind": "angular_fan",
+              "root_vertex": "C",
+              "incident_original_sides": [
+                [
+                  "C",
+                  "D"
+                ],
+                [
+                  "C",
+                  "E"
+                ]
+              ]
+            },
+            "side_C": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "E"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "G860": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "G770": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C843": {
+              "image": "image_C843",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C843",
+                    "regions": [
+                      "R_C843_1",
+                      "R_C843_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C843",
+                    "regions": [
+                      "R_C843_1",
+                      "R_C843_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C843",
+                  "endpoints": [
+                    "E",
+                    "F"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "E",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "C"
+                  ],
+                  "contact_point": "F",
+                  "closed_regions": [
+                    "R_C843_1",
+                    "R_C843_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "E",
+                  "C",
+                  "F"
+                ],
+                [
+                  "F",
+                  "D",
+                  "E"
+                ]
+              ]
+            },
+            "C176": {
+              "image": "image_C176",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C176",
+                    "regions": [
+                      "R_C176_1",
+                      "R_C176_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C176",
+                    "regions": [
+                      "R_C176_1",
+                      "R_C176_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C176",
+                  "endpoints": [
+                    "D",
+                    "A"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "D",
+                  "interior_contact_on_original_side": [
+                    "E",
+                    "C"
+                  ],
+                  "contact_point": "A",
+                  "closed_regions": [
+                    "R_C176_1",
+                    "R_C176_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "D",
+                  "E",
+                  "A"
+                ],
+                [
+                  "A",
+                  "C",
+                  "D"
+                ]
+              ]
+            },
+            "C415": {
+              "image": "image_C415",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C415",
+                    "regions": [
+                      "R_C415_1",
+                      "R_C415_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C415",
+                    "regions": [
+                      "R_C415_1",
+                      "R_C415_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C415",
+                  "endpoints": [
+                    "C",
+                    "B"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "C",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "E"
+                  ],
+                  "contact_point": "B",
+                  "closed_regions": [
+                    "R_C415_1",
+                    "R_C415_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "C",
+                  "D",
+                  "B"
+                ],
+                [
+                  "B",
+                  "E",
+                  "C"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "fan_D",
+              "side_D"
+            ],
+            "description": "Compare the two parts of the active angular fan together with the two parts of the opposite original side, using adjacent closed subfigures and their shared new carrier as the common organizing relation."
+          },
+          "evidence_policy": "All three bridges and BOTH GS bindings for each are already checked by code. Use their inline certified relations as supplied facts. Judge relevance to the active objective. Formal admissibility alone does not imply usefulness for that objective. No equality, congruence or proof is asserted."
+        },
+        "questions": {
+          "Q001": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C415",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q002": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C843",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q003": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C176",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q004": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C176",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q005": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C843",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q006": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C415",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          }
+        }
+      },
+      "request_sha256": "432d49903bee4769d4242f02a455e2b28047880911bc49dde57f0a3463560231",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "score",
+            "score": 1.66,
+            "normalized_score": 0.5533333333333333,
+            "confidence": 0.36,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.39,
+              "2": 0.41,
+              "3": 0.15
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q002": {
+            "type": "score",
+            "score": 1.47,
+            "normalized_score": 0.49,
+            "confidence": 0.45,
+            "probabilities": {
+              "0": 0.04,
+              "1": 0.53,
+              "2": 0.35,
+              "3": 0.08
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q003": {
+            "type": "score",
+            "score": 2.82,
+            "normalized_score": 0.94,
+            "confidence": 0.82,
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.02,
+              "2": 0.14,
+              "3": 0.84
+            },
+            "reliability": null,
+            "score_probability_delta": -4.440892098500626e-16
+          },
+          "Q004": {
+            "type": "score",
+            "score": 2.78,
+            "normalized_score": 0.9266666666666666,
+            "confidence": 0.78,
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.06,
+              "2": 0.1,
+              "3": 0.84
+            },
+            "reliability": null,
+            "score_probability_delta": -4.440892098500626e-16
+          },
+          "Q005": {
+            "type": "score",
+            "score": 1.48,
+            "normalized_score": 0.49333333333333335,
+            "confidence": 0.3,
+            "probabilities": {
+              "0": 0.11,
+              "1": 0.44,
+              "2": 0.31,
+              "3": 0.14
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q006": {
+            "type": "score",
+            "score": 1.56,
+            "normalized_score": 0.52,
+            "confidence": 0.29,
+            "probabilities": {
+              "0": 0.08,
+              "1": 0.45,
+              "2": 0.31,
+              "3": 0.16
+            },
+            "reliability": null,
+            "score_probability_delta": 0.010000000000000009
+          }
+        },
+        "usage": {
+          "input_tokens": 4604,
+          "output_tokens": 100
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.252897609999998
+    },
+    {
+      "replica": 1,
+      "goal_vertex": "B",
+      "candidate_mapping": {
+        "C843": "from_B",
+        "C176": "from_A",
+        "C415": "from_C"
+      },
+      "point_labels": {
+        "A": "D",
+        "B": "E",
+        "C": "C",
+        "D": "B",
+        "E": "A",
+        "F": "F"
+      },
+      "gs_aliases": {
+        "GS_HIST_DOUBLE_TRIANGLE": "G860",
+        "GS_HIST_MEDIAL_POLYROLE": "G770"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C415",
+          "axis": "generic_spaces"
+        },
+        "Q002": {
+          "candidate": "C843",
+          "axis": "generic_spaces"
+        },
+        "Q003": {
+          "candidate": "C176",
+          "axis": "generic_spaces"
+        },
+        "Q004": {
+          "candidate": "C176",
+          "axis": "mental_spaces"
+        },
+        "Q005": {
+          "candidate": "C843",
+          "axis": "mental_spaces"
+        },
+        "Q006": {
+          "candidate": "C415",
+          "axis": "mental_spaces"
+        }
+      },
+      "reference_method": "from_B",
+      "geometry_certificates": {
+        "C843": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C176": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "A",
+              "E"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "A",
+            "interior_contact_on_original_side": [
+              "B",
+              "C"
+            ],
+            "contact_point": "E",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C415": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "D"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "D",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C843",
+          "file": "images/replica_1/image_C843.png",
+          "sha256": "3eeb8136bf1b3a71e2492d6500a2f88d63b50a2f464dbf355f6c75f9f10ccac5"
+        },
+        {
+          "asset": "image_C176",
+          "file": "images/replica_1/image_C176.png",
+          "sha256": "7e1dca936ba706d615eea50babbd2091a356e5a209ea93ed70424fd12a4d6cbd"
+        },
+        {
+          "asset": "image_C415",
+          "file": "images/replica_1/image_C415.png",
+          "sha256": "bdd6dee35648faca804719ecc953d80bd2bfff53c781de6b2240bcc3cf33fef2"
+        },
+        {
+          "asset": "initial",
+          "file": "images/replica_1/initial.png",
+          "sha256": "1b2610bd03e3809940305b00a86e76c688975f76e017a425955c066847fcf09a"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_D": {
+              "kind": "angular_fan",
+              "root_vertex": "D",
+              "incident_original_sides": [
+                [
+                  "D",
+                  "E"
+                ],
+                [
+                  "D",
+                  "C"
+                ]
+              ]
+            },
+            "side_D": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "E",
+                "C"
+              ]
+            },
+            "fan_E": {
+              "kind": "angular_fan",
+              "root_vertex": "E",
+              "incident_original_sides": [
+                [
+                  "E",
+                  "D"
+                ],
+                [
+                  "E",
+                  "C"
+                ]
+              ]
+            },
+            "side_E": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "C"
+              ]
+            },
+            "fan_C": {
+              "kind": "angular_fan",
+              "root_vertex": "C",
+              "incident_original_sides": [
+                [
+                  "C",
+                  "D"
+                ],
+                [
+                  "C",
+                  "E"
+                ]
+              ]
+            },
+            "side_C": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "E"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "G860": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "G770": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C843": {
+              "image": "image_C843",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C843",
+                    "regions": [
+                      "R_C843_1",
+                      "R_C843_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C843",
+                    "regions": [
+                      "R_C843_1",
+                      "R_C843_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C843",
+                  "endpoints": [
+                    "E",
+                    "F"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "E",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "C"
+                  ],
+                  "contact_point": "F",
+                  "closed_regions": [
+                    "R_C843_1",
+                    "R_C843_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "E",
+                  "C",
+                  "F"
+                ],
+                [
+                  "F",
+                  "D",
+                  "E"
+                ]
+              ]
+            },
+            "C176": {
+              "image": "image_C176",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C176",
+                    "regions": [
+                      "R_C176_1",
+                      "R_C176_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C176",
+                    "regions": [
+                      "R_C176_1",
+                      "R_C176_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C176",
+                  "endpoints": [
+                    "D",
+                    "A"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "D",
+                  "interior_contact_on_original_side": [
+                    "E",
+                    "C"
+                  ],
+                  "contact_point": "A",
+                  "closed_regions": [
+                    "R_C176_1",
+                    "R_C176_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "D",
+                  "E",
+                  "A"
+                ],
+                [
+                  "A",
+                  "C",
+                  "D"
+                ]
+              ]
+            },
+            "C415": {
+              "image": "image_C415",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C415",
+                    "regions": [
+                      "R_C415_1",
+                      "R_C415_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C415",
+                    "regions": [
+                      "R_C415_1",
+                      "R_C415_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C415",
+                  "endpoints": [
+                    "C",
+                    "B"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "C",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "E"
+                  ],
+                  "contact_point": "B",
+                  "closed_regions": [
+                    "R_C415_1",
+                    "R_C415_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "C",
+                  "D",
+                  "B"
+                ],
+                [
+                  "B",
+                  "E",
+                  "C"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "fan_E",
+              "side_E"
+            ],
+            "description": "Compare the two parts of the active angular fan together with the two parts of the opposite original side, using adjacent closed subfigures and their shared new carrier as the common organizing relation."
+          },
+          "evidence_policy": "All three bridges and BOTH GS bindings for each are already checked by code. Use their inline certified relations as supplied facts. Judge relevance to the active objective. Formal admissibility alone does not imply usefulness for that objective. No equality, congruence or proof is asserted."
+        },
+        "questions": {
+          "Q001": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C415",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q002": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C843",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q003": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C176",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q004": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C176",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q005": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C843",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q006": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C415",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          }
+        }
+      },
+      "request_sha256": "1be538ffd0b6358cd69424b943610424537f357791ddc3164a1837f68434f5ab",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "score",
+            "score": 1.75,
+            "normalized_score": 0.5833333333333334,
+            "confidence": 0.35,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.35,
+              "2": 0.4,
+              "3": 0.2
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q002": {
+            "type": "score",
+            "score": 2.39,
+            "normalized_score": 0.7966666666666667,
+            "confidence": 0.39,
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.1,
+              "2": 0.38,
+              "3": 0.51
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q003": {
+            "type": "score",
+            "score": 1.76,
+            "normalized_score": 0.5866666666666667,
+            "confidence": 0.41,
+            "probabilities": {
+              "0": 0.04,
+              "1": 0.34,
+              "2": 0.45,
+              "3": 0.17
+            },
+            "reliability": null,
+            "score_probability_delta": 0.010000000000000009
+          },
+          "Q004": {
+            "type": "score",
+            "score": 1.44,
+            "normalized_score": 0.48,
+            "confidence": 0.39,
+            "probabilities": {
+              "0": 0.08,
+              "1": 0.51,
+              "2": 0.29,
+              "3": 0.12
+            },
+            "reliability": null,
+            "score_probability_delta": -0.009999999999999787
+          },
+          "Q005": {
+            "type": "score",
+            "score": 2.09,
+            "normalized_score": 0.6966666666666667,
+            "confidence": 0.08,
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.3,
+              "2": 0.29,
+              "3": 0.4
+            },
+            "reliability": null,
+            "score_probability_delta": 0.009999999999999787
+          },
+          "Q006": {
+            "type": "score",
+            "score": 1.77,
+            "normalized_score": 0.59,
+            "confidence": 0.35,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.34,
+              "2": 0.4,
+              "3": 0.21
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          }
+        },
+        "usage": {
+          "input_tokens": 4604,
+          "output_tokens": 100
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.19202991400000258
+    },
+    {
+      "replica": 0,
+      "goal_vertex": "B",
+      "candidate_mapping": {
+        "C897": "from_A",
+        "C306": "from_C",
+        "C646": "from_B"
+      },
+      "point_labels": {
+        "A": "D",
+        "B": "E",
+        "C": "A",
+        "D": "F",
+        "E": "B",
+        "F": "C"
+      },
+      "gs_aliases": {
+        "GS_HIST_DOUBLE_TRIANGLE": "G178",
+        "GS_HIST_MEDIAL_POLYROLE": "G995"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C897",
+          "axis": "mental_spaces"
+        },
+        "Q002": {
+          "candidate": "C646",
+          "axis": "generic_spaces"
+        },
+        "Q003": {
+          "candidate": "C646",
+          "axis": "mental_spaces"
+        },
+        "Q004": {
+          "candidate": "C306",
+          "axis": "mental_spaces"
+        },
+        "Q005": {
+          "candidate": "C897",
+          "axis": "generic_spaces"
+        },
+        "Q006": {
+          "candidate": "C306",
+          "axis": "generic_spaces"
+        }
+      },
+      "reference_method": "from_B",
+      "geometry_certificates": {
+        "C897": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "A",
+              "E"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "A",
+            "interior_contact_on_original_side": [
+              "B",
+              "C"
+            ],
+            "contact_point": "E",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C306": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "D"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "D",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C646": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C897",
+          "file": "images/replica_0/image_C897.png",
+          "sha256": "55ba0471ef58a88dabb37851380b48438f2389bd63e0481fdf040f926f39ba5b"
+        },
+        {
+          "asset": "image_C306",
+          "file": "images/replica_0/image_C306.png",
+          "sha256": "45f1b65af8f6017e62a623dda4985a868a0a6e7fd04547fade36cfe1d7634b45"
+        },
+        {
+          "asset": "image_C646",
+          "file": "images/replica_0/image_C646.png",
+          "sha256": "ada3fa42ec2fd3601c269a5664ec51de85b5189e4cf8f710cc7326f6b81516b7"
+        },
+        {
+          "asset": "initial",
+          "file": "images/replica_0/initial.png",
+          "sha256": "248949290e332f754dfaf77b4b282836e8e0ead3a542ea6013cf9087147ac25e"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_D": {
+              "kind": "angular_fan",
+              "root_vertex": "D",
+              "incident_original_sides": [
+                [
+                  "D",
+                  "E"
+                ],
+                [
+                  "D",
+                  "A"
+                ]
+              ]
+            },
+            "side_D": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "E",
+                "A"
+              ]
+            },
+            "fan_E": {
+              "kind": "angular_fan",
+              "root_vertex": "E",
+              "incident_original_sides": [
+                [
+                  "E",
+                  "D"
+                ],
+                [
+                  "E",
+                  "A"
+                ]
+              ]
+            },
+            "side_E": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "A"
+              ]
+            },
+            "fan_A": {
+              "kind": "angular_fan",
+              "root_vertex": "A",
+              "incident_original_sides": [
+                [
+                  "A",
+                  "D"
+                ],
+                [
+                  "A",
+                  "E"
+                ]
+              ]
+            },
+            "side_A": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "E"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "G178": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "G995": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C897": {
+              "image": "image_C897",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C897",
+                    "regions": [
+                      "R_C897_1",
+                      "R_C897_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C897",
+                    "regions": [
+                      "R_C897_1",
+                      "R_C897_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C897",
+                  "endpoints": [
+                    "D",
+                    "B"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "D",
+                  "interior_contact_on_original_side": [
+                    "E",
+                    "A"
+                  ],
+                  "contact_point": "B",
+                  "closed_regions": [
+                    "R_C897_1",
+                    "R_C897_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "D",
+                  "E",
+                  "B"
+                ],
+                [
+                  "B",
+                  "A",
+                  "D"
+                ]
+              ]
+            },
+            "C306": {
+              "image": "image_C306",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C306",
+                    "regions": [
+                      "R_C306_1",
+                      "R_C306_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C306",
+                    "regions": [
+                      "R_C306_1",
+                      "R_C306_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C306",
+                  "endpoints": [
+                    "A",
+                    "F"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "A",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "E"
+                  ],
+                  "contact_point": "F",
+                  "closed_regions": [
+                    "R_C306_1",
+                    "R_C306_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "A",
+                  "D",
+                  "F"
+                ],
+                [
+                  "F",
+                  "E",
+                  "A"
+                ]
+              ]
+            },
+            "C646": {
+              "image": "image_C646",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C646",
+                    "regions": [
+                      "R_C646_1",
+                      "R_C646_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C646",
+                    "regions": [
+                      "R_C646_1",
+                      "R_C646_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C646",
+                  "endpoints": [
+                    "E",
+                    "C"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "E",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "A"
+                  ],
+                  "contact_point": "C",
+                  "closed_regions": [
+                    "R_C646_1",
+                    "R_C646_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "E",
+                  "A",
+                  "C"
+                ],
+                [
+                  "C",
+                  "D",
+                  "E"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "fan_E",
+              "side_E"
+            ],
+            "description": "Compare the two parts of the active angular fan together with the two parts of the opposite original side, using adjacent closed subfigures and their shared new carrier as the common organizing relation."
+          },
+          "evidence_policy": "All three bridges and BOTH GS bindings for each are already checked by code. Use their inline certified relations as supplied facts. Judge relevance to the active objective. Formal admissibility alone does not imply usefulness for that objective. No equality, congruence or proof is asserted."
+        },
+        "questions": {
+          "Q001": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C897",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q002": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C646",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q003": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C646",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q004": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C306",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q005": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C897",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q006": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C306",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          }
+        }
+      },
+      "request_sha256": "7f5a752a0c0904b6664e12ba3a526be2f22a2342e05427a84e24b2e263fda622",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "score",
+            "score": 1.35,
+            "normalized_score": 0.45,
+            "confidence": 0.42,
+            "probabilities": {
+              "0": 0.11,
+              "1": 0.54,
+              "2": 0.23,
+              "3": 0.12
+            },
+            "reliability": null,
+            "score_probability_delta": -0.009999999999999787
+          },
+          "Q002": {
+            "type": "score",
+            "score": 2.72,
+            "normalized_score": 0.9066666666666667,
+            "confidence": 0.71,
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.04,
+              "2": 0.18,
+              "3": 0.77
+            },
+            "reliability": null,
+            "score_probability_delta": 0.010000000000000231
+          },
+          "Q003": {
+            "type": "score",
+            "score": 2.67,
+            "normalized_score": 0.89,
+            "confidence": 0.68,
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.09,
+              "2": 0.14,
+              "3": 0.77
+            },
+            "reliability": null,
+            "score_probability_delta": -0.010000000000000231
+          },
+          "Q004": {
+            "type": "score",
+            "score": 1.19,
+            "normalized_score": 0.39666666666666667,
+            "confidence": 0.34,
+            "probabilities": {
+              "0": 0.23,
+              "1": 0.43,
+              "2": 0.25,
+              "3": 0.09
+            },
+            "reliability": null,
+            "score_probability_delta": -0.010000000000000009
+          },
+          "Q005": {
+            "type": "score",
+            "score": 1.53,
+            "normalized_score": 0.51,
+            "confidence": 0.35,
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.47,
+              "2": 0.35,
+              "3": 0.12
+            },
+            "reliability": null,
+            "score_probability_delta": 2.220446049250313e-16
+          },
+          "Q006": {
+            "type": "score",
+            "score": 1.41,
+            "normalized_score": 0.47,
+            "confidence": 0.49,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.56,
+              "2": 0.32,
+              "3": 0.07
+            },
+            "reliability": null,
+            "score_probability_delta": -2.220446049250313e-16
+          }
+        },
+        "usage": {
+          "input_tokens": 4604,
+          "output_tokens": 100
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.1770730169999979
+    },
+    {
+      "replica": 1,
+      "goal_vertex": "C",
+      "candidate_mapping": {
+        "C843": "from_B",
+        "C176": "from_A",
+        "C415": "from_C"
+      },
+      "point_labels": {
+        "A": "D",
+        "B": "E",
+        "C": "C",
+        "D": "B",
+        "E": "A",
+        "F": "F"
+      },
+      "gs_aliases": {
+        "GS_HIST_DOUBLE_TRIANGLE": "G860",
+        "GS_HIST_MEDIAL_POLYROLE": "G770"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C415",
+          "axis": "generic_spaces"
+        },
+        "Q002": {
+          "candidate": "C843",
+          "axis": "generic_spaces"
+        },
+        "Q003": {
+          "candidate": "C176",
+          "axis": "generic_spaces"
+        },
+        "Q004": {
+          "candidate": "C176",
+          "axis": "mental_spaces"
+        },
+        "Q005": {
+          "candidate": "C843",
+          "axis": "mental_spaces"
+        },
+        "Q006": {
+          "candidate": "C415",
+          "axis": "mental_spaces"
+        }
+      },
+      "reference_method": "from_C",
+      "geometry_certificates": {
+        "C843": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C176": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "A",
+              "E"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "A",
+            "interior_contact_on_original_side": [
+              "B",
+              "C"
+            ],
+            "contact_point": "E",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C415": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "D"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "D",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C843",
+          "file": "images/replica_1/image_C843.png",
+          "sha256": "3eeb8136bf1b3a71e2492d6500a2f88d63b50a2f464dbf355f6c75f9f10ccac5"
+        },
+        {
+          "asset": "image_C176",
+          "file": "images/replica_1/image_C176.png",
+          "sha256": "7e1dca936ba706d615eea50babbd2091a356e5a209ea93ed70424fd12a4d6cbd"
+        },
+        {
+          "asset": "image_C415",
+          "file": "images/replica_1/image_C415.png",
+          "sha256": "bdd6dee35648faca804719ecc953d80bd2bfff53c781de6b2240bcc3cf33fef2"
+        },
+        {
+          "asset": "initial",
+          "file": "images/replica_1/initial.png",
+          "sha256": "1b2610bd03e3809940305b00a86e76c688975f76e017a425955c066847fcf09a"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_D": {
+              "kind": "angular_fan",
+              "root_vertex": "D",
+              "incident_original_sides": [
+                [
+                  "D",
+                  "E"
+                ],
+                [
+                  "D",
+                  "C"
+                ]
+              ]
+            },
+            "side_D": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "E",
+                "C"
+              ]
+            },
+            "fan_E": {
+              "kind": "angular_fan",
+              "root_vertex": "E",
+              "incident_original_sides": [
+                [
+                  "E",
+                  "D"
+                ],
+                [
+                  "E",
+                  "C"
+                ]
+              ]
+            },
+            "side_E": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "C"
+              ]
+            },
+            "fan_C": {
+              "kind": "angular_fan",
+              "root_vertex": "C",
+              "incident_original_sides": [
+                [
+                  "C",
+                  "D"
+                ],
+                [
+                  "C",
+                  "E"
+                ]
+              ]
+            },
+            "side_C": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "E"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "G860": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "G770": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C843": {
+              "image": "image_C843",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C843",
+                    "regions": [
+                      "R_C843_1",
+                      "R_C843_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C843",
+                    "regions": [
+                      "R_C843_1",
+                      "R_C843_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C843",
+                  "endpoints": [
+                    "E",
+                    "F"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "E",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "C"
+                  ],
+                  "contact_point": "F",
+                  "closed_regions": [
+                    "R_C843_1",
+                    "R_C843_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "E",
+                  "C",
+                  "F"
+                ],
+                [
+                  "F",
+                  "D",
+                  "E"
+                ]
+              ]
+            },
+            "C176": {
+              "image": "image_C176",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C176",
+                    "regions": [
+                      "R_C176_1",
+                      "R_C176_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C176",
+                    "regions": [
+                      "R_C176_1",
+                      "R_C176_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C176",
+                  "endpoints": [
+                    "D",
+                    "A"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "D",
+                  "interior_contact_on_original_side": [
+                    "E",
+                    "C"
+                  ],
+                  "contact_point": "A",
+                  "closed_regions": [
+                    "R_C176_1",
+                    "R_C176_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "D",
+                  "E",
+                  "A"
+                ],
+                [
+                  "A",
+                  "C",
+                  "D"
+                ]
+              ]
+            },
+            "C415": {
+              "image": "image_C415",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G860": {
+                    "carrier": "S_C415",
+                    "regions": [
+                      "R_C415_1",
+                      "R_C415_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G770": {
+                    "carrier": "S_C415",
+                    "regions": [
+                      "R_C415_1",
+                      "R_C415_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C415",
+                  "endpoints": [
+                    "C",
+                    "B"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "C",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "E"
+                  ],
+                  "contact_point": "B",
+                  "closed_regions": [
+                    "R_C415_1",
+                    "R_C415_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "C",
+                  "D",
+                  "B"
+                ],
+                [
+                  "B",
+                  "E",
+                  "C"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "fan_C",
+              "side_C"
+            ],
+            "description": "Compare the two parts of the active angular fan together with the two parts of the opposite original side, using adjacent closed subfigures and their shared new carrier as the common organizing relation."
+          },
+          "evidence_policy": "All three bridges and BOTH GS bindings for each are already checked by code. Use their inline certified relations as supplied facts. Judge relevance to the active objective. Formal admissibility alone does not imply usefulness for that objective. No equality, congruence or proof is asserted."
+        },
+        "questions": {
+          "Q001": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C415",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q002": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C843",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q003": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C176",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q004": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C176",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q005": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C843",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q006": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C415",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          }
+        }
+      },
+      "request_sha256": "a4a9095deebd9953b5466ee62294a9cbeea1813af74b69ab7c364eef13619be3",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "score",
+            "score": 2.54,
+            "normalized_score": 0.8466666666666667,
+            "confidence": 0.57,
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.08,
+              "2": 0.24,
+              "3": 0.67
+            },
+            "reliability": null,
+            "score_probability_delta": -0.03000000000000025
+          },
+          "Q002": {
+            "type": "score",
+            "score": 1.51,
+            "normalized_score": 0.5033333333333333,
+            "confidence": 0.39,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.5,
+              "2": 0.34,
+              "3": 0.11
+            },
+            "reliability": null,
+            "score_probability_delta": -2.220446049250313e-16
+          },
+          "Q003": {
+            "type": "score",
+            "score": 1.5,
+            "normalized_score": 0.5,
+            "confidence": 0.39,
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.5,
+              "2": 0.33,
+              "3": 0.11
+            },
+            "reliability": null,
+            "score_probability_delta": 0.009999999999999787
+          },
+          "Q004": {
+            "type": "score",
+            "score": 1.44,
+            "normalized_score": 0.48,
+            "confidence": 0.41,
+            "probabilities": {
+              "0": 0.08,
+              "1": 0.55,
+              "2": 0.23,
+              "3": 0.14
+            },
+            "reliability": null,
+            "score_probability_delta": 0.009999999999999787
+          },
+          "Q005": {
+            "type": "score",
+            "score": 1.5,
+            "normalized_score": 0.5,
+            "confidence": 0.29,
+            "probabilities": {
+              "0": 0.11,
+              "1": 0.44,
+              "2": 0.3,
+              "3": 0.15
+            },
+            "reliability": null,
+            "score_probability_delta": 0.010000000000000009
+          },
+          "Q006": {
+            "type": "score",
+            "score": 2.53,
+            "normalized_score": 0.8433333333333333,
+            "confidence": 0.51,
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.12,
+              "2": 0.22,
+              "3": 0.65
+            },
+            "reliability": null,
+            "score_probability_delta": 0.019999999999999574
+          }
+        },
+        "usage": {
+          "input_tokens": 4604,
+          "output_tokens": 100
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.18642686099999395
+    },
+    {
+      "replica": 0,
+      "goal_vertex": "C",
+      "candidate_mapping": {
+        "C897": "from_A",
+        "C306": "from_C",
+        "C646": "from_B"
+      },
+      "point_labels": {
+        "A": "D",
+        "B": "E",
+        "C": "A",
+        "D": "F",
+        "E": "B",
+        "F": "C"
+      },
+      "gs_aliases": {
+        "GS_HIST_DOUBLE_TRIANGLE": "G178",
+        "GS_HIST_MEDIAL_POLYROLE": "G995"
+      },
+      "question_metadata": {
+        "Q001": {
+          "candidate": "C897",
+          "axis": "mental_spaces"
+        },
+        "Q002": {
+          "candidate": "C646",
+          "axis": "generic_spaces"
+        },
+        "Q003": {
+          "candidate": "C646",
+          "axis": "mental_spaces"
+        },
+        "Q004": {
+          "candidate": "C306",
+          "axis": "mental_spaces"
+        },
+        "Q005": {
+          "candidate": "C897",
+          "axis": "generic_spaces"
+        },
+        "Q006": {
+          "candidate": "C306",
+          "axis": "generic_spaces"
+        }
+      },
+      "reference_method": "from_C",
+      "geometry_certificates": {
+        "C897": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "A",
+              "E"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "A",
+            "interior_contact_on_original_side": [
+              "B",
+              "C"
+            ],
+            "contact_point": "E",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C306": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "C",
+              "D"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "C",
+            "interior_contact_on_original_side": [
+              "A",
+              "B"
+            ],
+            "contact_point": "D",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        },
+        "C646": {
+          "admissible": true,
+          "generic_space_bindings": {
+            "GS_HIST_DOUBLE_TRIANGLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            },
+            "GS_HIST_MEDIAL_POLYROLE": {
+              "carrier": "BRIDGE",
+              "regions": [
+                "REGION_0",
+                "REGION_1"
+              ],
+              "host": "HOST"
+            }
+          },
+          "new_carrier": {
+            "material_id": "BRIDGE",
+            "endpoints": [
+              "B",
+              "F"
+            ]
+          },
+          "direct_structural_relations": {
+            "angular_fan_split_at_vertex": "B",
+            "interior_contact_on_original_side": [
+              "A",
+              "C"
+            ],
+            "contact_point": "F",
+            "closed_regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "partitioned_host": "HOST"
+          },
+          "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+        }
+      },
+      "asset_audit": [
+        {
+          "asset": "image_C897",
+          "file": "images/replica_0/image_C897.png",
+          "sha256": "55ba0471ef58a88dabb37851380b48438f2389bd63e0481fdf040f926f39ba5b"
+        },
+        {
+          "asset": "image_C306",
+          "file": "images/replica_0/image_C306.png",
+          "sha256": "45f1b65af8f6017e62a623dda4985a868a0a6e7fd04547fade36cfe1d7634b45"
+        },
+        {
+          "asset": "image_C646",
+          "file": "images/replica_0/image_C646.png",
+          "sha256": "ada3fa42ec2fd3601c269a5664ec51de85b5189e4cf8f710cc7326f6b81516b7"
+        },
+        {
+          "asset": "initial",
+          "file": "images/replica_0/initial.png",
+          "sha256": "248949290e332f754dfaf77b4b282836e8e0ead3a542ea6013cf9087147ac25e"
+        }
+      ],
+      "model_input": {
+        "model": "jev-1.14.0",
+        "state": {
+          "workspace_kind": "prospective constructions, all independently certified admissible",
+          "initial_image": "initial",
+          "mental_spaces": {
+            "fan_D": {
+              "kind": "angular_fan",
+              "root_vertex": "D",
+              "incident_original_sides": [
+                [
+                  "D",
+                  "E"
+                ],
+                [
+                  "D",
+                  "A"
+                ]
+              ]
+            },
+            "side_D": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "E",
+                "A"
+              ]
+            },
+            "fan_E": {
+              "kind": "angular_fan",
+              "root_vertex": "E",
+              "incident_original_sides": [
+                [
+                  "E",
+                  "D"
+                ],
+                [
+                  "E",
+                  "A"
+                ]
+              ]
+            },
+            "side_E": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "A"
+              ]
+            },
+            "fan_A": {
+              "kind": "angular_fan",
+              "root_vertex": "A",
+              "incident_original_sides": [
+                [
+                  "A",
+                  "D"
+                ],
+                [
+                  "A",
+                  "E"
+                ]
+              ]
+            },
+            "side_A": {
+              "kind": "original_side_carrier",
+              "endpoints": [
+                "D",
+                "E"
+              ]
+            }
+          },
+          "generic_spaces": {
+            "G178": {
+              "abstract_roles": [
+                {
+                  "role": "carrier",
+                  "relation": "same_material_carrier"
+                },
+                {
+                  "role": "region_pair",
+                  "relation": "both_participate_in_same_carrier"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct triangular regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of each region. Each boundary use must cover both endpoints of that carrier.",
+                  "The regions have disjoint interiors and are adjacent along that common side."
+                ],
+                "scope": "Host is context containment only. The two triangles need not cover the whole host. No metric equality or congruence is required."
+              }
+            },
+            "G995": {
+              "abstract_roles": [
+                {
+                  "role": "material_identity",
+                  "relation": "one_material_identity"
+                },
+                {
+                  "role": "interpretive_roles",
+                  "relation": "distinct_participations"
+                }
+              ],
+              "local_binding_contract": {
+                "roles": {
+                  "carrier": "segment",
+                  "regions": "two distinct closed polygonal regions",
+                  "host": "query scope host"
+                },
+                "requirements": [
+                  "Both regions lie within the query scope host.",
+                  "One and the same material segment is a COMPLETE boundary side of both regions.",
+                  "The two regions have disjoint interiors and together cover the entire query scope host. The carrier thereby has boundary participations and an internal host-partition participation."
+                ],
+                "scope": "The regions need not both be triangles. No metric equality or congruence is required."
+              }
+            }
+          },
+          "admissible_bridges": {
+            "C897": {
+              "image": "image_C897",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C897",
+                    "regions": [
+                      "R_C897_1",
+                      "R_C897_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C897",
+                    "regions": [
+                      "R_C897_1",
+                      "R_C897_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C897",
+                  "endpoints": [
+                    "D",
+                    "B"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "D",
+                  "interior_contact_on_original_side": [
+                    "E",
+                    "A"
+                  ],
+                  "contact_point": "B",
+                  "closed_regions": [
+                    "R_C897_1",
+                    "R_C897_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "D",
+                  "E",
+                  "B"
+                ],
+                [
+                  "B",
+                  "A",
+                  "D"
+                ]
+              ]
+            },
+            "C306": {
+              "image": "image_C306",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C306",
+                    "regions": [
+                      "R_C306_1",
+                      "R_C306_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C306",
+                    "regions": [
+                      "R_C306_1",
+                      "R_C306_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C306",
+                  "endpoints": [
+                    "A",
+                    "F"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "A",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "E"
+                  ],
+                  "contact_point": "F",
+                  "closed_regions": [
+                    "R_C306_1",
+                    "R_C306_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "A",
+                  "D",
+                  "F"
+                ],
+                [
+                  "F",
+                  "E",
+                  "A"
+                ]
+              ]
+            },
+            "C646": {
+              "image": "image_C646",
+              "verified_certificate": {
+                "admissible": true,
+                "generic_space_bindings": {
+                  "G178": {
+                    "carrier": "S_C646",
+                    "regions": [
+                      "R_C646_1",
+                      "R_C646_2"
+                    ],
+                    "host": "host"
+                  },
+                  "G995": {
+                    "carrier": "S_C646",
+                    "regions": [
+                      "R_C646_1",
+                      "R_C646_2"
+                    ],
+                    "host": "host"
+                  }
+                },
+                "new_carrier": {
+                  "material_id": "S_C646",
+                  "endpoints": [
+                    "E",
+                    "C"
+                  ]
+                },
+                "direct_structural_relations": {
+                  "angular_fan_split_at_vertex": "E",
+                  "interior_contact_on_original_side": [
+                    "D",
+                    "A"
+                  ],
+                  "contact_point": "C",
+                  "closed_regions": [
+                    "R_C646_1",
+                    "R_C646_2"
+                  ],
+                  "partitioned_host": "host"
+                },
+                "verification_scope": "Local convex-polygon and material boundary-use checks; no metric equality, congruence or theorem conclusion."
+              },
+              "region_vertex_cycles": [
+                [
+                  "E",
+                  "A",
+                  "C"
+                ],
+                [
+                  "C",
+                  "D",
+                  "E"
+                ]
+              ]
+            }
+          },
+          "active_objective": {
+            "mental_space_refs": [
+              "fan_A",
+              "side_A"
+            ],
+            "description": "Compare the two parts of the active angular fan together with the two parts of the opposite original side, using adjacent closed subfigures and their shared new carrier as the common organizing relation."
+          },
+          "evidence_policy": "All three bridges and BOTH GS bindings for each are already checked by code. Use their inline certified relations as supplied facts. Judge relevance to the active objective. Formal admissibility alone does not imply usefulness for that objective. No equality, congruence or proof is asserted."
+        },
+        "questions": {
+          "Q001": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C897",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q002": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C646",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q003": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C646",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q004": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C306",
+              "dimension": "mental_spaces",
+              "task": "Rate how directly this bridge couples the active Mental Spaces for the stated objective.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The admissible bridge adds no useful coupling of the two active Mental Spaces for the stated objective.",
+              "The bridge engages only one active Mental Space directly, or establishes a different coupling that leaves the requested connection absent.",
+              "The bridge engages both active Mental Spaces, but their requested coupling remains indirect or incomplete.",
+              "The bridge directly couples both active Mental Spaces in the manner required by the current objective."
+            ]
+          },
+          "Q005": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C897",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          },
+          "Q006": {
+            "type": "score",
+            "instructions": {
+              "candidate_ref": "C306",
+              "dimension": "generic_spaces",
+              "task": "Rate how useful this bridge's certified Generic Space instantiations are for organizing the comparison requested by the active objective. Their formal validity is already established; do not rate validity instead of pertinence.",
+              "objective_ref": "active_objective",
+              "policy": "Use the same four levels for every candidate. Scores are independent; there is no requirement to choose exactly one or to distribute a fixed score budget."
+            },
+            "criteria": [
+              "The certified Generic Space instantiations offer no relevant organization of the comparison requested by the current objective.",
+              "The certified patterns organize a different comparison; the requested correspondence between the active roles is absent.",
+              "The certified patterns support part of the requested comparison, with an active role only indirectly represented.",
+              "The certified shared-carrier and multiple-participation patterns directly organize the requested comparison between the active spaces."
+            ]
+          }
+        }
+      },
+      "request_sha256": "992288dca209355308ae2e927153271dda595c99c1b872619224f72139c0460d",
+      "response": {
+        "answers": {
+          "Q001": {
+            "type": "score",
+            "score": 1.24,
+            "normalized_score": 0.41333333333333333,
+            "confidence": 0.62,
+            "probabilities": {
+              "0": 0.07,
+              "1": 0.68,
+              "2": 0.19,
+              "3": 0.06
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q002": {
+            "type": "score",
+            "score": 1.56,
+            "normalized_score": 0.52,
+            "confidence": 0.34,
+            "probabilities": {
+              "0": 0.05,
+              "1": 0.46,
+              "2": 0.37,
+              "3": 0.12
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q003": {
+            "type": "score",
+            "score": 1.59,
+            "normalized_score": 0.53,
+            "confidence": 0.29,
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.46,
+              "2": 0.31,
+              "3": 0.17
+            },
+            "reliability": null,
+            "score_probability_delta": 0.0
+          },
+          "Q004": {
+            "type": "score",
+            "score": 2.74,
+            "normalized_score": 0.9133333333333334,
+            "confidence": 0.75,
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.07,
+              "2": 0.11,
+              "3": 0.82
+            },
+            "reliability": null,
+            "score_probability_delta": -0.009999999999999787
+          },
+          "Q005": {
+            "type": "score",
+            "score": 1.47,
+            "normalized_score": 0.49,
+            "confidence": 0.42,
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.51,
+              "2": 0.34,
+              "3": 0.09
+            },
+            "reliability": null,
+            "score_probability_delta": 0.010000000000000009
+          },
+          "Q006": {
+            "type": "score",
+            "score": 2.72,
+            "normalized_score": 0.9066666666666667,
+            "confidence": 0.73,
+            "probabilities": {
+              "0": 0.0,
+              "1": 0.05,
+              "2": 0.17,
+              "3": 0.78
+            },
+            "reliability": null,
+            "score_probability_delta": -0.009999999999999787
+          }
+        },
+        "usage": {
+          "input_tokens": 4604,
+          "output_tokens": 100
+        },
+        "reliability": null,
+        "returned_model": "jev-1.14.0"
+      },
+      "elapsed_seconds": 0.1759331509999953
+    }
+  ],
+  "analysis": {
+    "api_calls_attempted": 6,
+    "api_failures": 0,
+    "native_score_answers": 36,
+    "ranking_groups": 6,
+    "unique_reference_top": 6,
+    "reference_in_top_including_ties": 6,
+    "pairwise_reference_wins": 12,
+    "pairwise_reference_ties": 0,
+    "pairwise_comparisons": 12,
+    "goal_sensitive_bridges": 6,
+    "goal_sensitive_comparisons": 6,
+    "rankings": [
+      {
+        "replica": 0,
+        "goal_vertex": "A",
+        "ranking": [
+          {
+            "candidate": "C897",
+            "method": "from_A",
+            "axis_scores": {
+              "mental_spaces": 0.6966666666666667,
+              "generic_spaces": 0.7200000000000001
+            },
+            "composite": 0.7083333333333334
+          },
+          {
+            "candidate": "C306",
+            "method": "from_C",
+            "axis_scores": {
+              "mental_spaces": 0.5633333333333334,
+              "generic_spaces": 0.6366666666666666
+            },
+            "composite": 0.6
+          },
+          {
+            "candidate": "C646",
+            "method": "from_B",
+            "axis_scores": {
+              "generic_spaces": 0.5233333333333333,
+              "mental_spaces": 0.5133333333333333
+            },
+            "composite": 0.5183333333333333
+          }
+        ],
+        "top_methods": [
+          "from_A"
+        ],
+        "reference_method": "from_A",
+        "unique_reference_top": true,
+        "reference_in_top_tie": true,
+        "reference_margin": 0.10833333333333339,
+        "axis_reference_margins": {
+          "mental_spaces": 0.1333333333333333,
+          "generic_spaces": 0.08333333333333348
+        },
+        "pairwise_reference_wins": 2,
+        "pairwise_reference_ties": 0
+      },
+      {
+        "replica": 1,
+        "goal_vertex": "A",
+        "ranking": [
+          {
+            "candidate": "C176",
+            "method": "from_A",
+            "axis_scores": {
+              "generic_spaces": 0.94,
+              "mental_spaces": 0.9266666666666666
+            },
+            "composite": 0.9333333333333333
+          },
+          {
+            "candidate": "C415",
+            "method": "from_C",
+            "axis_scores": {
+              "generic_spaces": 0.5533333333333333,
+              "mental_spaces": 0.52
+            },
+            "composite": 0.5366666666666666
+          },
+          {
+            "candidate": "C843",
+            "method": "from_B",
+            "axis_scores": {
+              "generic_spaces": 0.49,
+              "mental_spaces": 0.49333333333333335
+            },
+            "composite": 0.4916666666666667
+          }
+        ],
+        "top_methods": [
+          "from_A"
+        ],
+        "reference_method": "from_A",
+        "unique_reference_top": true,
+        "reference_in_top_tie": true,
+        "reference_margin": 0.3966666666666667,
+        "axis_reference_margins": {
+          "mental_spaces": 0.4066666666666666,
+          "generic_spaces": 0.3866666666666666
+        },
+        "pairwise_reference_wins": 2,
+        "pairwise_reference_ties": 0
+      },
+      {
+        "replica": 1,
+        "goal_vertex": "B",
+        "ranking": [
+          {
+            "candidate": "C843",
+            "method": "from_B",
+            "axis_scores": {
+              "generic_spaces": 0.7966666666666667,
+              "mental_spaces": 0.6966666666666667
+            },
+            "composite": 0.7466666666666667
+          },
+          {
+            "candidate": "C415",
+            "method": "from_C",
+            "axis_scores": {
+              "generic_spaces": 0.5833333333333334,
+              "mental_spaces": 0.59
+            },
+            "composite": 0.5866666666666667
+          },
+          {
+            "candidate": "C176",
+            "method": "from_A",
+            "axis_scores": {
+              "generic_spaces": 0.5866666666666667,
+              "mental_spaces": 0.48
+            },
+            "composite": 0.5333333333333333
+          }
+        ],
+        "top_methods": [
+          "from_B"
+        ],
+        "reference_method": "from_B",
+        "unique_reference_top": true,
+        "reference_in_top_tie": true,
+        "reference_margin": 0.16000000000000003,
+        "axis_reference_margins": {
+          "mental_spaces": 0.10666666666666669,
+          "generic_spaces": 0.21000000000000008
+        },
+        "pairwise_reference_wins": 2,
+        "pairwise_reference_ties": 0
+      },
+      {
+        "replica": 0,
+        "goal_vertex": "B",
+        "ranking": [
+          {
+            "candidate": "C646",
+            "method": "from_B",
+            "axis_scores": {
+              "generic_spaces": 0.9066666666666667,
+              "mental_spaces": 0.89
+            },
+            "composite": 0.8983333333333334
+          },
+          {
+            "candidate": "C897",
+            "method": "from_A",
+            "axis_scores": {
+              "mental_spaces": 0.45,
+              "generic_spaces": 0.51
+            },
+            "composite": 0.48
+          },
+          {
+            "candidate": "C306",
+            "method": "from_C",
+            "axis_scores": {
+              "mental_spaces": 0.39666666666666667,
+              "generic_spaces": 0.47
+            },
+            "composite": 0.43333333333333335
+          }
+        ],
+        "top_methods": [
+          "from_B"
+        ],
+        "reference_method": "from_B",
+        "unique_reference_top": true,
+        "reference_in_top_tie": true,
+        "reference_margin": 0.41833333333333345,
+        "axis_reference_margins": {
+          "mental_spaces": 0.44,
+          "generic_spaces": 0.3966666666666667
+        },
+        "pairwise_reference_wins": 2,
+        "pairwise_reference_ties": 0
+      },
+      {
+        "replica": 1,
+        "goal_vertex": "C",
+        "ranking": [
+          {
+            "candidate": "C415",
+            "method": "from_C",
+            "axis_scores": {
+              "generic_spaces": 0.8466666666666667,
+              "mental_spaces": 0.8433333333333333
+            },
+            "composite": 0.845
+          },
+          {
+            "candidate": "C843",
+            "method": "from_B",
+            "axis_scores": {
+              "generic_spaces": 0.5033333333333333,
+              "mental_spaces": 0.5
+            },
+            "composite": 0.5016666666666667
+          },
+          {
+            "candidate": "C176",
+            "method": "from_A",
+            "axis_scores": {
+              "generic_spaces": 0.5,
+              "mental_spaces": 0.48
+            },
+            "composite": 0.49
+          }
+        ],
+        "top_methods": [
+          "from_C"
+        ],
+        "reference_method": "from_C",
+        "unique_reference_top": true,
+        "reference_in_top_tie": true,
+        "reference_margin": 0.34333333333333327,
+        "axis_reference_margins": {
+          "mental_spaces": 0.34333333333333327,
+          "generic_spaces": 0.3433333333333334
+        },
+        "pairwise_reference_wins": 2,
+        "pairwise_reference_ties": 0
+      },
+      {
+        "replica": 0,
+        "goal_vertex": "C",
+        "ranking": [
+          {
+            "candidate": "C306",
+            "method": "from_C",
+            "axis_scores": {
+              "mental_spaces": 0.9133333333333334,
+              "generic_spaces": 0.9066666666666667
+            },
+            "composite": 0.9100000000000001
+          },
+          {
+            "candidate": "C646",
+            "method": "from_B",
+            "axis_scores": {
+              "generic_spaces": 0.52,
+              "mental_spaces": 0.53
+            },
+            "composite": 0.525
+          },
+          {
+            "candidate": "C897",
+            "method": "from_A",
+            "axis_scores": {
+              "mental_spaces": 0.41333333333333333,
+              "generic_spaces": 0.49
+            },
+            "composite": 0.45166666666666666
+          }
+        ],
+        "top_methods": [
+          "from_C"
+        ],
+        "reference_method": "from_C",
+        "unique_reference_top": true,
+        "reference_in_top_tie": true,
+        "reference_margin": 0.3850000000000001,
+        "axis_reference_margins": {
+          "mental_spaces": 0.3833333333333334,
+          "generic_spaces": 0.3866666666666667
+        },
+        "pairwise_reference_wins": 2,
+        "pairwise_reference_ties": 0
+      }
+    ],
+    "counterfactual_objective_changes": [
+      {
+        "replica": 0,
+        "method": "from_A",
+        "matched_objective_composite": 0.7083333333333334,
+        "other_objectives_composites": [
+          0.48,
+          0.45166666666666666
+        ],
+        "matched_above_both": true,
+        "margin": 0.2283333333333334
+      },
+      {
+        "replica": 0,
+        "method": "from_B",
+        "matched_objective_composite": 0.8983333333333334,
+        "other_objectives_composites": [
+          0.5183333333333333,
+          0.525
+        ],
+        "matched_above_both": true,
+        "margin": 0.3733333333333334
+      },
+      {
+        "replica": 0,
+        "method": "from_C",
+        "matched_objective_composite": 0.9100000000000001,
+        "other_objectives_composites": [
+          0.6,
+          0.43333333333333335
+        ],
+        "matched_above_both": true,
+        "margin": 0.31000000000000016
+      },
+      {
+        "replica": 1,
+        "method": "from_A",
+        "matched_objective_composite": 0.9333333333333333,
+        "other_objectives_composites": [
+          0.5333333333333333,
+          0.49
+        ],
+        "matched_above_both": true,
+        "margin": 0.4
+      },
+      {
+        "replica": 1,
+        "method": "from_B",
+        "matched_objective_composite": 0.7466666666666667,
+        "other_objectives_composites": [
+          0.4916666666666667,
+          0.5016666666666667
+        ],
+        "matched_above_both": true,
+        "margin": 0.245
+      },
+      {
+        "replica": 1,
+        "method": "from_C",
+        "matched_objective_composite": 0.845,
+        "other_objectives_composites": [
+          0.5366666666666666,
+          0.5866666666666667
+        ],
+        "matched_above_both": true,
+        "margin": 0.2583333333333333
+      }
+    ],
+    "usage_totals": {
+      "input_tokens": 27624,
+      "output_tokens": 600,
+      "total_tokens": null
+    }
+  }
+}
