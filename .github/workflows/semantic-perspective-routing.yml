@@ -1,0 +1,83 @@
+name: Semantic Perspective Routing — Intent Before Binding
+on:
+  push:
+    branches: ['codex/semantic-perspective-routing']
+    paths: ['experiments/semantic_perspective_routing/**', '.github/workflows/semantic-perspective-routing.yml']
+  workflow_dispatch:
+    inputs:
+      live:
+        description: Run the paid Jev evaluation using the repository secret
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: semantic-perspective-routing-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r experiments/jev_i10_maxblend_v03/requirements.txt
+      - name: Offline geometry and non-leakage tests
+        run: python -m unittest discover -s experiments/temporal_genealogy -v
+      - name: Snapshot, order, guard and pairing tests
+        run: python -m unittest discover -s experiments/temporal_genealogy_order -v
+      - name: Same-frame history, temporal direction and null-control tests
+        run: python -m unittest discover -s experiments/temporal_role_binding -v
+      - name: Matched modality and reverse-text invariants
+        run: python -m unittest discover -s experiments/temporal_direction_modalities -v
+      - name: Native Score, geometry, leakage and independent gate tests
+        run: python -m unittest discover -s experiments/native_score_fanout -v
+      - name: Matched state, rubric, typed comparison and frozen-evidence invariants
+        run: python -m unittest discover -s experiments/generic_binding_ablation -v
+      - name: Concrete witness, near-miss and identity invariants
+        run: python -m unittest discover -s experiments/concrete_role_binding -v
+      - name: Pruning closure, unchanged witness evidence and matched context tests
+        run: python -m unittest discover -s experiments/relevant_incidence_binding -v
+      - name: Reversible incidence tables, exact witness evidence and isolated ID controls
+        run: python -m unittest discover -s experiments/explicit_incidence_tables -v
+      - name: Preverified candidates, objective counterfactuals and relevance invariants
+        run: python -m unittest discover -s experiments/verified_bridge_relevance -v
+      - name: Partial orders, certified equivalences, metric controls and multi-set policy
+        run: python -m unittest discover -s experiments/multi_bridge_relevance -v
+      - name: Certified class construction, frozen inputs and arithmetic baseline invariants
+        run: python -m unittest discover -s experiments/equivalence_class_relevance -v
+      - name: Intact side, matched wording, uniform coverage and native binary tests
+        run: python -m unittest discover -s experiments/intact_side_diagnostic -v
+      - name: New host shapes, certified nearby counterexamples and no coverage leakage
+        run: python -m unittest discover -s experiments/intact_side_new_figures -v
+      - name: Isolated pair, rigid rotation, bijective IDs and exact factorial invariants
+        run: python -m unittest discover -s experiments/right_pair_orientation_ids -v
+      - name: Color-only ink geometry, no answer hues and identity-legend invariants
+        run: python -m unittest discover -s experiments/right_pair_color_binding -v
+      - name: Semantic routing, set-valued choices, exact dispatch and no-leakage tests
+        run: python -m unittest discover -s experiments/semantic_perspective_routing -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: NMerovingio/viewer/package-lock.json
+      - name: Build existing viewer
+        working-directory: NMerovingio/viewer
+        run: npm ci && npm run build
+      - name: Generate offline baseline artifacts
+        run: python experiments/semantic_perspective_routing/benchmark_routing.py --out output_semantic_perspective_routing
+      - name: Evaluate Jev through Actions only
+        if: (github.event_name == 'workflow_dispatch' && inputs.live) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[jev-live]'))
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: python experiments/semantic_perspective_routing/benchmark_routing.py --out output_semantic_perspective_routing --live
+      - name: Reconstruct frozen request, native Choice and exact code dispatch
+        run: python experiments/semantic_perspective_routing/audit_routing.py output_semantic_perspective_routing
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: merovingio-semantic-perspective-routing
+          path: output_semantic_perspective_routing/
+          retention-days: 30

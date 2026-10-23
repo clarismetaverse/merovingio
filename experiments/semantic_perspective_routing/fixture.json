@@ -1,0 +1,663 @@
+{
+  "payload": {
+    "model": "jev-1.14.0",
+    "state": {
+      "workspace": {
+        "scope": "One triangular host; prospective subdivisions may be explored by a separate code component.",
+        "mental_space_kinds": [
+          "original host",
+          "potential subregions",
+          "material carrier and its participations"
+        ]
+      },
+      "perspectives": {
+        "F364": {
+          "title": "Corrispondenza di forma e dimensioni",
+          "description": "Cercare due regioni congruenti: sovrapponibili con traslazioni, rotazioni o riflessioni, senza deformazioni o cambi di scala. La sola adiacenza non basta."
+        },
+        "F124": {
+          "title": "Confronto fra due triangoli sul carrier comune",
+          "description": "Confrontare due parti triangolari adiacenti organizzandole attorno al segmento materiale che condividono. Non richiede uguaglianza di forma o dimensioni."
+        },
+        "F553": {
+          "title": "Identità dello stesso carrier in ruoli diversi",
+          "description": "Seguire lo stesso oggetto materiale nei diversi impieghi: bordo di ciascuna regione e separazione interna della figura intera. Il tema è la relazione fra parte, tutto e identità del carrier."
+        }
+      },
+      "intents": {
+        "I976": "Cerchiamo due parti sovrapponibili senza deformazioni, anche capovolgendone una. Vorrei confrontarne forma e dimensioni.",
+        "I487": "Voglio mettere a confronto due pezzi triangolari adiacenti usando il tratto che hanno in comune, senza chiedere che siano uguali.",
+        "I713": "Vorrei capire meglio questa figura, ma non so ancora cosa confrontare.",
+        "I937": "Mi interessa seguire lo stesso oggetto quando fa da bordo di ciascuna parte e contemporaneamente da separazione dell’intera figura.",
+        "I813": "Calcolami l’area del triangolo e dammi un numero.",
+        "I179": "Vorrei sia leggere insieme le due parti triangolari sul tratto comune, sia seguire i diversi impieghi di quello stesso tratto nel tutto."
+      },
+      "policy": "Interpret each referenced user request independently. Select the smallest set of semantic perspectives covering its explicitly requested interests. Several perspectives may be useful together. Do not decide geometric feasibility: another component binds objects and checks constraints. For an unsupported task choose none; for missing focus choose clarification or retain every perspective for open exploration."
+    },
+    "questions": {
+      "Q001": {
+        "type": "choice",
+        "instructions": {
+          "intent_ref": "I976",
+          "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+        },
+        "criteria": {
+          "K960": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F364"
+            ]
+          },
+          "K782": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F364"
+            ]
+          },
+          "K516": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553",
+              "F364"
+            ]
+          },
+          "K353": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553",
+              "F364"
+            ]
+          },
+          "K269": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124"
+            ]
+          },
+          "K886": {
+            "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+          },
+          "K495": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553"
+            ]
+          },
+          "K777": {
+            "action": "None of the supplied perspectives addresses this request."
+          },
+          "K709": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553"
+            ]
+          }
+        }
+      },
+      "Q002": {
+        "type": "choice",
+        "instructions": {
+          "intent_ref": "I487",
+          "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+        },
+        "criteria": {
+          "K162": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553"
+            ]
+          },
+          "K278": {
+            "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+          },
+          "K613": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553"
+            ]
+          },
+          "K488": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124"
+            ]
+          },
+          "K678": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F364"
+            ]
+          },
+          "K938": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553",
+              "F364"
+            ]
+          },
+          "K676": {
+            "action": "None of the supplied perspectives addresses this request."
+          },
+          "K387": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553",
+              "F364"
+            ]
+          },
+          "K985": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F364"
+            ]
+          }
+        }
+      },
+      "Q003": {
+        "type": "choice",
+        "instructions": {
+          "intent_ref": "I713",
+          "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+        },
+        "criteria": {
+          "K108": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F364"
+            ]
+          },
+          "K509": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124"
+            ]
+          },
+          "K492": {
+            "action": "None of the supplied perspectives addresses this request."
+          },
+          "K726": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F364"
+            ]
+          },
+          "K826": {
+            "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+          },
+          "K868": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553",
+              "F364"
+            ]
+          },
+          "K543": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553"
+            ]
+          },
+          "K720": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553"
+            ]
+          },
+          "K992": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553",
+              "F364"
+            ]
+          }
+        }
+      },
+      "Q004": {
+        "type": "choice",
+        "instructions": {
+          "intent_ref": "I937",
+          "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+        },
+        "criteria": {
+          "K653": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553"
+            ]
+          },
+          "K720": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F364"
+            ]
+          },
+          "K499": {
+            "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+          },
+          "K580": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553",
+              "F364"
+            ]
+          },
+          "K146": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F364"
+            ]
+          },
+          "K878": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124"
+            ]
+          },
+          "K469": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553"
+            ]
+          },
+          "K402": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553",
+              "F364"
+            ]
+          },
+          "K993": {
+            "action": "None of the supplied perspectives addresses this request."
+          }
+        }
+      },
+      "Q005": {
+        "type": "choice",
+        "instructions": {
+          "intent_ref": "I813",
+          "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+        },
+        "criteria": {
+          "K513": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F364"
+            ]
+          },
+          "K720": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553",
+              "F364"
+            ]
+          },
+          "K582": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124"
+            ]
+          },
+          "K197": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553"
+            ]
+          },
+          "K452": {
+            "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+          },
+          "K328": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553"
+            ]
+          },
+          "K672": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553",
+              "F364"
+            ]
+          },
+          "K298": {
+            "action": "None of the supplied perspectives addresses this request."
+          },
+          "K941": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F364"
+            ]
+          }
+        }
+      },
+      "Q006": {
+        "type": "choice",
+        "instructions": {
+          "intent_ref": "I179",
+          "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+        },
+        "criteria": {
+          "K566": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553",
+              "F364"
+            ]
+          },
+          "K941": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553",
+              "F364"
+            ]
+          },
+          "K974": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F364"
+            ]
+          },
+          "K386": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F364"
+            ]
+          },
+          "K415": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F553"
+            ]
+          },
+          "K165": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124",
+              "F553"
+            ]
+          },
+          "K847": {
+            "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+          },
+          "K752": {
+            "action": "Explore exactly this set of perspectives; no priority within this set.",
+            "perspective_refs": [
+              "F124"
+            ]
+          },
+          "K248": {
+            "action": "None of the supplied perspectives addresses this request."
+          }
+        }
+      }
+    }
+  },
+  "observer": {
+    "frame_aliases": {
+      "congruence": "F364",
+      "triangles": "F124",
+      "polyrole": "F553"
+    },
+    "question_metadata": {
+      "Q001": {
+        "case": "unavailable_but_relevant",
+        "intent_ref": "I976",
+        "option_mapping": {
+          "K960": [
+            "congruence"
+          ],
+          "K782": [
+            "congruence",
+            "triangles"
+          ],
+          "K516": [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ],
+          "K353": [
+            "congruence",
+            "polyrole"
+          ],
+          "K269": [
+            "triangles"
+          ],
+          "K886": "clarify",
+          "K495": [
+            "polyrole",
+            "triangles"
+          ],
+          "K777": [],
+          "K709": [
+            "polyrole"
+          ]
+        },
+        "acceptable": [
+          [
+            "congruence"
+          ]
+        ],
+        "annotation_reason": "Semantic relevance survives a later failure to instantiate congruence in this finite construction catalog."
+      },
+      "Q002": {
+        "case": "paired_parts",
+        "intent_ref": "I487",
+        "option_mapping": {
+          "K162": [
+            "polyrole"
+          ],
+          "K278": "clarify",
+          "K613": [
+            "polyrole",
+            "triangles"
+          ],
+          "K488": [
+            "triangles"
+          ],
+          "K678": [
+            "congruence",
+            "triangles"
+          ],
+          "K938": [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ],
+          "K676": [],
+          "K387": [
+            "congruence",
+            "polyrole"
+          ],
+          "K985": [
+            "congruence"
+          ]
+        },
+        "acceptable": [
+          [
+            "triangles"
+          ]
+        ],
+        "annotation_reason": "Focus on organizing adjacent triangular parts, not tracking the part/whole roles."
+      },
+      "Q003": {
+        "case": "underspecified",
+        "intent_ref": "I713",
+        "option_mapping": {
+          "K108": [
+            "congruence",
+            "triangles"
+          ],
+          "K509": [
+            "triangles"
+          ],
+          "K492": [],
+          "K726": [
+            "congruence"
+          ],
+          "K826": "clarify",
+          "K868": [
+            "congruence",
+            "polyrole"
+          ],
+          "K543": [
+            "polyrole",
+            "triangles"
+          ],
+          "K720": [
+            "polyrole"
+          ],
+          "K992": [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ]
+        },
+        "acceptable": [
+          "clarify",
+          [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ]
+        ],
+        "annotation_reason": "Clarify the intent or keep all perspectives open. No unique reference; probability splitting alone is not simultaneous relevance."
+      },
+      "Q004": {
+        "case": "object_identity",
+        "intent_ref": "I937",
+        "option_mapping": {
+          "K653": [
+            "polyrole"
+          ],
+          "K720": [
+            "congruence",
+            "triangles"
+          ],
+          "K499": "clarify",
+          "K580": [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ],
+          "K146": [
+            "congruence"
+          ],
+          "K878": [
+            "triangles"
+          ],
+          "K469": [
+            "polyrole",
+            "triangles"
+          ],
+          "K402": [
+            "congruence",
+            "polyrole"
+          ],
+          "K993": []
+        },
+        "acceptable": [
+          [
+            "polyrole"
+          ]
+        ],
+        "annotation_reason": "Focus on the material identity across boundary and partition roles."
+      },
+      "Q005": {
+        "case": "out_of_catalog",
+        "intent_ref": "I813",
+        "option_mapping": {
+          "K513": [
+            "congruence"
+          ],
+          "K720": [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ],
+          "K582": [
+            "triangles"
+          ],
+          "K197": [
+            "polyrole",
+            "triangles"
+          ],
+          "K452": "clarify",
+          "K328": [
+            "polyrole"
+          ],
+          "K672": [
+            "congruence",
+            "polyrole"
+          ],
+          "K298": [],
+          "K941": [
+            "congruence",
+            "triangles"
+          ]
+        },
+        "acceptable": [
+          []
+        ],
+        "annotation_reason": "A numerical area computation is outside all three supplied interpretive frames; none is not geometric impossibility."
+      },
+      "Q006": {
+        "case": "two_perspectives",
+        "intent_ref": "I179",
+        "option_mapping": {
+          "K566": [
+            "congruence",
+            "polyrole"
+          ],
+          "K941": [
+            "congruence",
+            "polyrole",
+            "triangles"
+          ],
+          "K974": [
+            "congruence",
+            "triangles"
+          ],
+          "K386": [
+            "congruence"
+          ],
+          "K415": [
+            "polyrole"
+          ],
+          "K165": [
+            "polyrole",
+            "triangles"
+          ],
+          "K847": "clarify",
+          "K752": [
+            "triangles"
+          ],
+          "K248": []
+        },
+        "acceptable": [
+          [
+            "polyrole",
+            "triangles"
+          ]
+        ],
+        "annotation_reason": "Both perspectives explicitly requested; do not force a single frame."
+      }
+    }
+  }
+}
