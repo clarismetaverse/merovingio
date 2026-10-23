@@ -1,0 +1,125 @@
+{
+  "seed": 2026102306,
+  "source_request_sha256": "14ce5598491e826f97e436135e487f2818cbbcd7a3dbc5a8a8bb33e5756d1a14",
+  "id_bijection": {
+    "T": "B",
+    "A": "X",
+    "S": "E",
+    "N": "U",
+    "R": "Q",
+    "M": "W",
+    "Z": "Y",
+    "C914": "C675",
+    "C850": "C113",
+    "H176": "H631",
+    "H161": "H503",
+    "S_C914": "S_C675",
+    "image_C914": "image_C675",
+    "R_C914_1": "R_C675_1",
+    "R_C914_2": "R_C675_2",
+    "S_C850": "S_C113",
+    "image_C850": "image_C113",
+    "R_C850_1": "R_C113_1",
+    "R_C850_2": "R_C113_2",
+    "fan_T": "fan_B",
+    "side_T": "side_B",
+    "fan_A": "fan_X",
+    "side_A": "side_X",
+    "fan_S": "fan_E",
+    "side_S": "side_E"
+  },
+  "cells": {
+    "original": {
+      "asset_audit": [
+        {
+          "asset": "image_C914",
+          "file": "images/original/image_C914.png",
+          "sha256": "aba4588734cd0b8bfd66332fd3019fbfafdeaa9e3286c64faa676f48edf17f48"
+        },
+        {
+          "asset": "image_C850",
+          "file": "images/original/image_C850.png",
+          "sha256": "1d2009b87702cbe4f586e970ed2bda62bd0667245d823beee99420fd841e8b12"
+        },
+        {
+          "asset": "initial",
+          "file": "images/original/initial.png",
+          "sha256": "f1c2c8719c91c6431e5c68b82335e90c181f62c4bf55272e75af4a68a77fbf7c"
+        }
+      ],
+      "geometry_sha256": {
+        "B_to_near_C": "91a3061415065e0103208dfa9ae61b17a0dba141f3b0ac99ea6a8afd7e15b176",
+        "C_to_near_B": "a0c5e1fd4293e05761461304dc658d8520a6ca30390eff18f36689a2e39ac7ac"
+      }
+    },
+    "orientation_only": {
+      "asset_audit": [
+        {
+          "asset": "image_C914",
+          "file": "images/orientation_only/image_C914.png",
+          "sha256": "e49809224cbd8e3635654006e960b18ca11013fb58b64542febae3380c14dba8"
+        },
+        {
+          "asset": "image_C850",
+          "file": "images/orientation_only/image_C850.png",
+          "sha256": "2e0d6a60c44f34f25db0111588d85a9bc4dd8d3d3be7bf209365ea2c40b63e57"
+        },
+        {
+          "asset": "initial",
+          "file": "images/orientation_only/initial.png",
+          "sha256": "d10c8a27245061ab199024b18d477e6e529817718de150d34752c4dc16b04020"
+        }
+      ],
+      "geometry_sha256": {
+        "B_to_near_C": "41cb713126d7e9cfdf28f151d1fa82ef93627672f6cedf730e12c2e939b34c5f",
+        "C_to_near_B": "71a1b870bce3d710a7cb3a5961487bb40af772dbee8584de76b0fd087ee127ae"
+      }
+    },
+    "ids_only": {
+      "asset_audit": [
+        {
+          "asset": "image_C675",
+          "file": "images/ids_only/image_C675.png",
+          "sha256": "a424b4a17738edf12832f55f9c6e6760132ef6b7d16190af4164115ea643404e"
+        },
+        {
+          "asset": "image_C113",
+          "file": "images/ids_only/image_C113.png",
+          "sha256": "b3187d10487eefbfdb878eb1f99608a0538083b030049f6d4870211c40d4659f"
+        },
+        {
+          "asset": "initial",
+          "file": "images/ids_only/initial.png",
+          "sha256": "94f9887b6f7e947d263c97b112760d59249562aa1ece1b9e4b24b7279a0b68a9"
+        }
+      ],
+      "geometry_sha256": {
+        "B_to_near_C": "91a3061415065e0103208dfa9ae61b17a0dba141f3b0ac99ea6a8afd7e15b176",
+        "C_to_near_B": "a0c5e1fd4293e05761461304dc658d8520a6ca30390eff18f36689a2e39ac7ac"
+      }
+    },
+    "orientation_and_ids": {
+      "asset_audit": [
+        {
+          "asset": "image_C675",
+          "file": "images/orientation_and_ids/image_C675.png",
+          "sha256": "065e1b8042b490d59ff82c9a3b04a736bb5afcb7a9372321d1c245410eb35b46"
+        },
+        {
+          "asset": "image_C113",
+          "file": "images/orientation_and_ids/image_C113.png",
+          "sha256": "0e36a559cfc69756d0f97cef3f3f1dc478bd0eb78ea5b18c1c7b27d56e7e512d"
+        },
+        {
+          "asset": "initial",
+          "file": "images/orientation_and_ids/initial.png",
+          "sha256": "fdff7db6da0838036ada56e2960025c419d6fe25d60370751761b1c849031443"
+        }
+      ],
+      "geometry_sha256": {
+        "B_to_near_C": "41cb713126d7e9cfdf28f151d1fa82ef93627672f6cedf730e12c2e939b34c5f",
+        "C_to_near_B": "71a1b870bce3d710a7cb3a5961487bb40af772dbee8584de76b0fd087ee127ae"
+      }
+    }
+  }
+}
