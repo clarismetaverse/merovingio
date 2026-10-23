@@ -252,7 +252,7 @@ def simulate(condition="coupled",mode="isosceles",seed=0,budget=8):
         chosen.add(choice)
         target="SIDE" if focus=="ANGLE" else "ANGLE"
         reading={"id":"READ:"+str(tick),"from":focus,"to":target,
-                 "new_opposition_edge":choice,"carrier_source_event":ledger.get(choice,[]),
+                 "new_opposition_edge":selected,"carrier_source_event":ledger.get(choice,[]),
                  "epistemic_status":"structural_role_rebase"}
         new_generics=[]
         for previous in history:
