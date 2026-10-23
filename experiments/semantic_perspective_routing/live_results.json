@@ -1,0 +1,3365 @@
+{
+  "experiment": "Semantic perspective routing v1",
+  "model": "jev-1.14.0",
+  "status": "completed",
+  "run_id": "40003906109",
+  "source_commit": "3406ed826fa3bf9cd0a28acb437d02dee8d5d13c",
+  "parent_commit": "6854789f4bf92974b9411c6a41c8340c82be9ea2",
+  "limits": [
+    "One paid call, six native Choice questions. Each option is a SET of frames, including all subsets, none, and clarification. No Score, composite, repair calls or retries.",
+    "Jev sees informal Italian intents and a semantic catalog, not bridge IDs, coordinates, bindings, geometric availability or author annotations. Text only intentionally isolates routing; images have not been tested here.",
+    "Two frames refer to historical LOCAL contracts; congruence is an existing grammar proposal, not another historical GS. The catalog is three perspectives, not a Euclid corpus.",
+    "The same workspace is used for all six intents. Code executes only selected perspectives over three fixed prospective cuts. It checks historical local contracts and triangle SSS numerically; no new open-ended construction or formal theorem proof.",
+    "Author-authored synthetic intents and predeclared acceptable sets are a smoke test, not independent human validation, held-out paraphrase generalization or universal relevance truth.",
+    "The ambiguous intent has two acceptable actions (clarify or retain all). Multiple useful perspectives are encoded as a set option rather than selecting a winner from mutually exclusive single frames.",
+    "Baselines are a frozen exact-token-overlap heuristic and explore-all. Dispatch/check counts are deterministic work units, not measured latency, monetary savings or proof-search performance. Baselines make no paid calls.",
+    "A selected relevant frame can have no certified binding in the finite cut catalog. Report that separately from semantic routing errors. Code never manufactures a binding from a model choice.",
+    "All intents share one state/request and are correlated. No causal comparison with prior geometry tests, calibrated probabilities, autonomous discovery, visual comprehension or internal sequential reasoning is established.",
+    "Native probabilities/confidence/usage are retained; absent reliability is null. No confidence gate or threshold tuned after observing answers. Clarification/none are explicit returned options."
+  ],
+  "prepared": {
+    "payload": {
+      "model": "jev-1.14.0",
+      "state": {
+        "workspace": {
+          "scope": "One triangular host; prospective subdivisions may be explored by a separate code component.",
+          "mental_space_kinds": [
+            "original host",
+            "potential subregions",
+            "material carrier and its participations"
+          ]
+        },
+        "perspectives": {
+          "F364": {
+            "title": "Corrispondenza di forma e dimensioni",
+            "description": "Cercare due regioni congruenti: sovrapponibili con traslazioni, rotazioni o riflessioni, senza deformazioni o cambi di scala. La sola adiacenza non basta."
+          },
+          "F124": {
+            "title": "Confronto fra due triangoli sul carrier comune",
+            "description": "Confrontare due parti triangolari adiacenti organizzandole attorno al segmento materiale che condividono. Non richiede uguaglianza di forma o dimensioni."
+          },
+          "F553": {
+            "title": "Identità dello stesso carrier in ruoli diversi",
+            "description": "Seguire lo stesso oggetto materiale nei diversi impieghi: bordo di ciascuna regione e separazione interna della figura intera. Il tema è la relazione fra parte, tutto e identità del carrier."
+          }
+        },
+        "intents": {
+          "I976": "Cerchiamo due parti sovrapponibili senza deformazioni, anche capovolgendone una. Vorrei confrontarne forma e dimensioni.",
+          "I487": "Voglio mettere a confronto due pezzi triangolari adiacenti usando il tratto che hanno in comune, senza chiedere che siano uguali.",
+          "I713": "Vorrei capire meglio questa figura, ma non so ancora cosa confrontare.",
+          "I937": "Mi interessa seguire lo stesso oggetto quando fa da bordo di ciascuna parte e contemporaneamente da separazione dell’intera figura.",
+          "I813": "Calcolami l’area del triangolo e dammi un numero.",
+          "I179": "Vorrei sia leggere insieme le due parti triangolari sul tratto comune, sia seguire i diversi impieghi di quello stesso tratto nel tutto."
+        },
+        "policy": "Interpret each referenced user request independently. Select the smallest set of semantic perspectives covering its explicitly requested interests. Several perspectives may be useful together. Do not decide geometric feasibility: another component binds objects and checks constraints. For an unsupported task choose none; for missing focus choose clarification or retain every perspective for open exploration."
+      },
+      "questions": {
+        "Q001": {
+          "type": "choice",
+          "instructions": {
+            "intent_ref": "I976",
+            "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+          },
+          "criteria": {
+            "K960": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F364"
+              ]
+            },
+            "K782": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F364"
+              ]
+            },
+            "K516": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553",
+                "F364"
+              ]
+            },
+            "K353": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553",
+                "F364"
+              ]
+            },
+            "K269": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124"
+              ]
+            },
+            "K886": {
+              "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+            },
+            "K495": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553"
+              ]
+            },
+            "K777": {
+              "action": "None of the supplied perspectives addresses this request."
+            },
+            "K709": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553"
+              ]
+            }
+          }
+        },
+        "Q002": {
+          "type": "choice",
+          "instructions": {
+            "intent_ref": "I487",
+            "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+          },
+          "criteria": {
+            "K162": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553"
+              ]
+            },
+            "K278": {
+              "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+            },
+            "K613": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553"
+              ]
+            },
+            "K488": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124"
+              ]
+            },
+            "K678": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F364"
+              ]
+            },
+            "K938": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553",
+                "F364"
+              ]
+            },
+            "K676": {
+              "action": "None of the supplied perspectives addresses this request."
+            },
+            "K387": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553",
+                "F364"
+              ]
+            },
+            "K985": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F364"
+              ]
+            }
+          }
+        },
+        "Q003": {
+          "type": "choice",
+          "instructions": {
+            "intent_ref": "I713",
+            "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+          },
+          "criteria": {
+            "K108": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F364"
+              ]
+            },
+            "K509": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124"
+              ]
+            },
+            "K492": {
+              "action": "None of the supplied perspectives addresses this request."
+            },
+            "K726": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F364"
+              ]
+            },
+            "K826": {
+              "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+            },
+            "K868": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553",
+                "F364"
+              ]
+            },
+            "K543": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553"
+              ]
+            },
+            "K720": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553"
+              ]
+            },
+            "K992": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553",
+                "F364"
+              ]
+            }
+          }
+        },
+        "Q004": {
+          "type": "choice",
+          "instructions": {
+            "intent_ref": "I937",
+            "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+          },
+          "criteria": {
+            "K653": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553"
+              ]
+            },
+            "K720": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F364"
+              ]
+            },
+            "K499": {
+              "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+            },
+            "K580": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553",
+                "F364"
+              ]
+            },
+            "K146": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F364"
+              ]
+            },
+            "K878": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124"
+              ]
+            },
+            "K469": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553"
+              ]
+            },
+            "K402": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553",
+                "F364"
+              ]
+            },
+            "K993": {
+              "action": "None of the supplied perspectives addresses this request."
+            }
+          }
+        },
+        "Q005": {
+          "type": "choice",
+          "instructions": {
+            "intent_ref": "I813",
+            "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+          },
+          "criteria": {
+            "K513": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F364"
+              ]
+            },
+            "K720": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553",
+                "F364"
+              ]
+            },
+            "K582": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124"
+              ]
+            },
+            "K197": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553"
+              ]
+            },
+            "K452": {
+              "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+            },
+            "K328": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553"
+              ]
+            },
+            "K672": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553",
+                "F364"
+              ]
+            },
+            "K298": {
+              "action": "None of the supplied perspectives addresses this request."
+            },
+            "K941": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F364"
+              ]
+            }
+          }
+        },
+        "Q006": {
+          "type": "choice",
+          "instructions": {
+            "intent_ref": "I179",
+            "question": "Which perspective set or routing action best addresses this user intent? Use the catalog and policy; availability is not part of this decision."
+          },
+          "criteria": {
+            "K566": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553",
+                "F364"
+              ]
+            },
+            "K941": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553",
+                "F364"
+              ]
+            },
+            "K974": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F364"
+              ]
+            },
+            "K386": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F364"
+              ]
+            },
+            "K415": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F553"
+              ]
+            },
+            "K165": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124",
+                "F553"
+              ]
+            },
+            "K847": {
+              "action": "Ask which relationship the user wants to explore; do not select a frame yet."
+            },
+            "K752": {
+              "action": "Explore exactly this set of perspectives; no priority within this set.",
+              "perspective_refs": [
+                "F124"
+              ]
+            },
+            "K248": {
+              "action": "None of the supplied perspectives addresses this request."
+            }
+          }
+        }
+      }
+    },
+    "observer": {
+      "frame_aliases": {
+        "congruence": "F364",
+        "triangles": "F124",
+        "polyrole": "F553"
+      },
+      "question_metadata": {
+        "Q001": {
+          "case": "unavailable_but_relevant",
+          "intent_ref": "I976",
+          "option_mapping": {
+            "K960": [
+              "congruence"
+            ],
+            "K782": [
+              "congruence",
+              "triangles"
+            ],
+            "K516": [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ],
+            "K353": [
+              "congruence",
+              "polyrole"
+            ],
+            "K269": [
+              "triangles"
+            ],
+            "K886": "clarify",
+            "K495": [
+              "polyrole",
+              "triangles"
+            ],
+            "K777": [],
+            "K709": [
+              "polyrole"
+            ]
+          },
+          "acceptable": [
+            [
+              "congruence"
+            ]
+          ],
+          "annotation_reason": "Semantic relevance survives a later failure to instantiate congruence in this finite construction catalog."
+        },
+        "Q002": {
+          "case": "paired_parts",
+          "intent_ref": "I487",
+          "option_mapping": {
+            "K162": [
+              "polyrole"
+            ],
+            "K278": "clarify",
+            "K613": [
+              "polyrole",
+              "triangles"
+            ],
+            "K488": [
+              "triangles"
+            ],
+            "K678": [
+              "congruence",
+              "triangles"
+            ],
+            "K938": [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ],
+            "K676": [],
+            "K387": [
+              "congruence",
+              "polyrole"
+            ],
+            "K985": [
+              "congruence"
+            ]
+          },
+          "acceptable": [
+            [
+              "triangles"
+            ]
+          ],
+          "annotation_reason": "Focus on organizing adjacent triangular parts, not tracking the part/whole roles."
+        },
+        "Q003": {
+          "case": "underspecified",
+          "intent_ref": "I713",
+          "option_mapping": {
+            "K108": [
+              "congruence",
+              "triangles"
+            ],
+            "K509": [
+              "triangles"
+            ],
+            "K492": [],
+            "K726": [
+              "congruence"
+            ],
+            "K826": "clarify",
+            "K868": [
+              "congruence",
+              "polyrole"
+            ],
+            "K543": [
+              "polyrole",
+              "triangles"
+            ],
+            "K720": [
+              "polyrole"
+            ],
+            "K992": [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ]
+          },
+          "acceptable": [
+            "clarify",
+            [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ]
+          ],
+          "annotation_reason": "Clarify the intent or keep all perspectives open. No unique reference; probability splitting alone is not simultaneous relevance."
+        },
+        "Q004": {
+          "case": "object_identity",
+          "intent_ref": "I937",
+          "option_mapping": {
+            "K653": [
+              "polyrole"
+            ],
+            "K720": [
+              "congruence",
+              "triangles"
+            ],
+            "K499": "clarify",
+            "K580": [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ],
+            "K146": [
+              "congruence"
+            ],
+            "K878": [
+              "triangles"
+            ],
+            "K469": [
+              "polyrole",
+              "triangles"
+            ],
+            "K402": [
+              "congruence",
+              "polyrole"
+            ],
+            "K993": []
+          },
+          "acceptable": [
+            [
+              "polyrole"
+            ]
+          ],
+          "annotation_reason": "Focus on the material identity across boundary and partition roles."
+        },
+        "Q005": {
+          "case": "out_of_catalog",
+          "intent_ref": "I813",
+          "option_mapping": {
+            "K513": [
+              "congruence"
+            ],
+            "K720": [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ],
+            "K582": [
+              "triangles"
+            ],
+            "K197": [
+              "polyrole",
+              "triangles"
+            ],
+            "K452": "clarify",
+            "K328": [
+              "polyrole"
+            ],
+            "K672": [
+              "congruence",
+              "polyrole"
+            ],
+            "K298": [],
+            "K941": [
+              "congruence",
+              "triangles"
+            ]
+          },
+          "acceptable": [
+            []
+          ],
+          "annotation_reason": "A numerical area computation is outside all three supplied interpretive frames; none is not geometric impossibility."
+        },
+        "Q006": {
+          "case": "two_perspectives",
+          "intent_ref": "I179",
+          "option_mapping": {
+            "K566": [
+              "congruence",
+              "polyrole"
+            ],
+            "K941": [
+              "congruence",
+              "polyrole",
+              "triangles"
+            ],
+            "K974": [
+              "congruence",
+              "triangles"
+            ],
+            "K386": [
+              "congruence"
+            ],
+            "K415": [
+              "polyrole"
+            ],
+            "K165": [
+              "polyrole",
+              "triangles"
+            ],
+            "K847": "clarify",
+            "K752": [
+              "triangles"
+            ],
+            "K248": []
+          },
+          "acceptable": [
+            [
+              "polyrole",
+              "triangles"
+            ]
+          ],
+          "annotation_reason": "Both perspectives explicitly requested; do not force a single frame."
+        }
+      }
+    }
+  },
+  "request_sha256": "a96fca2f30a83cc9e9ccdd348ee62e3f255e617571467b133c2cc9a269ddafb4",
+  "fixture_sha256": "6bdc966db6770fa4ec0e1c3147b368ec6ee3e5b3d3d76af16f9cbe40830133c3",
+  "catalog_provenance": {
+    "historical_memory_sha256": "aae636a0c76f5e1aec1ccd9299573dfa67d7627c2b2702c0e2b63faf3478c950",
+    "frames": {
+      "triangles": {
+        "title": "Confronto fra due triangoli sul carrier comune",
+        "description": "Confrontare due parti triangolari adiacenti organizzandole attorno al segmento materiale che condividono. Non richiede uguaglianza di forma o dimensioni.",
+        "source_kind": "historical_local_contract",
+        "source": "GS_HIST_DOUBLE_TRIANGLE"
+      },
+      "polyrole": {
+        "title": "Identità dello stesso carrier in ruoli diversi",
+        "description": "Seguire lo stesso oggetto materiale nei diversi impieghi: bordo di ciascuna regione e separazione interna della figura intera. Il tema è la relazione fra parte, tutto e identità del carrier.",
+        "source_kind": "historical_local_contract",
+        "source": "GS_HIST_MEDIAL_POLYROLE"
+      },
+      "congruence": {
+        "title": "Corrispondenza di forma e dimensioni",
+        "description": "Cercare due regioni congruenti: sovrapponibili con traslazioni, rotazioni o riflessioni, senza deformazioni o cambi di scala. La sola adiacenza non basta.",
+        "source_kind": "previous_grammar_proposal_not_historical_GS",
+        "source": "NEW_CONGRUENT_PAIR"
+      }
+    },
+    "historical_entries": [
+      {
+        "id": "GS_HIST_DOUBLE_TRIANGLE",
+        "name": "Due triangoli con carrier comune",
+        "kind": "workspace_abstraction",
+        "provenance": {
+          "file": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+          "workspace_id": "W_QUAD_AC",
+          "proposition_id": null,
+          "node_ids": [
+            "M_AC",
+            "G_TRI_ABC",
+            "G_TRI_ACD",
+            "G_QUAD_ABCD"
+          ],
+          "source_kind": "workspace_abstraction",
+          "status": "source_observed_structural_pattern"
+        },
+        "tags": [
+          "triangle",
+          "medial_carrier",
+          "shared_side",
+          "partition_two_regions",
+          "paired_triangles"
+        ],
+        "goal_tags": [
+          "shared_side",
+          "partition_two_regions",
+          "triangle"
+        ],
+        "abstract_roles": [
+          {
+            "role": "carrier",
+            "source_objects": [
+              "M_AC"
+            ],
+            "relation": "same_material_carrier"
+          },
+          {
+            "role": "region_pair",
+            "source_objects": [
+              "G_TRI_ABC",
+              "G_TRI_ACD"
+            ],
+            "relation": "both_participate_in_same_carrier"
+          }
+        ],
+        "genealogical_note": "ASTRAZIONE candidata dai ruoli SIDE del medesimo carrier AC nelle due Gestalten triangolari; non assumere congruenza.",
+        "interpretation": "candidate_generic_space_abstraction",
+        "metric_status": "not_certified_by_memory",
+        "memory_status": "retrievable_template",
+        "conservation": "preserve_source_identity_and_genealogy",
+        "source_excerpt_ids": [
+          "M_AC",
+          "G_TRI_ABC",
+          "G_TRI_ACD",
+          "G_QUAD_ABCD"
+        ]
+      },
+      {
+        "id": "GS_HIST_MEDIAL_POLYROLE",
+        "name": "Carrier condiviso fra più Gestalten",
+        "kind": "workspace_abstraction",
+        "provenance": {
+          "file": "NMerovingio/graph/examples/workspace_quadrilateral_diagonal_v0_4_1.json",
+          "workspace_id": "W_QUAD_AC",
+          "proposition_id": null,
+          "node_ids": [
+            "M_AC",
+            "G_TRANSVERSAL_AC",
+            "G_DIAGONAL_CORR",
+            "G_QUAD_ABCD"
+          ],
+          "source_kind": "workspace_abstraction",
+          "status": "source_observed_structural_pattern"
+        },
+        "tags": [
+          "medial_carrier",
+          "multi_role_carrier",
+          "co_constitution",
+          "provenance_reinterpretation"
+        ],
+        "goal_tags": [
+          "multi_role_carrier",
+          "co_constitution",
+          "role_alignment"
+        ],
+        "abstract_roles": [
+          {
+            "role": "material_identity",
+            "source_objects": [
+              "M_AC"
+            ],
+            "relation": "one_material_identity"
+          },
+          {
+            "role": "interpretive_roles",
+            "source_objects": [
+              "G_TRANSVERSAL_AC",
+              "G_DIAGONAL_CORR",
+              "G_QUAD_ABCD"
+            ],
+            "relation": "distinct_participations"
+          }
+        ],
+        "genealogical_note": "ASTRAZIONE: un singolo segmento AC ha ruoli di lato, diagonale, trasversale e ponte in Gestalten diverse.",
+        "interpretation": "candidate_generic_space_abstraction",
+        "metric_status": "not_certified_by_memory",
+        "memory_status": "retrievable_template",
+        "conservation": "preserve_source_identity_and_genealogy",
+        "source_excerpt_ids": [
+          "M_AC",
+          "G_TRANSVERSAL_AC",
+          "G_DIAGONAL_CORR",
+          "G_QUAD_ABCD"
+        ]
+      }
+    ],
+    "grammar_source": "experiments/native_score_fanout/benchmark_scores.py::schemas"
+  },
+  "workspace_inventory_observer_only": {
+    "action": "explore",
+    "check_work_units": 9,
+    "certified_bindings": [
+      {
+        "frame": "polyrole",
+        "method": "from_A"
+      },
+      {
+        "frame": "polyrole",
+        "method": "from_B"
+      },
+      {
+        "frame": "polyrole",
+        "method": "from_C"
+      },
+      {
+        "frame": "triangles",
+        "method": "from_A"
+      },
+      {
+        "frame": "triangles",
+        "method": "from_B"
+      },
+      {
+        "frame": "triangles",
+        "method": "from_C"
+      }
+    ],
+    "unavailable_frames": [
+      "congruence"
+    ],
+    "checks": [
+      {
+        "frame": "congruence",
+        "method": "from_A",
+        "valid": false,
+        "certificate": {
+          "valid": false,
+          "reason": "unequal_sorted_side_lengths",
+          "sorted_side_lengths": [
+            [
+              83.79416745812323,
+              159.45389343298518,
+              214.28571427999998
+            ],
+            [
+              115.71575505299101,
+              142.17022349302306,
+              159.45389343298518
+            ]
+          ],
+          "tolerance": 1e-06
+        }
+      },
+      {
+        "frame": "congruence",
+        "method": "from_B",
+        "valid": false,
+        "certificate": {
+          "valid": false,
+          "reason": "unequal_sorted_side_lengths",
+          "sorted_side_lengths": [
+            [
+              62.55489833511138,
+              193.68559626886505,
+              199.50992251111427
+            ],
+            [
+              79.61532515791166,
+              193.68559626886505,
+              214.28571427999998
+            ]
+          ],
+          "tolerance": 1e-06
+        }
+      },
+      {
+        "frame": "congruence",
+        "method": "from_C",
+        "valid": false,
+        "certificate": {
+          "valid": false,
+          "reason": "unequal_sorted_side_lengths",
+          "sorted_side_lengths": [
+            [
+              79.28571427999998,
+              129.4518466878353,
+              142.17022349302306
+            ],
+            [
+              129.4518466878353,
+              135.0,
+              199.50992251111427
+            ]
+          ],
+          "tolerance": 1e-06
+        }
+      },
+      {
+        "frame": "polyrole",
+        "method": "from_A",
+        "valid": true,
+        "certificate": {
+          "reasons": [],
+          "witness": {
+            "carrier": "BRIDGE",
+            "regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "host": "HOST"
+          }
+        }
+      },
+      {
+        "frame": "polyrole",
+        "method": "from_B",
+        "valid": true,
+        "certificate": {
+          "reasons": [],
+          "witness": {
+            "carrier": "BRIDGE",
+            "regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "host": "HOST"
+          }
+        }
+      },
+      {
+        "frame": "polyrole",
+        "method": "from_C",
+        "valid": true,
+        "certificate": {
+          "reasons": [],
+          "witness": {
+            "carrier": "BRIDGE",
+            "regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "host": "HOST"
+          }
+        }
+      },
+      {
+        "frame": "triangles",
+        "method": "from_A",
+        "valid": true,
+        "certificate": {
+          "reasons": [],
+          "witness": {
+            "carrier": "BRIDGE",
+            "regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "host": "HOST"
+          }
+        }
+      },
+      {
+        "frame": "triangles",
+        "method": "from_B",
+        "valid": true,
+        "certificate": {
+          "reasons": [],
+          "witness": {
+            "carrier": "BRIDGE",
+            "regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "host": "HOST"
+          }
+        }
+      },
+      {
+        "frame": "triangles",
+        "method": "from_C",
+        "valid": true,
+        "certificate": {
+          "reasons": [],
+          "witness": {
+            "carrier": "BRIDGE",
+            "regions": [
+              "REGION_0",
+              "REGION_1"
+            ],
+            "host": "HOST"
+          }
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "native_choice_answers": 6,
+    "api_calls_attempted": 1,
+    "api_failures": 0,
+    "systems": {
+      "jev": {
+        "cases": 6,
+        "acceptable": 6,
+        "check_work_units": 15,
+        "returned_binding_count": 12,
+        "unavailable_frame_selections": 1,
+        "confusion_matrix_set_valued_reference": {
+          "congruence": {
+            "congruence": 1
+          },
+          "triangles": {
+            "triangles": 1
+          },
+          "clarify OR congruence+polyrole+triangles": {
+            "clarify": 1
+          },
+          "polyrole": {
+            "polyrole": 1
+          },
+          "none": {
+            "none": 1
+          },
+          "polyrole+triangles": {
+            "polyrole+triangles": 1
+          }
+        }
+      },
+      "lexical": {
+        "cases": 6,
+        "acceptable": 4,
+        "check_work_units": 18,
+        "returned_binding_count": 15,
+        "unavailable_frame_selections": 1,
+        "confusion_matrix_set_valued_reference": {
+          "congruence": {
+            "congruence": 1
+          },
+          "triangles": {
+            "triangles": 1
+          },
+          "clarify OR congruence+polyrole+triangles": {
+            "polyrole+triangles": 1
+          },
+          "polyrole": {
+            "polyrole": 1
+          },
+          "none": {
+            "none": 1
+          },
+          "polyrole+triangles": {
+            "polyrole": 1
+          }
+        }
+      },
+      "explore_all": {
+        "cases": 6,
+        "acceptable": 1,
+        "check_work_units": 54,
+        "returned_binding_count": 36,
+        "unavailable_frame_selections": 6,
+        "confusion_matrix_set_valued_reference": {
+          "congruence": {
+            "congruence+polyrole+triangles": 1
+          },
+          "triangles": {
+            "congruence+polyrole+triangles": 1
+          },
+          "clarify OR congruence+polyrole+triangles": {
+            "congruence+polyrole+triangles": 1
+          },
+          "polyrole": {
+            "congruence+polyrole+triangles": 1
+          },
+          "none": {
+            "congruence+polyrole+triangles": 1
+          },
+          "polyrole+triangles": {
+            "congruence+polyrole+triangles": 1
+          }
+        }
+      }
+    },
+    "observations": [
+      {
+        "case": "unavailable_but_relevant",
+        "system": "lexical",
+        "selected": [
+          "congruence"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "unavailable_but_relevant",
+        "system": "explore_all",
+        "selected": [
+          "congruence",
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 9,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "unavailable_but_relevant",
+        "system": "jev",
+        "selected": [
+          "congruence"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": 1.0,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "paired_parts",
+        "system": "lexical",
+        "selected": [
+          "triangles"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "paired_parts",
+        "system": "explore_all",
+        "selected": [
+          "congruence",
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 9,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "paired_parts",
+        "system": "jev",
+        "selected": [
+          "triangles"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": 0.99,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "underspecified",
+        "system": "lexical",
+        "selected": [
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 6,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "underspecified",
+        "system": "explore_all",
+        "selected": [
+          "congruence",
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 9,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "underspecified",
+        "system": "jev",
+        "selected": "clarify",
+        "acceptable_under_author_reference": true,
+        "confidence": 0.52,
+        "execution": {
+          "action": "clarify",
+          "check_work_units": 0,
+          "certified_bindings": [],
+          "unavailable_frames": []
+        }
+      },
+      {
+        "case": "object_identity",
+        "system": "lexical",
+        "selected": [
+          "polyrole"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "object_identity",
+        "system": "explore_all",
+        "selected": [
+          "congruence",
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 9,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "object_identity",
+        "system": "jev",
+        "selected": [
+          "polyrole"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": 1.0,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "out_of_catalog",
+        "system": "lexical",
+        "selected": [],
+        "acceptable_under_author_reference": true,
+        "confidence": null,
+        "execution": {
+          "action": "none",
+          "check_work_units": 0,
+          "certified_bindings": [],
+          "unavailable_frames": [],
+          "checks": []
+        }
+      },
+      {
+        "case": "out_of_catalog",
+        "system": "explore_all",
+        "selected": [
+          "congruence",
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 9,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "out_of_catalog",
+        "system": "jev",
+        "selected": [],
+        "acceptable_under_author_reference": true,
+        "confidence": 0.99,
+        "execution": {
+          "action": "none",
+          "check_work_units": 0,
+          "certified_bindings": [],
+          "unavailable_frames": [],
+          "checks": []
+        }
+      },
+      {
+        "case": "two_perspectives",
+        "system": "lexical",
+        "selected": [
+          "polyrole"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 3,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "two_perspectives",
+        "system": "explore_all",
+        "selected": [
+          "congruence",
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": false,
+        "confidence": null,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 9,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [
+            "congruence"
+          ],
+          "checks": [
+            {
+              "frame": "congruence",
+              "method": "from_A",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    83.79416745812323,
+                    159.45389343298518,
+                    214.28571427999998
+                  ],
+                  [
+                    115.71575505299101,
+                    142.17022349302306,
+                    159.45389343298518
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_B",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    62.55489833511138,
+                    193.68559626886505,
+                    199.50992251111427
+                  ],
+                  [
+                    79.61532515791166,
+                    193.68559626886505,
+                    214.28571427999998
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "congruence",
+              "method": "from_C",
+              "valid": false,
+              "certificate": {
+                "valid": false,
+                "reason": "unequal_sorted_side_lengths",
+                "sorted_side_lengths": [
+                  [
+                    79.28571427999998,
+                    129.4518466878353,
+                    142.17022349302306
+                  ],
+                  [
+                    129.4518466878353,
+                    135.0,
+                    199.50992251111427
+                  ]
+                ],
+                "tolerance": 1e-06
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "two_perspectives",
+        "system": "jev",
+        "selected": [
+          "polyrole",
+          "triangles"
+        ],
+        "acceptable_under_author_reference": true,
+        "confidence": 1.0,
+        "execution": {
+          "action": "explore",
+          "check_work_units": 6,
+          "certified_bindings": [
+            {
+              "frame": "polyrole",
+              "method": "from_A"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B"
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B"
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C"
+            }
+          ],
+          "unavailable_frames": [],
+          "checks": [
+            {
+              "frame": "polyrole",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "polyrole",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_A",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_B",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            },
+            {
+              "frame": "triangles",
+              "method": "from_C",
+              "valid": true,
+              "certificate": {
+                "reasons": [],
+                "witness": {
+                  "carrier": "BRIDGE",
+                  "regions": [
+                    "REGION_0",
+                    "REGION_1"
+                  ],
+                  "host": "HOST"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "descriptive_delta_vs_lexical": 2,
+    "descriptive_work_units_avoided_vs_explore_all": 39,
+    "usage": {
+      "input_tokens": 3880,
+      "output_tokens": 663,
+      "total_tokens": null
+    },
+    "added_value_status": "author_reference_pilot_only_not_established"
+  },
+  "call": {
+    "response": {
+      "answers": {
+        "Q001": {
+          "type": "choice",
+          "choice": "K960",
+          "probabilities": {
+            "K960": 1.0,
+            "K782": 0.0,
+            "K516": 0.0,
+            "K353": 0.0,
+            "K269": 0.0,
+            "K886": 0.0,
+            "K495": 0.0,
+            "K777": 0.0,
+            "K709": 0.0
+          },
+          "confidence": 1.0,
+          "reliability": null
+        },
+        "Q002": {
+          "type": "choice",
+          "choice": "K488",
+          "probabilities": {
+            "K162": 0.0,
+            "K278": 0.0,
+            "K613": 0.01,
+            "K488": 0.99,
+            "K678": 0.0,
+            "K938": 0.0,
+            "K676": 0.0,
+            "K387": 0.0,
+            "K985": 0.0
+          },
+          "confidence": 0.99,
+          "reliability": null
+        },
+        "Q003": {
+          "type": "choice",
+          "choice": "K826",
+          "probabilities": {
+            "K108": 0.02,
+            "K509": 0.0,
+            "K492": 0.0,
+            "K726": 0.0,
+            "K826": 0.5700000000000001,
+            "K868": 0.0,
+            "K543": 0.0,
+            "K720": 0.0,
+            "K992": 0.41
+          },
+          "confidence": 0.52,
+          "reliability": null
+        },
+        "Q004": {
+          "type": "choice",
+          "choice": "K653",
+          "probabilities": {
+            "K653": 1.0,
+            "K720": 0.0,
+            "K499": 0.0,
+            "K580": 0.0,
+            "K146": 0.0,
+            "K878": 0.0,
+            "K469": 0.0,
+            "K402": 0.0,
+            "K993": 0.0
+          },
+          "confidence": 1.0,
+          "reliability": null
+        },
+        "Q005": {
+          "type": "choice",
+          "choice": "K298",
+          "probabilities": {
+            "K513": 0.0,
+            "K720": 0.0,
+            "K582": 0.0,
+            "K197": 0.0,
+            "K452": 0.01,
+            "K328": 0.0,
+            "K672": 0.0,
+            "K298": 0.99,
+            "K941": 0.0
+          },
+          "confidence": 0.99,
+          "reliability": null
+        },
+        "Q006": {
+          "type": "choice",
+          "choice": "K165",
+          "probabilities": {
+            "K566": 0.0,
+            "K941": 0.0,
+            "K974": 0.0,
+            "K386": 0.0,
+            "K415": 0.0,
+            "K165": 1.0,
+            "K847": 0.0,
+            "K752": 0.0,
+            "K248": 0.0
+          },
+          "confidence": 1.0,
+          "reliability": null
+        }
+      },
+      "usage": {
+        "input_tokens": 3880,
+        "output_tokens": 663,
+        "total_tokens": null
+      },
+      "reliability": null,
+      "returned_model": "jev-1.14.0"
+    },
+    "elapsed_seconds": 0.14724160299999767
+  }
+}
