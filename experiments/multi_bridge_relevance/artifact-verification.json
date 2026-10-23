@@ -1,0 +1,55 @@
+{
+  "run_id": "39940956209",
+  "source_commit": "f9ad26d332ae50e1d1ebf804ece343f965413f8b",
+  "status": "completed",
+  "audit_scope": "requests_and_native_results",
+  "requests_reconstructed": 6,
+  "native_score_answers_verified": 36,
+  "contract_checks": 36,
+  "objective_only_replicas": 2,
+  "partial_order_groups_recomputed": 6,
+  "exact_set_matches": 3,
+  "equivalent_pairs_in_band": 6,
+  "equivalent_pairs_total": 10,
+  "useful_equivalent_pairs_in_band": 5,
+  "useful_equivalent_pairs_total": 8,
+  "strict_preference_wins": 7,
+  "strict_preference_total": 8,
+  "spurious_unique_sets": 0,
+  "set_matrix": {
+    "tp": 10,
+    "fp": 2,
+    "fn": 2
+  },
+  "sensitivity": {
+    "0.05": {
+      "exact_set_matches": 2,
+      "equivalent_pairs_in_band": 4,
+      "spurious_unique_sets": 2
+    },
+    "0.1": {
+      "exact_set_matches": 3,
+      "equivalent_pairs_in_band": 6,
+      "spurious_unique_sets": 0
+    },
+    "0.15": {
+      "exact_set_matches": 4,
+      "equivalent_pairs_in_band": 10,
+      "spurious_unique_sets": 0
+    }
+  },
+  "usage_totals": {
+    "input_tokens": 31341,
+    "output_tokens": 600,
+    "total_tokens": null
+  },
+  "mean_reported_confidence": 0.46361111111111114,
+  "numeric_reliability_count": 0,
+  "max_probability_sum_deviation": 0.009999999999999898,
+  "max_native_score_expected_probability_deviation": 0.03000000000000025,
+  "recorded_request_hashes_exact": true,
+  "source_float_reconstruction_tolerance": {
+    "relative": 1e-12,
+    "absolute": 1e-12
+  }
+}

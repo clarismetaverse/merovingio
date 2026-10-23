@@ -3,6 +3,12 @@ import base64,hashlib,json,math,statistics,sys,tempfile
 from pathlib import Path
 import benchmark_multi as b
 
+def same(a,c):
+ if isinstance(a,dict):return isinstance(c,dict) and a.keys()==c.keys() and all(same(a[k],c[k]) for k in a)
+ if isinstance(a,list):return isinstance(c,list) and len(a)==len(c) and all(same(x,y) for x,y in zip(a,c))
+ if type(a) is float:return type(c) in (float,int) and math.isclose(a,c,rel_tol=1e-12,abs_tol=1e-12)
+ return type(a) is type(c) and a==c
+
 def audit(out):
  r=json.loads((out/'results.json').read_text(encoding='utf-8'));assert r['weights']==b.WEIGHTS
  assert r['set_policy']=={'delta':b.DELTA,'min_useful':b.MIN_USEFUL,'sensitivity_deltas':list(b.SENSITIVITY_DELTAS)}
@@ -15,8 +21,8 @@ def audit(out):
     payload['assets'][asset['asset']]={'type':'image','format':'png','data_base64':base64.b64encode(data).decode('ascii')}
    assert b.base.digest(payload)==call['request_sha256']
    expected,meta,audit=b.build_payload(Path(temp),call['replica'],call['goal'])
-   assert {k:v for k,v in expected.items() if k!='assets'}==call['model_input'];assert set(expected['assets'])==set(payload['assets'])
-   assert all(call[k]==v for k,v in meta.items())
+   assert same({k:v for k,v in expected.items() if k!='assets'},call['model_input']);assert set(expected['assets'])==set(payload['assets'])
+   assert all(same(call[k],v) for k,v in meta.items())
    for method in b.METHODS:
     cert=b.certificate(b.objects_for(method,call['replica']));assert len(cert['generic_space_bindings'])==2;contract_checks+=2
    neutral=json.loads(json.dumps(call['model_input']));neutral['state'].pop('active_objective')
@@ -42,7 +48,8 @@ def audit(out):
   'spurious_unique_sets':r['analysis']['spurious_unique_sets'],'set_matrix':r['analysis']['set_matrix'],'sensitivity':r['analysis']['sensitivity'],
   'usage_totals':r['analysis']['usage_totals'],'mean_reported_confidence':statistics.mean(confidence) if confidence else None,
   'numeric_reliability_count':sum(a['reliability'] is not None for a in answers),'max_probability_sum_deviation':max(prob_delta,default=None),
-  'max_native_score_expected_probability_deviation':max(score_delta,default=None)}
+  'max_native_score_expected_probability_deviation':max(score_delta,default=None),
+  'recorded_request_hashes_exact':True,'source_float_reconstruction_tolerance':{'relative':1e-12,'absolute':1e-12}}
  (out/'artifact-verification.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');return report
 
 if __name__=='__main__':print(json.dumps(audit(Path(sys.argv[1])),indent=2))

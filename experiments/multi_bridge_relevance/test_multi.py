@@ -4,6 +4,12 @@ from unittest.mock import patch
 import benchmark_multi as b
 
 class MultipleBridgeTests(unittest.TestCase):
+ def test_audit_accepts_roundoff_but_not_changed_metric_facts(self):
+  from audit_multi import same
+  self.assertTrue(same({'area':7699.999999636721},{'area':7699.9999996367205}))
+  self.assertFalse(same({'area':7700.0},{'area':7700.0001}))
+  self.assertFalse(same({'valid':True},{'valid':1}))
+
  def test_all_candidates_pass_both_material_contracts(self):
   for replica in range(2):
    for method in b.METHODS:
