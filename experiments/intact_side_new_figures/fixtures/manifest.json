@@ -1,0 +1,155 @@
+{
+  "seed": 2026102305,
+  "figures": {
+    "acute_scalene": {
+      "asset_audit": [
+        {
+          "asset": "image_C606",
+          "file": "images/acute_scalene/image_C606.png",
+          "sha256": "8d37e090c01ea8da661f484030da14394823efb2df2f66e2c848b94b6273fdb4"
+        },
+        {
+          "asset": "image_C982",
+          "file": "images/acute_scalene/image_C982.png",
+          "sha256": "74155f4458d73055712d522776c4f3fe919fa6869a35795ae091aeb9159aa6d3"
+        },
+        {
+          "asset": "image_C346",
+          "file": "images/acute_scalene/image_C346.png",
+          "sha256": "2328cc1aabd8ba07af4d50ee2d707aaabb06f88a6b1099d24effb900432d89a3"
+        },
+        {
+          "asset": "image_C280",
+          "file": "images/acute_scalene/image_C280.png",
+          "sha256": "3b4fea3d9c5e4a672345dc222c891e8bf9354e6a37047fb6a66a951894a54ab8"
+        },
+        {
+          "asset": "initial",
+          "file": "images/acute_scalene/initial.png",
+          "sha256": "d9dafa6a7bd6edc766541cacc4b9fae8778123c6a27b8df6b49c97088a7e4fc6"
+        }
+      ],
+      "objects_sha256": {
+        "A_to_near_C": "8bc7642784ac3953568c2a764f8f049d2f4a02f09d4f8aa8a91c9098f4b199f0",
+        "C_to_near_A": "397cb298aa13eaadc8b38d911f1ea976097e23548b36fc408a6e43a4b748a9c1",
+        "B_to_near_C": "6daaa7f74838c155f0baaf1b52a61241308e3594d7e8a47ccaf81b4bd868d90f",
+        "C_to_near_B": "1422a327f11b7169ebac65377b5c95eb456be841803f0b26d7f86dc6ddddc28a"
+      },
+      "candidate_mapping": {
+        "C606": "A_to_near_C",
+        "C982": "B_to_near_C",
+        "C346": "C_to_near_A",
+        "C280": "C_to_near_B"
+      },
+      "point_labels": {
+        "A": "B",
+        "B": "L",
+        "C": "M",
+        "D": "N",
+        "E": "T",
+        "F": "X",
+        "G": "F"
+      }
+    },
+    "right_scalene": {
+      "asset_audit": [
+        {
+          "asset": "image_C914",
+          "file": "images/right_scalene/image_C914.png",
+          "sha256": "aba4588734cd0b8bfd66332fd3019fbfafdeaa9e3286c64faa676f48edf17f48"
+        },
+        {
+          "asset": "image_C850",
+          "file": "images/right_scalene/image_C850.png",
+          "sha256": "1d2009b87702cbe4f586e970ed2bda62bd0667245d823beee99420fd841e8b12"
+        },
+        {
+          "asset": "image_C320",
+          "file": "images/right_scalene/image_C320.png",
+          "sha256": "73f50e7bc82399d4d381e645a57b27f6ba9123ed6e364c3a007db9c92e1eb556"
+        },
+        {
+          "asset": "image_C117",
+          "file": "images/right_scalene/image_C117.png",
+          "sha256": "5b60ee5d6c6a981e9b5b3254125ee01cac6960fcedd4ddbf5d3e6bde2d68aa73"
+        },
+        {
+          "asset": "initial",
+          "file": "images/right_scalene/initial.png",
+          "sha256": "f1c2c8719c91c6431e5c68b82335e90c181f62c4bf55272e75af4a68a77fbf7c"
+        }
+      ],
+      "objects_sha256": {
+        "A_to_near_C": "5809bd5d49ed4af7ffb20eade470765a15a75ac155c4a7bb3fd9c9fbc57bd2a8",
+        "C_to_near_A": "9c12248fa868c86f02063dec96fb49591d98d739e4bb8f41b3d1d80cd13e9164",
+        "B_to_near_C": "91a3061415065e0103208dfa9ae61b17a0dba141f3b0ac99ea6a8afd7e15b176",
+        "C_to_near_B": "a0c5e1fd4293e05761461304dc658d8520a6ca30390eff18f36689a2e39ac7ac"
+      },
+      "candidate_mapping": {
+        "C914": "B_to_near_C",
+        "C850": "C_to_near_B",
+        "C320": "C_to_near_A",
+        "C117": "A_to_near_C"
+      },
+      "point_labels": {
+        "A": "T",
+        "B": "A",
+        "C": "S",
+        "D": "N",
+        "E": "R",
+        "F": "M",
+        "G": "Z"
+      }
+    },
+    "obtuse_scalene": {
+      "asset_audit": [
+        {
+          "asset": "image_C367",
+          "file": "images/obtuse_scalene/image_C367.png",
+          "sha256": "f1713e1872eabb81d4528b800bf92abcad5d6feafdc320f3532f0774eb3c723d"
+        },
+        {
+          "asset": "image_C743",
+          "file": "images/obtuse_scalene/image_C743.png",
+          "sha256": "9433f1f0b6501775733481936644b5e2d8146130fdda763c8e25897d6ccedad2"
+        },
+        {
+          "asset": "image_C300",
+          "file": "images/obtuse_scalene/image_C300.png",
+          "sha256": "ad62f0e03e33dd6c23b97c44a24aba106d125f854c4dd366aeae6b513130e18b"
+        },
+        {
+          "asset": "image_C592",
+          "file": "images/obtuse_scalene/image_C592.png",
+          "sha256": "4979b91ed219943fc9306905d7fc78b18638fda7570c2184e83606b7442f007d"
+        },
+        {
+          "asset": "initial",
+          "file": "images/obtuse_scalene/initial.png",
+          "sha256": "c35ad90efcc0e8fcc24ff144f82e4e1c7314324b678dcc58fa894a0924191f46"
+        }
+      ],
+      "objects_sha256": {
+        "A_to_near_C": "f00ba6b62a5b37d2f1041766e0eb905ae4711051d6825a8f49c7fe248b355edb",
+        "C_to_near_A": "46ebcbe5bd37ee8b5f26fa1eadafbb8a93648032e9be66b35a9f8477e1a6339c",
+        "B_to_near_C": "4a0f8af5733d0f5c004708bd7f701a7ddc07c7ef2a43892daba6c5b77d0ea988",
+        "C_to_near_B": "864a92012412885cff76aed0b2894c83f97f05699809e87df6db27fdbd45e5a2"
+      },
+      "candidate_mapping": {
+        "C367": "A_to_near_C",
+        "C743": "C_to_near_A",
+        "C300": "C_to_near_B",
+        "C592": "B_to_near_C"
+      },
+      "point_labels": {
+        "A": "Z",
+        "B": "G",
+        "C": "N",
+        "D": "E",
+        "E": "Y",
+        "F": "M",
+        "G": "K"
+      }
+    }
+  }
+}
