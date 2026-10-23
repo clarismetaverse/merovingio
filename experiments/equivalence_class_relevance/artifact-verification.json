@@ -1,0 +1,55 @@
+{
+  "run_id": "39943364725",
+  "source_commit": "531ec29c3eaac95bfa8b175b948b93a94b7b33f5",
+  "status": "completed",
+  "audit_scope": "requests_and_native_results",
+  "requests_reconstructed": 6,
+  "native_score_answers_verified": 24,
+  "material_contract_checks": 36,
+  "isometry_partitions_rechecked": 6,
+  "objective_only_presentations_verified": 2,
+  "recorded_hashes_and_frozen_asset_bytes_exact": true,
+  "groups": 6,
+  "exact_set_matches": 4,
+  "historical_raw_exact_set_matches": 3,
+  "historical_pooled_exact_set_matches": 4,
+  "strict_class_wins": 2,
+  "strict_class_total": 4,
+  "cross_class_equivalent_in_band": 2,
+  "cross_class_equivalent_total": 2,
+  "internal_class_equality_imposed_by_code_not_a_model_metric": true,
+  "member_matrix": {
+    "tp": 10,
+    "fp": 2,
+    "fn": 2
+  },
+  "class_matrix": {
+    "tp": 7,
+    "fp": 2,
+    "fn": 1
+  },
+  "sensitivity": {
+    "0.05": {
+      "exact_set_matches": 3,
+      "cross_class_equivalent_in_band": 1
+    },
+    "0.1": {
+      "exact_set_matches": 4,
+      "cross_class_equivalent_in_band": 2
+    },
+    "0.15": {
+      "exact_set_matches": 4,
+      "cross_class_equivalent_in_band": 2
+    }
+  },
+  "usage_totals": {
+    "input_tokens": 30759,
+    "output_tokens": 408,
+    "total_tokens": null
+  },
+  "mean_reported_confidence": 0.41083333333333333,
+  "numeric_reliability_count": 0,
+  "max_probability_sum_deviation": 0.009999999999999898,
+  "max_native_score_expected_probability_deviation": 0.020000000000000018,
+  "source_scalar_reconstruction_tolerance": 1e-12
+}
