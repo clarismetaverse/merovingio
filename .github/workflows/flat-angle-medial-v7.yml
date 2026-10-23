@@ -25,8 +25,12 @@ jobs:
         run: python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v7 -p 'test_*.py' -v
       - name: Five conditions x three scenes x two attention regimes x 32 seeds
         run: python NMerovingio/experiments/gestalt_heat_v7/flat_angle.py --seeds 32 --budget 3
-      - name: Create offline viewer and empirical simulation report
-        run: python NMerovingio/experiments/gestalt_heat_v7/viewer.py
+      - name: Strict one-REBASE selection benchmark (same frozen weights)
+        run: python NMerovingio/experiments/gestalt_heat_v7/flat_angle.py --seeds 32 --budget 1 --output NMerovingio/experiments/gestalt_heat_v7/results/one_step
+      - name: Create offline viewer and comparative reports
+        run: |
+          python NMerovingio/experiments/gestalt_heat_v7/viewer.py
+          python NMerovingio/experiments/gestalt_heat_v7/compare_budgets.py
       - name: Upload traces, report, and interactive viewer
         if: always()
         uses: actions/upload-artifact@v4
