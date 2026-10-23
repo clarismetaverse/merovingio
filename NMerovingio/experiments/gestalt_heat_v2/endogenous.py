@@ -17,9 +17,10 @@ from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 
-from engine import geometry, fixture_contract
-
+import sys
 HERE=Path(__file__).resolve().parent
+sys.path.insert(0,str(HERE.parent / "gestalt_heat_v1"))
+from engine import geometry, fixture_contract
 CONDITIONS=("bottom_up","feedforward","reciprocal","reciprocal_without_opposition")
 MODES=("isosceles","scalene")
 MACROS=("angles","sides","opposition","partition","shared")
