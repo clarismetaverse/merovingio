@@ -1,0 +1,36 @@
+name: Merovingio v7 - Flat Angle Medial Regrouping
+
+on:
+  push:
+    branches:
+      - 'experiment/flat-angle-medial-regrouping-v7'
+    paths:
+      - 'NMerovingio/experiments/gestalt_heat_v7/**'
+      - '.github/workflows/flat-angle-medial-v7.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  flat-angle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Structural and epistemic unit tests
+        run: python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v7 -p 'test_*.py' -v
+      - name: Five conditions x three scenes x two attention regimes x 32 seeds
+        run: python NMerovingio/experiments/gestalt_heat_v7/flat_angle.py --seeds 32 --budget 3
+      - name: Create offline viewer and empirical simulation report
+        run: python NMerovingio/experiments/gestalt_heat_v7/viewer.py
+      - name: Upload traces, report, and interactive viewer
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-flat-angle-v7
+          path: NMerovingio/experiments/gestalt_heat_v7/results/
+          retention-days: 30
