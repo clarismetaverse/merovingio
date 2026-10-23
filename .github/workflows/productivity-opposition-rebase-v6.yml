@@ -1,0 +1,36 @@
+name: Merovingio v6 - Productivity Driven Opposition REBASE
+
+on:
+  push:
+    branches:
+      - 'experiment/productivity-driven-opposition-rebase-v6'
+    paths:
+      - 'NMerovingio/experiments/gestalt_heat_v6/**'
+      - '.github/workflows/productivity-opposition-rebase-v6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  productivity-ablation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests - graph, prospective versus actual feedback, epistemic barriers
+        run: python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v6 -p 'test_*.py' -v
+      - name: Five strategies x three geometries x two attention controls x 32 seeds
+        run: python NMerovingio/experiments/gestalt_heat_v6/productive.py --seeds 32 --budget 4
+      - name: Make standalone viewer and report
+        run: python NMerovingio/experiments/gestalt_heat_v6/viewer.py
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-productivity-driven-v6
+          path: NMerovingio/experiments/gestalt_heat_v6/results/
+          retention-days: 30
