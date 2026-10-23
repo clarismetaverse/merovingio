@@ -1,0 +1,121 @@
+{
+  "seed": 2026102309,
+  "assets": [
+    {
+      "asset": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+      "file": "images/89463bd0-70b8-d9d0-065b-c65df1fb9aeb.png",
+      "sha256": "e0938d7cd5deb78305389ab7c20751467f3e75e994799bb1e6845dd8bd3514dd"
+    },
+    {
+      "asset": "227b8354-6f34-de13-4925-2a30e350b8e4",
+      "file": "images/227b8354-6f34-de13-4925-2a30e350b8e4.png",
+      "sha256": "d9d9a6f772b080207c610dc607bf401534ebb9e8db5c588a8d5d8f713d402ab0"
+    },
+    {
+      "asset": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+      "file": "images/f69f7c29-1d3f-88b1-f970-5d8d61e71a47.png",
+      "sha256": "485f39a8ed7c43ffcfe4d13788420eb3ab2995603cfefa02e437c1d7ccd65acf"
+    },
+    {
+      "asset": "fd676003-0eaa-33bb-15f1-bb8330c6e7fa",
+      "file": "images/fd676003-0eaa-33bb-15f1-bb8330c6e7fa.png",
+      "sha256": "4ad450532088011682e1b51616cac7f0ac66c57eda5f6bf5f2e8203965c60261"
+    },
+    {
+      "asset": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+      "file": "images/0ce35f92-ec8f-6f59-55a0-ececb4273144.png",
+      "sha256": "479083aa9dbf567a516d9ded2c373960bd5b5274884e99036a86aa8b325849ef"
+    },
+    {
+      "asset": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+      "file": "images/f034afed-3ee5-c422-a8ae-d74652bcde5c.png",
+      "sha256": "991fc7a5a8b02840c9e1c8cec03ff7f39535499809d566a0893cb3a2d7d46e60"
+    },
+    {
+      "asset": "487731aa-defd-e177-6201-9afc7cc3149b",
+      "file": "images/487731aa-defd-e177-6201-9afc7cc3149b.png",
+      "sha256": "9d3e2d0e889641267c2a10050a84adeb01ff9480fc9f008339b90aaf02fdcd10"
+    }
+  ],
+  "scene_asset_refs": {
+    "current": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+    "move_A_0": "227b8354-6f34-de13-4925-2a30e350b8e4",
+    "move_A_1": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+    "move_A_2": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+    "move_B_0": "fd676003-0eaa-33bb-15f1-bb8330c6e7fa",
+    "move_B_1": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+    "move_B_2": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb",
+    "extend_A": "f034afed-3ee5-c422-a8ae-d74652bcde5c",
+    "extend_B": "487731aa-defd-e177-6201-9afc7cc3149b",
+    "shorten_A": "f69f7c29-1d3f-88b1-f970-5d8d61e71a47",
+    "shorten_B": "0ce35f92-ec8f-6f59-55a0-ececb4273144",
+    "hold": "89463bd0-70b8-d9d0-065b-c65df1fb9aeb"
+  },
+  "option_mapping": {
+    "K883": "insufficient",
+    "K551": "shorten_B",
+    "K567": "extend_A",
+    "K814": "hold",
+    "K680": "extend_B",
+    "K538": "shorten_A"
+  },
+  "event_order": [
+    [
+      "move_B",
+      "final_only"
+    ],
+    [
+      "move_B",
+      "text_history"
+    ],
+    [
+      "move_B",
+      "combined"
+    ],
+    [
+      "move_B",
+      "images"
+    ],
+    [
+      "move_A",
+      "combined"
+    ],
+    [
+      "move_A",
+      "text_history"
+    ],
+    [
+      "move_A",
+      "images"
+    ],
+    [
+      "move_A",
+      "final_only"
+    ]
+  ],
+  "renderer": {
+    "canvas": [
+      384,
+      384
+    ],
+    "rotation_cos_sin": [
+      0.8,
+      0.6
+    ],
+    "reflection": -1,
+    "line_width": 4,
+    "endpoint_radius": 6,
+    "point_colors": {
+      "A": [
+        0,
+        114,
+        178
+      ],
+      "B": [
+        230,
+        159,
+        0
+      ]
+    }
+  }
+}
