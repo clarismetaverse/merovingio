@@ -23,10 +23,14 @@ jobs:
           python-version: '3.11'
       - name: Test dynamic graph salience, novelty and false-inference barriers
         run: python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v5 -p 'test_*.py' -v
-      - name: Simulate five ablations x three geometries x 32 seeds
-        run: python NMerovingio/experiments/gestalt_heat_v5/dynamic.py --seeds 32 --budget 8
+      - name: Four-step selective search (primary benchmark)
+        run: python NMerovingio/experiments/gestalt_heat_v5/dynamic.py --seeds 32 --budget 4
+      - name: Eight-step saturation control
+        run: python NMerovingio/experiments/gestalt_heat_v5/dynamic.py --seeds 32 --budget 8 --output NMerovingio/experiments/gestalt_heat_v5/results/saturation
       - name: Build interactive viewer and measured report
-        run: python NMerovingio/experiments/gestalt_heat_v5/viewer.py
+        run: |
+          python NMerovingio/experiments/gestalt_heat_v5/viewer.py
+          python NMerovingio/experiments/gestalt_heat_v5/compare_budgets.py
       - name: Upload sanitized cognitive traces and viewer
         if: always()
         uses: actions/upload-artifact@v4

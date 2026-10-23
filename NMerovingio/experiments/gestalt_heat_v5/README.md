@@ -43,7 +43,12 @@ Modello ingegnerizzato: gli operatori, i pesi e la diffusione sono progettati ma
 ## Esecuzione dalla root
 
     python -m unittest discover -s NMerovingio/experiments/gestalt_heat_v5 -p 'test_*.py' -v
-    python NMerovingio/experiments/gestalt_heat_v5/dynamic.py --seeds 32 --budget 8
+    python NMerovingio/experiments/gestalt_heat_v5/dynamic.py --seeds 32 --budget 4
+    python NMerovingio/experiments/gestalt_heat_v5/dynamic.py --seeds 32 --budget 8 --output NMerovingio/experiments/gestalt_heat_v5/results/saturation
     python NMerovingio/experiments/gestalt_heat_v5/viewer.py
 
 Aprire results/viewer.html, confrontare le condizioni ed esaminare results/traces.json.
+
+## Primary evaluation vs saturation
+
+Il benchmark principale limita la ricerca a QUATTRO REBASE su più opposizioni, per misurare quali alternative vengono esplorate; il controllo di saturazione ammette OTTO passi, quasi esaurendo le opzioni. Un ranking fisso ben inizializzato può legittimamente superare la ricerca dinamica: non considerare le frequenze di Generic Spaces o i riordinamenti come misure autonome di reasoning. Il file SATURATION_COMPARISON.md mette a confronto i due orizzonti.
