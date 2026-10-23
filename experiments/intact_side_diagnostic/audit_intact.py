@@ -42,7 +42,9 @@ def audit(out):
     for answer in response['answers'].values():assert 0<=answer['noul']<=1 and math.isfinite(answer['noul']);answers.append(answer)
  for group in groups.values():assert all(b.archive.same(v,group[0]) for v in group)
  if r['status'] in ('completed','offline_only'):assert len(seen)==6
- assert b.analyze(r['calls'])==r['analysis']
+ # Python 3.12 compensated sum may differ from the 3.11 runner by <1e-16.
+ # Only regenerated analysis uses tolerance; recorded responses/hashes remain exact.
+ assert b.archive.same(b.analyze(r['calls']),r['analysis'])
  result={'run_id':r['run_id'],'source_commit':r['source_commit'],'status':r['status'],'audit_scope':'requests_and_native_results' if answers else 'prepared_inputs_only',
   'requests_reconstructed':len(seen),'native_noul_answers_verified':len(answers),'coverage_rows_recomputed':coverage_rows,
   'matched_triplets_verified':sum(len(g)==3 for g in groups.values()),'frozen_image_bytes_and_recorded_request_hashes_exact':True,

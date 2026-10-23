@@ -141,4 +141,14 @@ class IntactSideTests(unittest.TestCase):
    path=Path(t)/'tampered.json';path.write_text(json.dumps(data),encoding='utf-8')
    with self.assertRaises(AssertionError):b.resume_records(path,Path(t))
 
+ def test_resume_runner_sends_only_five_missing_requests_and_audits_combined_data(self):
+  from audit_intact import audit
+  source=Path(b.__file__).parent/'interrupted_run.json'
+  def fake_transport(payload):
+   # Synthetic transport fixture only; never saved as empirical results.
+   return {'response':b.sanitize({'model':'jev-1.14.0','answers':{q:{'type':'noul','noul':.25} for q in payload['questions']}},payload['questions']),'elapsed_seconds':0.}
+  with tempfile.TemporaryDirectory() as t,patch.dict(os.environ,{'GITHUB_ACTIONS':'true','TYPESAFE_API_KEY':'test-only','GITHUB_RUN_ID':'offline-test','GITHUB_SHA':'test-only'},clear=True),patch.object(b,'transport',side_effect=fake_transport) as transport:
+   b.main(Path(t),True,source);self.assertEqual(transport.call_count,5)
+   result=audit(Path(t));self.assertEqual(result['native_noul_answers_verified'],18);self.assertEqual(result['reused_requests'],1)
+
 if __name__=='__main__':unittest.main()
