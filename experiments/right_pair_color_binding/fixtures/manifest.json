@@ -1,0 +1,130 @@
+{
+  "seed": 2026102307,
+  "source_request_sha256": "e2705533edc23214c1e69b6ee2377aade89d2551379fc37459299d4f3f0f66a4",
+  "visual_key": {
+    "scope": "Colors distinguish object identity or drawing kind. Shared hues do not merge distinct material IDs across alternative candidates. Colors do not encode validity or goal satisfaction.",
+    "original_side_colors": [
+      {
+        "mental_space_ref": "side_S",
+        "endpoints": [
+          "T",
+          "A"
+        ],
+        "name": "amber",
+        "hex": "#E69F00"
+      },
+      {
+        "mental_space_ref": "side_T",
+        "endpoints": [
+          "A",
+          "S"
+        ],
+        "name": "blue",
+        "hex": "#0072B2"
+      },
+      {
+        "mental_space_ref": "side_A",
+        "endpoints": [
+          "S",
+          "T"
+        ],
+        "name": "teal",
+        "hex": "#009E73"
+      }
+    ],
+    "point_colors": [
+      {
+        "point_ref": "T",
+        "name": "orange_red",
+        "hex": "#D55E00"
+      },
+      {
+        "point_ref": "A",
+        "name": "navy",
+        "hex": "#225EA8"
+      },
+      {
+        "point_ref": "S",
+        "name": "dark_teal",
+        "hex": "#00796B"
+      },
+      {
+        "point_ref": "M",
+        "name": "magenta",
+        "hex": "#C13F8A"
+      },
+      {
+        "point_ref": "Z",
+        "name": "magenta",
+        "hex": "#C13F8A"
+      }
+    ],
+    "new_carrier_colors": [
+      {
+        "candidate_ref": "C914",
+        "material_ref": "S_C914",
+        "name": "purple",
+        "hex": "#7A3E9D"
+      },
+      {
+        "candidate_ref": "C850",
+        "material_ref": "S_C850",
+        "name": "purple",
+        "hex": "#7A3E9D"
+      }
+    ]
+  },
+  "arms": {
+    "monochrome": [
+      {
+        "asset": "image_C914",
+        "file": "images/monochrome/image_C914.png",
+        "sha256": "aba4588734cd0b8bfd66332fd3019fbfafdeaa9e3286c64faa676f48edf17f48"
+      },
+      {
+        "asset": "image_C850",
+        "file": "images/monochrome/image_C850.png",
+        "sha256": "1d2009b87702cbe4f586e970ed2bda62bd0667245d823beee99420fd841e8b12"
+      },
+      {
+        "asset": "initial",
+        "file": "images/monochrome/initial.png",
+        "sha256": "f1c2c8719c91c6431e5c68b82335e90c181f62c4bf55272e75af4a68a77fbf7c"
+      }
+    ],
+    "color": [
+      {
+        "asset": "image_C914",
+        "file": "images/color/image_C914.png",
+        "sha256": "d85eb3cca4062ff5235b6f69ca176f6d0cad2b90bb340e6ad1bf19926d2c9785"
+      },
+      {
+        "asset": "image_C850",
+        "file": "images/color/image_C850.png",
+        "sha256": "b93aa449ef59134957ee4e110ac868143104464f89dd71c6ca27ab1060e1b981"
+      },
+      {
+        "asset": "initial",
+        "file": "images/color/initial.png",
+        "sha256": "81d17ee4918b4f89af96292b97a3cccb8aa1a6a368d619f7e4cc3435670c64a2"
+      }
+    ],
+    "color_legend": [
+      {
+        "asset": "image_C914",
+        "file": "images/color/image_C914.png",
+        "sha256": "d85eb3cca4062ff5235b6f69ca176f6d0cad2b90bb340e6ad1bf19926d2c9785"
+      },
+      {
+        "asset": "image_C850",
+        "file": "images/color/image_C850.png",
+        "sha256": "b93aa449ef59134957ee4e110ac868143104464f89dd71c6ca27ab1060e1b981"
+      },
+      {
+        "asset": "initial",
+        "file": "images/color/initial.png",
+        "sha256": "81d17ee4918b4f89af96292b97a3cccb8aa1a6a368d619f7e4cc3435670c64a2"
+      }
+    ]
+  }
+}
