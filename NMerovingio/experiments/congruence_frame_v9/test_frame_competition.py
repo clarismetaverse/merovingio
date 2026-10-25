@@ -142,7 +142,7 @@ class CompetingCongruenceFrames(unittest.TestCase):
     def test_aggregation_and_negative_controls(self):
         data=experiment(range(3))
         self.assertEqual(len(data["runs"]),(
-            3*len(CONDITIONS)+2*(len(CONDITIONS)-1))*3)
+            3*len(CONDITIONS)+len(CONDITIONS)+(len(CONDITIONS)-1))*3)
         for shape,goals in data["aggregates"].items():
             for vertex,cases in goals.items():
                 for cond,stat in cases.items():
