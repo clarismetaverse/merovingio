@@ -1,0 +1,36 @@
+name: Merovingio v10 - Cognitive Binding Consequences
+
+on:
+  push:
+    branches:
+      - 'experiment/cognitive-binding-consequence-memory-v10'
+    paths:
+      - 'NMerovingio/experiments/cognitive_binding_v10/**'
+      - '.github/workflows/cognitive-binding-v10.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cognitive-binding:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test cumulative frame binding, provenance and no-proof guarantees
+        run: python -m unittest discover -s NMerovingio/experiments/cognitive_binding_v10 -p 'test_*.py' -v
+      - name: Run cognitive binding outcomes on seeded figures
+        run: python NMerovingio/experiments/cognitive_binding_v10/cognitive_memory.py --seeds 48
+      - name: Generate offline cognitive memory viewer
+        run: python NMerovingio/experiments/cognitive_binding_v10/viewer.py
+      - name: Upload cognitive histories and viewer
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-cognitive-consequence-memory-v10
+          path: NMerovingio/experiments/cognitive_binding_v10/results/
+          retention-days: 30
