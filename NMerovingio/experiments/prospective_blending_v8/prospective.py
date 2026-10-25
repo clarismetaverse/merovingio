@@ -63,16 +63,8 @@ def polygon_faces_after_split(face,vertex,edge,mid):
     if len(matches)!=1 or vertex in edge:
         raise ValueError("Only a nonincident boundary edge may be split")
     i=matches[0]
-    path=vertices[i+1:]+vertices[:i+1]
-    path.insert(0,vertices[i])
-    if vertex not in path:raise ValueError("Missing pivot")
-    v=path.index(vertex)
-    # Insert mid between the edge endpoints at the beginning of the path.
-    path.insert(1,mid)
-    v=path.index(vertex)
-    # Two cycles start at pivot, walk along different sides of boundary.
-    first=path[1:v+1][::-1]+[mid] if False else [vertex]+path[v+1:]+path[:2][::-1][1:]
-    # Robust generic construction uses explicit cyclic walks after insertion.
+    # Insert the latent or constructed point on the selected boundary edge,
+    # then walk in both directions around the polygon until reaching it.
     old=vertices[:i+1]+[mid]+vertices[i+1:]
     m=old.index(mid);p=old.index(vertex);n=len(old)
     cw=[old[p]];j=p
