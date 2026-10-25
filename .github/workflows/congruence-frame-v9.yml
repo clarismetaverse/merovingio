@@ -1,0 +1,36 @@
+name: Merovingio v9 - Competing Congruence Frames LAL vs LLL
+
+on:
+  push:
+    branches:
+      - 'experiment/congruence-frame-attraction-v9'
+    paths:
+      - 'NMerovingio/experiments/congruence_frame_v9/**'
+      - '.github/workflows/congruence-frame-v9.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frame-competition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify proof-circularity safeguards and congruence-frame binding
+        run: python -m unittest discover -s NMerovingio/experiments/congruence_frame_v9 -p 'test_*.py' -v
+      - name: Simulate frame competition with 48 independent seeds
+        run: python NMerovingio/experiments/congruence_frame_v9/frame_competition.py --seeds 48
+      - name: Build offline viewer and measured report
+        run: python NMerovingio/experiments/congruence_frame_v9/viewer.py
+      - name: Upload frame competition traces and viewer
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-congruence-frame-v9
+          path: NMerovingio/experiments/congruence_frame_v9/results/
+          retention-days: 30
