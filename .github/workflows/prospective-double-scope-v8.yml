@@ -1,0 +1,36 @@
+name: Merovingio v8 - Prospective Double Scope Blending
+
+on:
+  push:
+    branches:
+      - 'experiment/prospective-double-scope-blend-v8'
+    paths:
+      - 'NMerovingio/experiments/prospective_blending_v8/**'
+      - '.github/workflows/prospective-double-scope-v8.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prospective-blend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test preconstruction epistemic separation and generic polygon split
+        run: python -m unittest discover -s NMerovingio/experiments/prospective_blending_v8 -p 'test_*.py' -v
+      - name: Run 5 ablations x 3 shapes x 3 goal vertices x 48 seeds
+        run: python NMerovingio/experiments/prospective_blending_v8/prospective.py --seeds 48
+      - name: Build standalone process explorer and measured report
+        run: python NMerovingio/experiments/prospective_blending_v8/viewer.py
+      - name: Upload executed traces, report and viewer
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: merovingio-prospective-blending-v8
+          path: NMerovingio/experiments/prospective_blending_v8/results/
+          retention-days: 30
