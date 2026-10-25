@@ -89,8 +89,10 @@ for(let i=0;i<f.length;i++)svg+=lin(p[f[i]],p[f[(i+1)%f.length]],"#ece7f5",3);
 if(stage>=3){let event=post.construction_events[0];svg+=lin(p[event.vertex],p[event.contact_point],"#a896e6",4)}
 else if(stage===1&&r.preconstruction_blend){
 const edge=r.preconstruction_blend.source_opposition.opposite_edge;
-let a=p[edge[0]],b=p[edge[1]],c=p[r.goal_vertex],mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];
-svg+=lin(c,mid,"#b19cea",2,true);
+let a=p[edge[0]],b=p[edge[1]],c=p[r.goal_vertex],sideCenter=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+let abstract=[c[0]+.57*(sideCenter[0]-c[0]),c[1]+.57*(sideCenter[1]-c[1])];
+svg+=lin(c,abstract,"#b19cea",2,true);
+svg+='<text x="'+(abstract[0]+8)+'" y="'+(abstract[1]-4)+'" font-size="18" fill="#cdb3f2">?</text>';
 }
 for(let [name,pt] of Object.entries(p)){svg+='<circle cx="'+pt[0]+'" cy="'+pt[1]+'" r="4.6" fill="white"/><text x="'+(pt[0]+9)+'" y="'+(pt[1]-10)+'" fill="#f2ebf9" font-size="14">'+name+'</text>'}
 $("diagram").innerHTML=svg;
